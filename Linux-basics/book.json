@@ -1,0 +1,70 @@
+{
+    "title": "An Introduction to Linux Basics",
+    "author": "clement",
+    "output.name": "site",
+    "language": "zh-hans",
+    "gitbook": "3.2.3",
+    "root": ".",
+    "structure": {
+        "readme": "README.md"
+    },
+    "styles" : {
+        "website" : "assets/css/WebStyle.css",
+        "pdf" : "assets/css/PdfStyle.css",
+        "mobi" : "assets/css/MobiStyle.css",
+        "epub" : "assets/css/EpubStyle.css"
+    },
+    "links": {
+        "sidebar": {
+            "Home": "https://www.baidu.com/"
+        },
+        "gitbook": false,
+        "sharing": {
+            "twitter": false,
+            "facebook": false,
+            "all": false
+        }
+    },
+    "plugins": [
+        "headings",
+        "toc",
+        "-lunr",
+        "-search",
+        "search-plus",
+        "github",
+        "todo",
+        "terminal",
+        "anchors",
+        "edit-link",
+        "image-captions",
+        "image-wrapper",
+        "popup",
+        "custom-favicon"
+    ],
+    "pluginsConfig": {
+        "favicon": "images/favicon.png",
+        "github": {
+            "url": "https://github.com/renkeju/gitbook-template"
+        },
+        "terminal": {
+            "copyButtons": true,
+            "fade": true,
+            "style": "flat"
+        },
+        "edit-link": {
+            "base": "https://github.com/renkeju/gitbook-template/edit/master",
+            "label": "编辑这个页面"
+        },
+        "image-captions": {
+            "caption": "图 _PAGE_LEVEL_ - _CAPTION_ ",
+            "images": {
+                "1.1.1": {
+                    "skip": true
+                },
+                "1.1.2": {
+                    "skip": true
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+language: node_js
+node_js:
+  - "10"
+cache: npm
+
+notifications:
+  # email: false                # 关闭邮件通知
+  email:
+    recipients:
+      - clement.jiao@gmail.com
+      # - other@example.com     # 其他邮箱或推送者
+    on_success: change          # 在成功时 且 构建状态更改时发送通知
+    on_failure: always          # 在失败时 且 总是发送通知
+    on_success: never           # 在成功时 且 永远不会发送通知
+
+install:
+  - npm install -g gitbook-cli
+  - gitbook install
+
+script:
+  - gitbook build
+
+after_script:
+  - cd _book
+  - git init
+  - git remote add origin https://${REF}
+  - git add .
+  - git commit -m "Updated By Travis-CI With Build $TRAVIS_BUILD_NUMBER For Github Pages"
+  - git push --force --quiet "https://${TOKEN}@${REF}" master:gh-pages
+
+branches:
+  only:
+    - master
+
+env:
+  global:
+    - REF=github.com/renkeju/gitbook-template.git
