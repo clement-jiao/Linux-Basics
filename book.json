@@ -26,8 +26,6 @@
         }
     },
     "plugins": [
-        "headings",
-        "toc",
         "-lunr",
         "-search",
         "search-plus",
