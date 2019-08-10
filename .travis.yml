@@ -31,4 +31,4 @@ branches:
 
 env:
   global:
-    - REF=https://github.com/clement-jiao/Linux-Basics
+    - REF=github.com/clement-jiao/Linux-Basics.git
