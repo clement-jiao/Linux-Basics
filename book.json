@@ -26,6 +26,8 @@
         }
     },
     "plugins": [
+        "page-toc",
+        "mathjax",
         "-lunr",
         "-search",
         "search-plus",
@@ -40,6 +42,11 @@
         "custom-favicon"
     ],
     "pluginsConfig": {
+        "page-toc": {
+          "selector": ".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4",
+          "position": "before-first",
+          "showByDefault": true
+        },
         "favicon": "images/favicon.png",
         "github": {
             "url": "https://github.com/renkeju/gitbook-template"
