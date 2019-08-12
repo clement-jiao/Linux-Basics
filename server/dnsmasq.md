@@ -1,8 +1,8 @@
 ##dnsmasq&安装&配置&详解
 
-[dnsmasq中文文档](https://wiki.archlinux.org/index.php/Dnsmasq_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
-[dnsmasq详解](https://cloud.tencent.com/developer/article/1174717)
-[[DNSmasq] 安装&配置详解](https://moe.best/linux-memo/dnsmasq.html)
+- [dnsmasq中文文档](https://wiki.archlinux.org/index.php/Dnsmasq_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+- [dnsmasq详解](https://cloud.tencent.com/developer/article/1174717)
+- [[DNSmasq] 安装&配置详解](https://moe.best/linux-memo/dnsmasq.html)
 ###安装
 >`yum install -y dnsmasq`
 
@@ -126,7 +126,7 @@ resolv-file配置Dnsmasq额外的上游的DNS服务器，如果不开启就使�
 
 ###一些Dnsmasq技巧
 
-####查看配置文件语法是否正确
+####检查配置文件语法
 
 ```bash
 [root@localhost ~]# dnsmasq -test
@@ -137,6 +137,7 @@ dnsmasq: syntax check OK.
 >我们都知道Bind不配合数据库的情况下，经常需要重新载入并读取配置文件，这是造成性能低下的原因。
 根据这点教训，我们可以考虑不读取/etc/hosts文件。而是另外指定一个在共享内存里的文件，比如/dev/shm/dnsrecord.txt ，这样就不费劲了，又由于内存的非持久性，重启就消失，可以定期同步硬盘上的某个内容到内存文件中。
 具体实现步骤:
+
 - 配置dnsmasq
   ```bash
   $ vim /etc/dnsmasq.conf
@@ -148,12 +149,12 @@ dnsmasq: syntax check OK.
   ```bash
   开机启动
   $ echo "cat /etc/hosts > /dev/shm/dnsrecord.txt" >>/etc/rc.local
-
   # 定时同步内容
   $ crontab -e
   */10 * * * * cat /etc/hosts > /dev/shm/dnsrecord.txt
   ```
-####Dnsmasq选择最快的上游DNS服务器
+
+####Dnsmasq快速选择上游DNS服务器
 经常会有这样的情景，Dnsmasq服务器配了一堆上游服务器，转发本地的dns请求，缺省是Dnsmasq事实上是只挑了一个上游dns服务器来查询并转发结果，这样如果选错服务器的话会导致DNS响应变慢。
 解决方法:
 ```bash
@@ -182,7 +183,8 @@ dnsmasq-china-list使用
 `$ git clone https://github.com/felixonmars/dnsmasq-china-list.git`
 
 
-##dnsmasq配置文件中文注解：2019年08月12日02:17:36
+##dnsmasq配置文件
+注解时间：2019年08月12日02:17:36
 更新至405行
 ```conf
 # Configuration file for dnsmasq.
