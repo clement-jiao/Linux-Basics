@@ -49,8 +49,8 @@ Alpine与其他Linux发行版不同使用的是apk进行包管理，通过apk --
   >add命令从仓库中安装最新软件包，并自动安装必须的依赖包,也可以从第三方仓库添加软件包。
 
   ```bash
-  $ apk add openssh openntp vim   # 安装软件包
-  $ apk add --no-cache mysql      # 不从本地缓存安装
+  $ apk add openssh openntp vim         # 安装软件包
+  $ apk add --no-cache mysql            # 不从本地缓存安装
   $ apk add docker --update-cache --repository --allow-untrusted  http://mirrors.ustc.edu.cn/alpine/v3.4/main/ # 指定源安装
   ```
 
@@ -58,39 +58,39 @@ Alpine与其他Linux发行版不同使用的是apk进行包管理，通过apk --
 
   ```bash
   $ apk add asterisk=1.6.0.21-r0
-  $ apk add 'asterisk<1.6.1'      # 小于此版本
-  $ apk add 'asterisk>1.6.1'      # 大于此版本
+  $ apk add 'asterisk<1.6.1'            # 小于此版本
+  $ apk add 'asterisk>1.6.1'            # 大于此版本
   ```
 
 - **del：卸载并删除package**
   ```bash
-  $ apk del openssh openntp vim   # 直接指定某个软件包
+  $ apk del openssh openntp vim         # 直接指定某个软件包
   ```
 
 - **upgrade：升级当前已安装的软件包**
   >upgrade 命令升级系统已安装的所以软件包（一般包括内核），当然也可指定仅升级部分软件包（通过 -u 或 –upgrade 选择指定）
 
   ```bash
-  $ apk update                    #更新最新本地镜像源
-  $ apk upgrade                   #升级软件
-  $ apk add --upgrade busybox     #指定升级部分软件包
+  $ apk update                          # 更新最新本地镜像源
+  $ apk upgrade                         # 升级软件
+  $ apk add --upgrade busybox           # 指定升级部分软件包
   ```
 
 - **search：搜索软件包**
   >search命令搜索可用软件包，-v参数输出描述内容，支出通配符，-d或–description参数指定通过软件包描述查询。
 
   ```bash
-  $ apk search                    #查找所以可用软件包
-  $ apk search -v                 #查找所以可用软件包及其描述内容
-  $ apk search -v 'acf*'          #通过软件包名称查找软件包
-  $ apk search -v -d 'docker'     #通过描述文件查找特定的软件包
+  $ apk search                          # 查找所以可用软件包
+  $ apk search -v                       # 查找所以可用软件包及其描述内容
+  $ apk search -v 'acf*'                # 通过软件包名称查找软件包
+  $ apk search -v -d 'docker'           # 通过描述文件查找特定的软件包
   ```
 
 - **info：列出PACKAGES或镜像源的详细信息**
   ```bash
-  $ apk info                      #列出所有已安装的软件包
-  $ apk info -a zlib              #显示完整的软件包信息
-  $ apk info --who-owns /sbin/lbu #显示指定文件属于的包
+  $ apk info                            # 列出所有已安装的软件包
+  $ apk info -a zlib                    # 显示完整的软件包信息
+  $ apk info --who-owns /sbin/lbu       # 显示指定文件属于的包
   ```
 
 ###init系统
@@ -125,8 +125,8 @@ Alpine Linux使用的是Gentoo一样的OpenRCinit系统.
 
   - **rc-update 使用实例**
     ```bash
-    $ rc-update add docker boot     # 增加一个服务
-    $ rc-update del docker boot     # 删除一个服务
+    $ rc-update add docker boot         # 增加一个服务
+    $ rc-update del docker boot         # 删除一个服务
     ```
 
 - **rc-status**
@@ -138,36 +138,37 @@ Alpine Linux使用的是Gentoo一样的OpenRCinit系统.
       or: rc-status [options] [-a | -c | -l | -r | -s | -u]
 
     Options: [ aclrsuChqVv ]
-      -a, --all                     Show services from all run levels
-                                    # 显示所有运行级别的服务
-      -c, --crashed                 Show crashed services
-                                    # 显示崩溃的服务
-      -l, --list                    Show list of run levels
-                                    # 显示运行级别列表
-      -r, --runlevel                Show the name of the current runlevel
-                                    # 显示当前运行级别的名称
-      -s, --servicelist             Show service list
-                                    # 显示服务列表
-      -u, --unused                  Show services not assigned to any runlevel
-                                    # 显示未分配给任何运行级别的服务
-      -h, --help                    Display this help output
-                                    # 显示此帮助输出
-      -C, --nocolor                 Disable color output
-                                    # 禁用颜色输出
-      -V, --version                 Display software version
-                                    # 显示软件版本
-      -v, --verbose                 Run verbosely
-                                    # 详细地运行
-      -q, --quiet                   Run quietly (repeat to suppress errors)
-                                    # 安静地运行（重复以抑制错误）
+      -a, --all                         Show services from all run levels
+                                        # 显示所有运行级别的服务
+      -c, --crashed                     Show crashed services
+                                        # 显示崩溃的服务
+      -l, --list                        Show list of run levels
+                                        # 显示运行级别列表
+      -r, --runlevel                    Show the name of the current runlevel
+                                        # 显示当前运行级别的名称
+      -s, --servicelist                 Show service list
+                                        # 显示服务列表
+      -u, --unused                      Show services not assigned to any runlevel
+                                        # 显示未分配给任何运行级别的服务
+      -h, --help                        Display this help output
+                                        # 显示此帮助输出
+      -C, --nocolor                     Disable color output
+                                        # 禁用颜色输出
+      -V, --version                     Display software version
+                                        # 显示软件版本
+      -v, --verbose                     Run verbosely
+                                        # 详细地运行
+      -q, --quiet                       Run quietly (repeat to suppress errors)
+                                        # 安静地运行（重复以抑制错误）
     ```
   - **rc-status 使用实例**
     ```bash
-    $ rc-status                     # 检查默认运行级别的状态
-    $ rc-status -a                  # 检查所有运行级别的状态
+    $ rc-status                         # 检查默认运行级别的状态
+    $ rc-status -a                      # 检查所有运行级别的状态
     ```
 - **rc-service**
   >rc-service主用于管理服务的状态
+
   - **rc-service语法格式**
     ```bash
     Usage:
@@ -177,34 +178,34 @@ Alpine Linux使用的是Gentoo一样的OpenRCinit系统.
       or: rc-service [options]  -r  <service>
 
     Options: [ e:ilr:INChqVv ]
-      -e, --exists <arg>            tests if the service exists or not
-                                    # 测试服务是否存在
-      -i, --ifexists                if the service exists then run the command
-                                    # 如果服务存在，则运行该命令
-      -I, --ifinactive              if the service is inactive then run the command
-                                    # 如果服务处于非活动状态，则运行该命令
-      -N, --ifnotstarted            if the service is not started then run the command
-                                    # 如果服务未启动，则运行该命令
-      -l, --list                    list all available services
-                                    # 列出所有可用的服务
-      -r, --resolve <arg>           resolve the service name to an init script
-                                    # 将服务名称解析为init脚本
-      -h, --help                    Display this help output
-                                    # 显示此帮助输出
-      -C, --nocolor                 Disable color output
-                                    # 禁用颜色输出
-      -V, --version                 Display software version
-                                    # 显示软件版本
-      -v, --verbose                 Run verbosely
-                                    # 详细地运行
-      -q, --quiet                   Run quietly (repeat to suppress errors)
-                                    # 安静地运行（重复以抑制错误）
+      -e, --exists <arg>                tests if the service exists or not
+                                        # 测试服务是否存在
+      -i, --ifexists                    if the service exists then run the command
+                                        # 如果服务存在，则运行该命令
+      -I, --ifinactive                  if the service is inactive then run the command
+                                        # 如果服务处于非活动状态，则运行该命令
+      -N, --ifnotstarted                if the service is not started then run the command
+                                        # 如果服务未启动，则运行该命令
+      -l, --list                        list all available services
+                                        # 列出所有可用的服务
+      -r, --resolve <arg>               resolve the service name to an init script
+                                        # 将服务名称解析为init脚本
+      -h, --help                        Display this help output
+                                        # 显示此帮助输出
+      -C, --nocolor                     Disable color output
+                                        # 禁用颜色输出
+      -V, --version                     Display software version
+                                        # 显示软件版本
+      -v, --verbose                     Run verbosely
+                                        # 详细地运行
+      -q, --quiet                       Run quietly (repeat to suppress errors)
+                                        # 安静地运行（重复以抑制错误）
     ```
   - **rc-service使用实例**
     ```bash
-    $ rc-service sshd start         # 启动一个服务。
-    $ rc-service sshd stop          # 停止一个服务。
-    $ rc-service sshd restart       # 重启一个服务。
+    $ rc-service sshd start             # 启动一个服务。
+    $ rc-service sshd stop              # 停止一个服务。
+    $ rc-service sshd restart           # 重启一个服务。
     ```
 ####openrc
   主要用于管理不同的运行级。
@@ -213,41 +214,41 @@ Alpine Linux使用的是Gentoo一样的OpenRCinit系统.
     Usage: openrc [options] [<runlevel>]
 
     Options: [ a:no:s:SChqVv ]
-      -n, --no-stop               do not stop any services
-                                  # 不要停止任何服务
-      -o, --override <arg>        override the next runlevel to change into
-                                  when leaving single user or boot runlevels
-                                  # 在离开单个用户或引导运行级别时，覆盖下一个运行级别以进行更改
-      -s, --service <arg>         runs the service specified with the rest
-                                  of the arguments
-                                  # 运行使用其余参数指定的服务
-      -S, --sys                   output the RC system type, if any
-                                  # 输出RC系统类型（如果有）
-      -h, --help                  Display this help output
-                                  # 显示此帮助输出
-      -C, --nocolor               Disable color output
-                                  # 禁用颜色输出
-      -V, --version               Display software version
-                                  # 显示软件版本
-      -v, --verbose               Run verbosely
-                                  # 详细地运行
-      -q, --quiet                 Run quietly (repeat to suppress errors)
-                                  # 安静地运行（重复以抑制错误）
+      -n, --no-stop                   do not stop any services
+                                      # 不要停止任何服务
+      -o, --override <arg>            override the next runlevel to change into
+                                      when leaving single user or boot runlevels
+                                      # 在离开单个用户或引导运行级别时，覆盖下一个运行级别以进行更改
+      -s, --service <arg>             runs the service specified with the rest
+                                      of the arguments
+                                      # 运行使用其余参数指定的服务
+      -S, --sys                       output the RC system type, if any
+                                      # 输出RC系统类型（如果有）
+      -h, --help                      Display this help output
+                                      # 显示此帮助输出
+      -C, --nocolor                   Disable color output
+                                      # 禁用颜色输出
+      -V, --version                   Display software version
+                                      # 显示软件版本
+      -v, --verbose                   Run verbosely
+                                      # 详细地运行
+      -q, --quiet                     Run quietly (repeat to suppress errors)
+                                      # 安静地运行（重复以抑制错误）
     ```
-    - Alpine Linux可用的运行级:
-      1. default
-      2. sysinit
-      3. boot
-      4. single
-      5. reboot
-      6. shutdown
-    - **openrc 使用实例**
-      ```bash
-      $ openrc single               # 更改为single运行级
-      ```Íß
+  - Alpine Linux可用的运行级:
+    1. default
+    2. sysinit
+    3. boot
+    4. single
+    5. reboot
+    6. shutdown
+  - **openrc 使用实例**
+    ```bash
+    $ openrc single                   # 更改为single运行级
+    ```
 ####其它指令
   ```bash
-  $ reboot                          # 重启系统，类似于shutdown -r now。
-  $ halt                            # 关机，类似于shutdown -h now。
-  $ poweroff                        # 关机
+  $ reboot                            # 重启系统，类似于shutdown -r now。
+  $ halt                              # 关机，类似于shutdown -h now。
+  $ poweroff                          # 关机
   ```
