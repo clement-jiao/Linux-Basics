@@ -12,7 +12,7 @@ notifications:
     on_failure: always
 
 install:
-  - npm install -g gitbook-cli gitbook
+  - npm install -g gitbook-cli
   - gitbook install
 
 script:
