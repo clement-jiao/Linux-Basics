@@ -4,7 +4,7 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2019-08-13 15:07:12
  * @LastEditors: clement-jiao
- * @LastEditTime: 2019-08-14 01:45:39
+ * @LastEditTime: 2019-08-15 19:00:27
  -->
 # 简介
 
@@ -20,10 +20,10 @@
 
 * [基础服务](software/software.md)
   * [DNS - dnsmasq](software/dnsmasq.md)
-  * [LAMP - yum安装](software/lamp.md)
-  * [NGINX - 编译安装](software/complieNginx.md)
+  * [LAMP - yum 安装](software/lamp.md)
+  * [apache + Tomcat](software/ApacheTomcat.md)
 
-* [CentOS 7](CentOS7/system.md)
+* [CentOS](CentOS7/system.md)
   * [CentOS 7](CentOS7/sysInitialization.md)
 
 * [其他系统](otherSys/otherSys.md)

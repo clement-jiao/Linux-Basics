@@ -4,7 +4,7 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2019-08-13 23:39:32
  * @LastEditors: clement-jiao
- * @LastEditTime: 2019-08-14 01:34:10
+ * @LastEditTime: 2019-08-14 11:19:06
  -->
 ##Linux环境下LAMP环境yum安装
 
@@ -41,7 +41,7 @@
 ###安装Apache
 
 ```bash
-yum install -y httpd
+yum install -y httpd httpd-devel
 ```
 ###安装MariaDB
 

@@ -1,19 +1,28 @@
+<!--
+ * @Description:
+ * @Author: 焦国峰
+ * @Github: https://github.com/clement-jiao
+ * @Date: 2019-08-13 23:39:32
+ * @LastEditors: clement-jiao
+ * @LastEditTime: 2019-08-14 13:22:10
+ -->
 ##dnsmasq&安装&配置&详解
 
-- [dnsmasq中文文档](https://wiki.archlinux.org/index.php/Dnsmasq_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+- [dnsmasq中文文档](https://wiki.archlinux.org/index.php/Dnsmasq_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87\))
 - [dnsmasq详解](https://cloud.tencent.com/developer/article/1174717)
 - [[DNSmasq] 安装&配置详解](https://moe.best/linux-memo/dnsmasq.html)
 ###安装
 >`yum install -y dnsmasq`
 
 ###dnsmasq的解析流程
-dnsmasq先去解析hosts文件， 再去解析/etc/dnsmasq.d/下的*.conf文件，并且这些文件的优先级要高于dnsmasq.conf，我们自定义的resolv.dnsmasq.conf中的DNS也被称为上游DNS，这是最后去查询解析的；
+dnsmasq 先去解析**hosts**文件， 再去解析 /etc/dnsmasq.d/ 下的*.conf文件，并且这些文件的优先级要高于dnsmasq.conf，我们自定义的 resolv.dnsmasq.conf 中的DNS也被称为上游DNS，这是最后去查询解析的；
 
->hosts > /etc/dnsmasq.d/*.conf > dnsmasq.conf > resolv.dnsmasq.conf
+>**hosts > /etc/dnsmasq.d/*.conf > dnsmasq.conf > resolv.dnsmasq.conf**
 
 如果不想用hosts文件做解析，我们可以在/etc/dnsmasq.conf中加入no-hosts这条语句，这样的话就直接查询上游DNS了，如果我们不想做上游查询，就是不想做正常的解析，我们可以加入no-reslov这条语句。
-> 禁止hosts > /etc/dnsmasq.conf -> no-hosts
-> 禁止/etc/resolv.conf > /etc/dnsmasq.conf -> no-reslov
+> **禁止hosts : /etc/dnsmasq.conf -> no-hosts**
+
+> **禁止/etc/resolv.conf : /etc/dnsmasq.conf -> no-reslov**
 
 ###dnsmasq的参数及常用设置说明
 
