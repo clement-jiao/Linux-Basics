@@ -4,7 +4,7 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2019-08-17 16:48:31
  * @LastEditors: clement-jiao
- * @LastEditTime: 2019-08-18 18:14:16
+ * @LastEditTime: 2019-08-20 15:41:32
  -->
 #使用 Percona 搭建高可用的 MySQL 数据库
 
@@ -111,7 +111,7 @@
     #If no IP is found, this implies that a new cluster needs to be created,
     #in order to do that you need to bootstrap this node
     # 群集连接URL包含节点的IP如果未找到IP，则表示需要创建新群集，为此，您需要引导此节点
-    # {{这里可以写域名或者IP地址，第一个ip为主节点,cluster内需保持一致}}
+    # {这里可以写域名或者IP地址，第一个ip为主节点,cluster内需保持一致}
     wsrep_cluster_address=gcomm://192.168.0.157,192.168.0.109,192.168.0.54
 
     # In order for Galera to work correctly binlog format should be ROW
@@ -134,7 +134,7 @@
 
     # Node IP address
     # 节点 IP 地址
-    # {{这个可以写可以不写}}
+    # {这个可以写可以不写}
     wsrep_node_address=10.210.149.25
     # Cluster name
     # cluster 名称：其他节点需保持一致

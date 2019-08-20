@@ -4,7 +4,7 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2019-08-18 17:08:00
  * @LastEditors: clement-jiao
- * @LastEditTime: 2019-08-20 02:43:05
+ * @LastEditTime: 2019-08-20 15:33:03
  -->
 #CentOS 7 下 yum 安装和配置 NFS
 
@@ -138,7 +138,7 @@ CentOS Linux release 7.5.1804 (Core)
     # 拒绝系统用户登录，可以将其shell设置为/usr/sbin/nologin或者/bin/false
     usermod -s | --shell /usr/sbin/nologin nginx
 
-    # or  {{nologin会礼貌的向用户显示一条信息，并拒绝用户登录，信息在/etc/}}
+    # or  {nologin会礼貌的向用户显示一条信息，并拒绝用户登录，信息在/etc/}
     usermod -s | -shell /bin/false nginx
 
     # 锁定用户账户
@@ -156,13 +156,14 @@ CentOS Linux release 7.5.1804 (Core)
     >这样，服务端就配置好了，接下来配置客户端，连接服务端，使用共享目录。
 
     [详细的用户操作命令](https://www.cnblogs.com/EasonJim/p/7158491.html)
+
 ##客户端
 
 ###客户端安装
   - 与服务端类似
-  ```bash
-  yum install nfs-utils
-  ```
+    ```bash
+    yum install nfs-utils
+    ```
 ###客户端配置
   - 设置 rpcbind 服务的开机自启并启动
     ```bash
@@ -200,6 +201,7 @@ CentOS Linux release 7.5.1804 (Core)
     [root@nginx-node-1 mnt]#
     ```
     >这说明已经挂载成功了。
+
 ###测试 NFS
   - 在客户端向共享目录创建一个文件
     ```bash
