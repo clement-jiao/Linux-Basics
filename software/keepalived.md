@@ -4,7 +4,7 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2019-08-20 02:38:46
  * @LastEditors: clement-jiao
- * @LastEditTime: 2019-08-20 15:15:50
+ * @LastEditTime: 2019-08-20 15:22:52
  -->
 #centOS 7 下 keepalived 安装与配置
 
@@ -96,17 +96,17 @@
       priority 100          # 主节点的优先级（1-254之间），备用节点必须比主节点优先级低,优先级数字越大优先级越高。
       advert_int 1          # 组播信息发送间隔，两个节点设置必须一样
       authentication {      # 设置vrrp验证信息，两个节点必须一致
-        auth_type PASS
-        auth_pass 1111
+        auth_type PASS      # 设置验证类型，主要有PASS和AH两种
+        auth_pass 1111      # 设置验证密码，在同一个vrrp_instance下，MASTER与BACKUP必须使用相同的密码才能正常通信
         }
         virtual_ipaddress {
-          192.168.0.233/24  # 指定虚拟IP, 两个节点设置必须一样
+          192.168.0.233/24  # 设置虚拟IP地址，可以设置多个虚拟IP地址，每行一个
           }
         track_script {      # 检查自身状态脚本
           check_local
         }
       }
-    virtual_server 192.168.0.233 80 {
+    virtual_server 192.168.0.233 80 {     # 虚拟服务器端口配置
       delay_loop 6
       lb_algo rr
       lb_kind DR
@@ -133,6 +133,12 @@
       }
     ```
     >在配置文件中没有写VIP的子网掩码，会使用默认子网掩码255.255.255.255，有可能导致无法从其它机器访问虚拟IP（keepalived虚拟IP无法ping通）所以尽量指定子网掩码/24即可。
+  - 配置 BACKUP 服务器时注意以下几点：
+    1. state 角色为 BACKUP
+    2. interface 为网卡的 ID，要根据机器确认
+    3. virtual_route_id 要与 MASTER 一致，默认为 51
+    4. priority 要比 MASTER 小
+    5. unicast_src_ip 要设置正确，组播地址设置之后，要注释 vrrp_strict 选项
 
   - 状态检测脚本
     ```bash
@@ -178,5 +184,6 @@
   - [keepalived 基本使用(主备模式)](https://blog.51cto.com/disheng/1718112)
   - [配置keepalived ping不通 解决办法](https://blog.csdn.net/iflow/article/details/78594972)
   - [Linux下Keepalived安装与配置(主要看选项说明)](https://blog.csdn.net/bbwangj/article/details/80346428)
+  - [CentOS 7 配置 Keepalived 实现双机热备(一篇很细致的博客)](https://qizhanming.com/blog/2018/05/17/how-to-config-keepalived-on-centos-7)
   - [Install LVS and keepalived on CentOS7(安装时可以参照的博客)](https://robinye.com/2019/02/16/Install_LVS_Keepalived_CentOS7/)
   - [LVS+KeepAlived+Nginx高可用实现方案(较完整的配置示例)](https://blog.csdn.net/lupengfei1009/article/details/86514445#KeepAlived_20)
