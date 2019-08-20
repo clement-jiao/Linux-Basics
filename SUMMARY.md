@@ -4,7 +4,7 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2019-08-13 15:07:12
  * @LastEditors: clement-jiao
- * @LastEditTime: 2019-08-20 15:27:04
+ * @LastEditTime: 2019-08-20 15:29:01
  -->
 # 简介
 
@@ -23,9 +23,9 @@
   * [LAMP - yum 安装](software/lamp.md)
   * [apache + Tomcat](software/apacheTomcat.md)
   * [NFS 在 centOS7 下 yum 安装](software/nfsforcentos7.md)
-  * [keepalived 在 centOS7安装](software/keepalived.md)
+  * [keepalived 在 centOS7 安装](software/keepalived.md)
   * [HAProxy1.8 在 centOS7 下 yum 安装](software/haproxy1.8.md)
-  * [Percona 搭建高可用的 MySQL 数据库](software/haproxy1.8.md)
+  * [Percona 搭建高可用的 MySQL 数据库](software/perconaCluster.md)
 
 * [CentOS](CentOS7/system.md)
 
