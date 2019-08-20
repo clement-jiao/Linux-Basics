@@ -4,7 +4,7 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2019-08-13 15:07:12
  * @LastEditors: clement-jiao
- * @LastEditTime: 2019-08-15 20:34:58
+ * @LastEditTime: 2019-08-20 15:06:14
  -->
 # 简介
 
@@ -22,9 +22,11 @@
   * [DNS - dnsmasq](software/dnsmasq.md)
   * [LAMP - yum 安装](software/lamp.md)
   * [apache + Tomcat](software/apacheTomcat.md)
+  * [NFS 在 centOS 下 yum 安装](software/nfsforcentos7.md)
+  * [keepalived 在 centOS7安装](software/keepalived.md)
+  * [HAProxy1.8 在 centOS 下 yum 安装](software/haproxy1.8.md)
 
 * [CentOS](CentOS7/system.md)
-  * [CentOS 7](CentOS7/sysInitialization.md)
 
 * [其他系统](otherSys/otherSys.md)
   * [alpine Linux](otherSys/alpineLinux.md)

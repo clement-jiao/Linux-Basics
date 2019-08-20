@@ -4,7 +4,7 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2019-08-15 00:07:05
  * @LastEditors: clement-jiao
- * @LastEditTime: 2019-08-15 18:59:19
+ * @LastEditTime: 2019-08-18 18:14:23
  -->
 #Tomcat环境安装及与apache整合
 ##安装Java与apache
@@ -233,7 +233,7 @@ uriworkermap.properties：URL映射文件，用来指定哪些URL由tomcat处理
     # worker.controller.type=lb               # 采用类型为 lb 负载均衡类型
     # worker.connect.balanced_workers=tomcat1 # 指定负载列表，逗号分隔
     # worker.connect.sticky_session=false     # 此处指定集群是否需要会话复制，如果设为true，则表明会话粘性，不进行会话复制，当某用户的请求第一次分发到哪一 tomcat 后，
-                                            # 后续的请求会一直分发到此台 tomcat 服务器上处理；如果设为 false ，则表明需要会话复制。
+                                              # 后续的请求会一直分发到此台 tomcat 服务器上处理；如果设为 false ，则表明需要会话复制。
     worker.connect.sticky_session_force=1   # 这样负载均衡器lb 就会尽量保持一个session，也就是使用户在一次会话中跟同一个 tomcat 进行交互
 
     #===========status============
@@ -281,8 +281,15 @@ uriworkermap.properties：URL映射文件，用来指定哪些URL由tomcat处理
 
 ***
 
-##相关文档或资料
+##相关文档/资料
+  - [Apache+JK+Tomcat负载平衡配置](http://binnyblog.com/article/199)
   - [关于 Include conf/mod_jk.confd 的说明](http://binnyblog.com/article/199)
-  - [workers.properties 官方文档](http://tomcat.apache.org/connectors-doc/reference/workers.html)
+  - [Apache通过mod_jk整合Tomcat](https://www.twblogs.net/a/5c7019abbd9eee7f07340b16)
+  - [Apache+Tomcat配置转发](https://blog.csdn.net/wanghjbuf/article/details/53701323)
   - [workers.properties 相关博客](https://blog.csdn.net/yuanyuan_186/article/details/51290912)
+  - [Tomcat 并部署web应用 ( 三种方式 )](https://blog.csdn.net/bbwangj/article/details/82119631)
+  - [workers.properties 官方文档](http://tomcat.apache.org/connectors-doc/reference/workers.html)
+  - [How to install Tomcat 8.5 on CentOS 7](https://linuxize.com/post/how-to-install-tomcat-8-5-on-centos-7/)
   - [关于访问资源500的说明](https://support.plesk.com/hc/en-us/articles/115003727873-Website-on-Tomcat-shows-500-error-Could-not-find-worker-with-name)
+  - [Tomcat上的网站显示500错误](https://support.plesk.com/hc/en-us/articles/115003727873-Website-on-Tomcat-shows-500-error-Could-not-find-worker-with-name)
+  - [通过mod_jk实现apache与tomcat整合](http://luyiminggonnabeok.cn/2018/08/30/%E9%80%9A%E8%BF%87mod-jk%E5%AE%9E%E7%8E%B0apache%E4%B8%8Etomcat%E6%95%B4%E5%90%88/)
