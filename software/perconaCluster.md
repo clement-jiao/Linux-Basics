@@ -4,7 +4,7 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2019-08-17 16:48:31
  * @LastEditors: clement-jiao
- * @LastEditTime: 2019-08-20 15:41:32
+ * @LastEditTime: 2019-08-24 05:13:29
  -->
 #使用 Percona 搭建高可用的 MySQL 数据库
 
@@ -75,10 +75,10 @@
 
   - 添加 root 用户远程的访问权限
     ```sql
-    mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'mysql';
+    mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'admin';
     Query OK, 0 rows affected (0.01 sec)
 
-    mysql> GRANT ALL PRIVILEGES ON *.* TO root@"%" IDENTIFIED BY "mysql";
+    mysql> GRANT ALL PRIVILEGES ON *.* TO root@"192.168.0.%" IDENTIFIED BY "admin";
     Query OK, 0 rows affected, 1 warning (0.01 sec)
     ```
 
@@ -209,72 +209,8 @@
   - Nginx的高可用配置看这个：[Keepalive + Nginx高可用](https://www.jianshu.com/p/f7ef05d0e1f6)
 
 
-
-
 ## 链接地址
   - [PXC - 官方文档](https://www.percona.com/doc/percona-xtradb-cluster/5.7/index.html)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  - [导入无主键表错误:prohibits use of DML command on a table](http://liking.site/2018/12/06/mysql-pxc%E9%9B%86%E7%BE%A4%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5%E6%97%A0%E4%B8%BB%E9%94%AE%E8%A1%A8/)
 
 

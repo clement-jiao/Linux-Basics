@@ -4,7 +4,7 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2019-08-13 15:07:12
  * @LastEditors: clement-jiao
- * @LastEditTime: 2019-08-20 15:29:01
+ * @LastEditTime: 2019-08-25 03:41:59
  -->
 # 简介
 
@@ -26,6 +26,10 @@
   * [keepalived 在 centOS7 安装](software/keepalived.md)
   * [HAProxy1.8 在 centOS7 下 yum 安装](software/haproxy1.8.md)
   * [Percona 搭建高可用的 MySQL 数据库](software/perconaCluster.md)
+
+* [zabbix](software/software.md)
+  * [nginx](zabbix/nginx.md)
+  * [php-fpm](zabbix/php-fpm.md)
 
 * [CentOS](CentOS7/system.md)
 
