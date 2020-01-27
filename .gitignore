@@ -1,11 +1,13 @@
 # Created by .gitignore support plugin (hsz.mobi)
-*.~
-*.tmp
 .idea/
 _book/
 folder/
 node_modules/
+qianji/
+*.~
+*.tmp
 *.swp
 *.edx
 .DS_Store
 .vscode/
+
