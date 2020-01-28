@@ -170,3 +170,7 @@ vagrant的共享目录类型有：
 
 ## 六、总结
 ​ 　　通过本文，我们对vagrant有了一个大概的了解，那么用起来也会很顺手，用到一个东西，我们还是要追求知其然知其所以然，这样对我们自己负责，同时遇见问题我们也好下手去思考和解决。我就是我，不一样的烟火~
+
+## 七、链接
+  1. [vagrant 使用vmware配置](https://blog.csdn.net/abcdefgh512/article/details/87901432)
+  2. [vagrant 安装配置](https://github.com/astaxie/go-best-practice/blob/master/ebook/zh/01.2.md)
