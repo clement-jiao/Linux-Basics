@@ -4,6 +4,7 @@ _book/
 folder/
 node_modules/
 qianji/
+ServiceScript/
 *.~
 *.tmp
 *.swp
