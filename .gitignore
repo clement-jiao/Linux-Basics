@@ -5,6 +5,7 @@ folder/
 node_modules/
 qianji/
 ServiceScript/
+ansible-onos-cluster/
 *.~
 *.tmp
 *.swp

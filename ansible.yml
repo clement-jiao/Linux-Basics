@@ -1,0 +1,17 @@
+---
+- hosts: all
+  tasks:
+    - name: nginx
+      yum:
+        name: nginx
+        state: absent
+    - name: conf
+      template:
+        src: nginx.conf.j2
+        dest: nginx.conf
+        backup: yes
+        notify: restart nginx
+  handlers:
+    - name: restart nginx
+      service:
+        name: {0:nginx  # Name of the service.}
