@@ -14,4 +14,4 @@
   handlers:
     - name: restart nginx
       service:
-        name: {0:nginx  # Name of the service.}
+        name: nginx
