@@ -1,0 +1,758 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>php-fpm · An Introduction to Linux Basics</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="clement">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-terminal/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../CentOS7/system.html" />
+    
+    
+    <link rel="prev" href="nginx.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://www.baidu.com/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../network/network.html">
+            
+                <a href="../network/network.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../network/1.Network-Basics.html">
+            
+                <a href="../network/1.Network-Basics.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../network/2.TcpProts.html">
+            
+                <a href="../network/2.TcpProts.html">
+            
+                    
+                    TCP/IP协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../network/3.CommProt.html">
+            
+                <a href="../network/3.CommProt.html">
+            
+                    
+                    网络通讯协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../network/4.NTM.html">
+            
+                <a href="../network/4.NTM.html">
+            
+                    
+                    网络传输介质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../network/5.win2008.html">
+            
+                <a href="../network/5.win2008.html">
+            
+                    
+                    winServe 2008
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../network/6.VmwareNetAd.html">
+            
+                <a href="../network/6.VmwareNetAd.html">
+            
+                    
+                    VMware 网络模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../software/software.html">
+            
+                <a href="../software/software.html">
+            
+                    
+                    基础服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../software/dnsmasq.html">
+            
+                <a href="../software/dnsmasq.html">
+            
+                    
+                    DNS - dnsmasq
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../software/lamp.html">
+            
+                <a href="../software/lamp.html">
+            
+                    
+                    LAMP - yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../software/apacheTomcat.html">
+            
+                <a href="../software/apacheTomcat.html">
+            
+                    
+                    apache + Tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../software/nfsforcentos7.html">
+            
+                <a href="../software/nfsforcentos7.html">
+            
+                    
+                    NFS 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../software/keepalived.html">
+            
+                <a href="../software/keepalived.html">
+            
+                    
+                    keepalived 在 centOS7 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../software/haproxy1.8.html">
+            
+                <a href="../software/haproxy1.8.html">
+            
+                    
+                    HAProxy1.8 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../software/perconaCluster.html">
+            
+                <a href="../software/perconaCluster.html">
+            
+                    
+                    Percona 搭建高可用的 MySQL 数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../software/software.html">
+            
+                <a href="../software/software.html">
+            
+                    
+                    zabbix
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="nginx.html">
+            
+                <a href="nginx.html">
+            
+                    
+                    nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.2" data-path="php-fpm.html">
+            
+                <a href="php-fpm.html">
+            
+                    
+                    php-fpm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../CentOS7/system.html">
+            
+                <a href="../CentOS7/system.html">
+            
+                    
+                    CentOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../otherSys/otherSys.html">
+            
+                <a href="../otherSys/otherSys.html">
+            
+                    
+                    其他系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../otherSys/alpineLinux.html">
+            
+                <a href="../otherSys/alpineLinux.html">
+            
+                    
+                    alpine Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../VScode/VScode.html">
+            
+                <a href="../VScode/VScode.html">
+            
+                    
+                    VScode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../VScode/settingSync.html">
+            
+                <a href="../VScode/settingSync.html">
+            
+                    
+                    Settings Sync插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >php-fpm</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+ * @Description:
+ * @Author: 焦国峰
+ * @Github: https://github.com/clement-jiao
+ * @Date: 2019-08-25 02:05:08
+ * @LastEditors: clement-jiao
+ * @LastEditTime: 2019-08-25 03:46:16
+ -->
+<h1 id="zabbix-&#x76D1;&#x63A7;-php-fpm"><a name="zabbix-&#x76D1;&#x63A7;-php-fpm" class="plugin-anchor" href="#zabbix-&#x76D1;&#x63A7;-php-fpm"><i class="fa fa-link" aria-hidden="true"></i></a>zabbix &#x76D1;&#x63A7; php-fpm</h1>
+<h2 id="&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a name="&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="plugin-anchor" href="#&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2>
+<ul>
+<li><p>&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7EC4;&#x6210;</p>
+<pre><code class="lang-conf">www.conf                                    # php-fpm &#x914D;&#x7F6E;&#x6587;&#x4EF6;
+default.conf                                # nginx &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF1A;&#x72B6;&#x6001;&#x9875;&#x8DEF;&#x5F84;&#x901A;&#x8FC7; nginx &#x900F;&#x51FA;
+php-fpm.xml.sh                              # &#x63A2;&#x6D4B; php-fpm &#x72B6;&#x6001;(xml&#x683C;&#x5F0F;)
+zabbix_agentd.conf                          # zabbix-agent &#x914D;&#x7F6E;&#x6587;&#x4EF6;
+userparameter_php-fpm.conf                  # &#x5B9A;&#x4E49; zabbix-agent &#x952E;&#x503C;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x547D;&#x540D;&#x89C4;&#x5219;&#x4E3A;&#xFF1A;userparameter_{&#x76D1;&#x63A7;&#x7684;&#x670D;&#x52A1;&#x6216;&#x5176;&#x4ED6;}.conf
+</code></pre>
+</li>
+<li><p>&#x4FEE;&#x6539; zabbix-agent &#x914D;&#x7F6E;&#x6587;&#x4EF6;
+&#x4EE5;&#x4E0B;&#x4E3A; zabbix-agent &#x5FC5;&#x586B;&#x9879;&#xFF1A;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># vim /etc/zabbix/zabbix_agentd.conf</span>
+
+<span class="hljs-comment"># [root@nginx-node-2 zabbix]# egrep -v &quot;(^$|^#)&quot; /etc/zabbix/zabbix_agentd.conf</span>
+
+<span class="hljs-comment"># PidFile=/var/run/zabbix/zabbix_agentd.pid</span>
+<span class="hljs-comment"># LogFile=/var/log/zabbix/zabbix_agentd.log</span>
+<span class="hljs-comment"># LogFileSize=1                             # &#x9650;&#x5236; zabbix-agent &#x65E5;&#x5FD7;&#x5927;&#x5C0F;</span>
+<span class="hljs-comment"># Server=192.168.0.74                       # &#x6307;&#x5B9A; zabbix-server &#x5730;&#x5740;</span>
+<span class="hljs-comment"># ServerActive=192.168.0.74                 # &#x68C0;&#x67E5; zabbix-server &#x6D3B;&#x52A8;&#x60C5;&#x51B5;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A; disabled</span>
+<span class="hljs-comment"># Hostname=nginx-node-2                     # &#x6307;&#x5B9A;&#x672C;&#x673A; hostname</span>
+<span class="hljs-comment"># Include=/etc/zabbix/zabbix_agentd.d/*.conf</span>
+</code></pre>
+</li>
+<li><p>php</p>
+<pre><code class="lang-conf"># vim /etc/opt/remi/php73/php-fpm.d/www.conf
+
+[root@php-node-1 php73]# egrep -v &apos;(^$|^#|^;)&apos; php-fpm.d/www.conf
+[www]
+user = nginx
+group = nginx
+listen = 0.0.0.0:9000               # &#x76D1;&#x542C;&#x7AEF;&#x53E3;&#xFF1A;&#x4E0D;&#x80FD;&#x5199;&#x591A;&#x4E2A;&#x5730;&#x5740;&#xFF0C;&#x53EA;&#x597D;&#x8BBE;&#x7F6E;&#x4E3A;&#x4EFB;&#x610F;&#x5730;&#x5740;
+listen.owner = nobody               # nginx &#x8BBF;&#x95EE;&#x65F6;&#x7684;&#x7528;&#x6237;
+listen.group = nobody               # nginx &#x8BBF;&#x95EE;&#x65F6;&#x7684;&#x7EC4;
+listen.mode = 0660                  # nginx &#x8BBF;&#x95EE;&#x7684;&#x6743;&#x9650;
+listen.acl_users = nginx
+listen.acl_groups = nginx
+listen.allowed_clients = 192.168.0.95,192.168.0.88,192.168.0.33
+pm = dynamic
+pm.max_children = 50                # &#x6700;&#x5927;&#x5B50;&#x8FDB;&#x7A0B;
+pm.start_servers = 5
+pm.min_spare_servers = 5
+pm.max_spare_servers = 35
+pm.status_path = /status-1          # &#x5F00;&#x542F; php-fpm &#x72B6;&#x6001;&#x9875;&#xFF1A;&#x521A;&#x521A;&#x5199;&#x5728; nginx &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A; disable
+slowlog = /var/opt/remi/php73/log/php-fpm/www-slow.log    # php &#x7684;&#x6162;&#x65E5;&#x5FD7;
+php_admin_value[error_log] = /var/opt/remi/php73/log/php-fpm/www-error.log
+php_admin_flag[log_errors] = on
+php_value[session.save_handler] = files
+php_value[session.save_path]    = /var/opt/remi/php73/lib/php/session
+php_value[soap.wsdl_cache_dir]  = /var/opt/remi/php73/lib/php/wsdlcache
+</code></pre>
+</li>
+<li><p>nginx&#xFF1A;
+&#x5F00;&#x542F; php-fpm &#x72B6;&#x6001;&#x68C0;&#x6D4B;&#x9875;&#x8DEF;&#x5F84;&#xFF1A;&#x8BA9; nginx &#x5141;&#x8BB8;&#x901A;&#x8FC7;&#x6B64;&#x8DEF;&#x5F84;&#x8BBF;&#x95EE; php-fpm &#x72B6;&#x6001;&#x9875;</p>
+<pre><code class="lang-conf"># vim
+
+location ~ ^/status-1 {               # php-node-1&#x8282;&#x70B9;
+    access_log off;                   # &#x5173;&#x95ED;&#x8BBF;&#x95EE;&#x65E5;&#x5FD7;
+    allow 192.168.0.0/24;             # &#x4EC5;&#x5141;&#x8BB8;192.168.0.0/24&#x7F51;&#x6BB5;&#x8BBF;&#x95EE;
+    deny all;                         # &#x7981;&#x6B62;&#x6240;&#x6709;&#x5730;&#x5740;&#x8BBF;&#x95EE;
+    fastcgi_pass 192.168.0.120:9000;  # php-fpm &#x5730;&#x5740;:&#x7AEF;&#x53E3;
+    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+    include        fastcgi_params;
+  }
+
+location ~ ^/status-2 {               # # php-node-2&#x8282;&#x70B9;
+    access_log off;
+    allow 192.168.0.0/24;
+    deny all;
+    fastcgi_pass 192.168.0.64:9000;
+    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+    include        fastcgi_params;
+  }
+
+location ~ ^/status-3 {
+    access_log off;
+    allow 192.168.0.0/24;
+    deny all;
+    fastcgi_pass 192.168.0.135:9000;
+    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+    include        fastcgi_params;
+  }
+</code></pre>
+</li>
+<li><p>userparameter_php-fpm.conf
+zabbix-agent &#x7684;&#x952E;&#x503C;&#x5B9A;&#x4E49;&#x6587;&#x4EF6;</p>
+<pre><code class="lang-conf"># vim /etc/zabbix/zabbix_agentd.d/userparameter_php-fpm.conf
+
+UserParameter=php-fpm.status[*],/etc/zabbix/scripts/php-fpm.xml.sh $1
+</code></pre>
+</li>
+<li><p>php-fpm.xml.sh</p>
+<pre><code class="lang-bash">HOST=<span class="hljs-string">&quot;192.168.0.163&quot;</span>
+PORT=<span class="hljs-string">&quot;80&quot;</span>
+status=<span class="hljs-string">&quot;status-1&quot;</span>
+
+<span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">query</span></span>() {
+    curl <span class="hljs-_">-s</span> http://<span class="hljs-variable">${HOST}</span>:<span class="hljs-variable">${PORT}</span>/<span class="hljs-variable">${status}</span>?xml | grep <span class="hljs-string">&quot;&lt;<span class="hljs-variable">$1</span>&gt;&quot;</span> | awk -F<span class="hljs-string">&apos;&gt;|&lt;&apos;</span> <span class="hljs-string">&apos;{ print $3}&apos;</span>
+}
+
+<span class="hljs-keyword">if</span> [ <span class="hljs-variable">$#</span> == 0 ]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> $<span class="hljs-string">&quot;Usage <span class="hljs-variable">$0</span> {pool|process-manager|start-time|start-since|accepted-conn|listen-queue|max-listen-queue|listen-queue-len|idle-processes|active-processes|total-processes|max-active-processes|max-children-reached|slow-requests}&quot;</span>
+    <span class="hljs-built_in">exit</span>
+<span class="hljs-keyword">else</span>
+    query <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
+<span class="hljs-keyword">fi</span>
+</code></pre>
+</li>
+<li><p>zabbix_agent.conf</p>
+<pre><code class="lang-conf">[root@php-node-1 zabbix]# egrep -v &quot;(^$|^#|;)&quot; zabbix_agentd.conf
+
+PidFile=/var/run/zabbix/zabbix_agentd.pid
+LogFile=/var/log/zabbix/zabbix_agentd.log
+LogFileSize=1                 # &#x9650;&#x5236; zabbix-agent &#x65E5;&#x5FD7;&#x5927;&#x5C0F;1M
+Server=192.168.0.74           # zabbix &#x670D;&#x52A1;&#x7AEF;IP
+ServerActive=192.168.0.74     # &#x68C0;&#x6D4B;&#x6D3B;&#x52A8;&#x7684; zabbix &#x670D;&#x52A1;&#x7AEF;&#xFF1A;&#x8BBE;&#x7F6E;&#x4E3B;&#x52A8;&#x6A21;&#x5F0F;&#x65F6;&#x5FC5;&#x586B;&#x9879;
+Hostname=php-node-1           # &#x8BBE;&#x7F6E;&#x4E3B;&#x673A;&#x540D;(&#x672C;&#x5730;hostname)&#xFF1A;&#x8BBE;&#x7F6E;&#x4E3B;&#x52A8;&#x6A21;&#x5F0F;&#x65F6;&#x5FC5;&#x586B;&#x9879;
+Include=/etc/zabbix/zabbix_agentd.d/*.conf
+</code></pre>
+</li>
+<li><p>userparameter_php-fpm.conf</p>
+<pre><code class="lang-conf">UserParameter=php-fpm.status[*],/etc/zabbix/scripts/php-fpm.xml.sh $1
+</code></pre>
+</li>
+</ul>
+<h2 id="&#x91CD;&#x542F;&#x670D;&#x52A1;"><a name="&#x91CD;&#x542F;&#x670D;&#x52A1;" class="plugin-anchor" href="#&#x91CD;&#x542F;&#x670D;&#x52A1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x91CD;&#x542F;&#x670D;&#x52A1;</h2>
+<ul>
+<li>php<pre><code class="lang-bash">systemctl restart php73-php-fpm
+</code></pre>
+</li>
+<li>nginx<pre><code class="lang-bash">systemctl restart nginx
+</code></pre>
+</li>
+<li>zabbix-agent<pre><code class="lang-bash">systemctl restart zabbix-agent
+</code></pre>
+</li>
+</ul>
+<h2 id="&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x9A8C;&#x8BC1;&#x811A;&#x672C;"><a name="&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x9A8C;&#x8BC1;&#x811A;&#x672C;" class="plugin-anchor" href="#&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x9A8C;&#x8BC1;&#x811A;&#x672C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x9A8C;&#x8BC1;&#x811A;&#x672C;</h2>
+<ul>
+<li><p>zabbix-agent</p>
+<pre><code class="lang-bash">yum install -y zabbix-get
+
+zabbix_get <span class="hljs-_">-s</span> 192.168.0.120 -k <span class="hljs-string">&apos;php-fpm.status[pool]&apos;</span>       <span class="hljs-comment"># &#x5728;&#x670D;&#x52A1;&#x7AEF;&#x8FD0;&#x884C;&#xFF1A; zabbix_get -s &#x88AB;&#x76D1;&#x63A7;&#x7AEF;ip -k &apos;&#x88AB;&#x76D1;&#x63A7;&#x7AEF;k[&#x503C;]&apos;</span>
+www
+</code></pre>
+</li>
+</ul>
+<h2 id="&#x5728;-zabbix-web-&#x4E2D;&#x914D;&#x7F6E;-php-fpm"><a name="&#x5728;-zabbix-web-&#x4E2D;&#x914D;&#x7F6E;-php-fpm" class="plugin-anchor" href="#&#x5728;-zabbix-web-&#x4E2D;&#x914D;&#x7F6E;-php-fpm"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5728; zabbix-web &#x4E2D;&#x914D;&#x7F6E; php-fpm</h2>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="nginx.html" class="navigation navigation-prev " aria-label="Previous page: nginx">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../CentOS7/system.html" class="navigation navigation-next " aria-label="Next page: CentOS">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"php-fpm","level":"1.4.2","depth":2,"next":{"title":"CentOS","level":"1.5","depth":1,"path":"CentOS7/system.md","ref":"CentOS7/system.md","articles":[]},"previous":{"title":"nginx","level":"1.4.1","depth":2,"path":"zabbix/nginx.md","ref":"zabbix/nginx.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-toc","mathjax","-lunr","-search","search-plus","github","todo","terminal","anchors","edit-link","image-captions","image-wrapper","popup","custom-favicon"],"root":".","styles":{"website":"assets/css/WebStyle.css","pdf":"assets/css/PdfStyle.css","mobi":"assets/css/MobiStyle.css","epub":"assets/css/EpubStyle.css"},"pluginsConfig":{"image-wrapper":{},"github":{"url":"https://github.com/renkeju/gitbook-template"},"todo":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.png","custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"terminal":{"copyButtons":true,"fade":true,"style":"flat"},"edit-link":{"label":"编辑这个页面","base":"https://github.com/renkeju/gitbook-template/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{},"image-captions":{"caption":"图 _PAGE_LEVEL_ - _CAPTION_ ","images":{"1.1.1":{"skip":true},"1.1.2":{"skip":true}},"variable_name":"_pictures"}},"theme":"default","author":"clement","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"network/2.TcpProts.html#fig1.2.2.1","level":"1.2.2","list_caption":"Figure: TCP协议族","alt":"TCP协议族","nro":1,"url":"/images/networks/TcpIpProtocols/TCPIP协议族.jpg","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议族","attributes":{},"title":"TCP协议族","skip":false,"key":"1.2.2.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: TCP协议工作机制","alt":"TCP协议工作机制","nro":2,"url":"/images/networks/CommunicationProtocol/TCP状态转换图.PNG","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议工作机制","attributes":{},"title":"TCP协议工作机制","skip":false,"key":"1.2.3.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.2","level":"1.2.3","list_caption":"Figure: TCP数据包头格式","alt":"TCP数据包头格式","nro":3,"url":"/images/networks/CommunicationProtocol/TCP数据包头格式.gif","index":2,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP数据包头格式","attributes":{},"title":"TCP数据包头格式","skip":false,"key":"1.2.3.2"}]},"title":"An Introduction to Linux Basics","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":"https://www.baidu.com/"},"gitbook":false,"sharing":{"twitter":false,"facebook":false,"all":false}},"gitbook":"3.2.3"},"file":{"path":"zabbix/php-fpm.md","mtime":"2020-02-24T08:04:36.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-24T08:05:26.750Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-terminal/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

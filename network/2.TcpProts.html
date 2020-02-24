@@ -1,0 +1,891 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>TCP/IP协议 · An Introduction to Linux Basics</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="clement">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-terminal/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="3.CommProt.html" />
+    
+    
+    <link rel="prev" href="1.Network-Basics.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://www.baidu.com/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="network.html">
+            
+                <a href="network.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="1.Network-Basics.html">
+            
+                <a href="1.Network-Basics.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="2.TcpProts.html">
+            
+                <a href="2.TcpProts.html">
+            
+                    
+                    TCP/IP协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="3.CommProt.html">
+            
+                <a href="3.CommProt.html">
+            
+                    
+                    网络通讯协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="4.NTM.html">
+            
+                <a href="4.NTM.html">
+            
+                    
+                    网络传输介质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="5.win2008.html">
+            
+                <a href="5.win2008.html">
+            
+                    
+                    winServe 2008
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="6.VmwareNetAd.html">
+            
+                <a href="6.VmwareNetAd.html">
+            
+                    
+                    VMware 网络模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../software/software.html">
+            
+                <a href="../software/software.html">
+            
+                    
+                    基础服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../software/dnsmasq.html">
+            
+                <a href="../software/dnsmasq.html">
+            
+                    
+                    DNS - dnsmasq
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../software/lamp.html">
+            
+                <a href="../software/lamp.html">
+            
+                    
+                    LAMP - yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../software/apacheTomcat.html">
+            
+                <a href="../software/apacheTomcat.html">
+            
+                    
+                    apache + Tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../software/nfsforcentos7.html">
+            
+                <a href="../software/nfsforcentos7.html">
+            
+                    
+                    NFS 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../software/keepalived.html">
+            
+                <a href="../software/keepalived.html">
+            
+                    
+                    keepalived 在 centOS7 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../software/haproxy1.8.html">
+            
+                <a href="../software/haproxy1.8.html">
+            
+                    
+                    HAProxy1.8 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../software/perconaCluster.html">
+            
+                <a href="../software/perconaCluster.html">
+            
+                    
+                    Percona 搭建高可用的 MySQL 数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../software/software.html">
+            
+                <a href="../software/software.html">
+            
+                    
+                    zabbix
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../zabbix/nginx.html">
+            
+                <a href="../zabbix/nginx.html">
+            
+                    
+                    nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../zabbix/php-fpm.html">
+            
+                <a href="../zabbix/php-fpm.html">
+            
+                    
+                    php-fpm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../CentOS7/system.html">
+            
+                <a href="../CentOS7/system.html">
+            
+                    
+                    CentOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../otherSys/otherSys.html">
+            
+                <a href="../otherSys/otherSys.html">
+            
+                    
+                    其他系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../otherSys/alpineLinux.html">
+            
+                <a href="../otherSys/alpineLinux.html">
+            
+                    
+                    alpine Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../VScode/VScode.html">
+            
+                <a href="../VScode/VScode.html">
+            
+                    
+                    VScode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../VScode/settingSync.html">
+            
+                <a href="../VScode/settingSync.html">
+            
+                    
+                    Settings Sync插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >TCP/IP协议</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="osi-&#x6A21;&#x578B;-&#x4E0E;-tcpip&#x6A21;&#x578B;"><a name="osi-&#x6A21;&#x578B;-&#x4E0E;-tcpip&#x6A21;&#x578B;" class="plugin-anchor" href="#osi-&#x6A21;&#x578B;-&#x4E0E;-tcpip&#x6A21;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>OSI &#x6A21;&#x578B; &#x4E0E; TCP/IP&#x6A21;&#x578B;</h2>
+<h3 id="1osi&#x4E03;&#x5C42;&#x6846;&#x67B6;"><a name="1osi&#x4E03;&#x5C42;&#x6846;&#x67B6;" class="plugin-anchor" href="#1osi&#x4E03;&#x5C42;&#x6846;&#x67B6;"><i class="fa fa-link" aria-hidden="true"></i></a>1.OSI&#x4E03;&#x5C42;&#x6846;&#x67B6;</h3>
+<p>ISO&#xFF1A;<strong>&#x56FD;&#x9645;&#x6807;&#x51C6;&#x5316;&#x7EC4;&#x7EC7;</strong>
+OSI&#xFF1A;<strong>&#x5F00;&#x653E;&#x7CFB;&#x7EDF;&#x4E92;&#x8054;</strong>
+IOS&#xFF1A;<strong>&#x601D;&#x79D1;&#x4EA4;&#x6362;&#x673A;&#x548C;&#x8DEF;&#x7531;&#x5668;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;</strong></p>
+<ul>
+<li>OSI&#x4E03;&#x5C42;&#x6A21;&#x578B;</li>
+<li>&#x5404;&#x5C42;&#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;&#xFF1A;<ul>
+<li>&#x7B2C;7&#x5C42;&#xFF08;&#x5E94;&#x7528;&#x5C42;&#xFF09;&#xFF1A;&#x5404;&#x79CD;&#x5E94;&#x7528;</li>
+<li>&#x7B2C;6&#x5C42;&#xFF08;&#x8868;&#x793A;&#x5C42;&#xFF09;&#xFF1A;&#x5C06;&#x6C49;&#x5B57;&#x3001;&#x82F1;&#x6587;&#x3001;&#x56FE;&#x7247;&#x3001;&#x58F0;&#x97F3;&#x548C;&#x5F71;&#x50CF;&#x7FFB;&#x8BD1;&#x4E3A;&#x4E8C;&#x8FDB;&#x5236;</li>
+<li>&#x7B2C;5&#x5C42;&#xFF08;&#x4F1A;&#x8BDD;&#x5C42;&#xFF09;&#xFF1A;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x6570;&#x636E;&#x662F;&#x5426;&#x8981;&#x8FDB;&#x884C;&#x8FDC;&#x7A0B;&#x4F1A;&#x8BDD;</li>
+<li>&#x7B2C;4&#x5C42;&#xFF08;&#x4F20;&#x8F93;&#x5C42;&#xFF09;&#xFF1A;&#x5224;&#x65AD;&#x6570;&#x636E;&#x53D1;&#x9001;&#x7684;&#x534F;&#x8BAE;&#xFF08;TCP/UDP&#xFF09;&#xFF0C;&#x5224;&#x65AD;&#x7AEF;&#x53E3;</li>
+<li>&#x7B2C;3&#x5C42;&#xFF08;&#x7F51;&#x7EDC;&#x5C42;&#xFF09;&#xFF1A;&#x786E;&#x5B9A;IP&#x5730;&#x5740;&#xFF08;&#x6E90;IP&#x3001;&#x76EE;&#x6807;IP&#xFF09;</li>
+<li>&#x7B2C;2&#x5C42;&#xFF08;&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#xFF09;&#xFF1A;&#x786E;&#x5B9A;MAC&#x5730;&#x5740;</li>
+<li>&#x7B2C;1&#x5C42;&#xFF08;&#x7269;&#x7406;&#x5C42;&#xFF09;&#xFF1A;&#x901A;&#x8FC7;&#x7F51;&#x7EBF;&#x548C;&#x7F51;&#x5361;&#x7B49;&#x7269;&#x7406;&#x8BBE;&#x5907;&#x5728;&#x4E3B;&#x673A;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x7684;&#x4F20;&#x8F93;</li>
+</ul>
+</li>
+</ul>
+<h3 id="2&#x5404;&#x5C42;&#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;"><a name="2&#x5404;&#x5C42;&#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;" class="plugin-anchor" href="#2&#x5404;&#x5C42;&#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>2.&#x5404;&#x5C42;&#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">OSI&#x5C42;</th>
+<th style="text-align:left">&#x7528;&#x9014;</th>
+<th style="text-align:left">&#x4F5C;&#x7528;</th>
+<th style="text-align:left">TCP/IP&#x534F;&#x8BAE;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&#x5E94;&#x7528;&#x5C42;(application layer)</td>
+<td style="text-align:left">&#x6587;&#x4EF6;&#x4F20;&#x8F93;&#x3001;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x3001;&#x6587;&#x4EF6;&#x670D;&#x52A1;</td>
+<td style="text-align:left">&#x7528;&#x6237;&#x63A5;&#x53E3;</td>
+<td style="text-align:left">TFTP&#xFF0C;HTTP&#xFF0C;SNMP&#xFF0C;FTP&#xFF0C;SMTP&#xFF0C;DNS&#xFF0C;TELENT</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x8868;&#x793A;&#x5C42;(persentation)</td>
+<td style="text-align:left">&#x6570;&#x636E;&#x683C;&#x5F0F;&#x5316;&#xFF0C;&#x4EE3;&#x7801;&#x8F6C;&#x6362;&#xFF0C;&#x6570;&#x636E;&#x52A0;&#x5BC6;</td>
+<td style="text-align:left">&#x6570;&#x636E;&#x7684;&#x8868;&#x793A;&#x3001;&#x5B89;&#x5168;&#x3001;&#x538B;&#x7F29;</td>
+<td style="text-align:left">&#x6CA1;&#x6709;&#x534F;&#x8BAE;</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x4F1A;&#x8BDD;&#x5C42;(session layer)</td>
+<td style="text-align:left">&#x89E3;&#x9664;&#x6216;&#x5EFA;&#x7ACB;&#x4E0E;&#x522B;&#x7684;&#x63A5;&#x70B9;&#x7684;&#x8054;&#x7CFB;</td>
+<td style="text-align:left">&#x5EFA;&#x7ACB;&#x3001;&#x7BA1;&#x7406;&#x3001;&#x4E2D;&#x6B62;&#x4F1A;&#x8BDD;</td>
+<td style="text-align:left">&#x6CA1;&#x6709;&#x534F;&#x8BAE;</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x4F20;&#x8F93;&#x5C42;(transport layer)</td>
+<td style="text-align:left">&#x63D0;&#x4F9B;&#x7AEF;&#x5BF9;&#x7AEF;&#x7684;&#x63A5;&#x53E3;</td>
+<td style="text-align:left">&#x53EF;&#x9760;&#x4E0E;&#x4E0D;&#x53EF;&#x9760;&#x7684;&#x4F20;&#x8F93;&#xFF0C;&#x4F20;&#x8F93;&#x7684;&#x9519;&#x8BEF;&#x68C0;&#x6D4B;&#xFF0C;&#x6D41;&#x63A7;</td>
+<td style="text-align:left">TCP&#xFF0C;UDP</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x7F51;&#x7EDC;&#x5C42;(network layer)</td>
+<td style="text-align:left">&#x4E3A;&#x6570;&#x636E;&#x5305;&#x9009;&#x62E9;&#x8DEF;&#x7531;</td>
+<td style="text-align:left">&#x8FDB;&#x884C;&#x903B;&#x8F91;&#x5730;&#x5740;&#x5BFB;&#x5740;&#xFF0C;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x7F51;&#x7EDC;&#x4E4B;&#x95F4;&#x7684;&#x8DEF;&#x7531;&#x9009;&#x62E9;</td>
+<td style="text-align:left">IP&#xFF0C;ICMP&#xFF0C;RIP&#xFF0C;OSPF&#xFF0C;BGP&#xFF0C;IGMP</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;(data link layer)</td>
+<td style="text-align:left">&#x4F20;&#x8F93;&#x6709;&#x5730;&#x5740;&#x7684;&#x5E27;&#x4EE5;&#x53CA;&#x9519;&#x8BEF;&#x68C0;&#x6D4B;&#x529F;&#x80FD;</td>
+<td style="text-align:left">&#x7EC4;&#x5E27;&#xFF0C;&#x8FDB;&#x884C;&#x786C;&#x4EF6;&#x5730;&#x5740;&#x5BFB;&#x5740;&#xFF0C;&#x5DEE;&#x9519;&#x68C0;&#x9A8C;&#x7B49;&#x529F;&#x80FD;</td>
+<td style="text-align:left">SLIP&#xFF0C;CSLIP&#xFF0C;PPP&#xFF0C;ARP&#xFF0C;RARP&#xFF0C;MTU</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x7269;&#x7406;&#x5C42;(physical layer</td>
+<td style="text-align:left">&#x4EE5;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#x5F62;&#x5F0F;&#x5728;&#x7269;&#x7406;&#x5A92;&#x4F53;&#x4E0A;&#x4F20;&#x8F93;&#x6570;&#x636E;</td>
+<td style="text-align:left">&#x8BBE;&#x5907;&#x4E4B;&#x95F4;&#x7684;&#x6BD4;&#x7279;&#x6D41;&#x4F20;&#x8F93;&#xFF0C;&#x7269;&#x7406;&#x63A5;&#x53E3;&#xFF0C;&#x7535;&#x6C14;&#x7279;&#x6027;&#x7B49;</td>
+<td style="text-align:left">ISO2110&#xFF0C;IEEE802&#xFF0C;IEEE802.2</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">OSI&#x4E03;&#x5C42;&#x7F51;&#x7EDC;&#x6A21;&#x578B;</th>
+<th style="text-align:center">Linux&#x7684;TCP/IP&#x6982;&#x5FF5;&#x5C42;</th>
+<th style="text-align:center">&#x5BF9;&#x5E94;&#x7F51;&#x7EDC;&#x534F;&#x8BAE;</th>
+<th style="text-align:center">&#x76F8;&#x5E94;&#x63AA;&#x65BD;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&#x5E94;&#x7528;&#x5C42;(application layer)</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">TFTP&#xFF0C;FTP&#xFF0C;NFS&#xFF0C;WAIS</td>
+<td style="text-align:center">*</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x8868;&#x793A;&#x5C42;(persentation)</td>
+<td style="text-align:center">&#x5E94;&#x7528;&#x5C42;</td>
+<td style="text-align:center">telent&#xFF0C;rlogin&#xFF0C;snmp&#xFF0C;gopher</td>
+<td style="text-align:center">Linux&#x5E94;&#x7528;&#x547D;&#x4EE4;&#x6D4B;&#x8BD5;</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x4F1A;&#x8BDD;&#x5C42;(session layer)</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">smtp&#xFF0C;dns</td>
+<td style="text-align:center">*</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x4F20;&#x8F93;&#x5C42;(transport layer)</td>
+<td style="text-align:center">&#x4F20;&#x8F93;&#x5C42;</td>
+<td style="text-align:center">TCP&#xFF0C;UDP</td>
+<td style="text-align:center">*</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x7F51;&#x7EDC;&#x5C42;(network layer)</td>
+<td style="text-align:center">&#x7F51;&#x9645;&#x5C42;</td>
+<td style="text-align:center">IP&#xFF0C;ICMP&#xFF0C;ARP&#xFF0C;RARP&#xFF0C;AKP&#xFF0C;UUCP</td>
+<td style="text-align:center">*</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;(data link layer)</td>
+<td style="text-align:center">&#x7F51;&#x7EDC;&#x63A5;&#x53E3;</td>
+<td style="text-align:center">FDDI&#xFF0C;ethernet&#xFF0C;arpanet&#xFF0C;PDN&#xFF0C;SLP&#xFF0C;PPP</td>
+<td style="text-align:center">ARP&#x5730;&#x5740;&#x68C0;&#x6D4B;&#x3001;&#x7269;&#x7406;&#x8FDE;&#x63A5;&#x68C0;&#x6D4B;</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x7269;&#x7406;&#x5C42;(physical layer</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">IEEE 802.1A&#x5230;IEEE 802.11</td>
+<td style="text-align:center">*</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3tcpip&#x6A21;&#x578B;"><a name="3tcpip&#x6A21;&#x578B;" class="plugin-anchor" href="#3tcpip&#x6A21;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.TCP/IP&#x6A21;&#x578B;</h3>
+<p><div class="image-wrapper"><img src="../images/networks/TcpIpProtocols/OSI&#x4E03;&#x5C42;&#x6A21;&#x578B;.gif" alt="TCP&#x6A21;&#x578B;"></div>
+&#x73B0;&#x5728;&#x4E00;&#x822C;&#x88AB;&#x516C;&#x8BA4;&#x7684;&#x5C31;&#x662F;TCP/IP 5&#xFF0C;&#x56E0;&#x4E3A;&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x4E2D;&#x7684;&#x534F;&#x8BAE;&#x662F;&#x771F;&#x5B9E;&#x7684;&#x7269;&#x7406;&#x786C;&#x4EF6;&#x4EA4;&#x6362;&#x673A;&#x6765;&#x5B8C;&#x6210;&#x7684;&#xFF0C;&#x4E0D;&#x80FD;&#x5C06;&#x5B83;&#x5F52;&#x4E3A;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;&#x5C42;&#x4E2D;&#x3002;</p>
+<h3 id="4tcpip&#x534F;&#x8BAE;&#x65CF;&#x7684;&#x7EC4;&#x6210;"><a name="4tcpip&#x534F;&#x8BAE;&#x65CF;&#x7684;&#x7EC4;&#x6210;" class="plugin-anchor" href="#4tcpip&#x534F;&#x8BAE;&#x65CF;&#x7684;&#x7EC4;&#x6210;"><i class="fa fa-link" aria-hidden="true"></i></a>4.TCP/IP&#x534F;&#x8BAE;&#x65CF;&#x7684;&#x7EC4;&#x6210;</h3>
+<figure id="fig1.2.2.1"><div class="image-wrapper"><img src="../images/networks/TcpIpProtocols/TCPIP&#x534F;&#x8BAE;&#x65CF;.jpg" alt="TCP&#x534F;&#x8BAE;&#x65CF;"></div><figcaption>&#x56FE; 1.2.2 - TCP&#x534F;&#x8BAE;&#x65CF; </figcaption></figure>
+<ul>
+<li><strong>&#x5E94;&#x7528;&#x5C42;</strong><ol>
+<li><strong>HTTP</strong>&#xFF1A;&#x8D85;&#x6587;&#x672C;&#x4F20;&#x8F93;&#x534F;&#x8BAE;</li>
+<li><strong>FTP</strong>&#xFF1A; &#x6587;&#x4EF6;&#x4F20;&#x8F93;&#x534F;&#x8BAE;</li>
+<li><strong>TFTP</strong>&#xFF1A;&#x7B80;&#x5355;&#x6587;&#x4EF6;&#x4F20;&#x8F93;&#x534F;&#x8BAE;&#xFF0C;&#x73B0;&#x5728;&#x591A;&#x7528;&#x4E8E;&#x601D;&#x79D1;&#x8DEF;&#x7531;&#x5668;&#x548C;&#x4EA4;&#x6362;&#x673A;&#x5347;&#x7EA7;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3002;</li>
+<li><strong>SMTP</strong>&#xFF1A;&#x7B80;&#x5355;&#x90AE;&#x4EF6;&#x4F20;&#x8F93;&#x534F;&#x8BAE;</li>
+<li><strong>POP3</strong>&#xFF1A;&#x90AE;&#x5C40;&#x534F;&#x8BAE;3&#x4EE3;</li>
+<li><strong>SNMP</strong>&#xFF1A;&#x7B80;&#x5355;&#x7F51;&#x7EDC;&#x7BA1;&#x7406;&#x534F;&#x8BAE;$\Rightarrow$&#x96C6;&#x7FA4;&#x76D1;&#x63A7;&#x670D;&#x52A1;&#x5668;</li>
+<li><strong>DNS</strong>&#xFF1A; &#x57DF;&#x540D;&#x7CFB;&#x7EDF;</li>
+</ol>
+</li>
+<li><strong>&#x4F20;&#x8F93;&#x5C42;</strong><ol>
+<li><strong>TCP</strong>&#xFF1A;&#x4F20;&#x8F93;&#x63A7;&#x5236;&#x534F;&#x8BAE;</li>
+<li><strong>UDP</strong>&#xFF1A;&#x7528;&#x6237;&#x6570;&#x636E;&#x62A5;&#x534F;&#x8BAE;</li>
+</ol>
+</li>
+<li><strong>&#x7F51;&#x7EDC;&#x5C42;</strong><ol>
+<li><strong>IP</strong>&#xFF1A;&#x7F51;&#x9645;&#x534F;&#x8BAE;</li>
+<li><strong>ARP</strong>&#xFF1A;(<strong>Address Resolution Protocol</strong>)&#xFF0C;&#x5730;&#x5740;&#x89E3;&#x6790;&#x534F;&#x8BAE;&#x3002;&#x5C06;&#x4E00;&#x4E2A;&#x5DF2;&#x77E5;&#x7684;IP&#x5730;&#x5740;&#x89E3;&#x6790;&#x6210;MAC&#x5730;&#x5740;&#x3002;</li>
+<li><strong>RARP</strong>&#xFF1A;&#x53CD;&#x5411;&#x5730;&#x5740;&#x89E3;&#x6790;&#x534F;&#x8BAE;</li>
+<li><strong>ICMP</strong>&#xFF1A;&#x4E92;&#x8054;&#x7F51;&#x63A7;&#x5236;&#x6D88;&#x606F;&#x534F;&#x8BAE;</li>
+<li><strong>IGMP</strong>&#xFF1A;&#x7F51;&#x7EDC;&#x7EC4;&#x7BA1;&#x7406;&#x534F;&#x8BAE;</li>
+<li><strong>SLIP</strong>&#xFF1A;&#x4E32;&#x884C;&#x7EBF;&#x8DEF;&#x7F51;&#x9645;&#x534F;&#x8BAE;&#x3002;&#x662F;Windows&#x8FDC;&#x7A0B;&#x8BBF;&#x95EE;&#x7684;&#x4E00;&#x79CD;&#x65E7;&#x5DE5;&#x4E1A;&#x6807;&#x51C6;&#xFF0C;&#x4E3B;&#x8981;&#x5728;Unix&#x8FDC;&#x7A0B;&#x8BBF;&#x95EE;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x4F7F;&#x7528;&#x3002;</li>
+<li><strong>CSLIP</strong>&#xFF1A;&#x4E00;&#x79CD;&#x538B;&#x7F29;&#x7684;SLIP&#x534F;&#x8BAE;&#xFF0C;&#x5E38;&#x7528;&#x5728;Telnet&#xFF0C;Rlogin&#x4E4B;&#x7C7B;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;</li>
+<li><a href="https://blog.51cto.com/kalng/829436" target="_blank"><em>OSPF</em></a>&#xFF1A;&#x5F00;&#x653E;&#x6700;&#x77ED;&#x8DEF;&#x7531;&#x4F18;&#x5148;&#x534F;&#x8BAE;</li>
+<li><a href="https://blog.csdn.net/liao152/article/details/44919673" target="_blank"><em>BGP</em></a>&#xFF1A;&#x8FB9;&#x754C;&#x7F51;&#x5173;&#x534F;&#x8BAE;&#xFF0C;&#x662F;&#x4E92;&#x8054;&#x7F51;&#x4E0A;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;&#x7684;&#x53BB;&#x4E2D;&#x5FC3;&#x5316;&#x81EA;&#x6CBB;&#x8DEF;&#x7531;&#x534F;&#x8BAE;&#x3002;</li>
+<li><strong>RIP</strong>&#xFF1A;&#x4E00;&#x79CD;&#x5185;&#x90E8;&#x7F51;&#x5173;&#x534F;&#x8BAE;&#xFF08;IGP&#xFF09;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x52A8;&#x6001;&#x8DEF;&#x7531;&#x9009;&#x62E9;&#x534F;&#x8BAE;&#xFF0C;&#x7528;&#x4E8E;&#x81EA;&#x6CBB;&#x7CFB;&#x7EDF;&#xFF08;AS&#xFF09;&#x5185;&#x7684;&#x8DEF;&#x7531;&#x4FE1;&#x606F;&#x7684;&#x4F20;&#x9012;&#x3002;</li>
+</ol>
+</li>
+<li><strong>&#x7269;&#x7406;&#x5C42;</strong><ol>
+<li><strong>PPP</strong>&#xFF1A;&#x70B9;&#x5BF9;&#x70B9;&#x534F;&#x8BAE;</li>
+<li><strong>PPPOE</strong>&#xFF1A;&#x70B9;&#x5BF9;&#x70B9;&#x62E8;&#x53F7;&#x534F;&#x8BAE;</li>
+<li><strong>MTU</strong>&#xFF1A;&#x6700;&#x5927;&#x4F20;&#x8F93;&#x5355;&#x5143;&#xFF0C;&#x662F;&#x6307;&#x4E00;&#x79CD;&#x901A;&#x4FE1;&#x534F;&#x8BAE;&#x7684;&#x67D0;&#x4E00;&#x5C42;&#x4E0A;&#x9762;&#x6240;&#x80FD;&#x901A;&#x8FC7;&#x7684;&#x6700;&#x5927;&#x6570;&#x636E;&#x5305;&#x5927;&#x5C0F;&#xFF08;&#x4EE5;&#x5B57;&#x8282;&#x4E3A;&#x5355;&#x4F4D;&#xFF09;&#x3002;</li>
+</ol>
+</li>
+</ul>
+<h3 id="5&#x6570;&#x636E;&#x5305;&#x5C01;&#x88C5;&#x8FC7;&#x7A0B;"><a name="5&#x6570;&#x636E;&#x5305;&#x5C01;&#x88C5;&#x8FC7;&#x7A0B;" class="plugin-anchor" href="#5&#x6570;&#x636E;&#x5305;&#x5C01;&#x88C5;&#x8FC7;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>5.&#x6570;&#x636E;&#x5305;&#x5C01;&#x88C5;&#x8FC7;&#x7A0B;</h3>
+<p>  <div class="image-wrapper"><img src="../images/networks/TcpIpProtocols/&#x6570;&#x636E;&#x5305;&#x5C01;&#x88C5;&#x8FC7;&#x7A0B;.gif" alt="&#x6570;&#x636E;&#x5305;&#x5C01;&#x88C5;&#x8FC7;&#x7A0B;"></div></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">&#x5C42;</th>
+<th style="text-align:left">&#x5C01;&#x88C5;</th>
+<th style="text-align:left">&#x89E3;&#x5C01;&#x88C5;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&#x5E94;&#x7528;&#x5C42;</td>
+<td style="text-align:left"><script type="math/tex; ">\Downarrow</script>&#x4E0A;&#x5C42;&#x6570;&#x636E;</td>
+<td style="text-align:left"><script type="math/tex; ">\Uparrow</script>&#x4E0A;&#x5C42;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x4F20;&#x8F93;&#x5C42;</td>
+<td style="text-align:left"><script type="math/tex; ">\Downarrow</script>&#x4E0A;&#x5C42;&#x6570;&#x636E; <strong>+ TCP&#x5934;&#x90E8;</strong></td>
+<td style="text-align:left"><script type="math/tex; ">\Uparrow</script>&#x4E0A;&#x5C42;&#x6570;&#x636E; <strong>- TCP&#x5934;&#x90E8;</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">&#x7F51;&#x7EDC;&#x5C42;</td>
+<td style="text-align:left"><script type="math/tex; ">\Downarrow</script>&#x4E0A;&#x5C42;&#x6570;&#x636E;+TCP&#x5934;&#x90E8; <strong>+ IP&#x5934;&#x90E8;</strong></td>
+<td style="text-align:left"><script type="math/tex; ">\Uparrow</script>&#x4E0A;&#x5C42;&#x6570;&#x636E;+TCP&#x5934;&#x90E8; <strong>- IP&#x5934;&#x90E8;</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;</td>
+<td style="text-align:left"><script type="math/tex; ">\Downarrow</script>&#x4E0A;&#x5C42;&#x6570;&#x636E;+TCP&#x5934;&#x90E8;+IP&#x5934;&#x90E8; <strong>+ MAC&#x5934;&#x90E8;</strong></td>
+<td style="text-align:left"><script type="math/tex; ">\Uparrow</script>&#x4E0A;&#x5C42;&#x6570;&#x636E;+TCP&#x5934;&#x90E8;+IP&#x5934;&#x90E8; <strong>- MAC&#x5934;&#x90E8;</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">&#x7269;&#x7406;&#x5C42;</td>
+<td style="text-align:left"><script type="math/tex; ">\Downarrow</script>&#x6BD4;&#x7279;&#x6D41;</td>
+<td style="text-align:left"><script type="math/tex; ">\Uparrow</script>&#x6BD4;&#x7279;&#x6D41;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6&#x8BBE;&#x5907;&#x4E0E;&#x5C42;&#x4E4B;&#x95F4;&#x5BF9;&#x5E94;&#x7684;&#x5173;&#x7CFB;"><a name="6&#x8BBE;&#x5907;&#x4E0E;&#x5C42;&#x4E4B;&#x95F4;&#x5BF9;&#x5E94;&#x7684;&#x5173;&#x7CFB;" class="plugin-anchor" href="#6&#x8BBE;&#x5907;&#x4E0E;&#x5C42;&#x4E4B;&#x95F4;&#x5BF9;&#x5E94;&#x7684;&#x5173;&#x7CFB;"><i class="fa fa-link" aria-hidden="true"></i></a>6.&#x8BBE;&#x5907;&#x4E0E;&#x5C42;&#x4E4B;&#x95F4;&#x5BF9;&#x5E94;&#x7684;&#x5173;&#x7CFB;</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">&#x4E92;&#x8054;&#x8BBE;&#x5907;</th>
+<th style="text-align:center">&#x5DE5;&#x4F5C;&#x5C42;&#x6B21;</th>
+<th style="text-align:center">&#x4E3B;&#x8981;&#x529F;&#x80FD;</th>
+<th style="text-align:center">&#x4EE3;&#x8868;&#x6027;&#x8BBE;&#x5907;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&#x8BA1;&#x7B97;&#x673A;</td>
+<td style="text-align:center">&#x5E94;&#x7528;&#x5C42;</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">&#x7535;&#x8111;</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x4E2D;&#x7EE7;&#x5668;</td>
+<td style="text-align:center">&#x7269;&#x7406;&#x5C42;</td>
+<td style="text-align:center">&#x5BF9;&#x63A5;&#x53D7;&#x4FE1;&#x53F7;&#x8FDB;&#x884C;&#x518D;&#x6B21;&#x548C;&#x53D1;&#x9001;&#xFF0C;&#x53EA;&#x8D77;&#x5230;&#x6269;&#x5C55;&#x4F20;&#x8F93;&#x8DDD;&#x79BB;&#x7528;&#xFF0C;&#x5BF9;&#x9AD8;&#x5C42;&#x534F;&#x8BAE;&#x662F;&#x900F;&#x660E;&#x7684;&#xFF0C;&#x4F46;&#x4F7F;&#x7528;&#x4E2A;&#x6570;&#x6709;&#x9650;&#xFF08;&#x4EE5;&#x592A;&#x7F51;&#x662F;4&#x4E2A;&#xFF09;</td>
+<td style="text-align:center">*</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x7F51;&#x6865;</td>
+<td style="text-align:center">&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;</td>
+<td style="text-align:center">&#x6839;&#x636E;&#x5E27;&#x7269;&#x7406;&#x5730;&#x5740;&#x8FDB;&#x884C;&#x7F51;&#x7EDC;&#x95F4;&#x4FE1;&#x606F;&#x8F6C;&#x53D1;&#xFF0C;&#x53EF;&#x7F13;&#x89E3;&#x7F51;&#x7EDC;&#x901A;&#x4FE1;&#x7E41;&#x5FD9;&#x5EA6;&#xFF0C;&#x63D0;&#x9AD8;&#x6548;&#x7387;&#xFF0C;&#x53EA;&#x80FD;&#x591F;&#x8FDE;&#x63A5;&#x76F8;&#x540C;MAC&#x5C42;&#x7684;&#x7F51;&#x7EDC;</td>
+<td style="text-align:center">&#x9632;&#x706B;&#x5899;</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x8DEF;&#x7531;&#x5668;</td>
+<td style="text-align:center">&#x7F51;&#x7EDC;&#x5C42;</td>
+<td style="text-align:center">&#x901A;&#x8FC7;&#x903B;&#x8F91;&#x5730;&#x5740;&#x8FDB;&#x884C;&#x7F51;&#x7EDC;&#x95F4;&#x7684;&#x4FE1;&#x606F;&#x8F6C;&#x53D1;&#xFF0C;&#x53EF;&#x5B8C;&#x6210;&#x5F02;&#x6784;&#x7F51;&#x7EDC;&#x4E4B;&#x95F4;&#x7684;&#x4E92;&#x8054;&#x4E92;&#x901A;&#xFF0C;&#x53EA;&#x80FD;&#x8FDE;&#x63A5;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7F51;&#x7EDC;&#x5C42;&#x534F;&#x8BAE;&#x7684;&#x5B50;&#x7F51;&#x3002;</td>
+<td style="text-align:center">&#x8DEF;&#x7531;&#x5668;</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x7F51;&#x5173;</td>
+<td style="text-align:center">&#x4F20;&#x8F93;&#x5C42;&#x3001;&#x5E94;&#x7528;&#x5C42;</td>
+<td style="text-align:center">&#x6700;&#x590D;&#x6742;&#x7684;&#x7F51;&#x7EDC;&#x4E92;&#x8054;&#x8BBE;&#x5907;&#xFF0C;&#x7528;&#x4E8E;&#x8FDE;&#x63A5;&#x7F51;&#x7EDC;&#x5C42;&#x4E0A;&#x6267;&#x884C;&#x4E0D;&#x540C;&#x534F;&#x8BAE;&#x7684;&#x5B50;&#x7F51;&#xFF08;&#x4F8B;&#x5982;Novell&#x4E0E;SNA&#xFF09;</td>
+<td style="text-align:center">&#x4EA4;&#x6362;&#x673A;</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x96C6;&#x7EBF;&#x5668;</td>
+<td style="text-align:center">&#x7269;&#x7406;&#x5C42;</td>
+<td style="text-align:center">&#x591A;&#x7AEF;&#x53E3;&#x4E2D;&#x7EE7;&#x5668;</td>
+<td style="text-align:center">&#x7F51;&#x5361;</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x4E8C;&#x5C42;&#x4EA4;&#x6362;&#x673A;</td>
+<td style="text-align:center">&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;</td>
+<td style="text-align:center">&#x591A;&#x7AEF;&#x53E3;&#x7F51;&#x6865;</td>
+<td style="text-align:center">*</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;</td>
+<td style="text-align:center">&#x7F51;&#x7EDC;&#x5C42;</td>
+<td style="text-align:center">&#x5E26;&#x8DEF;&#x7531;&#x529F;&#x80FD;&#x7684;&#x4E8C;&#x5C42;&#x4EA4;&#x6362;&#x673A;</td>
+<td style="text-align:center">*</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x591A;&#x5C42;&#x4EA4;&#x6362;&#x673A;</td>
+<td style="text-align:center">&#x9AD8;&#x5C42;</td>
+<td style="text-align:center">&#x5E26;&#x534F;&#x8BAE;&#x8F6C;&#x6362;&#x7684;&#x4EA4;&#x6362;&#x673A;</td>
+<td style="text-align:center">*</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>&#x4F4D;&#x4E8E;&#x9AD8;&#x5C42;&#x7684;&#x8BBE;&#x5907;&#x53EF;&#x4EE5;&#x8BA4;&#x8BC6;&#x5E95;&#x5C42;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x4F46;&#x662F;&#x5E95;&#x5C42;&#x7684;&#x8BBE;&#x5907;&#x4E0D;&#x80FD;&#x8BC6;&#x522B;&#x9AD8;&#x5C42;&#x7684;&#x534F;&#x8BAE;&#x3002;
+MAC&#x5730;&#x5740;&#x662F;&#x56FA;&#x5316;&#x5728;&#x7F51;&#x5361;&#x7684;ROM&#x4E2D;&#x3002;</p>
+</blockquote>
+<h3 id="7&#x5404;&#x5C42;&#x4E4B;&#x95F4;&#x901A;&#x4FE1;"><a name="7&#x5404;&#x5C42;&#x4E4B;&#x95F4;&#x901A;&#x4FE1;" class="plugin-anchor" href="#7&#x5404;&#x5C42;&#x4E4B;&#x95F4;&#x901A;&#x4FE1;"><i class="fa fa-link" aria-hidden="true"></i></a>7.&#x5404;&#x5C42;&#x4E4B;&#x95F4;&#x901A;&#x4FE1;</h3>
+<pre><code>&#x8BA1;&#x7B97;&#x673A;A&#x5411;&#x8BA1;&#x7B97;&#x673A;B&#x53D1;&#x9001;&#x6570;&#x636E;&#x3002;
+&#x4ECE;&#x5E94;&#x7528;&#x5C42;&#x5230;&#x4F20;&#x8F93;&#x5C42;&#xFF0C;&#x5728;&#x4F20;&#x8F93;&#x5C42;&#x4E2D;&#x6570;&#x636E;&#x5305;&#x5C01;&#x5165;&#x6E90;&#x7AEF;&#x53E3;&#x548C;&#x76EE;&#x6807;&#x7AEF;&#x53E3;&#xFF0C;&#x6BD4;&#x5982;&#x7F51;&#x9875;&#x670D;&#x52A1;&#xFF0C;&#x6E90;&#x7AEF;&#x53E3;&#x662F;&#x968F;&#x673A;&#x7684;&#xFF0C;&#x76EE;&#x6807;&#x7AEF;&#x53E3;&#x662F;80&#xFF1B;
+&#x4ECE;&#x4F20;&#x8F93;&#x5C42;&#x5230;&#x7F51;&#x7EDC;&#x5C42;&#xFF0C;&#x5728;&#x7F51;&#x7EDC;&#x5C42;&#x4E2D;&#x5199;&#x5165;&#x6E90;IP&#x548C;&#x76EE;&#x6807;IP&#xFF0C;&#x6E90;IP&#x662F;A&#x4E3B;&#x673A;&#x7684;IP&#x5730;&#x5740;&#xFF0C;&#x76EE;&#x6807;IP&#x662F;B&#x4E3B;&#x673A;&#x7684;IP&#x5730;&#x5740;&#xFF1B;
+&#x4ECE;&#x7F51;&#x7EDC;&#x5C42;&#x5230;&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#xFF0C;&#x5728;&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x4E2D;&#x5199;&#x5165;&#x6E90;MAC&#x5730;&#x5740;&#x548C;&#x76EE;&#x6807;MAC&#x5730;&#x5740;&#xFF0C;&#x6E90;MAC&#x662F;A&#x4E3B;&#x673A;&#x7684;MAC&#x5730;&#x5740;&#xFF0C;&#x76EE;&#x6807;MAC&#x662F;&#x4EA4;&#x6362;&#x673A;&#x7684;MAC&#x5730;&#x5740;&#xFF1B;
+&#x6570;&#x636E;&#x5305;&#x901A;&#x8FC7;&#x7269;&#x7406;&#x5C42;&#x53D1;&#x9001;;
+&#x6570;&#x636E;&#x5305;&#x88AB;&#x4EA4;&#x6362;&#x673A;&#x7684;1/0&#x53E3;&#x63A5;&#x6536;&#xFF0C;&#x4EA4;&#x6362;&#x673A;&#x83B7;&#x53D6;&#x5305;&#x5934;&#x4E2D;&#x7684;&#x76EE;&#x6807;MAC&#x5730;&#x5740;&#xFF0C;&#x901A;&#x8FC7;&#x6CDB;&#x6D2A;&#x5411;&#x5C40;&#x57DF;&#x7F51;&#x5185;&#x6240;&#x6709;&#x7F51;&#x5361;&#x7684;MAC&#x5730;&#x5740;&#x53D1;&#x8D77;&#x8BE2;&#x95EE;&#x3002;
+&#x8DEF;&#x7531;&#x5668;&#x56DE;&#x5E94;&#x540E;&#xFF0C;&#x4EA4;&#x6362;&#x673A;&#x901A;&#x8FC7;&#x7F51;&#x7EBF;&#x5C06;&#x6570;&#x636E;&#x5305;&#x53D1;&#x9001;&#x81F3;&#x8DEF;&#x7531;&#x5668;&#x3002;
+&#x8DEF;&#x7531;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5305;&#x540E;&#x8BFB;&#x53D6;&#x5305;&#x5934;&#x4E2D;&#x76EE;&#x6807;MAC&#x5730;&#x5740;&#xFF0C;&#x786E;&#x5B9A;&#x662F;&#x672C;&#x673A;&#x7684;MAC&#x5730;&#x5740;&#x540E;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x5305;&#x5411;&#x4E0A;&#x4E00;&#x5C42;&#x4F20;&#x9012;&#x3002;
+&#x7F51;&#x7EDC;&#x5C42;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5305;&#x4E2D;&#x7684;&#x76EE;&#x6807;IP&#x5730;&#x5740;&#xFF0C;&#x901A;&#x8FC7;&#x5E7F;&#x64AD;&#x5411;&#x7F51;&#x7EDC;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x8DEF;&#x7531;&#x5668;&#x8BE2;&#x95EE;&#x76EE;&#x6807;IP&#x5730;&#x5740;&#x3002;
+B&#x8DEF;&#x7531;&#x5668;&#x56DE;&#x590D;&#x4FE1;&#x606F;&#xFF0C;A&#x8DEF;&#x7531;&#x5668;&#x5C06;B&#x8DEF;&#x7531;&#x5668;&#x7684;MAC&#x5730;&#x5740;&#x66F4;&#x6539;&#x4E3A;&#x6570;&#x636E;&#x5305;&#x5305;&#x5934;&#x4E2D;&#x7684;&#x76EE;&#x6807;MAC&#x5730;&#x5740;&#x3002;
+&#x6570;&#x636E;&#x5305;&#x4F20;&#x9012;&#x7ED9;B&#x8DEF;&#x7531;&#x5668;&#xFF0C;&#x8DEF;&#x7531;&#x5668;&#x786E;&#x5B9A;&#x8FC7;MAC&#x5730;&#x5740;&#x540E;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x5305;&#x5411;&#x4E0A;&#x5C42;&#x4F20;&#x9012;&#x3002;
+&#x8DEF;&#x7531;&#x5668;&#x786E;&#x5B9A;&#x76EE;&#x6807;IP&#x540E;&#xFF0C;&#x786E;&#x8BA4;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x5305;&#x662F;&#x4F20;&#x7ED9;&#x81EA;&#x5DF1;&#x7684;&#xFF0C;&#x4F20;&#x7ED9;&#x4EA4;&#x6362;&#x673A;B&#x3002;
+&#x4EA4;&#x6362;&#x673A;&#x8BFB;&#x53D6;&#x5305;&#x5934;&#x4E2D;&#x7684;MAC&#x5730;&#x5740;&#xFF0C;&#x5BF9;&#x7167;&#x5185;&#x5B58;&#x4E2D;&#x7684;MAC&#x5BF9;&#x7167;&#x8868;&#xFF0C;&#x901A;&#x8FC7;RARP&#x534F;&#x8BAE;&#x5C06;IP&#x7FFB;&#x8BD1;&#x4E3A;MAC&#x5730;&#x5740;&#xFF0C;&#x4F20;&#x9001;&#x7ED9;&#x76EE;&#x6807;IP&#x7684;&#x4E3B;&#x673A;&#x3002;
+</code></pre>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1.Network-Basics.html" class="navigation navigation-prev " aria-label="Previous page: 网络基础">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="3.CommProt.html" class="navigation navigation-next " aria-label="Next page: 网络通讯协议">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"TCP/IP协议","level":"1.2.2","depth":2,"next":{"title":"网络通讯协议","level":"1.2.3","depth":2,"path":"network/3.CommProt.md","ref":"network/3.CommProt.md","articles":[]},"previous":{"title":"网络基础","level":"1.2.1","depth":2,"path":"network/1.Network-Basics.md","ref":"network/1.Network-Basics.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-toc","mathjax","-lunr","-search","search-plus","github","todo","terminal","anchors","edit-link","image-captions","image-wrapper","popup","custom-favicon"],"root":".","styles":{"website":"assets/css/WebStyle.css","pdf":"assets/css/PdfStyle.css","mobi":"assets/css/MobiStyle.css","epub":"assets/css/EpubStyle.css"},"pluginsConfig":{"image-wrapper":{},"github":{"url":"https://github.com/renkeju/gitbook-template"},"todo":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.png","custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"terminal":{"copyButtons":true,"fade":true,"style":"flat"},"edit-link":{"label":"编辑这个页面","base":"https://github.com/renkeju/gitbook-template/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{},"image-captions":{"caption":"图 _PAGE_LEVEL_ - _CAPTION_ ","images":{"1.1.1":{"skip":true},"1.1.2":{"skip":true}},"variable_name":"_pictures"}},"theme":"default","author":"clement","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"network/2.TcpProts.html#fig1.2.2.1","level":"1.2.2","list_caption":"Figure: TCP协议族","alt":"TCP协议族","nro":1,"url":"/images/networks/TcpIpProtocols/TCPIP协议族.jpg","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议族","attributes":{},"title":"TCP协议族","skip":false,"key":"1.2.2.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: TCP协议工作机制","alt":"TCP协议工作机制","nro":2,"url":"/images/networks/CommunicationProtocol/TCP状态转换图.PNG","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议工作机制","attributes":{},"title":"TCP协议工作机制","skip":false,"key":"1.2.3.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.2","level":"1.2.3","list_caption":"Figure: TCP数据包头格式","alt":"TCP数据包头格式","nro":3,"url":"/images/networks/CommunicationProtocol/TCP数据包头格式.gif","index":2,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP数据包头格式","attributes":{},"title":"TCP数据包头格式","skip":false,"key":"1.2.3.2"}]},"title":"An Introduction to Linux Basics","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":"https://www.baidu.com/"},"gitbook":false,"sharing":{"twitter":false,"facebook":false,"all":false}},"gitbook":"3.2.3"},"file":{"path":"network/2.TcpProts.md","mtime":"2020-02-24T08:04:36.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-24T08:05:26.750Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-terminal/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

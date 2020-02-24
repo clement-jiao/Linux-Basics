@@ -1,0 +1,5 @@
+work_dir: /workspace
+app_id: "App{{ server_name }}"
+server_name: ""
+server_root: "{{ work_dir }}/{{ app_id }}"
+server_default_dir: "{{ server_root }}/latest"

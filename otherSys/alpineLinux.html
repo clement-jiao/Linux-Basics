@@ -1,0 +1,859 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>alpine Linux · An Introduction to Linux Basics</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="clement">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-terminal/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../VScode/VScode.html" />
+    
+    
+    <link rel="prev" href="otherSys.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://www.baidu.com/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../network/network.html">
+            
+                <a href="../network/network.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../network/1.Network-Basics.html">
+            
+                <a href="../network/1.Network-Basics.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../network/2.TcpProts.html">
+            
+                <a href="../network/2.TcpProts.html">
+            
+                    
+                    TCP/IP协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../network/3.CommProt.html">
+            
+                <a href="../network/3.CommProt.html">
+            
+                    
+                    网络通讯协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../network/4.NTM.html">
+            
+                <a href="../network/4.NTM.html">
+            
+                    
+                    网络传输介质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../network/5.win2008.html">
+            
+                <a href="../network/5.win2008.html">
+            
+                    
+                    winServe 2008
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../network/6.VmwareNetAd.html">
+            
+                <a href="../network/6.VmwareNetAd.html">
+            
+                    
+                    VMware 网络模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../software/software.html">
+            
+                <a href="../software/software.html">
+            
+                    
+                    基础服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../software/dnsmasq.html">
+            
+                <a href="../software/dnsmasq.html">
+            
+                    
+                    DNS - dnsmasq
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../software/lamp.html">
+            
+                <a href="../software/lamp.html">
+            
+                    
+                    LAMP - yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../software/apacheTomcat.html">
+            
+                <a href="../software/apacheTomcat.html">
+            
+                    
+                    apache + Tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../software/nfsforcentos7.html">
+            
+                <a href="../software/nfsforcentos7.html">
+            
+                    
+                    NFS 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../software/keepalived.html">
+            
+                <a href="../software/keepalived.html">
+            
+                    
+                    keepalived 在 centOS7 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../software/haproxy1.8.html">
+            
+                <a href="../software/haproxy1.8.html">
+            
+                    
+                    HAProxy1.8 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../software/perconaCluster.html">
+            
+                <a href="../software/perconaCluster.html">
+            
+                    
+                    Percona 搭建高可用的 MySQL 数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../software/software.html">
+            
+                <a href="../software/software.html">
+            
+                    
+                    zabbix
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../zabbix/nginx.html">
+            
+                <a href="../zabbix/nginx.html">
+            
+                    
+                    nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../zabbix/php-fpm.html">
+            
+                <a href="../zabbix/php-fpm.html">
+            
+                    
+                    php-fpm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../CentOS7/system.html">
+            
+                <a href="../CentOS7/system.html">
+            
+                    
+                    CentOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="otherSys.html">
+            
+                <a href="otherSys.html">
+            
+                    
+                    其他系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.6.1" data-path="alpineLinux.html">
+            
+                <a href="alpineLinux.html">
+            
+                    
+                    alpine Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../VScode/VScode.html">
+            
+                <a href="../VScode/VScode.html">
+            
+                    
+                    VScode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../VScode/settingSync.html">
+            
+                <a href="../VScode/settingSync.html">
+            
+                    
+                    Settings Sync插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >alpine Linux</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x5B89;&#x88C5;alpine-linux&#x5B9E;&#x4F8B;"><a name="&#x5B89;&#x88C5;alpine-linux&#x5B9E;&#x4F8B;" class="plugin-anchor" href="#&#x5B89;&#x88C5;alpine-linux&#x5B9E;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;Alpine Linux&#x5B9E;&#x4F8B;</h2>
+<h2 id="alpinelinux&#x4ECB;&#x7ECD;"><a name="alpinelinux&#x4ECB;&#x7ECD;" class="plugin-anchor" href="#alpinelinux&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>AlpineLinux&#x4ECB;&#x7ECD;</h2>
+<blockquote>
+<p>Alpine &#x7684;&#x610F;&#x601D;&#x662F;&#x201C;&#x9AD8;&#x5C71;&#x7684;&#x201D;&#xFF0C;&#x6BD4;&#x5982; Alpine plants&#x9AD8;&#x5C71;&#x690D;&#x7269;&#xFF0C;Alpine skiing&#x9AD8;&#x5C71;&#x6ED1;&#x96EA;&#x3001;the alpine resort&#x963F;&#x5C14;&#x5351;&#x65AF;&#x5C71;&#x80DC;&#x5730;&#x3002;</p>
+</blockquote>
+<p>Alpine Linux &#x7F51;&#x7AD9;&#x9996;&#x9875;&#x6CE8;&#x660E;&#x201C;Small&#xFF01;Simple&#xFF01;Secure&#xFF01;Alpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox.&#x201D;&#x6982;&#x62EC;&#x4E86;&#x4EE5;&#x4E0B;&#x7279;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x5C0F;&#x5DE7;&#xFF1A;&#x57FA;&#x4E8E;Musl libc&#x548C;busybox&#xFF0C;&#x548C;busybox&#x4E00;&#x6837;&#x5C0F;&#x5DE7;&#xFF0C;&#x6700;&#x5C0F;&#x7684;Docker&#x955C;&#x50CF;&#x53EA;&#x6709;5MB&#xFF1B;</li>
+<li>&#x5B89;&#x5168;&#xFF1A;&#x9762;&#x5411;&#x5B89;&#x5168;&#x7684;&#x8F7B;&#x91CF;&#x53D1;&#x884C;&#x7248;&#xFF1B;</li>
+<li>&#x7B80;&#x5355;&#xFF1A;&#x63D0;&#x4F9B;APK&#x5305;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#xFF0C;&#x8F6F;&#x4EF6;&#x7684;&#x641C;&#x7D22;&#x3001;&#x5B89;&#x88C5;&#x3001;&#x5220;&#x9664;&#x3001;&#x5347;&#x7EA7;&#x90FD;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x3002;</li>
+<li>&#x9002;&#x5408;&#x5BB9;&#x5668;&#x4F7F;&#x7528;&#xFF1A;&#x7531;&#x4E8E;&#x5C0F;&#x5DE7;&#x3001;&#x529F;&#x80FD;&#x5B8C;&#x5907;&#xFF0C;&#x975E;&#x5E38;&#x9002;&#x5408;&#x4F5C;&#x4E3A;&#x5BB9;&#x5668;&#x7684;&#x57FA;&#x7840;&#x955C;&#x50CF;&#x3002;</li>
+</ul>
+<h3 id="&#x51C6;&#x5907;&#x5DE5;&#x4F5C;"><a name="&#x51C6;&#x5907;&#x5DE5;&#x4F5C;" class="plugin-anchor" href="#&#x51C6;&#x5907;&#x5DE5;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x51C6;&#x5907;&#x5DE5;&#x4F5C;</h3>
+<p>&#x4E0B;&#x8F7D; Alpine Linux &#x955C;&#x50CF;&#x6587;&#x4EF6;&#x5E76;&#x6302;&#x8F7D;&#x4E4B;&#x865A;&#x62DF;&#x673A; <a href="https://www.alpinelinux.org/downloads/" target="_blank">alpine-virt-3.10.1-x86_64.iso</a></p>
+<h3 id="&#x5F00;&#x59CB;&#x5B89;&#x88C5;alpine-linux"><a name="&#x5F00;&#x59CB;&#x5B89;&#x88C5;alpine-linux" class="plugin-anchor" href="#&#x5F00;&#x59CB;&#x5B89;&#x88C5;alpine-linux"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5F00;&#x59CB;&#x5B89;&#x88C5;Alpine Linux</h3>
+<ul>
+<li><a href="Google.com">Google.com</a></li>
+<li><a href="https://ncc0706.github.io/2018/02/08/install-alpine-linux/" target="_blank">&#x5B89;&#x88C5;Alpine Linux</a></li>
+<li><a href="https://unixetc.com/post/vmware-installs-alpine-linux-instance/" target="_blank">&#x5B89;&#x88C5;Alpine Linux&#x5B9E;&#x4F8B;</a></li>
+</ul>
+<h3 id="&#x955C;&#x50CF;&#x6E90;&#x914D;&#x7F6E;"><a name="&#x955C;&#x50CF;&#x6E90;&#x914D;&#x7F6E;" class="plugin-anchor" href="#&#x955C;&#x50CF;&#x6E90;&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x955C;&#x50CF;&#x6E90;&#x914D;&#x7F6E;</h3>
+<p>&#x5728;&#x5B89;&#x88C5;&#x65F6;&#x53EF;&#x4EE5;&#x9009;&#x62E9;apk&#x6E90;&#xFF0C;&#x5982;&#x679C;&#x88AB;&#x8DF3;&#x8FC7;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x66F4;&#x6362;</p>
+<ul>
+<li>&#x5B98;&#x65B9;&#x955C;&#x50CF;
+&#x5B98;&#x65B9;&#x955C;&#x50CF;&#x5217;&#x8868;&#xFF1A;<a href="http://rsync.alpinelinux.org/alpine/MIRRORS.txt" target="_blank">http://rsync.alpinelinux.org/alpine/MIRRORS.txt</a></li>
+<li>&#x56FD;&#x5185;&#x955C;&#x50CF;&#x6E90;<ol>
+<li>&#x6E05;&#x534E;TUNA&#x955C;&#x50CF;&#x6E90;&#xFF1A;<a href="https://mirror.tuna.tsinghua.edu.cn/alpine/" target="_blank">https://mirror.tuna.tsinghua.edu.cn/alpine/</a></li>
+<li>&#x4E2D;&#x79D1;&#x5927;&#x955C;&#x50CF;&#x6E90;&#xFF1A;<a href="http://mirrors.ustc.edu.cn/alpine/" target="_blank">http://mirrors.ustc.edu.cn/alpine/</a></li>
+<li>&#x963F;&#x91CC;&#x4E91;&#x955C;&#x50CF;&#x6E90;&#xFF1A;<a href="http://mirrors.aliyun.com/alpine/" target="_blank">http://mirrors.aliyun.com/alpine/</a></li>
+</ol>
+</li>
+<li><p>&#x624B;&#x52A8;&#x66FF;&#x6362;apk&#x6E90;
+sed -i &apos;s/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g&apos; /etc/apk/repositories</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/help/alpine/" target="_blank">tuna&#x4F20;&#x9001;&#x95E8;&gt;&gt;&gt;</a></p>
+</li>
+</ul>
+<h3 id="apk&#x5305;&#x7BA1;&#x7406;&#x547D;&#x4EE4;"><a name="apk&#x5305;&#x7BA1;&#x7406;&#x547D;&#x4EE4;" class="plugin-anchor" href="#apk&#x5305;&#x7BA1;&#x7406;&#x547D;&#x4EE4;"><i class="fa fa-link" aria-hidden="true"></i></a>apk&#x5305;&#x7BA1;&#x7406;&#x547D;&#x4EE4;</h3>
+<p>Alpine&#x4E0E;&#x5176;&#x4ED6;Linux&#x53D1;&#x884C;&#x7248;&#x4E0D;&#x540C;&#x4F7F;&#x7528;&#x7684;&#x662F;apk&#x8FDB;&#x884C;&#x5305;&#x7BA1;&#x7406;&#xFF0C;&#x901A;&#x8FC7;apk --help&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x5B8C;&#x6574;&#x7684;&#x5305;&#x7BA1;&#x7406;&#x547D;&#x4EE4;&#x3002;
+&#x4E0B;&#x9762;&#x5217;&#x4E3E;&#x5E38;&#x7528;&#x547D;&#x4EE4;&#xFF1A;</p>
+<ul>
+<li><p><strong>update&#xFF1A;&#x4ECE;&#x8FDC;&#x7A0B;&#x955C;&#x50CF;&#x6E90;&#x4E2D;&#x66F4;&#x65B0;&#x672C;&#x5730;&#x955C;&#x50CF;&#x6E90;&#x7D22;&#x5F15;</strong></p>
+<blockquote>
+<p>update &#x547D;&#x4EE4;&#x4F1A;&#x4ECE;&#x5404;&#x4E2A;&#x955C;&#x50CF;&#x6E90;&#x5217;&#x8868;&#x4E0B;&#x8F7D; apkindex.tar.gz &#x5E76;&#x5B58;&#x50A8;&#x5230;&#x672C;&#x5730;&#x7F13;&#x5B58;&#xFF0C;
+&#x4E00;&#x822C;&#x5728; <code>/var/cache/apk/(Alpine&#x5728;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;)</code>&#x3001; <code>/var/lib/apk/</code> &#x3001;<code>/etc/apk/cache/</code>&#x4E0B;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><strong>add&#xFF1A;&#x5B89;&#x88C5;packages&#x5E76;&#x81EA;&#x52A8;&#x89E3;&#x51B3;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;</strong></p>
+<blockquote>
+<p>add&#x547D;&#x4EE4;&#x4ECE;&#x4ED3;&#x5E93;&#x4E2D;&#x5B89;&#x88C5;&#x6700;&#x65B0;&#x8F6F;&#x4EF6;&#x5305;&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x5B89;&#x88C5;&#x5FC5;&#x987B;&#x7684;&#x4F9D;&#x8D56;&#x5305;,&#x4E5F;&#x53EF;&#x4EE5;&#x4ECE;&#x7B2C;&#x4E09;&#x65B9;&#x4ED3;&#x5E93;&#x6DFB;&#x52A0;&#x8F6F;&#x4EF6;&#x5305;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-bash">$ apk add openssh openntp vim         <span class="hljs-comment"># &#x5B89;&#x88C5;&#x8F6F;&#x4EF6;&#x5305;</span>
+$ apk add --no-cache mysql            <span class="hljs-comment"># &#x4E0D;&#x4ECE;&#x672C;&#x5730;&#x7F13;&#x5B58;&#x5B89;&#x88C5;</span>
+$ apk add docker --update-cache --repository --allow-untrusted  http://mirrors.ustc.edu.cn/alpine/v3.4/main/ <span class="hljs-comment"># &#x6307;&#x5B9A;&#x6E90;&#x5B89;&#x88C5;</span>
+</code></pre>
+</li>
+<li><p><strong>add&#xFF1A;&#x5B89;&#x88C5;&#x6307;&#x5B9A;&#x7248;&#x672C;&#x8F6F;&#x4EF6;&#x5305;</strong></p>
+<pre><code class="lang-bash">$ apk add asterisk=1.6.0.21-r0
+$ apk add <span class="hljs-string">&apos;asterisk&lt;1.6.1&apos;</span>            <span class="hljs-comment"># &#x5C0F;&#x4E8E;&#x6B64;&#x7248;&#x672C;</span>
+$ apk add <span class="hljs-string">&apos;asterisk&gt;1.6.1&apos;</span>            <span class="hljs-comment"># &#x5927;&#x4E8E;&#x6B64;&#x7248;&#x672C;</span>
+</code></pre>
+</li>
+<li><p><strong>del&#xFF1A;&#x5378;&#x8F7D;&#x5E76;&#x5220;&#x9664;package</strong></p>
+<pre><code class="lang-bash">$ apk del openssh openntp vim         <span class="hljs-comment"># &#x76F4;&#x63A5;&#x6307;&#x5B9A;&#x67D0;&#x4E2A;&#x8F6F;&#x4EF6;&#x5305;</span>
+</code></pre>
+</li>
+<li><p><strong>upgrade&#xFF1A;&#x5347;&#x7EA7;&#x5F53;&#x524D;&#x5DF2;&#x5B89;&#x88C5;&#x7684;&#x8F6F;&#x4EF6;&#x5305;</strong></p>
+<blockquote>
+<p>upgrade &#x547D;&#x4EE4;&#x5347;&#x7EA7;&#x7CFB;&#x7EDF;&#x5DF2;&#x5B89;&#x88C5;&#x7684;&#x6240;&#x4EE5;&#x8F6F;&#x4EF6;&#x5305;&#xFF08;&#x4E00;&#x822C;&#x5305;&#x62EC;&#x5185;&#x6838;&#xFF09;&#xFF0C;&#x5F53;&#x7136;&#x4E5F;&#x53EF;&#x6307;&#x5B9A;&#x4EC5;&#x5347;&#x7EA7;&#x90E8;&#x5206;&#x8F6F;&#x4EF6;&#x5305;&#xFF08;&#x901A;&#x8FC7; -u &#x6216; &#x2013;upgrade &#x9009;&#x62E9;&#x6307;&#x5B9A;&#xFF09;</p>
+</blockquote>
+<pre><code class="lang-bash">$ apk update                          <span class="hljs-comment"># &#x66F4;&#x65B0;&#x6700;&#x65B0;&#x672C;&#x5730;&#x955C;&#x50CF;&#x6E90;</span>
+$ apk upgrade                         <span class="hljs-comment"># &#x5347;&#x7EA7;&#x8F6F;&#x4EF6;</span>
+$ apk add --upgrade busybox           <span class="hljs-comment"># &#x6307;&#x5B9A;&#x5347;&#x7EA7;&#x90E8;&#x5206;&#x8F6F;&#x4EF6;&#x5305;</span>
+</code></pre>
+</li>
+<li><p><strong>search&#xFF1A;&#x641C;&#x7D22;&#x8F6F;&#x4EF6;&#x5305;</strong></p>
+<blockquote>
+<p>search&#x547D;&#x4EE4;&#x641C;&#x7D22;&#x53EF;&#x7528;&#x8F6F;&#x4EF6;&#x5305;&#xFF0C;-v&#x53C2;&#x6570;&#x8F93;&#x51FA;&#x63CF;&#x8FF0;&#x5185;&#x5BB9;&#xFF0C;&#x652F;&#x51FA;&#x901A;&#x914D;&#x7B26;&#xFF0C;-d&#x6216;&#x2013;description&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x901A;&#x8FC7;&#x8F6F;&#x4EF6;&#x5305;&#x63CF;&#x8FF0;&#x67E5;&#x8BE2;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-bash">$ apk search                          <span class="hljs-comment"># &#x67E5;&#x627E;&#x6240;&#x4EE5;&#x53EF;&#x7528;&#x8F6F;&#x4EF6;&#x5305;</span>
+$ apk search -v                       <span class="hljs-comment"># &#x67E5;&#x627E;&#x6240;&#x4EE5;&#x53EF;&#x7528;&#x8F6F;&#x4EF6;&#x5305;&#x53CA;&#x5176;&#x63CF;&#x8FF0;&#x5185;&#x5BB9;</span>
+$ apk search -v <span class="hljs-string">&apos;acf*&apos;</span>                <span class="hljs-comment"># &#x901A;&#x8FC7;&#x8F6F;&#x4EF6;&#x5305;&#x540D;&#x79F0;&#x67E5;&#x627E;&#x8F6F;&#x4EF6;&#x5305;</span>
+$ apk search -v <span class="hljs-_">-d</span> <span class="hljs-string">&apos;docker&apos;</span>           <span class="hljs-comment"># &#x901A;&#x8FC7;&#x63CF;&#x8FF0;&#x6587;&#x4EF6;&#x67E5;&#x627E;&#x7279;&#x5B9A;&#x7684;&#x8F6F;&#x4EF6;&#x5305;</span>
+</code></pre>
+</li>
+<li><p><strong>info&#xFF1A;&#x5217;&#x51FA;PACKAGES&#x6216;&#x955C;&#x50CF;&#x6E90;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;</strong></p>
+<pre><code class="lang-bash">$ apk info                            <span class="hljs-comment"># &#x5217;&#x51FA;&#x6240;&#x6709;&#x5DF2;&#x5B89;&#x88C5;&#x7684;&#x8F6F;&#x4EF6;&#x5305;</span>
+$ apk info <span class="hljs-_">-a</span> zlib                    <span class="hljs-comment"># &#x663E;&#x793A;&#x5B8C;&#x6574;&#x7684;&#x8F6F;&#x4EF6;&#x5305;&#x4FE1;&#x606F;</span>
+$ apk info --who-owns /sbin/lbu       <span class="hljs-comment"># &#x663E;&#x793A;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x5C5E;&#x4E8E;&#x7684;&#x5305;</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="init&#x7CFB;&#x7EDF;"><a name="init&#x7CFB;&#x7EDF;" class="plugin-anchor" href="#init&#x7CFB;&#x7EDF;"><i class="fa fa-link" aria-hidden="true"></i></a>init&#x7CFB;&#x7EDF;</h3>
+<p>Alpine Linux&#x4F7F;&#x7528;&#x7684;&#x662F;Gentoo&#x4E00;&#x6837;&#x7684;OpenRCinit&#x7CFB;&#x7EDF;.
+&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x53EF;&#x7528;&#x4E8E;&#x7BA1;&#x7406;init&#x7CFB;&#x7EDF;&#xFF1A;</p>
+<ul>
+<li><p><strong>rc-update</strong></p>
+<blockquote>
+<p>&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x4E0D;&#x540C;&#x8FD0;&#x884C;&#x7EA7;&#x589E;&#x52A0;&#x6216;&#x8005;&#x5220;&#x9664;&#x670D;&#x52A1;&#x3002;</p>
+</blockquote>
+<ul>
+<li><p><strong>rc-update&#x8BED;&#x6CD5;&#x683C;&#x5F0F;</strong></p>
+<pre><code class="lang-bash">Usage: rc-update [options] add &lt;service&gt; [&lt;runlevel&gt;...]
+  or: rc-update [options] del &lt;service&gt; [&lt;runlevel&gt;...]
+  or: rc-update [options] [show [&lt;runlevel&gt;...]]
+
+Options: [ asuChqVv ]
+  <span class="hljs-_">-a</span>, --all                         Process all runlevels
+                                    <span class="hljs-comment"># &#x5904;&#x7406;&#x6240;&#x6709;&#x8FD0;&#x884C;&#x7EA7;&#x522B;</span>
+  <span class="hljs-_">-s</span>, --stack                       Stack a runlevel instead of a service
+                                    <span class="hljs-comment"># &#x5806;&#x6808;&#x8FD0;&#x884C;&#x7EA7;&#x522B;&#x800C;&#x4E0D;&#x662F;&#x670D;&#x52A1;</span>
+  -u, --update                      Force an update of the dependency tree
+                                    <span class="hljs-comment"># &#x5F3A;&#x5236;&#x66F4;&#x65B0;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x6811;</span>
+  -h, --help                        Display this <span class="hljs-built_in">help</span> output
+  -C, --nocolor                     Disable color output
+                                    <span class="hljs-comment"># &#x7981;&#x7528;&#x989C;&#x8272;&#x8F93;&#x51FA;</span>
+  -V, --version                     Display software version
+                                    <span class="hljs-comment"># &#x663E;&#x793A;&#x8F6F;&#x4EF6;&#x7248;&#x672C;</span>
+  -v, --verbose                     Run verbosely
+                                    <span class="hljs-comment"># &#x8BE6;&#x7EC6;&#x5730;&#x8FD0;&#x884C;</span>
+  -q, --quiet                       Run quietly (repeat to suppress errors)
+                                    <span class="hljs-comment"># &#x5B89;&#x9759;&#x5730;&#x8FD0;&#x884C;&#xFF08;&#x91CD;&#x590D;&#x4EE5;&#x6291;&#x5236;&#x9519;&#x8BEF;&#xFF09;</span>
+</code></pre>
+</li>
+<li><p><strong>rc-update &#x4F7F;&#x7528;&#x5B9E;&#x4F8B;</strong></p>
+<pre><code class="lang-bash">$ rc-update add docker boot         <span class="hljs-comment"># &#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x670D;&#x52A1;</span>
+$ rc-update del docker boot         <span class="hljs-comment"># &#x5220;&#x9664;&#x4E00;&#x4E2A;&#x670D;&#x52A1;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>rc-status</strong></p>
+<blockquote>
+<p>rc-status &#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x8FD0;&#x884C;&#x7EA7;&#x7684;&#x72B6;&#x6001;&#x7BA1;&#x7406;&#x3002;</p>
+</blockquote>
+<ul>
+<li><p><strong>rc-status&#x8BED;&#x6CD5;&#x683C;&#x5F0F;</strong></p>
+<pre><code class="lang-bash">Usage: rc-status [options] &lt;runlevel&gt;...
+  or: rc-status [options] [<span class="hljs-_">-a</span> | -c | <span class="hljs-_">-l</span> | -r | <span class="hljs-_">-s</span> | -u]
+
+Options: [ aclrsuChqVv ]
+  <span class="hljs-_">-a</span>, --all                         Show services from all run levels
+                                    <span class="hljs-comment"># &#x663E;&#x793A;&#x6240;&#x6709;&#x8FD0;&#x884C;&#x7EA7;&#x522B;&#x7684;&#x670D;&#x52A1;</span>
+  -c, --crashed                     Show crashed services
+                                    <span class="hljs-comment"># &#x663E;&#x793A;&#x5D29;&#x6E83;&#x7684;&#x670D;&#x52A1;</span>
+  <span class="hljs-_">-l</span>, --list                        Show list of run levels
+                                    <span class="hljs-comment"># &#x663E;&#x793A;&#x8FD0;&#x884C;&#x7EA7;&#x522B;&#x5217;&#x8868;</span>
+  -r, --runlevel                    Show the name of the current runlevel
+                                    <span class="hljs-comment"># &#x663E;&#x793A;&#x5F53;&#x524D;&#x8FD0;&#x884C;&#x7EA7;&#x522B;&#x7684;&#x540D;&#x79F0;</span>
+  <span class="hljs-_">-s</span>, --servicelist                 Show service list
+                                    <span class="hljs-comment"># &#x663E;&#x793A;&#x670D;&#x52A1;&#x5217;&#x8868;</span>
+  -u, --unused                      Show services not assigned to any runlevel
+                                    <span class="hljs-comment"># &#x663E;&#x793A;&#x672A;&#x5206;&#x914D;&#x7ED9;&#x4EFB;&#x4F55;&#x8FD0;&#x884C;&#x7EA7;&#x522B;&#x7684;&#x670D;&#x52A1;</span>
+  -h, --help                        Display this <span class="hljs-built_in">help</span> output
+                                    <span class="hljs-comment"># &#x663E;&#x793A;&#x6B64;&#x5E2E;&#x52A9;&#x8F93;&#x51FA;</span>
+  -C, --nocolor                     Disable color output
+                                    <span class="hljs-comment"># &#x7981;&#x7528;&#x989C;&#x8272;&#x8F93;&#x51FA;</span>
+  -V, --version                     Display software version
+                                    <span class="hljs-comment"># &#x663E;&#x793A;&#x8F6F;&#x4EF6;&#x7248;&#x672C;</span>
+  -v, --verbose                     Run verbosely
+                                    <span class="hljs-comment"># &#x8BE6;&#x7EC6;&#x5730;&#x8FD0;&#x884C;</span>
+  -q, --quiet                       Run quietly (repeat to suppress errors)
+                                    <span class="hljs-comment"># &#x5B89;&#x9759;&#x5730;&#x8FD0;&#x884C;&#xFF08;&#x91CD;&#x590D;&#x4EE5;&#x6291;&#x5236;&#x9519;&#x8BEF;&#xFF09;</span>
+</code></pre>
+</li>
+<li><strong>rc-status &#x4F7F;&#x7528;&#x5B9E;&#x4F8B;</strong><pre><code class="lang-bash">$ rc-status                         <span class="hljs-comment"># &#x68C0;&#x67E5;&#x9ED8;&#x8BA4;&#x8FD0;&#x884C;&#x7EA7;&#x522B;&#x7684;&#x72B6;&#x6001;</span>
+$ rc-status <span class="hljs-_">-a</span>                      <span class="hljs-comment"># &#x68C0;&#x67E5;&#x6240;&#x6709;&#x8FD0;&#x884C;&#x7EA7;&#x522B;&#x7684;&#x72B6;&#x6001;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>rc-service</strong></p>
+<blockquote>
+<p>rc-service&#x4E3B;&#x7528;&#x4E8E;&#x7BA1;&#x7406;&#x670D;&#x52A1;&#x7684;&#x72B6;&#x6001;</p>
+</blockquote>
+<ul>
+<li><p><strong>rc-service&#x8BED;&#x6CD5;&#x683C;&#x5F0F;</strong></p>
+<pre><code class="lang-bash">Usage:
+      rc-service [options] [-i] &lt;service&gt; &lt;cmd&gt;...
+  or: rc-service [options]  <span class="hljs-_">-e</span>  &lt;service&gt;
+  or: rc-service [options]  <span class="hljs-_">-l</span>
+  or: rc-service [options]  -r  &lt;service&gt;
+
+Options: [ e:ilr:INChqVv ]
+  <span class="hljs-_">-e</span>, --exists &lt;arg&gt;                tests <span class="hljs-keyword">if</span> the service exists or not
+                                    <span class="hljs-comment"># &#x6D4B;&#x8BD5;&#x670D;&#x52A1;&#x662F;&#x5426;&#x5B58;&#x5728;</span>
+  -i, --ifexists                    <span class="hljs-keyword">if</span> the service exists <span class="hljs-keyword">then</span> run the <span class="hljs-built_in">command</span>
+                                    <span class="hljs-comment"># &#x5982;&#x679C;&#x670D;&#x52A1;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x8FD0;&#x884C;&#x8BE5;&#x547D;&#x4EE4;</span>
+  -I, --ifinactive                  <span class="hljs-keyword">if</span> the service is inactive <span class="hljs-keyword">then</span> run the <span class="hljs-built_in">command</span>
+                                    <span class="hljs-comment"># &#x5982;&#x679C;&#x670D;&#x52A1;&#x5904;&#x4E8E;&#x975E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#xFF0C;&#x5219;&#x8FD0;&#x884C;&#x8BE5;&#x547D;&#x4EE4;</span>
+  -N, --ifnotstarted                <span class="hljs-keyword">if</span> the service is not started <span class="hljs-keyword">then</span> run the <span class="hljs-built_in">command</span>
+                                    <span class="hljs-comment"># &#x5982;&#x679C;&#x670D;&#x52A1;&#x672A;&#x542F;&#x52A8;&#xFF0C;&#x5219;&#x8FD0;&#x884C;&#x8BE5;&#x547D;&#x4EE4;</span>
+  <span class="hljs-_">-l</span>, --list                        list all available services
+                                    <span class="hljs-comment"># &#x5217;&#x51FA;&#x6240;&#x6709;&#x53EF;&#x7528;&#x7684;&#x670D;&#x52A1;</span>
+  -r, --resolve &lt;arg&gt;               resolve the service name to an init script
+                                    <span class="hljs-comment"># &#x5C06;&#x670D;&#x52A1;&#x540D;&#x79F0;&#x89E3;&#x6790;&#x4E3A;init&#x811A;&#x672C;</span>
+  -h, --help                        Display this <span class="hljs-built_in">help</span> output
+                                    <span class="hljs-comment"># &#x663E;&#x793A;&#x6B64;&#x5E2E;&#x52A9;&#x8F93;&#x51FA;</span>
+  -C, --nocolor                     Disable color output
+                                    <span class="hljs-comment"># &#x7981;&#x7528;&#x989C;&#x8272;&#x8F93;&#x51FA;</span>
+  -V, --version                     Display software version
+                                    <span class="hljs-comment"># &#x663E;&#x793A;&#x8F6F;&#x4EF6;&#x7248;&#x672C;</span>
+  -v, --verbose                     Run verbosely
+                                    <span class="hljs-comment"># &#x8BE6;&#x7EC6;&#x5730;&#x8FD0;&#x884C;</span>
+  -q, --quiet                       Run quietly (repeat to suppress errors)
+                                    <span class="hljs-comment"># &#x5B89;&#x9759;&#x5730;&#x8FD0;&#x884C;&#xFF08;&#x91CD;&#x590D;&#x4EE5;&#x6291;&#x5236;&#x9519;&#x8BEF;&#xFF09;</span>
+</code></pre>
+</li>
+<li><strong>rc-service&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;</strong><pre><code class="lang-bash">$ rc-service sshd start             <span class="hljs-comment"># &#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x3002;</span>
+$ rc-service sshd stop              <span class="hljs-comment"># &#x505C;&#x6B62;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x3002;</span>
+$ rc-service sshd restart           <span class="hljs-comment"># &#x91CD;&#x542F;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x3002;</span>
+</code></pre>
+<h4 id="openrc"><a name="openrc" class="plugin-anchor" href="#openrc"><i class="fa fa-link" aria-hidden="true"></i></a>openrc</h4>
+&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x7BA1;&#x7406;&#x4E0D;&#x540C;&#x7684;&#x8FD0;&#x884C;&#x7EA7;&#x3002;</li>
+<li><p><strong>openrc&#x8BED;&#x6CD5;&#x683C;&#x5F0F;</strong></p>
+<pre><code class="lang-bash">Usage: openrc [options] [&lt;runlevel&gt;]
+
+Options: [ a:no:s:SChqVv ]
+  -n, --no-stop                   <span class="hljs-keyword">do</span> not stop any services
+                                  <span class="hljs-comment"># &#x4E0D;&#x8981;&#x505C;&#x6B62;&#x4EFB;&#x4F55;&#x670D;&#x52A1;</span>
+  -o, --override &lt;arg&gt;            override the next runlevel to change into
+                                  when leaving single user or boot runlevels
+                                  <span class="hljs-comment"># &#x5728;&#x79BB;&#x5F00;&#x5355;&#x4E2A;&#x7528;&#x6237;&#x6216;&#x5F15;&#x5BFC;&#x8FD0;&#x884C;&#x7EA7;&#x522B;&#x65F6;&#xFF0C;&#x8986;&#x76D6;&#x4E0B;&#x4E00;&#x4E2A;&#x8FD0;&#x884C;&#x7EA7;&#x522B;&#x4EE5;&#x8FDB;&#x884C;&#x66F4;&#x6539;</span>
+  <span class="hljs-_">-s</span>, --service &lt;arg&gt;             runs the service specified with the rest
+                                  of the arguments
+                                  <span class="hljs-comment"># &#x8FD0;&#x884C;&#x4F7F;&#x7528;&#x5176;&#x4F59;&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x7684;&#x670D;&#x52A1;</span>
+  -S, --sys                       output the RC system <span class="hljs-built_in">type</span>, <span class="hljs-keyword">if</span> any
+                                  <span class="hljs-comment"># &#x8F93;&#x51FA;RC&#x7CFB;&#x7EDF;&#x7C7B;&#x578B;&#xFF08;&#x5982;&#x679C;&#x6709;&#xFF09;</span>
+  -h, --help                      Display this <span class="hljs-built_in">help</span> output
+                                  <span class="hljs-comment"># &#x663E;&#x793A;&#x6B64;&#x5E2E;&#x52A9;&#x8F93;&#x51FA;</span>
+  -C, --nocolor                   Disable color output
+                                  <span class="hljs-comment"># &#x7981;&#x7528;&#x989C;&#x8272;&#x8F93;&#x51FA;</span>
+  -V, --version                   Display software version
+                                  <span class="hljs-comment"># &#x663E;&#x793A;&#x8F6F;&#x4EF6;&#x7248;&#x672C;</span>
+  -v, --verbose                   Run verbosely
+                                  <span class="hljs-comment"># &#x8BE6;&#x7EC6;&#x5730;&#x8FD0;&#x884C;</span>
+  -q, --quiet                     Run quietly (repeat to suppress errors)
+                                  <span class="hljs-comment"># &#x5B89;&#x9759;&#x5730;&#x8FD0;&#x884C;&#xFF08;&#x91CD;&#x590D;&#x4EE5;&#x6291;&#x5236;&#x9519;&#x8BEF;&#xFF09;</span>
+</code></pre>
+</li>
+<li>Alpine Linux&#x53EF;&#x7528;&#x7684;&#x8FD0;&#x884C;&#x7EA7;:<ol>
+<li>default</li>
+<li>sysinit</li>
+<li>boot</li>
+<li>single</li>
+<li>reboot</li>
+<li>shutdown</li>
+</ol>
+</li>
+<li><strong>openrc &#x4F7F;&#x7528;&#x5B9E;&#x4F8B;</strong><pre><code class="lang-bash">$ openrc single                   <span class="hljs-comment"># &#x66F4;&#x6539;&#x4E3A;single&#x8FD0;&#x884C;&#x7EA7;</span>
+</code></pre>
+<h4 id="&#x5176;&#x5B83;&#x6307;&#x4EE4;"><a name="&#x5176;&#x5B83;&#x6307;&#x4EE4;" class="plugin-anchor" href="#&#x5176;&#x5B83;&#x6307;&#x4EE4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5176;&#x5B83;&#x6307;&#x4EE4;</h4>
+<pre><code class="lang-bash">$ reboot                            <span class="hljs-comment"># &#x91CD;&#x542F;&#x7CFB;&#x7EDF;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;shutdown -r now&#x3002;</span>
+$ halt                              <span class="hljs-comment"># &#x5173;&#x673A;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;shutdown -h now&#x3002;</span>
+$ poweroff                          <span class="hljs-comment"># &#x5173;&#x673A;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="otherSys.html" class="navigation navigation-prev " aria-label="Previous page: 其他系统">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../VScode/VScode.html" class="navigation navigation-next " aria-label="Next page: VScode">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"alpine Linux","level":"1.6.1","depth":2,"next":{"title":"VScode","level":"1.7","depth":1,"path":"VScode/VScode.md","ref":"VScode/VScode.md","articles":[{"title":"Settings Sync插件","level":"1.7.1","depth":2,"path":"VScode/settingSync.md","ref":"VScode/settingSync.md","articles":[]}]},"previous":{"title":"其他系统","level":"1.6","depth":1,"path":"otherSys/otherSys.md","ref":"otherSys/otherSys.md","articles":[{"title":"alpine Linux","level":"1.6.1","depth":2,"path":"otherSys/alpineLinux.md","ref":"otherSys/alpineLinux.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["page-toc","mathjax","-lunr","-search","search-plus","github","todo","terminal","anchors","edit-link","image-captions","image-wrapper","popup","custom-favicon"],"root":".","styles":{"website":"assets/css/WebStyle.css","pdf":"assets/css/PdfStyle.css","mobi":"assets/css/MobiStyle.css","epub":"assets/css/EpubStyle.css"},"pluginsConfig":{"image-wrapper":{},"github":{"url":"https://github.com/renkeju/gitbook-template"},"todo":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.png","custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"terminal":{"copyButtons":true,"fade":true,"style":"flat"},"edit-link":{"label":"编辑这个页面","base":"https://github.com/renkeju/gitbook-template/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{},"image-captions":{"caption":"图 _PAGE_LEVEL_ - _CAPTION_ ","images":{"1.1.1":{"skip":true},"1.1.2":{"skip":true}},"variable_name":"_pictures"}},"theme":"default","author":"clement","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"network/2.TcpProts.html#fig1.2.2.1","level":"1.2.2","list_caption":"Figure: TCP协议族","alt":"TCP协议族","nro":1,"url":"/images/networks/TcpIpProtocols/TCPIP协议族.jpg","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议族","attributes":{},"title":"TCP协议族","skip":false,"key":"1.2.2.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: TCP协议工作机制","alt":"TCP协议工作机制","nro":2,"url":"/images/networks/CommunicationProtocol/TCP状态转换图.PNG","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议工作机制","attributes":{},"title":"TCP协议工作机制","skip":false,"key":"1.2.3.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.2","level":"1.2.3","list_caption":"Figure: TCP数据包头格式","alt":"TCP数据包头格式","nro":3,"url":"/images/networks/CommunicationProtocol/TCP数据包头格式.gif","index":2,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP数据包头格式","attributes":{},"title":"TCP数据包头格式","skip":false,"key":"1.2.3.2"}]},"title":"An Introduction to Linux Basics","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":"https://www.baidu.com/"},"gitbook":false,"sharing":{"twitter":false,"facebook":false,"all":false}},"gitbook":"3.2.3"},"file":{"path":"otherSys/alpineLinux.md","mtime":"2020-02-24T08:04:36.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-24T08:05:26.750Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-terminal/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

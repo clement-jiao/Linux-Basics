@@ -1,0 +1,851 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>NFS 在 centOS7 下 yum 安装 · An Introduction to Linux Basics</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="clement">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-terminal/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="keepalived.html" />
+    
+    
+    <link rel="prev" href="apacheTomcat.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://www.baidu.com/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../network/network.html">
+            
+                <a href="../network/network.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../network/1.Network-Basics.html">
+            
+                <a href="../network/1.Network-Basics.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../network/2.TcpProts.html">
+            
+                <a href="../network/2.TcpProts.html">
+            
+                    
+                    TCP/IP协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../network/3.CommProt.html">
+            
+                <a href="../network/3.CommProt.html">
+            
+                    
+                    网络通讯协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../network/4.NTM.html">
+            
+                <a href="../network/4.NTM.html">
+            
+                    
+                    网络传输介质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../network/5.win2008.html">
+            
+                <a href="../network/5.win2008.html">
+            
+                    
+                    winServe 2008
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../network/6.VmwareNetAd.html">
+            
+                <a href="../network/6.VmwareNetAd.html">
+            
+                    
+                    VMware 网络模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="software.html">
+            
+                <a href="software.html">
+            
+                    
+                    基础服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="dnsmasq.html">
+            
+                <a href="dnsmasq.html">
+            
+                    
+                    DNS - dnsmasq
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="lamp.html">
+            
+                <a href="lamp.html">
+            
+                    
+                    LAMP - yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="apacheTomcat.html">
+            
+                <a href="apacheTomcat.html">
+            
+                    
+                    apache + Tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.4" data-path="nfsforcentos7.html">
+            
+                <a href="nfsforcentos7.html">
+            
+                    
+                    NFS 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="keepalived.html">
+            
+                <a href="keepalived.html">
+            
+                    
+                    keepalived 在 centOS7 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="haproxy1.8.html">
+            
+                <a href="haproxy1.8.html">
+            
+                    
+                    HAProxy1.8 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="perconaCluster.html">
+            
+                <a href="perconaCluster.html">
+            
+                    
+                    Percona 搭建高可用的 MySQL 数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="software.html">
+            
+                <a href="software.html">
+            
+                    
+                    zabbix
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../zabbix/nginx.html">
+            
+                <a href="../zabbix/nginx.html">
+            
+                    
+                    nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../zabbix/php-fpm.html">
+            
+                <a href="../zabbix/php-fpm.html">
+            
+                    
+                    php-fpm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../CentOS7/system.html">
+            
+                <a href="../CentOS7/system.html">
+            
+                    
+                    CentOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../otherSys/otherSys.html">
+            
+                <a href="../otherSys/otherSys.html">
+            
+                    
+                    其他系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../otherSys/alpineLinux.html">
+            
+                <a href="../otherSys/alpineLinux.html">
+            
+                    
+                    alpine Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../VScode/VScode.html">
+            
+                <a href="../VScode/VScode.html">
+            
+                    
+                    VScode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../VScode/settingSync.html">
+            
+                <a href="../VScode/settingSync.html">
+            
+                    
+                    Settings Sync插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >NFS 在 centOS7 下 yum 安装</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+ * @Description:
+ * @Author: 焦国峰
+ * @Github: https://github.com/clement-jiao
+ * @Date: 2019-08-18 17:08:00
+ * @LastEditors: clement-jiao
+ * @LastEditTime: 2019-08-20 15:33:03
+ -->
+<h1 id="centos-7-&#x4E0B;-yum-&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;-nfs"><a name="centos-7-&#x4E0B;-yum-&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;-nfs" class="plugin-anchor" href="#centos-7-&#x4E0B;-yum-&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;-nfs"><i class="fa fa-link" aria-hidden="true"></i></a>CentOS 7 &#x4E0B; yum &#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E; NFS</h1>
+<h2 id="&#x7B80;&#x4ECB;"><a name="&#x7B80;&#x4ECB;" class="plugin-anchor" href="#&#x7B80;&#x4ECB;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B80;&#x4ECB;</h2>
+<p>NFS &#x662F; Network File System &#x7684;&#x7F29;&#x5199;&#xFF0C;&#x5373;&#x7F51;&#x7EDC;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x3002;&#x529F;&#x80FD;&#x662F;&#x8BA9;&#x5BA2;&#x6237;&#x7AEF;&#x901A;&#x8FC7;&#x7F51;&#x7EDC;&#x8BBF;&#x95EE;&#x4E0D;&#x540C;&#x4E3B;&#x673A;&#x4E0A;&#x78C1;&#x76D8;&#x91CC;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x5728;&#x7C7B;Unix&#x7CFB;&#x7EDF;&#x4E0A;&#x5B9E;&#x73B0;&#x6587;&#x4EF6;&#x5171;&#x4EAB;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x3002; &#x672C;&#x4F8B;&#x6F14;&#x793A; CentOS 7 &#x4E0B;&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E; NFS &#x7684;&#x57FA;&#x672C;&#x6B65;&#x9AA4;&#x3002;</p>
+<h3 id="&#x73AF;&#x5883;&#x8BF4;&#x660E;"><a name="&#x73AF;&#x5883;&#x8BF4;&#x660E;" class="plugin-anchor" href="#&#x73AF;&#x5883;&#x8BF4;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x73AF;&#x5883;&#x8BF4;&#x660E;</h3>
+<p>CentOS 7&#xFF08;Minimal Install&#xFF09;</p>
+<pre><code class="lang-bash">$ cat /etc/redhat-release
+CentOS Linux release 7.5.1804 (Core)
+</code></pre>
+<blockquote>
+<p>&#x6839;&#x636E;&#x5B98;&#x7F51;&#x8BF4;&#x660E; Chapter 8. Network File System (NFS) - Red Hat Customer Portal&#xFF0C;CentOS 7.4 &#x4EE5;&#x540E;&#xFF0C;&#x652F;&#x6301; NFS v4.2 &#x4E0D;&#x9700;&#x8981; rpcbind &#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x53EA;&#x652F;&#x6301; NFC v3 &#x5219;&#x9700;&#x8981; rpcbind &#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x3002;</p>
+</blockquote>
+<h2 id="&#x670D;&#x52A1;&#x7AEF;"><a name="&#x670D;&#x52A1;&#x7AEF;" class="plugin-anchor" href="#&#x670D;&#x52A1;&#x7AEF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x670D;&#x52A1;&#x7AEF;</h2>
+<h3 id="&#x670D;&#x52A1;&#x7AEF;&#x5B89;&#x88C5;"><a name="&#x670D;&#x52A1;&#x7AEF;&#x5B89;&#x88C5;" class="plugin-anchor" href="#&#x670D;&#x52A1;&#x7AEF;&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x670D;&#x52A1;&#x7AEF;&#x5B89;&#x88C5;</h3>
+<p>  &#x4F7F;&#x7528; yum &#x5B89;&#x88C5; NFS &#x5B89;&#x88C5;&#x5305;&#x3002;</p>
+<pre><code class="lang-bash">  yum install nfs-utils
+</code></pre>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x53EA;&#x5B89;&#x88C5; nfs-utils &#x5373;&#x53EF;&#xFF0C;rpcbind &#x5C5E;&#x4E8E;&#x5B83;&#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x4E5F;&#x4F1A;&#x5B89;&#x88C5;&#x4E0A;&#x3002;</p>
+</blockquote>
+<h3 id="&#x670D;&#x52A1;&#x7AEF;&#x914D;&#x7F6E;"><a name="&#x670D;&#x52A1;&#x7AEF;&#x914D;&#x7F6E;" class="plugin-anchor" href="#&#x670D;&#x52A1;&#x7AEF;&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x670D;&#x52A1;&#x7AEF;&#x914D;&#x7F6E;</h3>
+<ul>
+<li><p>&#x8BBE;&#x7F6E; NFS &#x670D;&#x52A1;&#x5F00;&#x673A;&#x81EA;&#x542F;&#x5E76;&#x542F;&#x52A8;</p>
+<pre><code class="lang-bash">$ sudo systemctl <span class="hljs-built_in">enable</span> --now rpcbind
+$ sudo systemctl <span class="hljs-built_in">enable</span> --now nfs
+</code></pre>
+</li>
+<li><p>&#x9632;&#x706B;&#x5899;&#x9700;&#x8981;&#x6253;&#x5F00; rpc-bind &#x548C; nfs &#x7684;&#x670D;&#x52A1;</p>
+<pre><code class="lang-bash">$ sudo firewall-cmd --zone=public --permanent --add-service=rpc-bind
+success
+$ sudo firewall-cmd --zone=public --permanent --add-service=mountd
+success
+$ sudo firewall-cmd --zone=public --permanent --add-service=nfs
+success
+$ sudo firewall-cmd --reload
+success
+</code></pre>
+</li>
+</ul>
+<h3 id="&#x914D;&#x7F6E;&#x5171;&#x4EAB;&#x76EE;&#x5F55;"><a name="&#x914D;&#x7F6E;&#x5171;&#x4EAB;&#x76EE;&#x5F55;" class="plugin-anchor" href="#&#x914D;&#x7F6E;&#x5171;&#x4EAB;&#x76EE;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x914D;&#x7F6E;&#x5171;&#x4EAB;&#x76EE;&#x5F55;</h3>
+<ul>
+<li><p>&#x670D;&#x52A1;&#x542F;&#x52A8;&#x4E4B;&#x540E;&#xFF0C;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x914D;&#x7F6E;&#x5171;&#x4EAB;&#x76EE;&#x5F55;</p>
+<pre><code class="lang-bash">mkdir /data
+chmod 755 /data
+</code></pre>
+</li>
+<li><p>&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;&#x76F8;&#x5E94;&#x914D;&#x7F6E;&#x5BFC;&#x51FA;&#x76EE;&#x5F55;</p>
+<pre><code class="lang-bash">vi /etc/exports
+</code></pre>
+</li>
+<li><p>&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x914D;&#x7F6E;</p>
+<pre><code class="lang-conf"># vim /etc/exports
+/data/     192.168.0.0/24(rw,sync,no_root_squash,no_all_squash)
+</code></pre>
+<ol>
+<li>/data: &#x5171;&#x4EAB;&#x76EE;&#x5F55;&#x4F4D;&#x7F6E;&#x3002;</li>
+<li>192.168.0.0/24: &#x5BA2;&#x6237;&#x7AEF; IP &#x8303;&#x56F4;&#xFF0C;* &#x4EE3;&#x8868;&#x6240;&#x6709;&#xFF0C;&#x5373;&#x6CA1;&#x6709;&#x9650;&#x5236;&#x3002;</li>
+<li>rw: &#x6743;&#x9650;&#x8BBE;&#x7F6E;&#xFF0C;&#x53EF;&#x8BFB;&#x53EF;&#x5199;&#x3002;</li>
+<li>sync: &#x540C;&#x6B65;&#x5171;&#x4EAB;&#x76EE;&#x5F55;&#x3002;</li>
+<li>no_root_squash: &#x53EF;&#x4EE5;&#x4F7F;&#x7528; root &#x6388;&#x6743;&#x3002;</li>
+<li>no_all_squash: &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x666E;&#x901A;&#x7528;&#x6237;&#x6388;&#x6743;&#x3002;
+<code>:wq &#x4FDD;&#x5B58;&#x8BBE;&#x7F6E;&#x4E4B;&#x540E;&#xFF0C;&#x91CD;&#x542F; NFS &#x670D;&#x52A1;&#x3002;</code></li>
+</ol>
+<pre><code class="lang-bash"><span class="hljs-comment"># 192.168.0.0/24 &#x53EF;&#x4EE5;&#x4E3A;&#x4E00;&#x4E2A;&#x7F51;&#x6BB5;&#xFF0C;&#x4E00;&#x4E2A;IP&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x57DF;&#x540D;&#xFF0C;&#x57DF;&#x540D;&#x652F;&#x6301;&#x901A;&#x914D;&#x7B26; &#x5982;: *.com</span>
+<span class="hljs-comment"># rw&#xFF1A;read-write&#xFF0C;&#x53EF;&#x8BFB;&#x5199;&#xFF1B;</span>
+<span class="hljs-comment"># ro&#xFF1A;read-only&#xFF0C;&#x53EA;&#x8BFB;&#xFF1B;</span>
+<span class="hljs-comment"># sync&#xFF1A;&#x6587;&#x4EF6;&#x540C;&#x65F6;&#x5199;&#x5165;&#x786C;&#x76D8;&#x548C;&#x5185;&#x5B58;&#xFF1B;</span>
+<span class="hljs-comment"># async&#xFF1A;&#x6587;&#x4EF6;&#x6682;&#x5B58;&#x4E8E;&#x5185;&#x5B58;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x5199;&#x5165;&#x5185;&#x5B58;&#xFF1B;</span>
+<span class="hljs-comment"># no_root_squash&#xFF1A;NFS&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x670D;&#x52A1;&#x7AEF;&#x65F6;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x7684;&#x662F;root&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;&#x5BF9;&#x670D;&#x52A1;&#x7AEF;&#x5206;&#x4EAB;&#x7684;&#x76EE;&#x5F55;&#x6765;&#x8BF4;&#xFF0C;&#x4E5F;&#x62E5;&#x6709;root&#x6743;&#x9650;&#x3002;&#x663E;&#x7136;&#x5F00;&#x542F;&#x8FD9;&#x9879;&#x662F;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#x3002;</span>
+<span class="hljs-comment"># root_squash&#xFF1A;NFS&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x670D;&#x52A1;&#x7AEF;&#x65F6;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x7684;&#x662F;root&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;&#x5BF9;&#x670D;&#x52A1;&#x7AEF;&#x5206;&#x4EAB;&#x7684;&#x76EE;&#x5F55;&#x6765;&#x8BF4;&#xFF0C;&#x62E5;&#x6709;&#x533F;&#x540D;&#x7528;&#x6237;&#x6743;&#x9650;&#xFF0C;&#x901A;&#x5E38;&#x4ED6;&#x5C06;&#x4F7F;&#x7528;nobody&#x6216;nfsnobody&#x8EAB;&#x4EFD;&#xFF1B;</span>
+<span class="hljs-comment"># all_squash&#xFF1A;&#x4E0D;&#x8BBA;NFS&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x670D;&#x52A1;&#x7AEF;&#x65F6;&#x4F7F;&#x7528;&#x4EC0;&#x4E48;&#x7528;&#x6237;&#xFF0C;&#x5BF9;&#x670D;&#x52A1;&#x7AEF;&#x5206;&#x4EAB;&#x7684;&#x76EE;&#x5F55;&#x6765;&#x8BF4;&#x90FD;&#x662F;&#x62E5;&#x6709;&#x533F;&#x540D;&#x7528;&#x6237;&#x6743;&#x9650;&#xFF1B;</span>
+<span class="hljs-comment"># anonuid&#xFF1A;&#x533F;&#x540D;&#x7528;&#x6237;&#x7684;UID&#x503C;</span>
+<span class="hljs-comment"># anongid&#xFF1A;&#x533F;&#x540D;&#x7528;&#x6237;&#x7684;GID&#x503C;&#x3002;&#x5907;&#x6CE8;&#xFF1A;&#x5176;&#x4E2D;anonuid=1000,anongid=1000,&#x4E3A;&#x6B64;&#x76EE;&#x5F55;&#x7528;&#x6237;web&#x7684;ID&#x53F7;,&#x8FBE;&#x5230;&#x8FDE;&#x63A5;NFS&#x7528;&#x6237;&#x6743;&#x9650;&#x4E00;&#x81F4;&#x3002;</span>
+<span class="hljs-comment"># defaults &#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x9009;&#x9879;&#x3002;&#x9ED8;&#x8BA4;&#x9009;&#x9879;&#x4E3A;rw&#x3001;suid&#x3001;dev&#x3001;exec&#x3001;auto nouser&#x4E0E;async&#x3002;</span>
+<span class="hljs-comment"># atime &#x6BCF;&#x6B21;&#x5B58;&#x53D6;&#x90FD;&#x66F4;&#x65B0;inode&#x7684;&#x5B58;&#x53D6;&#x65F6;&#x95F4;&#xFF0C;&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#xFF0C;&#x53D6;&#x6D88;&#x9009;&#x9879;&#x4E3A;noatime&#x3002;</span>
+<span class="hljs-comment"># noatime &#x6BCF;&#x6B21;&#x5B58;&#x53D6;&#x65F6;&#x4E0D;&#x66F4;&#x65B0;inode&#x7684;&#x5B58;&#x53D6;&#x65F6;&#x95F4;&#x3002;</span>
+<span class="hljs-comment"># dev &#x53EF;&#x8BFB;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E0A;&#x7684;&#x5B57;&#x7B26;&#x6216;&#x5757;&#x8BBE;&#x5907;&#xFF0C;&#x53D6;&#x6D88;&#x9009;&#x9879;&#x4E3A;nodev&#x3002;</span>
+<span class="hljs-comment"># nodev &#x4E0D;&#x8BFB;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E0A;&#x7684;&#x5B57;&#x7B26;&#x6216;&#x5757;&#x8BBE;&#x5907;&#x3002;</span>
+<span class="hljs-comment"># exec &#x53EF;&#x6267;&#x884C;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#xFF0C;&#x53D6;&#x6D88;&#x9009;&#x9879;&#x4E3A;noexec&#x3002;</span>
+<span class="hljs-comment"># noexec &#x65E0;&#x6CD5;&#x6267;&#x884C;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x3002;</span>
+<span class="hljs-comment"># auto &#x5FC5;&#x987B;&#x5728;/etc/fstab&#x6587;&#x4EF6;&#x4E2D;&#x6307;&#x5B9A;&#x6B64;&#x9009;&#x9879;&#x3002;&#x6267;&#x884C;-a&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x4F1A;&#x52A0;&#x8F7D;&#x8BBE;&#x7F6E;&#x4E3A;auto&#x7684;&#x8BBE;&#x5907;&#xFF0C;&#x53D6;&#x6D88;&#x9009;&#x53D6;&#x4E3A;noauto&#x3002;</span>
+<span class="hljs-comment"># noauto &#x65E0;&#x6CD5;&#x4F7F;&#x7528;auto&#x52A0;&#x8F7D;&#x3002;</span>
+<span class="hljs-comment"># suid &#x542F;&#x52A8;set-user-identifier&#x8BBE;&#x7F6E;&#x7528;&#x6237;ID&#x4E0E;set-group-identifer&#x8BBE;&#x7F6E;&#x7EC4;ID&#x8BBE;&#x7F6E;&#x4F4D;&#xFF0C;&#x53D6;&#x6D88;&#x9009;&#x9879;&#x4E3A;nosuid&#x3002;</span>
+<span class="hljs-comment"># nosuid &#x5173;&#x95ED;set-user-identifier&#x8BBE;&#x7F6E;&#x7528;&#x6237;ID&#x4E0E;set-group-identifer&#x8BBE;&#x7F6E;&#x7EC4;ID&#x8BBE;&#x7F6E;&#x4F4D;&#x3002;</span>
+<span class="hljs-comment"># user &#x666E;&#x901A;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x52A0;&#x8F7D;&#x64CD;&#x4F5C;&#x3002;</span>
+<span class="hljs-comment"># nouser &#x666E;&#x901A;&#x7528;&#x6237;&#x65E0;&#x6CD5;&#x6267;&#x884C;&#x52A0;&#x8F7D;&#x64CD;&#x4F5C;&#xFF0C;&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#x3002;</span>
+<span class="hljs-comment"># remount &#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x8BBE;&#x5907;&#x3002;&#x901A;&#x5E38;&#x7528;&#x4E8E;&#x6539;&#x53D8;&#x8BBE;&#x5907;&#x7684;&#x8BBE;&#x7F6E;&#x72B6;&#x6001;&#x3002;</span>
+<span class="hljs-comment"># rsize &#x8BFB;&#x53D6;&#x6570;&#x636E;&#x7F13;&#x51B2;&#x5927;&#x5C0F;&#xFF0C;&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;1024&#x3002;&#x2013;&#x5F71;&#x54CD;&#x6027;&#x80FD;</span>
+<span class="hljs-comment"># wsize &#x5199;&#x5165;&#x6570;&#x636E;&#x7F13;&#x51B2;&#x5927;&#x5C0F;&#xFF0C;&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;1024&#x3002;</span>
+<span class="hljs-comment"># fg &#x4EE5;&#x524D;&#x53F0;&#x5F62;&#x5F0F;&#x6267;&#x884C;&#x6302;&#x8F7D;&#x64CD;&#x4F5C;&#xFF0C;&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#x3002;&#x5728;&#x6302;&#x8F7D;&#x5931;&#x8D25;&#x65F6;&#x4F1A;&#x5F71;&#x54CD;&#x6B63;&#x5E38;&#x64CD;&#x4F5C;&#x54CD;&#x5E94;&#x3002;</span>
+<span class="hljs-comment"># bg &#x4EE5;&#x540E;&#x53F0;&#x5F62;&#x5F0F;&#x6267;&#x884C;&#x6302;&#x8F7D;&#x64CD;&#x4F5C;&#x3002;</span>
+<span class="hljs-comment"># hard &#x786C;&#x5F0F;&#x6302;&#x8F7D;&#xFF0C;&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#x3002;&#x5982;&#x679C;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x901A;&#x8BAF;&#x5931;&#x8D25;&#xFF0C;&#x8BA9;&#x8BD5;&#x56FE;&#x8BBF;&#x95EE;&#x5B83;&#x7684;&#x64CD;&#x4F5C;&#x88AB;&#x963B;&#x585E;&#xFF0C;&#x76F4;&#x5230;&#x670D;&#x52A1;&#x5668;&#x6062;&#x590D;&#x4E3A;&#x6B62;&#x3002;</span>
+<span class="hljs-comment"># soft &#x8F6F;&#x5F0F;&#x6302;&#x8F7D;&#x3002;&#x670D;&#x52A1;&#x5668;&#x901A;&#x8BAF;&#x5931;&#x8D25;&#xFF0C;&#x8BA9;&#x8BD5;&#x56FE;&#x8BBF;&#x95EE;&#x5B83;&#x7684;&#x64CD;&#x4F5C;&#x5931;&#x8D25;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x6761;&#x51FA;&#x9519;&#x6D88;&#x606F;&#x3002;&#x8FD9;&#x9879;&#x529F;&#x80FD;&#x5BF9;&#x4E8E;&#x907F;&#x514D;&#x8FDB;&#x7A0B;&#x6302;&#x5728;&#x65E0;&#x5173;&#x7D27;&#x8981;&#x7684;&#x5B89;&#x88C5;&#x64CD;&#x4F5C;&#x4E0A;&#x6765;&#x8BF4;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;</span>
+<span class="hljs-comment"># retrans=n &#x6307;&#x5B9A;&#x5728;&#x4EE5;&#x8F6F;&#x65B9;&#x5F0F;&#x5B89;&#x88C5;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E0A;&#xFF0C;&#x5728;&#x8FD4;&#x56DE;&#x4E00;&#x6761;&#x51FA;&#x9519;&#x6D88;&#x606F;&#x4E4B;&#x524D;&#x91CD;&#x590D;&#x53D1;&#x51FA;&#x8BF7;&#x6C42;&#x7684;&#x6B21;&#x6570;&#x3002;</span>
+<span class="hljs-comment"># nointr &#x4E0D;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x4E2D;&#x65AD;&#xFF0C;&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#x3002;</span>
+<span class="hljs-comment"># intr &#x5141;&#x8BB8;&#x7528;&#x6237;&#x4E2D;&#x65AD;&#x88AB;&#x963B;&#x585E;&#x7684;&#x64CD;&#x4F5C;&#x5E76;&#x4E14;&#x8BA9;&#x5B83;&#x4EEC;&#x8FD4;&#x56DE;&#x4E00;&#x6761;&#x51FA;&#x9519;&#x6D88;&#x606F;&#x3002;</span>
+<span class="hljs-comment"># timeo=n &#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x4EE5;&#x5341;&#x5206;&#x4E4B;&#x4E00;&#x79D2;&#x4E3A;&#x5355;&#x4F4D;&#x3002;</span>
+<span class="hljs-comment"># tcp &#x4F20;&#x8F93;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;udp,&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x4E0D;&#x7A33;&#x5B9A;&#xFF0C;&#x4F7F;&#x7528;proto=tcp&#x66F4;&#x6539;&#x4F20;&#x8F93;&#x534F;&#x8BAE;&#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x53C2;&#x8003;mountproto=netid</span>
+<span class="hljs-comment"># &#xFF08;&#x4EE5;&#x4E0A;&#x5185;&#x5BB9;&#xFF1A;&#x53C2;&#x8003;&#xFF1A;man nfs&#xFF09;</span>
+</code></pre>
+</li>
+<li><p>&#x91CD;&#x542F;&#x670D;&#x52A1;</p>
+<pre><code class="lang-bash">systemctl restart nfs
+</code></pre>
+</li>
+<li>&#x68C0;&#x67E5;&#x672C;&#x5730;&#x5171;&#x4EAB;&#x76EE;&#x5F55;<pre><code class="lang-bash">showmount <span class="hljs-_">-e</span> localhost
+Export list <span class="hljs-keyword">for</span> localhost:
+/data 192.168.0.0/24
+</code></pre>
+</li>
+<li><p>&#x4FEE;&#x6539;&#x670D;&#x52A1;&#x7AEF;&#x76EE;&#x5F55;&#x6743;&#x9650;
+&#x7531;&#x4E8E; NFS &#x540C;&#x6B65;&#x6587;&#x4EF6;&#x65F6;&#x53EA;&#x80FD;&#x540C;&#x6B65;&#x6587;&#x4EF6;&#x7684;&#x7528;&#x6237; uid &#x800C;&#x65E0;&#x6CD5;&#x540C;&#x6B65;&#x7528;&#x6237;&#x540D;&#xFF0C;&#x6240;&#x4EE5;&#x6240;&#x6709;&#x7528;&#x6237; UID &#x9700;&#x8981;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x56E0;&#x4E3A;&#x6743;&#x9650;&#x95EE;&#x9898;&#x800C;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x3002;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x521B;&#x5EFA; nginx &#x7528;&#x6237;&#x4E14;&#x4E0D;&#x80FD;&#x767B;&#x5F55;&#x3002;false==nologin</span>
+useradd -m -U <span class="hljs-_">-d</span> /home/nginx <span class="hljs-_">-s</span> /bin/<span class="hljs-literal">false</span> nginx
+
+<span class="hljs-comment"># &#x4FEE;&#x6539;&#x7528;&#x6237; UID</span>
+usermod -u 666 nginx
+
+<span class="hljs-comment"># &#x4FEE;&#x6539;&#x7528;&#x6237; GID</span>
+groupmod -g 6666 nginx
+
+<span class="hljs-comment"># &#x62D2;&#x7EDD;&#x7CFB;&#x7EDF;&#x7528;&#x6237;&#x767B;&#x5F55;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5176;shell&#x8BBE;&#x7F6E;&#x4E3A;/usr/sbin/nologin&#x6216;&#x8005;/bin/false</span>
+usermod <span class="hljs-_">-s</span> | --shell /usr/sbin/nologin nginx
+
+<span class="hljs-comment"># or  {nologin&#x4F1A;&#x793C;&#x8C8C;&#x7684;&#x5411;&#x7528;&#x6237;&#x663E;&#x793A;&#x4E00;&#x6761;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x62D2;&#x7EDD;&#x7528;&#x6237;&#x767B;&#x5F55;&#xFF0C;&#x4FE1;&#x606F;&#x5728;/etc/}</span>
+usermod <span class="hljs-_">-s</span> | -shell /bin/<span class="hljs-literal">false</span> nginx
+
+<span class="hljs-comment"># &#x9501;&#x5B9A;&#x7528;&#x6237;&#x8D26;&#x6237;</span>
+passwd <span class="hljs-_">-l</span> | --lock username
+
+<span class="hljs-comment"># &#x89E3;&#x9501;&#x7528;&#x6237;&#x8D26;&#x6237;</span>
+passwd -u | --unlock username
+
+<span class="hljs-comment"># &#x5220;&#x9664;&#x7528;&#x6237;&#x5BC6;&#x7801;</span>
+passwd <span class="hljs-_">-d</span> | --delete username
+
+<span class="hljs-comment"># /etc/nologin&#xFF1A;</span>
+<span class="hljs-comment"># &#x5982;&#x679C;&#x5B58;&#x5728;/etc/nologin&#x6587;&#x4EF6;&#xFF0C;&#x5219;&#x7CFB;&#x7EDF;&#x53EA;&#x5141;&#x8BB8;root&#x7528;&#x6237;&#x767B;&#x5F55;&#xFF0C;&#x5176;&#x4ED6;&#x7528;&#x6237;&#x5168;&#x90E8;&#x88AB;&#x62D2;&#x7EDD;&#x767B;&#x5F55;&#xFF0C;&#x5E76;&#x5411;&#x4ED6;&#x4EEC;&#x663E;&#x793A;/etc/nologin&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x3002;</span>
+</code></pre>
+<blockquote>
+<p>&#x8FD9;&#x6837;&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#x5C31;&#x914D;&#x7F6E;&#x597D;&#x4E86;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x914D;&#x7F6E;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x8FDE;&#x63A5;&#x670D;&#x52A1;&#x7AEF;&#xFF0C;&#x4F7F;&#x7528;&#x5171;&#x4EAB;&#x76EE;&#x5F55;&#x3002;</p>
+</blockquote>
+<p><a href="https://www.cnblogs.com/EasonJim/p/7158491.html" target="_blank">&#x8BE6;&#x7EC6;&#x7684;&#x7528;&#x6237;&#x64CD;&#x4F5C;&#x547D;&#x4EE4;</a></p>
+</li>
+</ul>
+<h2 id="&#x5BA2;&#x6237;&#x7AEF;"><a name="&#x5BA2;&#x6237;&#x7AEF;" class="plugin-anchor" href="#&#x5BA2;&#x6237;&#x7AEF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5BA2;&#x6237;&#x7AEF;</h2>
+<h3 id="&#x5BA2;&#x6237;&#x7AEF;&#x5B89;&#x88C5;"><a name="&#x5BA2;&#x6237;&#x7AEF;&#x5B89;&#x88C5;" class="plugin-anchor" href="#&#x5BA2;&#x6237;&#x7AEF;&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5BA2;&#x6237;&#x7AEF;&#x5B89;&#x88C5;</h3>
+<ul>
+<li>&#x4E0E;&#x670D;&#x52A1;&#x7AEF;&#x7C7B;&#x4F3C;<pre><code class="lang-bash">yum install nfs-utils
+</code></pre>
+<h3 id="&#x5BA2;&#x6237;&#x7AEF;&#x914D;&#x7F6E;"><a name="&#x5BA2;&#x6237;&#x7AEF;&#x914D;&#x7F6E;" class="plugin-anchor" href="#&#x5BA2;&#x6237;&#x7AEF;&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5BA2;&#x6237;&#x7AEF;&#x914D;&#x7F6E;</h3>
+</li>
+<li>&#x8BBE;&#x7F6E; rpcbind &#x670D;&#x52A1;&#x7684;&#x5F00;&#x673A;&#x81EA;&#x542F;&#x5E76;&#x542F;&#x52A8;<pre><code class="lang-bash">systemctl <span class="hljs-built_in">enable</span> --now rpcbind
+</code></pre>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#x4E0D;&#x9700;&#x8981;&#x6253;&#x5F00;&#x9632;&#x706B;&#x5899;&#xFF0C;&#x56E0;&#x4E3A;&#x5BA2;&#x6237;&#x7AEF;&#x65F6;&#x53D1;&#x51FA;&#x8BF7;&#x6C42;&#x65B9;&#xFF0C;&#x7F51;&#x7EDC;&#x80FD;&#x8FDE;&#x63A5;&#x5230;&#x670D;&#x52A1;&#x7AEF;&#x5373;&#x53EF;&#x3002; &#x5BA2;&#x6237;&#x7AEF;&#x4E5F;&#x4E0D;&#x9700;&#x8981;&#x5F00;&#x542F; NFS &#x670D;&#x52A1;&#xFF0C;&#x56E0;&#x4E3A;&#x4E0D;&#x5171;&#x4EAB;&#x76EE;&#x5F55;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;-nfs"><a name="&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;-nfs" class="plugin-anchor" href="#&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;-nfs"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5; NFS</h3>
+<ul>
+<li>&#x5148;&#x67E5;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x5171;&#x4EAB;&#x76EE;&#x5F55;<pre><code class="lang-bash">[root@nginx-node-1 mnt]<span class="hljs-comment"># showmount -e 192.168.0.199</span>
+Export list <span class="hljs-keyword">for</span> 192.168.0.199:
+/mnt 192.168.0.0/24
+</code></pre>
+</li>
+<li><p>&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x6302;&#x8F7D; NFS</p>
+<pre><code class="lang-bash">mount -t nfs -o sync 192.168.0.199:/src /dest
+
+<span class="hljs-comment"># &#x6CE8;&#x610F;&#xFF1A;&#x5982;&#x679C;&#x6CA1;&#x6709; -o sync &#x9009;&#x9879;&#xFF0C;&#x5219;&#x4F1A;&#x9020;&#x6210;&#x5728; nfs &#x670D;&#x52A1;&#x7AEF;&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x65E0;&#x6CD5;&#x53CA;&#x65F6;&#x540C;&#x6B65;&#x7684;&#x95EE;&#x9898;&#x3002;</span>
+<span class="hljs-comment"># -o &#x9009;&#x9879;&#xFF1A;[default:async]/sync &#x5F02;&#x6B65;&#x5199;&#x5165;/&#x540C;&#x6B65;&#x5199;&#x5165;&#x78C1;&#x76D8;&#x3002;</span>
+<span class="hljs-comment"># defauts &#x9ED8;&#x8BA4;&#x503C;&#xFF1A;rw,suid,dev,exec,auto,async,nouser&#x3002;</span>
+
+<span class="hljs-comment"># &#x5199;&#x5165; fstab &#x6587;&#x4EF6;&#x5B9E;&#x73B0;&#x5F00;&#x673A;&#x6302;&#x8F7D;</span>
+<span class="hljs-comment"># vim /etc/fstab</span>
+<span class="hljs-comment"># 192.168.0.199:/mnt/www/html /var/www/html        nfs     rw,suid,dev,exec,auto,sync,nouser        0 0</span>
+</code></pre>
+<p>&#x6302;&#x8F7D;&#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; mount &#x547D;&#x4EE4;&#x67E5;&#x770B;&#x4E00;&#x4E0B;</p>
+<pre><code class="lang-bash">[root@nginx-node-1 mnt]<span class="hljs-comment"># mount</span>
+...
+...
+...
+192.168.0.199:/mnt on /mnt <span class="hljs-built_in">type</span> nfs4 (rw,relatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,port=0,timeo=600,retrans=2,sec=sys,clientaddr=192.168.0.95,<span class="hljs-built_in">local</span>_lock=none,addr=192.168.0.199)
+[root@nginx-node-1 mnt]<span class="hljs-comment">#</span>
+</code></pre>
+<blockquote>
+<p>&#x8FD9;&#x8BF4;&#x660E;&#x5DF2;&#x7ECF;&#x6302;&#x8F7D;&#x6210;&#x529F;&#x4E86;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="&#x6D4B;&#x8BD5;-nfs"><a name="&#x6D4B;&#x8BD5;-nfs" class="plugin-anchor" href="#&#x6D4B;&#x8BD5;-nfs"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6D4B;&#x8BD5; NFS</h3>
+<ul>
+<li><p>&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x5411;&#x5171;&#x4EAB;&#x76EE;&#x5F55;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;</p>
+<pre><code class="lang-bash">[root@nginx-node-1 mnt]<span class="hljs-comment"># touch www/nfs.test</span>
+</code></pre>
+<p>&#x4E4B;&#x540E;&#x53D6; NFS &#x670D;&#x52A1;&#x7AEF; 192.168.0.199 &#x67E5;&#x770B;&#x4E00;&#x4E0B;</p>
+<pre><code class="lang-bash">[root@nfs-node-1 mnt]<span class="hljs-comment"># ll www/</span>
+total 0
+drwxr-xr-x 2 nginx nginx 6 Aug 18 16:13 html
+-rw-r--r-- 1 root  root  0 Aug 18 18:04 nfs.test
+[root@nfs-node-1 mnt]<span class="hljs-comment">#</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5171;&#x4EAB;&#x76EE;&#x5F55;&#x5DF2;&#x7ECF;&#x5199;&#x5165;&#x4E86;&#x3002;</p>
+</li>
+</ul>
+<h3 id="&#x5BA2;&#x6237;&#x7AEF;&#x81EA;&#x52A8;&#x6302;&#x8F7D;"><a name="&#x5BA2;&#x6237;&#x7AEF;&#x81EA;&#x52A8;&#x6302;&#x8F7D;" class="plugin-anchor" href="#&#x5BA2;&#x6237;&#x7AEF;&#x81EA;&#x52A8;&#x6302;&#x8F7D;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5BA2;&#x6237;&#x7AEF;&#x81EA;&#x52A8;&#x6302;&#x8F7D;</h3>
+<ul>
+<li>&#x81EA;&#x52A8;&#x6302;&#x8F7D;&#x5F88;&#x5E38;&#x7528;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x8BBE;&#x7F6E;&#x4E00;&#x4E0B;&#x5373;&#x53EF;&#x3002;<pre><code class="lang-bash">vim /etc/fstab
+</code></pre>
+</li>
+<li><p>&#x5728;&#x7ED3;&#x5C3E;&#x6DFB;&#x52A0;&#x7C7B;&#x4F3C;&#x5982;&#x4E0B;&#x914D;&#x7F6E;</p>
+<pre><code class="lang-conf">#
+# /etc/fstab
+# Created by anaconda on Fri Aug 16 10:09:51 2019
+# Accessible filesystems, by reference, are maintained under &apos;/dev/disk&apos;
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+/dev/mapper/centos-root /                        xfs     defaults        0 0
+UUID=164e49a9-51a3-4a39-871e-86c5fc5bab32 /boot  xfs     defaults        0 0
+/dev/mapper/centos-swap swap                     swap    defaults        0 0
+192.168.0.199:/mnt /mnt                          nfs     defaults        0 0
+</code></pre>
+</li>
+<li>&#x91CD;&#x65B0;&#x52A0;&#x8F7D; systemctl
+&#x7531;&#x4E8E;&#x4FEE;&#x6539;&#x4E86; /etc/fstab&#xFF0C;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x52A0;&#x8F7D; systemctl&#x3002;<pre><code class="lang-bash">systemctl daemon-reload
+</code></pre>
+</li>
+<li>&#x67E5;&#x770B;&#x6302;&#x8F7D;&#x70B9;<pre><code class="lang-bash">[root@nginx-node-1 mnt]<span class="hljs-comment"># mount</span>
+...
+...
+...
+192.168.0.199:/mnt on /mnt <span class="hljs-built_in">type</span> nfs4 (rw,relatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,port=0,timeo=600,retrans=2,sec=sys,clientaddr=192.168.0.95,<span class="hljs-built_in">local</span>_lock=none,addr=192.168.0.199)
+[root@nginx-node-1 mnt]<span class="hljs-comment">#</span>
+</code></pre>
+<blockquote>
+<p>&#x6B64;&#x65F6;&#x5DF2;&#x7ECF;&#x542F;&#x52A8;&#x597D;&#x4E86;&#x3002;&#x5982;&#x679C;&#x5B9E;&#x5728;&#x4E0D;&#x653E;&#x5FC3;&#xFF0C;&#x53EF;&#x4EE5;&#x91CD;&#x542F;&#x4E00;&#x4E0B;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x4E4B;&#x540E;&#x518D;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="&#x76F8;&#x5173;&#x94FE;&#x63A5;"><a name="&#x76F8;&#x5173;&#x94FE;&#x63A5;" class="plugin-anchor" href="#&#x76F8;&#x5173;&#x94FE;&#x63A5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x76F8;&#x5173;&#x94FE;&#x63A5;</h2>
+<p>  <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-nfs" target="_blank">Chapter 8. Network File System (NFS) - Red Hat Customer Portal</a>
+  <a href="https://www.unixmen.com/setting-nfs-server-client-centos-7/" target="_blank">Setting Up NFS Server And Client On CentOS 7</a>
+  <a href="https://qizhanming.com/blog/2018/08/08/how-to-install-nfs-on-centos-7" target="_blank">CentOS 7 &#x4E0B; yum &#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E; NFS</a>
+  <a href="https://blog.csdn.net/sahusoft/article/details/8629928" target="_blank">NFS&#x5237;&#x65B0;&#xFF08;&#x540C;&#x6B65;&#xFF09;</a></p>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="apacheTomcat.html" class="navigation navigation-prev " aria-label="Previous page: apache + Tomcat">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="keepalived.html" class="navigation navigation-next " aria-label="Next page: keepalived 在 centOS7 安装">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"NFS 在 centOS7 下 yum 安装","level":"1.3.4","depth":2,"next":{"title":"keepalived 在 centOS7 安装","level":"1.3.5","depth":2,"path":"software/keepalived.md","ref":"software/keepalived.md","articles":[]},"previous":{"title":"apache + Tomcat","level":"1.3.3","depth":2,"path":"software/apacheTomcat.md","ref":"software/apacheTomcat.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-toc","mathjax","-lunr","-search","search-plus","github","todo","terminal","anchors","edit-link","image-captions","image-wrapper","popup","custom-favicon"],"root":".","styles":{"website":"assets/css/WebStyle.css","pdf":"assets/css/PdfStyle.css","mobi":"assets/css/MobiStyle.css","epub":"assets/css/EpubStyle.css"},"pluginsConfig":{"image-wrapper":{},"github":{"url":"https://github.com/renkeju/gitbook-template"},"todo":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.png","custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"terminal":{"copyButtons":true,"fade":true,"style":"flat"},"edit-link":{"label":"编辑这个页面","base":"https://github.com/renkeju/gitbook-template/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{},"image-captions":{"caption":"图 _PAGE_LEVEL_ - _CAPTION_ ","images":{"1.1.1":{"skip":true},"1.1.2":{"skip":true}},"variable_name":"_pictures"}},"theme":"default","author":"clement","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"network/2.TcpProts.html#fig1.2.2.1","level":"1.2.2","list_caption":"Figure: TCP协议族","alt":"TCP协议族","nro":1,"url":"/images/networks/TcpIpProtocols/TCPIP协议族.jpg","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议族","attributes":{},"title":"TCP协议族","skip":false,"key":"1.2.2.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: TCP协议工作机制","alt":"TCP协议工作机制","nro":2,"url":"/images/networks/CommunicationProtocol/TCP状态转换图.PNG","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议工作机制","attributes":{},"title":"TCP协议工作机制","skip":false,"key":"1.2.3.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.2","level":"1.2.3","list_caption":"Figure: TCP数据包头格式","alt":"TCP数据包头格式","nro":3,"url":"/images/networks/CommunicationProtocol/TCP数据包头格式.gif","index":2,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP数据包头格式","attributes":{},"title":"TCP数据包头格式","skip":false,"key":"1.2.3.2"}]},"title":"An Introduction to Linux Basics","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":"https://www.baidu.com/"},"gitbook":false,"sharing":{"twitter":false,"facebook":false,"all":false}},"gitbook":"3.2.3"},"file":{"path":"software/nfsforcentos7.md","mtime":"2020-02-24T08:04:36.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-24T08:05:26.750Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-terminal/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,4 @@
+- name: AppQianjiService Install
+  hosts: uat
+  roles:
+  - role: AppQianjiService

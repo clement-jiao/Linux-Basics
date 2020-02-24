@@ -1,0 +1,761 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>VMware 网络模型 · An Introduction to Linux Basics</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="clement">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-terminal/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../software/software.html" />
+    
+    
+    <link rel="prev" href="5.win2008.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://www.baidu.com/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="network.html">
+            
+                <a href="network.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="1.Network-Basics.html">
+            
+                <a href="1.Network-Basics.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="2.TcpProts.html">
+            
+                <a href="2.TcpProts.html">
+            
+                    
+                    TCP/IP协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="3.CommProt.html">
+            
+                <a href="3.CommProt.html">
+            
+                    
+                    网络通讯协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="4.NTM.html">
+            
+                <a href="4.NTM.html">
+            
+                    
+                    网络传输介质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="5.win2008.html">
+            
+                <a href="5.win2008.html">
+            
+                    
+                    winServe 2008
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.6" data-path="6.VmwareNetAd.html">
+            
+                <a href="6.VmwareNetAd.html">
+            
+                    
+                    VMware 网络模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../software/software.html">
+            
+                <a href="../software/software.html">
+            
+                    
+                    基础服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../software/dnsmasq.html">
+            
+                <a href="../software/dnsmasq.html">
+            
+                    
+                    DNS - dnsmasq
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../software/lamp.html">
+            
+                <a href="../software/lamp.html">
+            
+                    
+                    LAMP - yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../software/apacheTomcat.html">
+            
+                <a href="../software/apacheTomcat.html">
+            
+                    
+                    apache + Tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../software/nfsforcentos7.html">
+            
+                <a href="../software/nfsforcentos7.html">
+            
+                    
+                    NFS 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../software/keepalived.html">
+            
+                <a href="../software/keepalived.html">
+            
+                    
+                    keepalived 在 centOS7 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../software/haproxy1.8.html">
+            
+                <a href="../software/haproxy1.8.html">
+            
+                    
+                    HAProxy1.8 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../software/perconaCluster.html">
+            
+                <a href="../software/perconaCluster.html">
+            
+                    
+                    Percona 搭建高可用的 MySQL 数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../software/software.html">
+            
+                <a href="../software/software.html">
+            
+                    
+                    zabbix
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../zabbix/nginx.html">
+            
+                <a href="../zabbix/nginx.html">
+            
+                    
+                    nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../zabbix/php-fpm.html">
+            
+                <a href="../zabbix/php-fpm.html">
+            
+                    
+                    php-fpm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../CentOS7/system.html">
+            
+                <a href="../CentOS7/system.html">
+            
+                    
+                    CentOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../otherSys/otherSys.html">
+            
+                <a href="../otherSys/otherSys.html">
+            
+                    
+                    其他系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../otherSys/alpineLinux.html">
+            
+                <a href="../otherSys/alpineLinux.html">
+            
+                    
+                    alpine Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../VScode/VScode.html">
+            
+                <a href="../VScode/VScode.html">
+            
+                    
+                    VScode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../VScode/settingSync.html">
+            
+                <a href="../VScode/settingSync.html">
+            
+                    
+                    Settings Sync插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >VMware 网络模型</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+ * @Description:
+ * @Author: 焦国峰
+ * @Github: https://github.com/clement-jiao
+ * @Date: 2019-08-13 15:07:12
+ * @LastEditors: clement-jiao
+ * @LastEditTime: 2019-08-13 22:30:35
+ -->
+<h2 id="vmware-&#x7F51;&#x7EDC;&#x6A21;&#x578B;"><a name="vmware-&#x7F51;&#x7EDC;&#x6A21;&#x578B;" class="plugin-anchor" href="#vmware-&#x7F51;&#x7EDC;&#x6A21;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>VMware &#x7F51;&#x7EDC;&#x6A21;&#x578B;</h2>
+<h3 id="&#x642C;&#x8FD0;&#x5730;&#x5740;"><a name="&#x642C;&#x8FD0;&#x5730;&#x5740;" class="plugin-anchor" href="#&#x642C;&#x8FD0;&#x5730;&#x5740;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x642C;&#x8FD0;&#x5730;&#x5740;</h3>
+<ol>
+<li><a href="https://blog.csdn.net/dengjin20104042056/article/details/95023540" target="_blank">&quot;VM&#x4E09;&#x79CD;&#x7F51;&#x7EDC;&#x6A21;&#x5F0F;&quot;</a></li>
+<li><a href="https://www.cnblogs.com/bakari/p/10592421.html" target="_blank">&quot;VM&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#x8BE6;&#x89E3;&quot;</a></li>
+</ol>
+<h3 id="&#x56DB;&#x79CD;&#x5E38;&#x89C1;&#x7F51;&#x7EDC;&#x6A21;&#x578B;"><a name="&#x56DB;&#x79CD;&#x5E38;&#x89C1;&#x7F51;&#x7EDC;&#x6A21;&#x578B;" class="plugin-anchor" href="#&#x56DB;&#x79CD;&#x5E38;&#x89C1;&#x7F51;&#x7EDC;&#x6A21;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x56DB;&#x79CD;&#x5E38;&#x89C1;&#x7F51;&#x7EDC;&#x6A21;&#x578B;</h3>
+<p>  &#x603B;&#x7684;&#x6765;&#x8BF4;&#xFF0C;&#x76EE;&#x524D;&#x6709;&#x56DB;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#xFF1A;</p>
+<ul>
+<li>&#x6865;&#x63A5;&#xFF08;Bridge Adapter&#xFF09;</li>
+<li>NAT</li>
+<li>&#x4E3B;&#x673A;&#xFF08;Host-only Adapter&#xFF09;</li>
+<li>&#x5185;&#x90E8;&#x7F51;&#x7EDC;&#xFF08;Internal&#xFF09;
+&#x8FD9;&#x4E5F;&#x662F; VirtualBox &#x652F;&#x6301;&#x7684;&#x56DB;&#x79CD;&#x6A21;&#x578B;&#xFF0C;&#x5BF9;&#x4E8E; VMware&#xFF0C;&#x5219;&#x53EA;&#x6709;&#x524D;&#x4E09;&#x79CD;&#x3002;
+&#x4E0B;&#x56FE;&#x663E;&#x793A;&#x4E86; VirtualBox &#x652F;&#x6301;&#x7684;&#x51E0;&#x79CD;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#xFF1A;
+<div class="image-wrapper"><img src="../images/networks/VMwareNetAd/virtualBox&#x7F51;&#x7EDC;&#x6A21;&#x578B;.png" alt="&quot;VirtualBox&#x7F51;&#x7EDC;&#x6A21;&#x578B;&quot;"></div></li>
+</ul>
+<h3 id="1&#x6865;&#x63A5;&#xFF08;bridge-adapter&#xFF09;"><a name="1&#x6865;&#x63A5;&#xFF08;bridge-adapter&#xFF09;" class="plugin-anchor" href="#1&#x6865;&#x63A5;&#xFF08;bridge-adapter&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>1.&#x6865;&#x63A5;&#xFF08;Bridge Adapter&#xFF09;</h3>
+<p>&#x865A;&#x62DF;&#x673A;&#x6865;&#x63A5;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#x5C31;&#x662F;&#x4F7F;&#x7528;&#x865A;&#x62DF;&#x4EA4;&#x6362;&#x673A;&#xFF08;Linux Bridge&#xFF09;&#xFF0C;&#x5C06;&#x865A;&#x62DF;&#x673A;&#x548C;&#x7269;&#x7406;&#x673A;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#xFF0C;&#x5B83;&#x4EEC;&#x5904;&#x4E8E;&#x540C;&#x4E00;&#x4E2A;&#x7F51;&#x6BB5;&#xFF0C;IP &#x5730;&#x5740;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;
+  <div class="image-wrapper"><img src="../images/networks/VMwareNetAd/&#x6865;&#x63A5;&#x6A21;&#x5F0F;.png" alt="&quot;&#x6865;&#x63A5;&#x6A21;&#x5F0F;&quot;"></div></p>
+<blockquote>
+<p>&#x5728;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;VMWare&#x865A;&#x62DF;&#x51FA;&#x6765;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5C31;&#x50CF;&#x662F;&#x5C40;&#x57DF;&#x7F51;&#x4E2D;&#x7684;&#x4E00;&#x53F0;&#x72EC;&#x7ACB;&#x7684;&#x4E3B;&#x673A;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x7F51;&#x5185;&#x4EFB;&#x4F55;&#x4E00;&#x53F0;&#x673A;&#x5668;&#x3002;</p>
+<p>&#x5728;&#x6865;&#x63A5;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x624B;&#x5DE5;&#x4E3A;&#x865A;&#x62DF;&#x7CFB;&#x7EDF;&#x914D;&#x7F6E;IP&#x5730;&#x5740;&#x3001;&#x5B50;&#x7F51;&#x63A9;&#x7801;&#xFF0C;&#x800C;&#x4E14;&#x8FD8;&#x8981;&#x548C;&#x5BBF;&#x4E3B;&#x673A;&#x5668;&#x5904;&#x4E8E;&#x540C;&#x4E00;&#x7F51;&#x6BB5;&#xFF0C;&#x8FD9;&#x6837;&#x865A;&#x62DF;&#x7CFB;&#x7EDF;&#x624D;&#x80FD;&#x548C;&#x5BBF;&#x4E3B;&#x673A;&#x5668;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x3002;
+&#x540C;&#x65F6;&#xFF0C;&#x7531;&#x4E8E;&#x8FD9;&#x4E2A;&#x865A;&#x62DF;&#x7CFB;&#x7EDF;&#x662F;&#x5C40;&#x57DF;&#x7F51;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x4E3B;&#x673A;&#x7CFB;&#x7EDF;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x53EF;&#x4EE5;&#x624B;&#x5DE5;&#x914D;&#x7F6E;&#x5B83;&#x7684;TCP/IP&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#xFF0C;&#x4EE5;&#x5B9E;&#x73B0;&#x901A;&#x8FC7;&#x5C40;&#x57DF;&#x7F51;&#x7684;&#x7F51;&#x5173;&#x6216;&#x8DEF;&#x7531;&#x5668;&#x8BBF;&#x95EE;&#x4E92;&#x8054;&#x7F51;&#x3002;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+</blockquote>
+<p>  <div class="image-wrapper"><img src="../images/networks/VMwareNetAd/&#x6865;&#x63A5;&#x6A21;&#x5F0F;&#x8BE6;&#x89E3;.png" alt="&quot;&#x6865;&#x63A5;&#x6A21;&#x5F0F;&#x8BE6;&#x89E3;&quot;"></div></p>
+<blockquote>
+<p>&#x4F7F;&#x7528;&#x6865;&#x63A5;&#x6A21;&#x5F0F;&#x7684;&#x865A;&#x62DF;&#x7CFB;&#x7EDF;&#x548C;&#x5BBF;&#x4E3B;&#x673A;&#x5668;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x5C31;&#x50CF;&#x8FDE;&#x63A5;&#x5728;&#x540C;&#x4E00;&#x4E2A;Hub&#x4E0A;&#x7684;&#x4E24;&#x53F0;&#x7535;&#x8111;&#x3002;&#x60F3;&#x8BA9;&#x5B83;&#x4EEC;&#x76F8;&#x4E92;&#x901A;&#x8BAF;&#xFF0C;&#x4F60;&#x5C31;&#x9700;&#x8981;&#x4E3A;&#x865A;&#x62DF;&#x7CFB;&#x7EDF;&#x914D;&#x7F6E;IP&#x5730;&#x5740;&#x548C;&#x5B50;&#x7F51;&#x63A9;&#x7801;&#xFF0C;&#x5426;&#x5219;&#x5C31;&#x65E0;&#x6CD5;&#x901A;&#x4FE1;&#x3002;</p>
+</blockquote>
+<p>&#x5728;&#x8FD9;&#x79CD;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#x4E0B;&#xFF0C;&#x865A;&#x62DF;&#x673A;&#x548C;&#x7269;&#x7406;&#x673A;&#x90FD;&#x5904;&#x5728;&#x4E00;&#x4E2A;&#x4E8C;&#x5C42;&#x7F51;&#x7EDC;&#x91CC;&#x9762;&#xFF0C;&#x6240;&#x4EE5;&#x6709;&#xFF1A;</p>
+<ul>
+<li>&#x865A;&#x62DF;&#x673A;&#x4E4B;&#x95F4;&#x5F7C;&#x6B64;&#x4E92;&#x901A;</li>
+<li>&#x865A;&#x62DF;&#x673A;&#x4E0E;&#x4E3B;&#x673A;&#x5F7C;&#x6B64;&#x53EF;&#x4EE5;&#x4E92;&#x901A;</li>
+<li><blockquote>
+<p>&#x6865;&#x63A5;&#x7F51;&#x7EDC;&#x7684;&#x597D;&#x5904;&#x662F;&#x7B80;&#x5355;&#x65B9;&#x4FBF;&#xFF0C;&#x4F46;&#x4E5F;&#x6709;&#x4E00;&#x4E2A;&#x5F88;&#x660E;&#x663E;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x662F;&#x4E00;&#x65E6;&#x865A;&#x62DF;&#x673A;&#x592A;&#x591A;&#xFF0C;&#x5E7F;&#x64AD;&#x5C31;&#x4F1A;&#x5F88;&#x4E25;&#x91CD;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6865;&#x63A5;&#x7F51;&#x7EDC;&#x4E00;&#x822C;&#x4E5F;&#x53EA;&#x9002;&#x7528;&#x4E8E;&#x684C;&#x9762;&#x865A;&#x62DF;&#x673A;&#x6216;&#x8005;&#x5C0F;&#x89C4;&#x6A21;&#x7F51;&#x7EDC;&#x8FD9;&#x79CD;&#x7B80;&#x5355;&#x7684;&#x5F62;&#x5F0F;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2-nat-network-address-translation&#x5373;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x8F6C;&#x6362;"><a name="2-nat-network-address-translation&#x5373;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x8F6C;&#x6362;" class="plugin-anchor" href="#2-nat-network-address-translation&#x5373;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x8F6C;&#x6362;"><i class="fa fa-link" aria-hidden="true"></i></a>2. NAT (Network Address Translation)&#x5373;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x8F6C;&#x6362;</h3>
+<p>&#x6865;&#x63A5;&#x6A21;&#x5F0F;&#x914D;&#x7F6E;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x7F51;&#x7EDC;&#x73AF;&#x5883;&#x662F;ip&#x8D44;&#x6E90;&#x5F88;&#x7F3A;&#x5C11;&#x6216;&#x5BF9;ip&#x7BA1;&#x7406;&#x6BD4;&#x8F83;&#x4E25;&#x683C;&#xFF0C;&#x90A3;&#x6865;&#x63A5;&#x6A21;&#x5F0F;&#x5C31;&#x4E0D;&#x592A;&#x9002;&#x7528;</p>
+<h4 id="nat"><a name="nat" class="plugin-anchor" href="#nat"><i class="fa fa-link" aria-hidden="true"></i></a>NAT</h4>
+<p>NAT&#x6A21;&#x5F0F;&#x501F;&#x52A9;&#x865A;&#x62DF;NAT&#x8BBE;&#x5907;&#x548C;&#x865A;&#x62DF;DHCP&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4F7F;&#x5F97;&#x865A;&#x62DF;&#x673A;&#x53EF;&#x4EE5;&#x8054;&#x7F51;&#x3002;&#x5176;&#x7F51;&#x7EDC;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p>  <div class="image-wrapper"><img src="../images/networks/VMwareNetAd/NAT&#x6A21;&#x5F0F;&#x8BE6;&#x89E3;.png" alt="&quot;NAT&#x6A21;&#x5F0F;&#x8BE6;&#x89E3;&quot;"></div></p>
+<blockquote>
+<p>&#x5728;NAT&#x6A21;&#x5F0F;&#x4E2D;&#xFF0C;&#x4E3B;&#x673A;&#x7F51;&#x5361;&#x76F4;&#x63A5;&#x4E0E;&#x865A;&#x62DF;NAT&#x8BBE;&#x5907;&#x76F8;&#x8FDE;&#xFF0C;&#x7136;&#x540E;&#x865A;&#x62DF;NAT&#x8BBE;&#x5907;&#x4E0E;&#x865A;&#x62DF;DHCP&#x670D;&#x52A1;&#x5668;&#x4E00;&#x8D77;&#x8FDE;&#x63A5;&#x5728;&#x865A;&#x62DF;&#x4EA4;&#x6362;&#x673A;VMnet8&#x4E0A;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x5B9E;&#x73B0;&#x4E86;&#x865A;&#x62DF;&#x673A;&#x8054;&#x7F51;&#x3002;</p>
+</blockquote>
+<h4 id="nat-&#x4E0E;nat-&#x7F51;&#x7EDC;"><a name="nat-&#x4E0E;nat-&#x7F51;&#x7EDC;" class="plugin-anchor" href="#nat-&#x4E0E;nat-&#x7F51;&#x7EDC;"><i class="fa fa-link" aria-hidden="true"></i></a>NAT &#x4E0E;NAT &#x7F51;&#x7EDC;</h4>
+<p>  &#x8FD9;&#x79CD;&#x6A21;&#x578B;&#x4E25;&#x683C;&#x6765;&#x8BB2;&#xFF0C;&#x53C8;&#x53EF;&#x4EE5;&#x5206;&#x4E3A; NAT &#x548C; NAT &#x7F51;&#x7EDC;&#x4E24;&#x79CD;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x4E0A;&#x9762;&#x7684;&#x56FE; 1 &#x4E5F;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x3002;
+&#x6839;&#x636E; NAT &#x7684;&#x539F;&#x7406;&#xFF0C;&#x865A;&#x62DF;&#x673A;&#x6240;&#x5728;&#x7684;&#x7F51;&#x7EDC;&#x548C;&#x7269;&#x7406;&#x673A;&#x6240;&#x5728;&#x7684;&#x7F51;&#x7EDC;&#x4E0D;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x7F51;&#x6BB5;&#xFF0C;&#x865A;&#x62DF;&#x673A;&#x8981;&#x8BBF;&#x95EE;&#x7269;&#x7406;&#x6240;&#x5728;&#x7F51;&#x7EDC;&#x5FC5;&#x987B;&#x7ECF;&#x8FC7;&#x4E00;&#x4E2A;&#x5730;&#x5740;&#x8F6C;&#x6362;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5728;&#x865A;&#x62DF;&#x673A;&#x7F51;&#x7EDC;&#x5185;&#x90E8;&#x9700;&#x8981;&#x5185;&#x7F6E;&#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x7684; NAT &#x8BBE;&#x5907;&#x6765;&#x505A;&#x8FD9;&#x4EF6;&#x4E8B;&#x3002;</p>
+<p>&#x4F46;&#x5176;&#x4E2D; NAT &#x548C; NAT &#x7F51;&#x7EDC; &#x4E24;&#x8005;&#x8FD8;&#x6709;&#x4E9B;&#x8BB8;&#x7684;&#x4E0D;&#x540C;&#xFF1A;</p>
+<ul>
+<li>NAT&#xFF1A;&#x4E3B;&#x673A;&#x4E0A;&#x7684;&#x865A;&#x62DF;&#x673A;&#x4E4B;&#x95F4;&#x662F;&#x4E92;&#x76F8;&#x9694;&#x79BB;&#x7684;&#xFF0C;&#x5F7C;&#x6B64;&#x4E0D;&#x80FD;&#x901A;&#x4FE1;&#xFF08;&#x5B83;&#x4EEC;&#x6709;&#x72EC;&#x7ACB;&#x7684;&#x7F51;&#x7EDC;&#x6808;&#xFF0C;&#x72EC;&#x7ACB;&#x7684;&#x865A;&#x62DF; NAT &#x8BBE;&#x5907;&#xFF09;</li>
+<li>NAT &#x7F51;&#x7EDC;&#xFF1A;&#x865A;&#x62DF;&#x673A;&#x4E4B;&#x95F4;&#x5171;&#x4EAB;&#x865A;&#x62DF; NAT &#x8BBE;&#x5907;&#xFF0C;&#x5F7C;&#x6B64;&#x4E92;&#x901A;&#x3002;</li>
+</ul>
+<p>&#x5982;&#x4E0B;&#x56FE;&#xFF0C;&#x5C55;&#x793A;&#x4E86;&#x4E24;&#x8005;&#x7EC6;&#x5FAE;&#x7684;&#x5DEE;&#x522B;&#xFF1A;
+  <div class="image-wrapper"><img src="../images/networks/VMwareNetAd/NAT&#x548C;NAT&#x7F51;&#x7EDC;.png" alt="&quot;NAT&#x548C;NAT&#x7F51;&#x7EDC;&quot;"></div></p>
+<blockquote>
+<p>NAT &#x7F51;&#x7EDC;&#x6A21;&#x5F0F;&#x4E2D;&#x4E00;&#x822C;&#x8FD8;&#x4F1A;&#x5185;&#x7F6E;&#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x7684; DHCP &#x670D;&#x52A1;&#x5668;&#x6765;&#x8FDB;&#x884C; IP &#x5730;&#x5740;&#x7684;&#x7BA1;&#x7406;&#x3002;</p>
+</blockquote>
+<p>&#x901A;&#x8FC7;&#x5B9E;&#x9A8C;&#x6765;&#x9A8C;&#x8BC1;&#x4E00;&#x4E0B;&#x4E24;&#x79CD;&#x6A21;&#x5F0F;&#x7684;&#x533A;&#x522B;&#xFF0C;&#x9996;&#x5148;&#x662F; NAT &#x6A21;&#x5F0F;&#xFF1A;
+  <div class="image-wrapper"><img src="../images/networks/VMwareNetAd/NAT&#x6A21;&#x5F0F;&#x9A8C;&#x8BC1;1.png" alt="&quot;NAT&#x6A21;&#x5F0F;&#x9A8C;&#x8BC1;1&quot;"></div></p>
+<p>&#x8BBF;&#x95EE;&#x5176;&#x4ED6;&#x865A;&#x62DF;&#x673A;&#xFF1A;
+  <div class="image-wrapper"><img src="../images/networks/VMwareNetAd/NAT&#x6A21;&#x5F0F;&#x9A8C;&#x8BC1;2.png" alt="&quot;NAT&#x6A21;&#x5F0F;&#x9A8C;&#x8BC1;2&quot;"></div></p>
+<blockquote>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x4E24;&#x4E2A;&#x865A;&#x62DF;&#x673A;&#x7531;&#x4E8E;&#x6709;&#x9694;&#x79BB;&#x7684;&#x7F51;&#x7EDC;&#x6808;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x4EEC;&#x7684; IP &#x5730;&#x5740;&#x5E76;&#x4E0D;&#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x6BB5;&#xFF0C;&#x6240;&#x4EE5; ping &#x4E0D;&#x901A;&#x3002;</p>
+</blockquote>
+<p>&#x518D;&#x770B; <strong>NAT</strong> &#x7F51;&#x7EDC;&#xFF0C;&#x8BBF;&#x95EE;&#x5916;&#x7F51;&#x540C;&#x6837;&#x6CA1;&#x95EE;&#x9898;&#xFF0C;&#x770B;&#x4E0B; <strong>VM</strong> &#x4E4B;&#x95F4;&#x7684;&#x4E92;&#x901A;&#xFF1A;
+  <div class="image-wrapper"><img src="../images/networks/VMwareNetAd/NAT&#x6A21;&#x5F0F;&#x9A8C;&#x8BC1;3.png" alt="&quot;NAT&#x6A21;&#x5F0F;&#x9A8C;&#x8BC1;3&quot;"></div></p>
+<blockquote>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5DEE;&#x522B;&#x4F53;&#x73B0;&#x51FA;&#x6765;&#x4E86;&#xFF0C;NAT &#x7F51;&#x7EDC; &#x865A;&#x62DF;&#x673A;&#x4E4B;&#x95F4;&#x5171;&#x4EAB;&#x7F51;&#x7EDC;&#x6808;&#xFF0C;&#x5B83;&#x4EEC;&#x7684; IP &#x5730;&#x5740;&#x5904;&#x4E8E;&#x540C;&#x4E00;&#x4E2A;&#x7F51;&#x6BB5;&#xFF0C;&#x6240;&#x4EE5;&#x5F7C;&#x6B64;&#x662F;&#x4E92;&#x901A;&#x7684;&#x3002;</p>
+</blockquote>
+<p>&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#xFF0C;&#x4EE5;&#x4E0A;&#x4E24;&#x79CD; NAT &#x6A21;&#x5F0F;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x505A;&#x5176;&#x4ED6;&#x914D;&#x7F6E;&#xFF0C;&#x90A3;&#x4E48;&#x6709;&#xFF1A;</p>
+<ul>
+<li>&#x865A;&#x62DF;&#x673A;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x4E3B;&#x673A;&#xFF0C;&#x53CD;&#x4E4B;&#x4E0D;&#x884C;</li>
+<li>&#x5982;&#x679C;&#x4E3B;&#x673A;&#x53EF;&#x4EE5;&#x4E0A;&#x5916;&#x7F51;&#xFF0C;&#x90A3;&#x4E48;&#x865A;&#x62DF;&#x673A;&#x4E5F;&#x53EF;&#x4EE5;</li>
+<li>&#x5BF9;&#x4E8E; NAT&#xFF0C;&#x540C;&#x4E3B;&#x673A;&#x4E0A;&#x7684;&#x865A;&#x62DF;&#x673A;&#x4E4B;&#x95F4;&#x4E0D;&#x80FD;&#x4E92;&#x901A;</li>
+<li>&#x5BF9;&#x4E8E; NAT &#x7F51;&#x7EDC;&#xFF0C;&#x865A;&#x62DF;&#x673A;&#x4E4B;&#x95F4;&#x53EF;&#x4EE5;&#x4E92;&#x901A;</li>
+</ul>
+<blockquote>
+<p>PS&#xFF1A;&#x5982;&#x679C;&#x505A;&#x4E86; <strong>&#x7AEF;&#x53E3;&#x6620;&#x5C04;</strong> &#x914D;&#x7F6E;&#xFF0C;&#x90A3;&#x4E48;&#x4E3B;&#x673A;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x865A;&#x62DF;&#x673A;&#x3002;</p>
+</blockquote>
+<h3 id="3-&#x4E3B;&#x673A;&#x7F51;&#x7EDC;&#xFF08;host-only-adapter&#xFF09;"><a name="3-&#x4E3B;&#x673A;&#x7F51;&#x7EDC;&#xFF08;host-only-adapter&#xFF09;" class="plugin-anchor" href="#3-&#x4E3B;&#x673A;&#x7F51;&#x7EDC;&#xFF08;host-only-adapter&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x4E3B;&#x673A;&#x7F51;&#x7EDC;&#xFF08;Host-only Adapter&#xFF09;</h3>
+<p>&#x4E3B;&#x673A;&#x7F51;&#x7EDC;&#x987E;&#x540D;&#x601D;&#x4E49;&#xFF0C;&#x5C31;&#x662F;&#x53EA;&#x9650;&#x4E8E;&#x4E3B;&#x673A;&#x5185;&#x90E8;&#x8BBF;&#x95EE;&#x7684;&#x7F51;&#x7EDC;&#xFF0C;&#x865A;&#x62DF;&#x673A;&#x4E4B;&#x95F4;&#x5F7C;&#x6B64;&#x4E92;&#x901A;&#xFF0C;&#x865A;&#x62DF;&#x673A;&#x4E0E;&#x4E3B;&#x673A;&#x4E4B;&#x95F4;&#x5F7C;&#x6B64;&#x4E92;&#x901A;&#x3002;&#x4F46;&#x662F;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x865A;&#x62DF;&#x673A;&#x4E0D;&#x80FD;&#x8BBF;&#x95EE;&#x5916;&#x7F51;&#xFF08;&#x6CE8;&#x610F;&#xFF1A;&#x8FD9;&#x91CC;&#x8BF4;&#x7684;&#x662F;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x7A0D;&#x4F5C;&#x914D;&#x7F6E;&#xFF0C;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x7684;&#xFF09;&#x3002;</p>
+<p>&#x4E3B;&#x673A;&#x7F51;&#x7EDC;&#x770B;&#x4F3C;&#x7B80;&#x5355;&#xFF0C;&#x5176;&#x5B9E;&#x5B83;&#x7684;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#x662F;&#x76F8;&#x5BF9;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x8BF4;&#x524D;&#x9762;&#x51E0;&#x79CD;&#x6A21;&#x5F0F;&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x865A;&#x62DF;&#x673A;&#x548C;&#x7F51;&#x5361;&#x7684;&#x914D;&#x7F6E;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x8FD9;&#x5F97;&#x76CA;&#x4E8E;&#x5B83;&#x7279;&#x6B8A;&#x7684;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#x3002;</p>
+<p>&#x4E3B;&#x673A;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#x4F1A;&#x5728;&#x4E3B;&#x673A;&#x4E2D;&#x6A21;&#x62DF;&#x51FA;&#x4E00;&#x5757;&#x865A;&#x62DF;&#x7F51;&#x5361;&#x4F9B;&#x865A;&#x62DF;&#x673A;&#x4F7F;&#x7528;&#xFF0C;&#x6240;&#x6709;&#x865A;&#x62DF;&#x673A;&#x90FD;&#x8FDE;&#x63A5;&#x5230;&#x8FD9;&#x5757;&#x7F51;&#x5361;&#x4E0A;&#xFF0C;&#x8FD9;&#x5757;&#x7F51;&#x5361;&#x9ED8;&#x8BA4;&#x4F1A;&#x4F7F;&#x7528;&#x7F51;&#x6BB5; 192.168.56.x&#xFF08;&#x5728;&#x4E3B;&#x673A;&#x7684;&#x7F51;&#x7EDC;&#x914D;&#x7F6E;&#x754C;&#x9762;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8FD9;&#x5757;&#x7F51;&#x5361;&#xFF09;&#xFF0C;&#x5982;&#x4E0B;&#x662F;&#x57FA;&#x672C;&#x7684;&#x62D3;&#x6251;&#x56FE;&#x793A;&#xFF1A;
+  <div class="image-wrapper"><img src="../images/networks/VMwareNetAd/&#x4E3B;&#x673A;&#x7F51;&#x7EDC;&#x6A21;&#x578B;.png" alt="&quot;&#x4E3B;&#x673A;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&quot;"></div></p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x865A;&#x62DF;&#x673A;&#x4E4B;&#x95F4;&#x53EF;&#x4EE5;&#x4E92;&#x901A;&#xFF0C;&#x865A;&#x62DF;&#x673A;&#x53EA;&#x80FD;&#x548C;&#x4E3B;&#x673A;&#x4E0A;&#x7684;&#x865A;&#x62DF;&#x7F51;&#x5361;&#x4E92;&#x901A;&#xFF0C;&#x4E0D;&#x80FD;&#x548C;&#x4E0D;&#x540C;&#x7F51;&#x6BB5;&#x7684;&#x7F51;&#x5361;&#x4E92;&#x901A;&#xFF0C;&#x66F4;&#x4E0D;&#x80FD;&#x8BBF;&#x95EE;&#x5916;&#x7F51;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x8BBF;&#x95EE;&#x5916;&#x7F51;&#xFF0C;&#x90A3;&#x4E48;&#x9700;&#x8981;&#x5982;&#x56FE;&#x4E2D; <strong>&#x7EA2;&#x865A;&#x7EBF;</strong> &#x6240;&#x793A;&#xFF0C;&#x5C06;&#x7269;&#x7406;&#x7F51;&#x5361;&#x548C;&#x865A;&#x62DF;&#x7F51;&#x5361;&#x6865;&#x63A5;&#x6216;&#x5171;&#x4EAB;&#x3002;&#x5728;&#x4E3B;&#x673A;&#x4E0A;&#x505A;&#x5982;&#x4E0B;&#x8BBE;&#x7F6E;&#x5373;&#x53EF;&#xFF1A;
+  <div class="image-wrapper"><img src="../images/networks/VMwareNetAd/&#x4E3B;&#x673A;&#x7F51;&#x7EDC;&#x8BBE;&#x7F6E;.png" alt="&quot;&#x4E3B;&#x673A;&#x7F51;&#x7EDC;&#x8BBE;&#x7F6E;&quot;"></div></p>
+<p>&#x901A;&#x8FC7;&#x4EE5;&#x4E0A;&#x914D;&#x7F6E;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x9A8C;&#x8BC1;&#x4E00;&#x4E0B;&#xFF0C;&#x865A;&#x62DF;&#x673A;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x4E3B;&#x673A;&#x7269;&#x7406;&#x7F51;&#x5361;&#x548C;&#x5916;&#x7F51;&#xFF1A;
+  <div class="image-wrapper"><img src="../images/networks/VMwareNetAd/&#x4E3B;&#x673A;&#x7F51;&#x7EDC;&#x9A8C;&#x8BC1;1.png" alt="&quot;&#x4E3B;&#x673A;&#x7F51;&#x7EDC;&#x9A8C;&#x8BC1;1&quot;"></div></p>
+<h3 id="4-&#x5185;&#x90E8;&#x7F51;&#x7EDC;&#xFF08;internal&#xFF09;"><a name="4-&#x5185;&#x90E8;&#x7F51;&#x7EDC;&#xFF08;internal&#xFF09;" class="plugin-anchor" href="#4-&#x5185;&#x90E8;&#x7F51;&#x7EDC;&#xFF08;internal&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x5185;&#x90E8;&#x7F51;&#x7EDC;&#xFF08;internal&#xFF09;</h3>
+<blockquote>
+<p>&#x6700;&#x540E;&#x4E00;&#x79CD;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#x662F;&#x5185;&#x90E8;&#x7F51;&#x7EDC;&#xFF0C;&#x8FD9;&#x79CD;&#x6A21;&#x578B;&#x662F;&#x76F8;&#x5BF9;&#x6700;&#x7B80;&#x5355;&#x7684;&#x4E00;&#x79CD;&#xFF0C;&#x865A;&#x62DF;&#x673A;&#x4E0E;&#x5916;&#x90E8;&#x73AF;&#x5883;&#x5B8C;&#x5168;&#x65AD;&#x5F00;&#xFF0C;&#x53EA;&#x5141;&#x8BB8;&#x865A;&#x62DF;&#x673A;&#x4E4B;&#x95F4;&#x4E92;&#x76F8;&#x8BBF;&#x95EE;&#x3002;
+&#x8FD9;&#x79CD;&#x6A21;&#x578B;&#x4E00;&#x822C;&#x4E0D;&#x600E;&#x4E48;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#x4EC5;&#x5728;virtualBox&#x4E2D;&#x6709;&#xFF0C;VMware &#x865A;&#x62DF;&#x673A;&#x4E2D;&#x6CA1;&#x6709;&#x8FD9;&#x79CD;&#x7F51;&#x7EDC;&#x6A21;&#x5F0F;&#x3002;</p>
+</blockquote>
+<h3 id="5-&#x603B;&#x7ED3;"><a name="5-&#x603B;&#x7ED3;" class="plugin-anchor" href="#5-&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x603B;&#x7ED3;</h3>
+<p>&#x865A;&#x62DF;&#x673A;&#x7684;&#x56DB;&#x79CD;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#xFF1A;&#x6865;&#x63A5;&#x3001;NAT&#x3001;&#x4E3B;&#x673A;&#x548C;&#x5185;&#x7F51;&#x6A21;&#x578B;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x4EE5;&#x4E00;&#x5F20;&#x8868;&#x6765;&#x63CF;&#x8FF0;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x884C;&#x4E3A;&#xFF1A;
+  <div class="image-wrapper"><img src="../images/networks/VMwareNetAd/&#x4E3B;&#x673A;&#x7F51;&#x7EDC;&#x9A8C;&#x8BC1;1.png" alt="&quot;&#x4E3B;&#x673A;&#x7F51;&#x7EDC;&#x9A8C;&#x8BC1;1&quot;"></div></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Model</th>
+<th style="text-align:center">VM -&gt; host</th>
+<th style="text-align:center">host -&gt; VM</th>
+<th style="text-align:center">VM &lt;-&gt; VM</th>
+<th style="text-align:center">VM -&gt; Internet</th>
+<th style="text-align:center">Internet -&gt; VM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Bridged</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+</tr>
+<tr>
+<td style="text-align:center">NAT</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">Port Forwarding</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">Port Forwarding</td>
+</tr>
+<tr>
+<td style="text-align:center">NAT Network</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">Port Forwarding</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">Port Forwarding</td>
+</tr>
+<tr>
+<td style="text-align:center">Host-only</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Internal</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="5.win2008.html" class="navigation navigation-prev " aria-label="Previous page: winServe 2008">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../software/software.html" class="navigation navigation-next " aria-label="Next page: 基础服务">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"VMware 网络模型","level":"1.2.6","depth":2,"next":{"title":"基础服务","level":"1.3","depth":1,"path":"software/software.md","ref":"software/software.md","articles":[{"title":"DNS - dnsmasq","level":"1.3.1","depth":2,"path":"software/dnsmasq.md","ref":"software/dnsmasq.md","articles":[]},{"title":"LAMP - yum 安装","level":"1.3.2","depth":2,"path":"software/lamp.md","ref":"software/lamp.md","articles":[]},{"title":"apache + Tomcat","level":"1.3.3","depth":2,"path":"software/apacheTomcat.md","ref":"software/apacheTomcat.md","articles":[]},{"title":"NFS 在 centOS7 下 yum 安装","level":"1.3.4","depth":2,"path":"software/nfsforcentos7.md","ref":"software/nfsforcentos7.md","articles":[]},{"title":"keepalived 在 centOS7 安装","level":"1.3.5","depth":2,"path":"software/keepalived.md","ref":"software/keepalived.md","articles":[]},{"title":"HAProxy1.8 在 centOS7 下 yum 安装","level":"1.3.6","depth":2,"path":"software/haproxy1.8.md","ref":"software/haproxy1.8.md","articles":[]},{"title":"Percona 搭建高可用的 MySQL 数据库","level":"1.3.7","depth":2,"path":"software/perconaCluster.md","ref":"software/perconaCluster.md","articles":[]}]},"previous":{"title":"winServe 2008","level":"1.2.5","depth":2,"path":"network/5.win2008.md","ref":"network/5.win2008.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-toc","mathjax","-lunr","-search","search-plus","github","todo","terminal","anchors","edit-link","image-captions","image-wrapper","popup","custom-favicon"],"root":".","styles":{"website":"assets/css/WebStyle.css","pdf":"assets/css/PdfStyle.css","mobi":"assets/css/MobiStyle.css","epub":"assets/css/EpubStyle.css"},"pluginsConfig":{"image-wrapper":{},"github":{"url":"https://github.com/renkeju/gitbook-template"},"todo":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.png","custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"terminal":{"copyButtons":true,"fade":true,"style":"flat"},"edit-link":{"label":"编辑这个页面","base":"https://github.com/renkeju/gitbook-template/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{},"image-captions":{"caption":"图 _PAGE_LEVEL_ - _CAPTION_ ","images":{"1.1.1":{"skip":true},"1.1.2":{"skip":true}},"variable_name":"_pictures"}},"theme":"default","author":"clement","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"network/2.TcpProts.html#fig1.2.2.1","level":"1.2.2","list_caption":"Figure: TCP协议族","alt":"TCP协议族","nro":1,"url":"/images/networks/TcpIpProtocols/TCPIP协议族.jpg","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议族","attributes":{},"title":"TCP协议族","skip":false,"key":"1.2.2.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: TCP协议工作机制","alt":"TCP协议工作机制","nro":2,"url":"/images/networks/CommunicationProtocol/TCP状态转换图.PNG","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议工作机制","attributes":{},"title":"TCP协议工作机制","skip":false,"key":"1.2.3.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.2","level":"1.2.3","list_caption":"Figure: TCP数据包头格式","alt":"TCP数据包头格式","nro":3,"url":"/images/networks/CommunicationProtocol/TCP数据包头格式.gif","index":2,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP数据包头格式","attributes":{},"title":"TCP数据包头格式","skip":false,"key":"1.2.3.2"}]},"title":"An Introduction to Linux Basics","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":"https://www.baidu.com/"},"gitbook":false,"sharing":{"twitter":false,"facebook":false,"all":false}},"gitbook":"3.2.3"},"file":{"path":"network/6.VmwareNetAd.md","mtime":"2020-02-24T08:04:36.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-24T08:05:26.750Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-terminal/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

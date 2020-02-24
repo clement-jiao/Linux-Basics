@@ -1,0 +1,809 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Percona 搭建高可用的 MySQL 数据库 · An Introduction to Linux Basics</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="clement">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-terminal/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="software.html" />
+    
+    
+    <link rel="prev" href="haproxy1.8.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://www.baidu.com/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../network/network.html">
+            
+                <a href="../network/network.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../network/1.Network-Basics.html">
+            
+                <a href="../network/1.Network-Basics.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../network/2.TcpProts.html">
+            
+                <a href="../network/2.TcpProts.html">
+            
+                    
+                    TCP/IP协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../network/3.CommProt.html">
+            
+                <a href="../network/3.CommProt.html">
+            
+                    
+                    网络通讯协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../network/4.NTM.html">
+            
+                <a href="../network/4.NTM.html">
+            
+                    
+                    网络传输介质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../network/5.win2008.html">
+            
+                <a href="../network/5.win2008.html">
+            
+                    
+                    winServe 2008
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../network/6.VmwareNetAd.html">
+            
+                <a href="../network/6.VmwareNetAd.html">
+            
+                    
+                    VMware 网络模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="software.html">
+            
+                <a href="software.html">
+            
+                    
+                    基础服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="dnsmasq.html">
+            
+                <a href="dnsmasq.html">
+            
+                    
+                    DNS - dnsmasq
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="lamp.html">
+            
+                <a href="lamp.html">
+            
+                    
+                    LAMP - yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="apacheTomcat.html">
+            
+                <a href="apacheTomcat.html">
+            
+                    
+                    apache + Tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="nfsforcentos7.html">
+            
+                <a href="nfsforcentos7.html">
+            
+                    
+                    NFS 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="keepalived.html">
+            
+                <a href="keepalived.html">
+            
+                    
+                    keepalived 在 centOS7 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="haproxy1.8.html">
+            
+                <a href="haproxy1.8.html">
+            
+                    
+                    HAProxy1.8 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.7" data-path="perconaCluster.html">
+            
+                <a href="perconaCluster.html">
+            
+                    
+                    Percona 搭建高可用的 MySQL 数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="software.html">
+            
+                <a href="software.html">
+            
+                    
+                    zabbix
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../zabbix/nginx.html">
+            
+                <a href="../zabbix/nginx.html">
+            
+                    
+                    nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../zabbix/php-fpm.html">
+            
+                <a href="../zabbix/php-fpm.html">
+            
+                    
+                    php-fpm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../CentOS7/system.html">
+            
+                <a href="../CentOS7/system.html">
+            
+                    
+                    CentOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../otherSys/otherSys.html">
+            
+                <a href="../otherSys/otherSys.html">
+            
+                    
+                    其他系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../otherSys/alpineLinux.html">
+            
+                <a href="../otherSys/alpineLinux.html">
+            
+                    
+                    alpine Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../VScode/VScode.html">
+            
+                <a href="../VScode/VScode.html">
+            
+                    
+                    VScode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../VScode/settingSync.html">
+            
+                <a href="../VScode/settingSync.html">
+            
+                    
+                    Settings Sync插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Percona 搭建高可用的 MySQL 数据库</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+ * @Description:
+ * @Author: 焦国峰
+ * @Github: https://github.com/clement-jiao
+ * @Date: 2019-08-17 16:48:31
+ * @LastEditors: clement-jiao
+ * @LastEditTime: 2019-08-24 05:13:29
+ -->
+<h1 id="&#x4F7F;&#x7528;-percona-&#x642D;&#x5EFA;&#x9AD8;&#x53EF;&#x7528;&#x7684;-mysql-&#x6570;&#x636E;&#x5E93;"><a name="&#x4F7F;&#x7528;-percona-&#x642D;&#x5EFA;&#x9AD8;&#x53EF;&#x7528;&#x7684;-mysql-&#x6570;&#x636E;&#x5E93;" class="plugin-anchor" href="#&#x4F7F;&#x7528;-percona-&#x642D;&#x5EFA;&#x9AD8;&#x53EF;&#x7528;&#x7684;-mysql-&#x6570;&#x636E;&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528; Percona &#x642D;&#x5EFA;&#x9AD8;&#x53EF;&#x7528;&#x7684; MySQL &#x6570;&#x636E;&#x5E93;</h1>
+<h2 id="&#x7B80;&#x4ECB;"><a name="&#x7B80;&#x4ECB;" class="plugin-anchor" href="#&#x7B80;&#x4ECB;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B80;&#x4ECB;</h2>
+<ul>
+<li>Percona&#x662F;&#x4E00;&#x4E2A;&#x516C;&#x53F8;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x4E3B;&#x8981;&#x505A; MySQL &#x7684;&#x4E8C;&#x6B21;&#x5F00;&#x53D1;</li>
+<li>&#x4ED6;&#x7684;&#x96C6;&#x7FA4;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x53EB;Percona XtraDB Cluster&#xFF0C;&#x7B80;&#x79F0;PXC</li>
+<li>&#x4ED6;&#x7684;&#x5907;&#x4EFD;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x53EB;Percona XtraBackup</li>
+</ul>
+<h2 id="&#x67B6;&#x6784;&#x56FE;"><a name="&#x67B6;&#x6784;&#x56FE;" class="plugin-anchor" href="#&#x67B6;&#x6784;&#x56FE;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x67B6;&#x6784;&#x56FE;</h2>
+<ul>
+<li>&#x865A;&#x7EBF;&#x662F;&#x6A21;&#x62DF;&#x53F3;&#x4FA7;proxy&#x5B95;&#x673A;&#x7684;&#x60C5;&#x666F;&#xFF0C;&#x7EA2;&#x8272;&#x7684;&#x865A;IP&#x4F1A;&#x98D8;&#x5230;&#x5DE6;&#x8FB9;&#x7684;proxy&#x4E0A;</li>
+<li>application&#x4E00;&#x5F8B;&#x4F7F;&#x7528;&#x57DF;&#x540D;&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x7531;DNS&#x670D;&#x52A1;&#x5668;&#x89E3;&#x6790;&#x5230;&#x7EA2;&#x9EC4;&#x4E24;&#x4E2A;&#x865A;&#x62DF;IP&#x4E0A;</li>
+<li>&#x7531;&#x4E8E;&#x4E09;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x90FD;&#x662F;&#x53EF;&#x8BFB;&#x5199;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4EE3;&#x7406;&#x5230;&#x54EA;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x90FD;&#x53EF;&#x4EE5;
+<div class="image-wrapper"><img src="../images/software/pxc&#x67B6;&#x6784;&#x56FE;.png" alt="percona&#x67B6;&#x6784;&#x56FE;"></div></li>
+</ul>
+<h2 id="&#x7248;&#x672C;"><a name="&#x7248;&#x672C;" class="plugin-anchor" href="#&#x7248;&#x672C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7248;&#x672C;</h2>
+<p>  PXC&#xFF1A;5.7
+  CentOS&#xFF1A;7.6</p>
+<h2 id="percona&#x5B89;&#x88C5;&#x4E0E;&#x914D;&#x7F6E;"><a name="percona&#x5B89;&#x88C5;&#x4E0E;&#x914D;&#x7F6E;" class="plugin-anchor" href="#percona&#x5B89;&#x88C5;&#x4E0E;&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>Percona&#x5B89;&#x88C5;&#x4E0E;&#x914D;&#x7F6E;</h2>
+<ul>
+<li><p>&#x5728;&#x4E09;&#x53F0;&#x4E3B;&#x673A;&#x4E0A;&#x914D;&#x7F6E;yum&#x6E90;</p>
+<pre><code class="lang-bash">yum -y install http://www.percona.com/downloads/percona-release/redhat/0.1-6/percona-release-0.1-6.noarch.rpm                    <span class="hljs-comment"># &#x5B89;&#x88C5;yum&#x6E90;</span>
+
+sed -i <span class="hljs-string">&apos;s$http://repo.percona.com/percona$https://mirrors.ustc.edu.cn/percona$g&apos;</span>   <span class="hljs-comment"># &#x66FF;&#x6362;&#x56FD;&#x5185;&#x6E90;</span>
+
+sed -i <span class="hljs-string">&apos;s$gpgcheck = 1$gpgcheck = 0$g&apos;</span>              <span class="hljs-comment"># &#x5173;&#x95ED;&#x79D8;&#x94A5;&#x6821;&#x9A8C;</span>
+</code></pre>
+<blockquote>
+<p>&#x66F4;&#x65B0;&#x8FC7;yum&#x6E90;&#x540E;&#xFF0C;&#x4F1A;&#x5728; /etc/yum.repos.d/ &#x4E0B;&#x751F;&#x6210; percona-release.repo</p>
+</blockquote>
+</li>
+<li><p>&#x5173;&#x95ED; selinux &#x548C; Firewalls</p>
+<pre><code class="lang-bash">setenforce 0
+
+systemctl stop firewalls.service
+</code></pre>
+</li>
+<li><p>&#x5378;&#x8F7D; MySQL/MariaDB</p>
+<blockquote>
+<p>&#x7531;&#x4E8E; Percona-XtraDB-Cluster-shared-57-5.7.23-31.31.1.el7.x86_64.rpm  &#x6709;&#x4E00;&#x4E2A;&#x51B2;&#x7A81;&#xFF1A;</p>
+</blockquote>
+<pre><code class="lang-bash">error: Failed dependencies:
+  mariadb-libs
+     &gt;=
+  5.5.37 is obsoleted by Percona-XtraDB-Cluster-shared-57-5.7.23-31.31.1.el7.x86_64
+
+systemctl stop mariadb/mysql        <span class="hljs-comment"># &#x505C;&#x6B62;MySQL/MariaDB</span>
+
+yum remove mariadb-libs             <span class="hljs-comment"># &#x5378;&#x8F7D;lib&#x5E93;</span>
+
+yum remove mariadb-libs mariadb-service mariadb-client      <span class="hljs-comment"># &#x5378;&#x8F7D; MariaDB</span>
+</code></pre>
+</li>
+<li><p>&#x5B89;&#x88C5;</p>
+<pre><code class="lang-bash">yum -y install Percona-XtraDB-Cluster-57
+</code></pre>
+</li>
+<li><p>&#x67E5;&#x770B;&#x5BC6;&#x7801;</p>
+<pre><code class="lang-bash">systemctl start mysql <span class="hljs-comment"># &#x6570;&#x636E;&#x5E93;&#x4E0D;&#x5EFA;&#x8BAE;&#x5F00;&#x673A;&#x542F;&#x52A8;</span>
+grep <span class="hljs-string">&apos;temporary password&apos;</span> /var/<span class="hljs-built_in">log</span>/mysqld.log
+</code></pre>
+</li>
+<li><p>&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;</p>
+<pre><code class="lang-bash">mysql -u root -p
+</code></pre>
+</li>
+<li><p>&#x6DFB;&#x52A0; root &#x7528;&#x6237;&#x8FDC;&#x7A0B;&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;</p>
+<pre><code class="lang-sql">mysql&gt; ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;admin&apos;;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql&gt; GRANT ALL PRIVILEGES ON *.* TO root@&quot;192.168.0.%&quot; IDENTIFIED BY &quot;admin&quot;;
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+</code></pre>
+</li>
+<li><p>&#x6DFB;&#x52A0;SST&#x7528;&#x6237;</p>
+<pre><code class="lang-sql">mysql&gt; CREATE USER &apos;sstuser&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;mysql&apos;;
+Query OK, 0 rows affected (0.00 sec)    /*&#x53EA;&#x5141;&#x8BB8;&#x672C;&#x5730;&#x767B;&#x5F55;*/
+
+mysql&gt; GRANT RELOAD, LOCK TABLES, PROCESS, REPLICATION CLIENT ON *.* TO &apos;sstuser&apos;@&apos;localhost&apos;;
+Query OK, 0 rows affected (0.00 sec)    /*&#x8BBE;&#x7F6E;sstuser &#x7528;&#x6237;&#x6743;&#x9650;*/
+
+mysql&gt; FLUSH PRIVILEGES;                /*&#x5237;&#x65B0;&#x6743;&#x9650;*/
+Query OK, 0 rows affected (0.01 sec)
+</code></pre>
+</li>
+<li><p>&#x505C;&#x6B62;&#x670D;&#x52A1;&#xFF0C;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code class="lang-bash">systemctl stop mysql
+</code></pre>
+</li>
+<li><p>&#x9996;&#x5148;&#x4FEE;&#x6539; /etc/percona-xtradb-cluster.conf.d/wsrep.cnf</p>
+<pre><code class="lang-conf"># vim /etc/percona-xtradb-cluster.conf.d/wsrep.cnf
+
+[mysqld]
+# Path to Galera library
+wsrep_provider=/usr/lib64/galera3/libgalera_smm.so
+
+# Cluster connection URL contains IPs of nodes
+#If no IP is found, this implies that a new cluster needs to be created,
+#in order to do that you need to bootstrap this node
+# &#x7FA4;&#x96C6;&#x8FDE;&#x63A5;URL&#x5305;&#x542B;&#x8282;&#x70B9;&#x7684;IP&#x5982;&#x679C;&#x672A;&#x627E;&#x5230;IP&#xFF0C;&#x5219;&#x8868;&#x793A;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x65B0;&#x7FA4;&#x96C6;&#xFF0C;&#x4E3A;&#x6B64;&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x5F15;&#x5BFC;&#x6B64;&#x8282;&#x70B9;
+# {&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x5199;&#x57DF;&#x540D;&#x6216;&#x8005;IP&#x5730;&#x5740;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;ip&#x4E3A;&#x4E3B;&#x8282;&#x70B9;,cluster&#x5185;&#x9700;&#x4FDD;&#x6301;&#x4E00;&#x81F4;}
+wsrep_cluster_address=gcomm://192.168.0.157,192.168.0.109,192.168.0.54
+
+# In order for Galera to work correctly binlog format should be ROW
+# &#x4E3A;&#x4E86;&#x8BA9;Galera&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#xFF0C;binlog&#x683C;&#x5F0F;&#x5E94;&#x8BE5;&#x662F;ROW
+binlog_format=ROW
+
+# MyISAM storage engine has only experimental support
+# MyISAM &#x5B58;&#x50A8;&#x5F15;&#x64CE;&#x53EA;&#x6709;&#x5B9E;&#x9A8C;&#x73AF;&#x5883;&#x652F;&#x6301;&#xFF1A;InnoDB&#x3001;MyIsam&#x3001;&#x3001;Memory&#x3001;Mrg_Myisam&#x3001;Blackhole
+default_storage_engine=InnoDB
+
+# Slave thread to use
+# slave &#x8282;&#x70B9;&#x7EBF;&#x7A0B;
+wsrep_slave_threads= 8
+
+wsrep_log_conflicts
+
+# This changes how InnoDB autoincrement locks are managed and is a requirement for Galera
+# &#x8FD9;&#x6539;&#x53D8;&#x4E86;InnoDB&#x81EA;&#x52A8;&#x589E;&#x91CF;&#x9501;&#x7684;&#x7BA1;&#x7406;&#x65B9;&#x5F0F;&#xFF0C;&#x662F;Galera&#x7684;&#x8981;&#x6C42;
+innodb_autoinc_lock_mode=2
+
+# Node IP address
+# &#x8282;&#x70B9; IP &#x5730;&#x5740;
+# {&#x8FD9;&#x4E2A;&#x53EF;&#x4EE5;&#x5199;&#x53EF;&#x4EE5;&#x4E0D;&#x5199;}
+wsrep_node_address=10.210.149.25
+# Cluster name
+# cluster &#x540D;&#x79F0;&#xFF1A;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x9700;&#x4FDD;&#x6301;&#x4E00;&#x81F4;
+wsrep_cluster_name=pxc-cluster
+
+#If wsrep_node_name is not specified,  then system hostname will be used
+# &#x5982;&#x679C;&#x672A;&#x6307;&#x5B9A;wsrep_node_name&#xFF0C;&#x5219;&#x5C06;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x4E3B;&#x673A;&#x540D;
+# &#x5B50;&#x8282;&#x70B9;&#x540D;&#x79F0;&#xFF1A;&#x9700;&#x5728; cluster &#x4E2D;&#x4FDD;&#x6301;&#x552F;&#x4E00;
+wsrep_node_name=pxc-cluster-node-10-210-149-25
+
+#pxc_strict_mode allowed values: DISABLED,PERMISSIVE,ENFORCING,MASTER
+# pxc &#x4E25;&#x683C;&#x6A21;&#x5F0F; &#x5141;&#x8BB8;&#x7684;&#x503C;&#xFF1A;DISABLED,PERMISSIVE,ENFORCING,MASTER
+pxc_strict_mode=ENFORCING
+
+# SST method
+# sst &#x7528;&#x6237; &#x5907;&#x4EFD;/&#x4F20;&#x8F93;&#x6A21;&#x5F0F;&#xFF1A;XtraBackup-v2
+wsrep_sst_method=xtrabackup-v2
+
+#&#x8FD9;&#x9879;&#x4E00;&#x5B9A;&#x8981;&#x5199;
+# sst &#x7528;&#x6237;&#x9A8C;&#x8BC1;&#xFF1A;
+#Authentication for SST method
+wsrep_sst_auth=&quot;sstuser:mysql&quot;
+</code></pre>
+</li>
+<li><p>&#x542F;&#x52A8;&#x4E3B;&#x8282;&#x70B9;</p>
+<pre><code class="lang-bash">systemctl start mysql@bootstrap.service
+</code></pre>
+</li>
+<li><p>&#x5728;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x4E0A;&#x4FEE;&#x6539;/etc/percona-xtradb-cluster.conf.d/wsrep.cnf</p>
+</li>
+<li><p>&#x5728;&#x5176;&#x4ED6;&#x7ED3;&#x70B9;&#x4E0A;&#x4FEE;&#x6539;/etc/percona-xtradb-cluster.conf.d/mysqld.cnf</p>
+<pre><code class="lang-conf"># vim /etc/percona-xtradb-cluster.conf.d/mysqld.cnf
+
+# &#x8282;&#x70B9;1
+[mysqld]
+server-id=2
+
+# &#x8282;&#x70B9;2
+[mysqld]
+server-id=3
+</code></pre>
+</li>
+<li><p>&#x5728;&#x5176;&#x4ED6;&#x4E0A;&#x542F;&#x52A8;mysql</p>
+<pre><code class="lang-bash">systemctl start mysql
+</code></pre>
+</li>
+<li><p>&#x968F;&#x4FBF;&#x627E;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x68C0;&#x67E5;&#x96C6;&#x7FA4;&#x60C5;&#x51B5;</p>
+<pre><code class="lang-sql">mysql&gt; show status like &apos;wsrep_cluster_size&apos;;
+
+mysql&gt; show status like &apos;wsrep_cluster%&apos;;
+</code></pre>
+</li>
+<li><p>&#x4E3B;&#x8282;&#x70B9;down&#x6389;&#x540E;&#x52A0;&#x5165; cluster</p>
+<pre><code class="lang-bash">systemctl start mysql
+</code></pre>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x5982;&#x679C;cluster&#x5DF2;&#x7ECF;&#x542F;&#x52A8;&#xFF0C;&#x4E3B;&#x8282;&#x70B9;down&#x673A;&#x60F3;&#x91CD;&#x65B0;&#x52A0;&#x5165;&#x8FD9;&#x4E2A;&#x96C6;&#x7FA4;&#xFF0C;&#x76F4;&#x63A5;&#x542F;&#x52A8;mysql&#x5373;&#x53EF;</p>
+</blockquote>
+</li>
+<li><p>&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x96C6;&#x7FA4;&#x4E2D;&#x6700;&#x540E;&#x7684;&#x8282;&#x70B9;&#x4E5F;down&#x673A;&#x4E86;&#xFF0C;&#x5728;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x53EF;&#x4EE5;&#x542F;&#x52A8;&#x96C6;&#x7FA4;&#xFF0C;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x96C6;&#x7FA4;&#x9700;&#x8981;&#x6267;&#x884C;</p>
+<pre><code class="lang-bash">systemctl start mysql@bootstrap.service
+</code></pre>
+<blockquote>
+<p>&#x7136;&#x540E;&#x5728;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x6267;&#x884C; systemctl start mysql</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="proxy&#x5B89;&#x88C5;&#x4E0E;&#x914D;&#x7F6E;"><a name="proxy&#x5B89;&#x88C5;&#x4E0E;&#x914D;&#x7F6E;" class="plugin-anchor" href="#proxy&#x5B89;&#x88C5;&#x4E0E;&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>Proxy&#x5B89;&#x88C5;&#x4E0E;&#x914D;&#x7F6E;</h2>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x9009;&#x7528;nginx/lvs/haproxy&#x4EFB;&#x4F55;&#x4E00;&#x79CD;&#xFF0C;&#x4E0D;&#x8FC7;&#x4ED6;&#x4EEC;&#x7684;&#x539F;&#x7406;&#x4E0D;&#x592A;&#x4E00;&#x6837;Nginx&#x548C;haprxoy&#x662F;&#x4EE3;&#x7406;&#xFF0C;LVS&#x662F;&#x8F6C;&#x53D1;</li>
+<li>Haproxy&#x7684;&#x914D;&#x7F6E;&#x770B;&#x8FD9;&#x4E2A;&#xFF1A;<a href="https://www.cnblogs.com/demonzk/p/8444450.html" target="_blank">&#x4F7F;&#x7528;percona&#x642D;&#x5EFA;&#x9AD8;&#x53EF;&#x7528;&#x7684;MySQL&#x6570;&#x636E;&#x5E93;</a></li>
+<li>Nginx&#x7684;&#x9AD8;&#x53EF;&#x7528;&#x914D;&#x7F6E;&#x770B;&#x8FD9;&#x4E2A;&#xFF1A;<a href="https://www.jianshu.com/p/f7ef05d0e1f6" target="_blank">Keepalive + Nginx&#x9AD8;&#x53EF;&#x7528;</a></li>
+</ul>
+<h2 id="&#x94FE;&#x63A5;&#x5730;&#x5740;"><a name="&#x94FE;&#x63A5;&#x5730;&#x5740;" class="plugin-anchor" href="#&#x94FE;&#x63A5;&#x5730;&#x5740;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x94FE;&#x63A5;&#x5730;&#x5740;</h2>
+<ul>
+<li><a href="https://www.percona.com/doc/percona-xtradb-cluster/5.7/index.html" target="_blank">PXC - &#x5B98;&#x65B9;&#x6587;&#x6863;</a></li>
+<li><a href="http://liking.site/2018/12/06/mysql-pxc%E9%9B%86%E7%BE%A4%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5%E6%97%A0%E4%B8%BB%E9%94%AE%E8%A1%A8/" target="_blank">&#x5BFC;&#x5165;&#x65E0;&#x4E3B;&#x952E;&#x8868;&#x9519;&#x8BEF;:prohibits use of DML command on a table</a></li>
+</ul>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="haproxy1.8.html" class="navigation navigation-prev " aria-label="Previous page: HAProxy1.8 在 centOS7 下 yum 安装">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="software.html" class="navigation navigation-next " aria-label="Next page: zabbix">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Percona 搭建高可用的 MySQL 数据库","level":"1.3.7","depth":2,"next":{"title":"zabbix","level":"1.4","depth":1,"path":"software/software.md","ref":"software/software.md","articles":[{"title":"nginx","level":"1.4.1","depth":2,"path":"zabbix/nginx.md","ref":"zabbix/nginx.md","articles":[]},{"title":"php-fpm","level":"1.4.2","depth":2,"path":"zabbix/php-fpm.md","ref":"zabbix/php-fpm.md","articles":[]}]},"previous":{"title":"HAProxy1.8 在 centOS7 下 yum 安装","level":"1.3.6","depth":2,"path":"software/haproxy1.8.md","ref":"software/haproxy1.8.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-toc","mathjax","-lunr","-search","search-plus","github","todo","terminal","anchors","edit-link","image-captions","image-wrapper","popup","custom-favicon"],"root":".","styles":{"website":"assets/css/WebStyle.css","pdf":"assets/css/PdfStyle.css","mobi":"assets/css/MobiStyle.css","epub":"assets/css/EpubStyle.css"},"pluginsConfig":{"image-wrapper":{},"github":{"url":"https://github.com/renkeju/gitbook-template"},"todo":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.png","custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"terminal":{"copyButtons":true,"fade":true,"style":"flat"},"edit-link":{"label":"编辑这个页面","base":"https://github.com/renkeju/gitbook-template/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{},"image-captions":{"caption":"图 _PAGE_LEVEL_ - _CAPTION_ ","images":{"1.1.1":{"skip":true},"1.1.2":{"skip":true}},"variable_name":"_pictures"}},"theme":"default","author":"clement","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"network/2.TcpProts.html#fig1.2.2.1","level":"1.2.2","list_caption":"Figure: TCP协议族","alt":"TCP协议族","nro":1,"url":"/images/networks/TcpIpProtocols/TCPIP协议族.jpg","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议族","attributes":{},"title":"TCP协议族","skip":false,"key":"1.2.2.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: TCP协议工作机制","alt":"TCP协议工作机制","nro":2,"url":"/images/networks/CommunicationProtocol/TCP状态转换图.PNG","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议工作机制","attributes":{},"title":"TCP协议工作机制","skip":false,"key":"1.2.3.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.2","level":"1.2.3","list_caption":"Figure: TCP数据包头格式","alt":"TCP数据包头格式","nro":3,"url":"/images/networks/CommunicationProtocol/TCP数据包头格式.gif","index":2,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP数据包头格式","attributes":{},"title":"TCP数据包头格式","skip":false,"key":"1.2.3.2"}]},"title":"An Introduction to Linux Basics","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":"https://www.baidu.com/"},"gitbook":false,"sharing":{"twitter":false,"facebook":false,"all":false}},"gitbook":"3.2.3"},"file":{"path":"software/perconaCluster.md","mtime":"2020-02-24T08:04:36.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-24T08:05:26.750Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-terminal/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

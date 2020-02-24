@@ -1,0 +1,15 @@
+# Created by .gitignore support plugin (hsz.mobi)
+.idea/
+_book/
+folder/
+node_modules/
+qianji/
+ServiceScript/
+ansible-onos-cluster/
+*.~
+*.tmp
+*.swp
+*.edx
+.DS_Store
+.vscode/
+

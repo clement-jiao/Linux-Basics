@@ -1,0 +1,769 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>LAMP - yum 安装 · An Introduction to Linux Basics</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="clement">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-terminal/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="apacheTomcat.html" />
+    
+    
+    <link rel="prev" href="dnsmasq.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://www.baidu.com/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../network/network.html">
+            
+                <a href="../network/network.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../network/1.Network-Basics.html">
+            
+                <a href="../network/1.Network-Basics.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../network/2.TcpProts.html">
+            
+                <a href="../network/2.TcpProts.html">
+            
+                    
+                    TCP/IP协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../network/3.CommProt.html">
+            
+                <a href="../network/3.CommProt.html">
+            
+                    
+                    网络通讯协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../network/4.NTM.html">
+            
+                <a href="../network/4.NTM.html">
+            
+                    
+                    网络传输介质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../network/5.win2008.html">
+            
+                <a href="../network/5.win2008.html">
+            
+                    
+                    winServe 2008
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../network/6.VmwareNetAd.html">
+            
+                <a href="../network/6.VmwareNetAd.html">
+            
+                    
+                    VMware 网络模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="software.html">
+            
+                <a href="software.html">
+            
+                    
+                    基础服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="dnsmasq.html">
+            
+                <a href="dnsmasq.html">
+            
+                    
+                    DNS - dnsmasq
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="lamp.html">
+            
+                <a href="lamp.html">
+            
+                    
+                    LAMP - yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="apacheTomcat.html">
+            
+                <a href="apacheTomcat.html">
+            
+                    
+                    apache + Tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="nfsforcentos7.html">
+            
+                <a href="nfsforcentos7.html">
+            
+                    
+                    NFS 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="keepalived.html">
+            
+                <a href="keepalived.html">
+            
+                    
+                    keepalived 在 centOS7 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="haproxy1.8.html">
+            
+                <a href="haproxy1.8.html">
+            
+                    
+                    HAProxy1.8 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="perconaCluster.html">
+            
+                <a href="perconaCluster.html">
+            
+                    
+                    Percona 搭建高可用的 MySQL 数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="software.html">
+            
+                <a href="software.html">
+            
+                    
+                    zabbix
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../zabbix/nginx.html">
+            
+                <a href="../zabbix/nginx.html">
+            
+                    
+                    nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../zabbix/php-fpm.html">
+            
+                <a href="../zabbix/php-fpm.html">
+            
+                    
+                    php-fpm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../CentOS7/system.html">
+            
+                <a href="../CentOS7/system.html">
+            
+                    
+                    CentOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../otherSys/otherSys.html">
+            
+                <a href="../otherSys/otherSys.html">
+            
+                    
+                    其他系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../otherSys/alpineLinux.html">
+            
+                <a href="../otherSys/alpineLinux.html">
+            
+                    
+                    alpine Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../VScode/VScode.html">
+            
+                <a href="../VScode/VScode.html">
+            
+                    
+                    VScode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../VScode/settingSync.html">
+            
+                <a href="../VScode/settingSync.html">
+            
+                    
+                    Settings Sync插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >LAMP - yum 安装</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+ * @Description:
+ * @Author: 焦国峰
+ * @Github: https://github.com/clement-jiao
+ * @Date: 2019-08-13 23:39:32
+ * @LastEditors: clement-jiao
+ * @LastEditTime: 2019-08-20 02:44:05
+ -->
+<h2 id="linux&#x73AF;&#x5883;&#x4E0B;lamp&#x73AF;&#x5883;yum&#x5B89;&#x88C5;"><a name="linux&#x73AF;&#x5883;&#x4E0B;lamp&#x73AF;&#x5883;yum&#x5B89;&#x88C5;" class="plugin-anchor" href="#linux&#x73AF;&#x5883;&#x4E0B;lamp&#x73AF;&#x5883;yum&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>Linux&#x73AF;&#x5883;&#x4E0B;LAMP&#x73AF;&#x5883;yum&#x5B89;&#x88C5;</h2>
+<h3 id="&#x66FF;&#x6362;yum&#x6E90;"><a name="&#x66FF;&#x6362;yum&#x6E90;" class="plugin-anchor" href="#&#x66FF;&#x6362;yum&#x6E90;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x66FF;&#x6362;yum&#x6E90;</h3>
+<ul>
+<li><p>&#x4F7F;&#x7528;remi&#x7684;&#x6E90;&#x6765;&#x5B89;&#x88C5;php7.3&#xFF0C;&#x9996;&#x5148;&#x6DFB;&#x52A0;&#x6E90;&#xFF1A;</p>
+<pre><code class="lang-bash">yum install epel-release
+rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+</code></pre>
+</li>
+<li><p><a href="https://downloads.mariadb.org/mariadb/repositories" target="_blank">&#x6DFB;&#x52A0;MariaDByum&#x6E90;</a></p>
+<pre><code class="lang-bash"><span class="hljs-comment"># MariaDB 10.4 CentOS repository list - created 2019-08-13 15:54 UTC</span>
+<span class="hljs-comment"># http://downloads.mariadb.org/mariadb/repositories/</span>
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.4/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+</code></pre>
+<p><a href="https://mirrors.ustc.edu.cn/help/mariadb.html" target="_blank">&#x66FF;&#x6362;USTC&#x6E90;&#xFF1A;</a></p>
+<pre><code class="lang-bash">sudo sed -i <span class="hljs-string">&apos;s#yum\.mariadb\.org#mirrors.ustc.edu.cn/mariadb/yum#&apos;</span> /etc/yum.repos.d/mariadb
+<span class="hljs-comment"># &#x5EFA;&#x8BAE;&#x4F7F;&#x7528; HTTPS</span>
+sudo sed -i <span class="hljs-string">&apos;s#http://mirrors\.ustc\.edu\.cn#https://mirrors.ustc.edu.cn#g&apos;</span> /etc/yum.repos.d/mariadb
+</code></pre>
+</li>
+</ul>
+<h3 id="&#x5B89;&#x88C5;apache"><a name="&#x5B89;&#x88C5;apache" class="plugin-anchor" href="#&#x5B89;&#x88C5;apache"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;Apache</h3>
+<pre><code class="lang-bash">yum install -y httpd httpd-devel
+</code></pre>
+<h3 id="&#x5B89;&#x88C5;mariadb"><a name="&#x5B89;&#x88C5;mariadb" class="plugin-anchor" href="#&#x5B89;&#x88C5;mariadb"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;MariaDB</h3>
+<pre><code class="lang-bash">sudo yum install MariaDB-server MariaDB-client
+</code></pre>
+<h3 id="&#x5B89;&#x88C5;php&#x6A21;&#x5757;&#xFF1A;"><a name="&#x5B89;&#x88C5;php&#x6A21;&#x5757;&#xFF1A;" class="plugin-anchor" href="#&#x5B89;&#x88C5;php&#x6A21;&#x5757;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;php&#x6A21;&#x5757;&#xFF1A;</h3>
+<pre><code class="lang-bash">yum --enablerepo=remi install php73-php php73-php-pear php73-php-bcmath \
+php73-php-pecl-jsond-devel php73-php-mysqlnd php73-php-gd php73-php-common \
+php73-php-fpm php73-php-intl php73-php-cli php73-php php73-php-xml \
+php73-php-opcache php73-php-pecl-apcu php73-php-pdo php73-php-gmp \
+php73-php-process php73-php-pecl-imagick php73-php-devel php73-php-mbstring \
+php73-php-zip php73-php-ldap php73-php-imap php73-php-pecl-mcrypt
+</code></pre>
+<h3 id="&#x8FD0;&#x884C;&#x7248;&#x672C;"><a name="&#x8FD0;&#x884C;&#x7248;&#x672C;" class="plugin-anchor" href="#&#x8FD0;&#x884C;&#x7248;&#x672C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FD0;&#x884C;&#x7248;&#x672C;</h3>
+<p>&#x8FD0;&#x884C;&#x5E76;&#x67E5;&#x770B;&#x7248;&#x672C;&#xFF0C; &#x91CD;&#x542F;&#x547D;&#x4EE4;&#xFF0C; &#x6DFB;&#x52A0;&#x81EA;&#x52A8;&#x542F;&#x52A8;&#xFF0C;&#x94FE;&#x63A5;php&#x6587;&#x4EF6;</p>
+<pre><code class="lang-bash">php73 -v
+<span class="hljs-comment"># ln -s /opt/remi/php73/root/usr/bin/php /usr/bin/php    # &#x53EF;&#x4E0D;&#x7528;&#x94FE;&#x63A5;</span>
+</code></pre>
+<h3 id="&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a name="&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="plugin-anchor" href="#&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;:</h3>
+<ul>
+<li><p>apache:</p>
+<pre><code class="lang-bash">vim /etc/httpd/conf/httpd.conf
+
+<span class="hljs-comment"># &#x627E;&#x5230; AddType application/x-gzip .gz .tgz (&#x5927;&#x6982;&#x5728;284&#x884C;) &#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#xFF1A;</span>
+AddType application/x-httpd-php .php .phtml
+</code></pre>
+</li>
+</ul>
+<ul>
+<li>&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF1A;<pre><code class="lang-bash"><span class="hljs-comment"># The current PHP memory limit is below the recommended value of 512MB.</span>
+vi /etc/opt/remi/php73/php.ini
+memory_<span class="hljs-built_in">limit</span> = 512M
+</code></pre>
+</li>
+</ul>
+<h3 id="&#x542F;&#x52A8;&#x670D;&#x52A1;"><a name="&#x542F;&#x52A8;&#x670D;&#x52A1;" class="plugin-anchor" href="#&#x542F;&#x52A8;&#x670D;&#x52A1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x542F;&#x52A8;&#x670D;&#x52A1;</h3>
+<pre><code class="lang-bash"> systemctl restart httpd.service mariadb.service    <span class="hljs-comment"># php73-php-fpm.service</span>
+</code></pre>
+<h3 id="&#x5378;&#x8F7D;&#x8F6F;&#x4EF6;"><a name="&#x5378;&#x8F7D;&#x8F6F;&#x4EF6;" class="plugin-anchor" href="#&#x5378;&#x8F7D;&#x8F6F;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5378;&#x8F7D;&#x8F6F;&#x4EF6;</h3>
+<pre><code class="lang-bash">yum remove php73-php*
+</code></pre>
+<h2 id="&#x8FDE;&#x63A5;-nginx-&#x914D;&#x7F6E;"><a name="&#x8FDE;&#x63A5;-nginx-&#x914D;&#x7F6E;" class="plugin-anchor" href="#&#x8FDE;&#x63A5;-nginx-&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FDE;&#x63A5; nginx &#x914D;&#x7F6E;</h2>
+<ul>
+<li><p>&#x4FEE;&#x6539;PHP&#x6587;&#x4EF6;</p>
+<pre><code class="lang-conf"># vim /etc/opt/remi/php73/php-fpm.d/www.conf
+
+# &#x4FEE;&#x6539;&#xFF1A;
+
+# &#x56E0;&#x4E3A;&#x662F;&#x901A;&#x8FC7; nfs &#x5171;&#x4EAB;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E0E; html&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981; &#x7528;&#x6237;&#x540D;/&#x7528;&#x6237;&#x7EC4;&#x3001;UID/GID &#x4FDD;&#x6301;&#x4E00;&#x81F4;&#xFF0C;&#x65E5;&#x5E38;&#x914D;&#x7F6E;&#x5219;&#x4E0D;&#x9700;&#x8981;&#x3002;
+user = apache
+group = apache
+
+# &#x4FEE;&#x6539;&#x76D1;&#x542C;&#x7AEF;&#x53E3;&#xFF1A;&#x82E5;&#x4E0A;&#x5C42;&#x6709;&#x591A;&#x4E2A;&#x4EE3;&#x7406; nginx/apache &#x5219;&#x586B;&#x5199; 0.0.0.0&#xFF0C;&#x5426;&#x5219;&#x586B;&#x5199;&#x672C;&#x673A;&#x5730;&#x5740;&#x6216;&#x56DE;&#x73AF;&#x7F51;&#x5361;&#x5730;&#x5740;&#x3002;
+listen = 0.0.0.0:9000
+
+# &#x53D6;&#x6D88; listen.owner &#x6CE8;&#x91CA;&#xFF0C;&#x56E0;&#x4E3A;&#x8FDC;&#x7A0B; nginx/apache &#x4F1A;&#x901A;&#x8FC7; 9000 &#x7AEF;&#x53E3;&#x8BBF;&#x95EE; PHP &#x670D;&#x52A1;&#x5668;&#xFF0C;&#x800C;&#x6B64;&#x65F6; PHP &#x670D;&#x52A1;&#x5668;&#x6CA1;&#x6709;&#x90A3;&#x4E2A;&#x7528;&#x6237;&#xFF0C;&#x6240;&#x4EE5; nginx &#x5C06;&#x4EE5; nobody &#x7528;&#x6237;&#x8BBF;&#x95EE;&#x3002;
+listen.owner = nobody                                                                                                                                           listen.group = nobody                                                                                                                                           listen.mode = 0660
+
+# &#x4FEE;&#x6539;&#x5141;&#x8BB8;&#x8BBF;&#x95EE;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#xFF1A;&#x591A;&#x4E2A;&#x4E3B;&#x673A;&#x7528;&#x9017;&#x53F7;&#x5206;&#x9694;&#xFF0C;&#x6CE8;&#x610F;&#x4E0D;&#x8981;&#x586B;&#x5199;&#x81EA;&#x5DF1;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x4E0D;&#x7136;&#x8FDC;&#x7A0B;&#x5730;&#x5740;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x3002;
+listen.allowed_clients = 192.168.0.95,192.168.0.88,192.168.0.33
+
+# &#x5176;&#x4ED6;&#x4FDD;&#x6301;&#x9ED8;&#x8BA4;&#x5373;&#x53EF;
+</code></pre>
+<blockquote>
+<p>&#x91CD;&#x542F;php&#xFF1A; <code>bash systemctl restart php73-php-fpm.service</code></p>
+</blockquote>
+</li>
+<li><p>&#x4FEE;&#x6539; nginx &#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code class="lang-conf"># vim /etc/nginx/nginx.conf
+
+# &#x4FEE;&#x6539;&#x8FD0;&#x884C;&#x7528;&#x6237;&#xFF1A;
+user nginx;
+
+# &#x6CE8;&#x91CA; server &#x5757;&#x5185;&#x5BB9;&#xFF0C;&#x5728; conf.d &#x76EE;&#x5F55;&#x4E2D;&#x65B0;&#x5EFA;&#x6587;&#x4EF6;&#x3002;(&#x53EF;&#x6269;&#x5C55;)
+#     server {
+#         listen       80 default_server;
+#         listen       [::]:80 default_server;
+#         server_name  _;
+#         root         /usr/share/nginx/html;
+#
+#         # Load configuration files for the default server block.
+#         include /etc/nginx/default.d/*.conf;
+#
+#         location / {
+#         }
+#
+#         error_page 404 /404.html;
+#             location = /40x.html {
+#         }
+#
+#         error_page 500 502 503 504 /50x.html;
+#             location = /50x.html {
+#         }
+#     }
+
+# vim /etc/nginx/conf.d/front.conf
+# &#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#x5757;&#xFF1A;
+server {
+  listen       80;
+  server_name  _;
+  access_log /var/log/nginx/php.access.log main;
+  location / {
+    root  /var/www/html;
+      index index.php index.html index.htm;
+      }
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+      root  /usr/share/nginx/html;
+      }
+    location ~ \.php$ {
+        root           /var/www/html;
+        fastcgi_pass   fpm;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        include        fastcgi_params;
+      }
+  }
+
+# vim /etc/nginx/fastcgi_params
+# &#x4E0D;&#x77E5;&#x9053;&#x4F1A;&#x4E0D;&#x4F1A;&#x4E0E; server &#x5185;&#x7684; fastcgi_garam &#x51B2;&#x7A81;&#xFF1B;
+fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+
+# vim /etc/nginx/conf.d/upstream.conf
+# &#x6DFB;&#x52A0;
+upstream fpm {
+  ip_hash;                      # &#x8D1F;&#x8F7D;&#x6A21;&#x5F0F;
+  server 192.168.0.120:9000;    # PHP &#x670D;&#x52A1;&#x5668;
+  server 192.168.0.64:9000;
+  server 192.168.0.135:9000;
+  }
+</code></pre>
+<blockquote>
+<p>&#x91CD;&#x542F; nginx&#xFF1A; <code>bash systemctl restart nginx</code></p>
+</blockquote>
+</li>
+</ul>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="dnsmasq.html" class="navigation navigation-prev " aria-label="Previous page: DNS - dnsmasq">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="apacheTomcat.html" class="navigation navigation-next " aria-label="Next page: apache + Tomcat">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"LAMP - yum 安装","level":"1.3.2","depth":2,"next":{"title":"apache + Tomcat","level":"1.3.3","depth":2,"path":"software/apacheTomcat.md","ref":"software/apacheTomcat.md","articles":[]},"previous":{"title":"DNS - dnsmasq","level":"1.3.1","depth":2,"path":"software/dnsmasq.md","ref":"software/dnsmasq.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-toc","mathjax","-lunr","-search","search-plus","github","todo","terminal","anchors","edit-link","image-captions","image-wrapper","popup","custom-favicon"],"root":".","styles":{"website":"assets/css/WebStyle.css","pdf":"assets/css/PdfStyle.css","mobi":"assets/css/MobiStyle.css","epub":"assets/css/EpubStyle.css"},"pluginsConfig":{"image-wrapper":{},"github":{"url":"https://github.com/renkeju/gitbook-template"},"todo":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.png","custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"terminal":{"copyButtons":true,"fade":true,"style":"flat"},"edit-link":{"label":"编辑这个页面","base":"https://github.com/renkeju/gitbook-template/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{},"image-captions":{"caption":"图 _PAGE_LEVEL_ - _CAPTION_ ","images":{"1.1.1":{"skip":true},"1.1.2":{"skip":true}},"variable_name":"_pictures"}},"theme":"default","author":"clement","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"network/2.TcpProts.html#fig1.2.2.1","level":"1.2.2","list_caption":"Figure: TCP协议族","alt":"TCP协议族","nro":1,"url":"/images/networks/TcpIpProtocols/TCPIP协议族.jpg","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议族","attributes":{},"title":"TCP协议族","skip":false,"key":"1.2.2.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: TCP协议工作机制","alt":"TCP协议工作机制","nro":2,"url":"/images/networks/CommunicationProtocol/TCP状态转换图.PNG","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议工作机制","attributes":{},"title":"TCP协议工作机制","skip":false,"key":"1.2.3.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.2","level":"1.2.3","list_caption":"Figure: TCP数据包头格式","alt":"TCP数据包头格式","nro":3,"url":"/images/networks/CommunicationProtocol/TCP数据包头格式.gif","index":2,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP数据包头格式","attributes":{},"title":"TCP数据包头格式","skip":false,"key":"1.2.3.2"}]},"title":"An Introduction to Linux Basics","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":"https://www.baidu.com/"},"gitbook":false,"sharing":{"twitter":false,"facebook":false,"all":false}},"gitbook":"3.2.3"},"file":{"path":"software/lamp.md","mtime":"2020-02-24T08:04:36.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-24T08:05:26.750Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-terminal/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,4 @@
+- name: AppQianjiWeb Install
+  hosts: uat
+  roles:
+  - role: AppQianjiWeb

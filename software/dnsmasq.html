@@ -1,0 +1,1615 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>DNS - dnsmasq · An Introduction to Linux Basics</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="clement">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-terminal/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="lamp.html" />
+    
+    
+    <link rel="prev" href="software.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://www.baidu.com/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../network/network.html">
+            
+                <a href="../network/network.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../network/1.Network-Basics.html">
+            
+                <a href="../network/1.Network-Basics.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../network/2.TcpProts.html">
+            
+                <a href="../network/2.TcpProts.html">
+            
+                    
+                    TCP/IP协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../network/3.CommProt.html">
+            
+                <a href="../network/3.CommProt.html">
+            
+                    
+                    网络通讯协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../network/4.NTM.html">
+            
+                <a href="../network/4.NTM.html">
+            
+                    
+                    网络传输介质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../network/5.win2008.html">
+            
+                <a href="../network/5.win2008.html">
+            
+                    
+                    winServe 2008
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../network/6.VmwareNetAd.html">
+            
+                <a href="../network/6.VmwareNetAd.html">
+            
+                    
+                    VMware 网络模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="software.html">
+            
+                <a href="software.html">
+            
+                    
+                    基础服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="dnsmasq.html">
+            
+                <a href="dnsmasq.html">
+            
+                    
+                    DNS - dnsmasq
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="lamp.html">
+            
+                <a href="lamp.html">
+            
+                    
+                    LAMP - yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="apacheTomcat.html">
+            
+                <a href="apacheTomcat.html">
+            
+                    
+                    apache + Tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="nfsforcentos7.html">
+            
+                <a href="nfsforcentos7.html">
+            
+                    
+                    NFS 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="keepalived.html">
+            
+                <a href="keepalived.html">
+            
+                    
+                    keepalived 在 centOS7 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="haproxy1.8.html">
+            
+                <a href="haproxy1.8.html">
+            
+                    
+                    HAProxy1.8 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="perconaCluster.html">
+            
+                <a href="perconaCluster.html">
+            
+                    
+                    Percona 搭建高可用的 MySQL 数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="software.html">
+            
+                <a href="software.html">
+            
+                    
+                    zabbix
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../zabbix/nginx.html">
+            
+                <a href="../zabbix/nginx.html">
+            
+                    
+                    nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../zabbix/php-fpm.html">
+            
+                <a href="../zabbix/php-fpm.html">
+            
+                    
+                    php-fpm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../CentOS7/system.html">
+            
+                <a href="../CentOS7/system.html">
+            
+                    
+                    CentOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../otherSys/otherSys.html">
+            
+                <a href="../otherSys/otherSys.html">
+            
+                    
+                    其他系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../otherSys/alpineLinux.html">
+            
+                <a href="../otherSys/alpineLinux.html">
+            
+                    
+                    alpine Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../VScode/VScode.html">
+            
+                <a href="../VScode/VScode.html">
+            
+                    
+                    VScode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../VScode/settingSync.html">
+            
+                <a href="../VScode/settingSync.html">
+            
+                    
+                    Settings Sync插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >DNS - dnsmasq</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+ * @Description:
+ * @Author: 焦国峰
+ * @Github: https://github.com/clement-jiao
+ * @Date: 2019-08-13 23:39:32
+ * @LastEditors: clement-jiao
+ * @LastEditTime: 2019-08-14 13:22:10
+ -->
+<h2 id="dnsmasq&#x5B89;&#x88C5;&#x914D;&#x7F6E;&#x8BE6;&#x89E3;"><a name="dnsmasq&#x5B89;&#x88C5;&#x914D;&#x7F6E;&#x8BE6;&#x89E3;" class="plugin-anchor" href="#dnsmasq&#x5B89;&#x88C5;&#x914D;&#x7F6E;&#x8BE6;&#x89E3;"><i class="fa fa-link" aria-hidden="true"></i></a>dnsmasq&amp;&#x5B89;&#x88C5;&amp;&#x914D;&#x7F6E;&amp;&#x8BE6;&#x89E3;</h2>
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/Dnsmasq_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87\" target="_blank">dnsmasq&#x4E2D;&#x6587;&#x6587;&#x6863;</a>)</li>
+<li><a href="https://cloud.tencent.com/developer/article/1174717" target="_blank">dnsmasq&#x8BE6;&#x89E3;</a></li>
+<li><a href="https://moe.best/linux-memo/dnsmasq.html" target="_blank">[DNSmasq] &#x5B89;&#x88C5;&amp;&#x914D;&#x7F6E;&#x8BE6;&#x89E3;</a><h3 id="&#x5B89;&#x88C5;"><a name="&#x5B89;&#x88C5;" class="plugin-anchor" href="#&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;</h3>
+<blockquote>
+<p><code>yum install -y dnsmasq</code></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="dnsmasq&#x7684;&#x89E3;&#x6790;&#x6D41;&#x7A0B;"><a name="dnsmasq&#x7684;&#x89E3;&#x6790;&#x6D41;&#x7A0B;" class="plugin-anchor" href="#dnsmasq&#x7684;&#x89E3;&#x6790;&#x6D41;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>dnsmasq&#x7684;&#x89E3;&#x6790;&#x6D41;&#x7A0B;</h3>
+<p>dnsmasq &#x5148;&#x53BB;&#x89E3;&#x6790;<strong>hosts</strong>&#x6587;&#x4EF6;&#xFF0C; &#x518D;&#x53BB;&#x89E3;&#x6790; /etc/dnsmasq.d/ &#x4E0B;&#x7684;*.conf&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x8981;&#x9AD8;&#x4E8E;dnsmasq.conf&#xFF0C;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x7684; resolv.dnsmasq.conf &#x4E2D;&#x7684;DNS&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;&#x4E0A;&#x6E38;DNS&#xFF0C;&#x8FD9;&#x662F;&#x6700;&#x540E;&#x53BB;&#x67E5;&#x8BE2;&#x89E3;&#x6790;&#x7684;&#xFF1B;</p>
+<blockquote>
+<p><strong>hosts &gt; /etc/dnsmasq.d/*.conf &gt; dnsmasq.conf &gt; resolv.dnsmasq.conf</strong></p>
+</blockquote>
+<p>&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x7528;hosts&#x6587;&#x4EF6;&#x505A;&#x89E3;&#x6790;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;/etc/dnsmasq.conf&#x4E2D;&#x52A0;&#x5165;no-hosts&#x8FD9;&#x6761;&#x8BED;&#x53E5;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#x5C31;&#x76F4;&#x63A5;&#x67E5;&#x8BE2;&#x4E0A;&#x6E38;DNS&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4E0D;&#x60F3;&#x505A;&#x4E0A;&#x6E38;&#x67E5;&#x8BE2;&#xFF0C;&#x5C31;&#x662F;&#x4E0D;&#x60F3;&#x505A;&#x6B63;&#x5E38;&#x7684;&#x89E3;&#x6790;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x52A0;&#x5165;no-reslov&#x8FD9;&#x6761;&#x8BED;&#x53E5;&#x3002;</p>
+<blockquote>
+<p><strong>&#x7981;&#x6B62;hosts : /etc/dnsmasq.conf -&gt; no-hosts</strong></p>
+<p><strong>&#x7981;&#x6B62;/etc/resolv.conf : /etc/dnsmasq.conf -&gt; no-reslov</strong></p>
+</blockquote>
+<h3 id="dnsmasq&#x7684;&#x53C2;&#x6570;&#x53CA;&#x5E38;&#x7528;&#x8BBE;&#x7F6E;&#x8BF4;&#x660E;"><a name="dnsmasq&#x7684;&#x53C2;&#x6570;&#x53CA;&#x5E38;&#x7528;&#x8BBE;&#x7F6E;&#x8BF4;&#x660E;" class="plugin-anchor" href="#dnsmasq&#x7684;&#x53C2;&#x6570;&#x53CA;&#x5E38;&#x7528;&#x8BBE;&#x7F6E;&#x8BF4;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>dnsmasq&#x7684;&#x53C2;&#x6570;&#x53CA;&#x5E38;&#x7528;&#x8BBE;&#x7F6E;&#x8BF4;&#x660E;</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">&#x5177;&#x4F53;&#x53C2;&#x6570;</th>
+<th style="text-align:center">&#x53C2;&#x6570;&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">resolv-file</td>
+<td style="text-align:center">&#x5B9A;&#x4E49;dnsmasq&#x4ECE;&#x54EA;&#x91CC;&#x83B7;&#x53D6;&#x4E0A;&#x6E38;DNS&#x670D;&#x52A1;&#x5668;&#x7684;&#x5730;&#x5740;&#xFF0C; &#x9ED8;&#x8BA4;&#x4ECE;/etc/resolv.conf&#x83B7;&#x53D6;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:center">strict-order</td>
+<td style="text-align:center">&#x8868;&#x793A;&#x4E25;&#x683C;&#x6309;&#x7167;resolv-file&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x987A;&#x5E8F;&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x8FDB;&#x884C;DNS&#x89E3;&#x6790;&#xFF0C;&#x76F4;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x89E3;&#x6790;&#x6210;&#x529F;&#x4E3A;&#x6B62;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:center">listen-address</td>
+<td style="text-align:center">&#x5B9A;&#x4E49;dnsmasq&#x76D1;&#x542C;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&#x76D1;&#x63A7;&#x672C;&#x673A;&#x7684;&#x6240;&#x6709;&#x7F51;&#x5361;&#x4E0A;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:center">address</td>
+<td style="text-align:center">&#x542F;&#x7528;&#x6CDB;&#x57DF;&#x540D;&#x89E3;&#x6790;&#xFF0C;&#x5373;&#x81EA;&#x5B9A;&#x4E49;&#x89E3;&#x6790;a&#x8BB0;&#x5F55;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;address=/long.com/192.168.115.10 &#x8BBF;&#x95EE;long.com&#x65F6;&#x7684;&#x6240;&#x6709;&#x57DF;&#x540D;&#x90FD;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x6210;192.168.115.10</td>
+</tr>
+<tr>
+<td style="text-align:center">bogus-nxdomain</td>
+<td style="text-align:center">&#x5BF9;&#x4E8E;&#x4EFB;&#x4F55;&#x88AB;&#x89E3;&#x6790;&#x5230;&#x6B64; IP &#x7684;&#x57DF;&#x540D;&#xFF0C;&#x5C06;&#x54CD;&#x5E94; NXDOMAIN &#x4F7F;&#x5176;&#x89E3;&#x6790;&#x5931;&#x6548;&#xFF0C;&#x53EF;&#x4EE5;&#x591A;&#x6B21;&#x6307;&#x5B9A;&#x901A;&#x5E38;&#x7528;&#x4E8E;&#x5BF9;&#x4E8E;&#x8BBF;&#x95EE;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x7981;&#x6B62;&#x5176;&#x8DF3;&#x8F6C;&#x5230;&#x8FD0;&#x8425;&#x5546;&#x7684;&#x5E7F;&#x544A;&#x7AD9;&#x70B9;</td>
+</tr>
+<tr>
+<td style="text-align:center">server</td>
+<td style="text-align:center">&#x6307;&#x5B9A;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;DNS&#x670D;&#x52A1;&#x5668;&#x8FDB;&#x884C;&#x89E3;&#x6790;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E0D;&#x540C;&#x7684;&#x7F51;&#x7AD9;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x57DF;&#x540D;&#x5BF9;&#x5E94;&#x89E3;&#x6790;&#x3002;&#x4F8B;&#x5982;&#xFF1A;server=/google.com/8.8.8.8    #&#x8868;&#x793A;&#x5BF9;&#x4E8E;google&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x4F7F;&#x7528;&#x8C37;&#x6B4C;&#x7684;DNS&#x89E3;&#x6790;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="&#x914D;&#x7F6E;&#x4E0A;&#x6E38;&#x670D;&#x52A1;&#x5668;&#x5730;&#x5740;"><a name="&#x914D;&#x7F6E;&#x4E0A;&#x6E38;&#x670D;&#x52A1;&#x5668;&#x5730;&#x5740;" class="plugin-anchor" href="#&#x914D;&#x7F6E;&#x4E0A;&#x6E38;&#x670D;&#x52A1;&#x5668;&#x5730;&#x5740;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x914D;&#x7F6E;&#x4E0A;&#x6E38;&#x670D;&#x52A1;&#x5668;&#x5730;&#x5740;</h3>
+<p>resolv-file&#x914D;&#x7F6E;Dnsmasq&#x989D;&#x5916;&#x7684;&#x4E0A;&#x6E38;&#x7684;DNS&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x5F00;&#x542F;&#x5C31;&#x4F7F;&#x7528;Linux&#x4E3B;&#x673A;&#x9ED8;&#x8BA4;&#x7684;/etc/resolv.conf&#x91CC;&#x7684;nameserver&#x3002;</p>
+<ul>
+<li><p>&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x9009;&#x9879;&#x6307;&#x5B9A;&#x5176;&#x4ED6;&#x6587;&#x4EF6;&#x6765;&#x7BA1;&#x7406;&#x4E0A;&#x6E38;&#x7684;DNS&#x670D;&#x52A1;&#x5668;</p>
+<pre><code class="lang-bash">$ vi /etc/dnsmasq.conf
+
+resolv-file=/etc/resolv.dnsmasq.conf
+</code></pre>
+</li>
+<li><p>&#x5728;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x4E2D;&#x589E;&#x52A0;&#x8F6C;&#x53D1;DNS&#x7684;&#x5730;&#x5740;</p>
+<pre><code class="lang-bash">$ vi /etc/resolv.dnsmasq.conf
+
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+</code></pre>
+</li>
+<li><p>&#x672C;&#x5730;&#x542F;&#x7528;Dnsmasq&#x89E3;&#x6790;</p>
+<pre><code class="lang-bash">$ vi /etc/resolv.conf
+
+nameserver 127.0.0.1
+</code></pre>
+</li>
+<li><p>&#x6DFB;&#x52A0;&#x89E3;&#x6790;&#x8BB0;&#x5F55;
+&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x9ED8;&#x8BA4;hosts
+&#x7F16;&#x8F91;hosts&#x6587;&#x4EF6;,&#x7B80;&#x5355;&#x5217;&#x4E3E;&#x4E00;&#x4E0B;&#x683C;&#x5F0F;</p>
+<pre><code class="lang-bash">$ vi /etc/hosts
+
+127.0.0.1  localhost
+192.168.101.107   web01.mike.com web01
+192.168.101.107   web02.mike.com web02
+</code></pre>
+<blockquote>
+<p>hosts&#x6587;&#x4EF6;&#x7684;&#x5F3A;&#x5927;&#x4E4B;&#x5904;&#x8FD8;&#x5728;&#x4E8E;&#x80FD;&#x591F;&#x52AB;&#x6301;&#x89E3;&#x6790;&#xFF0C;&#x8B6C;&#x5982;mirror.centos.org&#x662F;CentOS&#x4ED3;&#x5E93;&#x6240;&#x5728;&#xFF0C;&#x51E0;&#x4E4E;&#x662F;&#x673A;&#x5668;&#x6B63;&#x5E38;&#x5FC5;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x57DF;&#x540D;&#xFF0C;&#x6211;&#x5C06;&#x5B83;&#x89E3;&#x6790;&#x6210;&#x4E00;&#x4E2A;&#x5185;&#x7F51;&#x5730;&#x5740;&#xFF0C;&#x642D;&#x5EFA;&#x4E00;&#x4E2A;&#x5185;&#x7F51;&#x955C;&#x50CF;&#x7AD9;&#xFF0C;&#x4E0D;&#x4EC5;&#x5185;&#x7F51;&#x673A;&#x5668;&#x4E5F;&#x53EF;&#x4EE5;&#x53CA;&#x65F6;&#x5F97;&#x5230;&#x5B89;&#x5168;&#x66F4;&#x65B0;&#xFF0C;&#x6BCF;&#x6708;&#x8FD8;&#x53EF;&#x4EE5;&#x8282;&#x7701;&#x5F88;&#x591A;&#x6D41;&#x91CF;&#x3002;</p>
+</blockquote>
+</li>
+<li><p>&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;hosts&#x6587;&#x4EF6;</p>
+<ol>
+<li><p>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#xFF0C;&#x589E;&#x52A0;&#x81EA;&#x5B9A;&#x4E49;hosts&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;&#x3002;</p>
+<pre><code class="lang-bash">$ vi /etc/dnsmasq.conf
+
+addn-hosts=/etc/dnsmasq.hosts
+</code></pre>
+</li>
+<li><p>&#x5728;/etc/dnsmasq.hosts&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;DNS&#x8BB0;&#x5F55;</p>
+<pre><code class="lang-bash">$ vi /etc/dnsmasq.hosts
+
+192.168.101.107   web01.mike.com    web01
+192.168.101.107   web02.mike.com    web02
+</code></pre>
+</li>
+</ol>
+</li>
+<li><p>&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;conf</p>
+<pre><code class="lang-bash">$ vi /etc/dnsmasq.d/address.conf
+
+<span class="hljs-comment"># &#x6307;&#x5B9A;dnsmasq&#x9ED8;&#x8BA4;&#x67E5;&#x8BE2;&#x7684;&#x4E0A;&#x6E38;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x6B64;&#x5904;&#x4EE5;Google Public DNS&#x4E3A;&#x4F8B;&#x3002;</span>
+server=8.8.8.8
+server=8.8.4.4
+
+<span class="hljs-comment"># &#x628A;&#x6240;&#x6709;.cn&#x7684;&#x57DF;&#x540D;&#x5168;&#x90E8;&#x901A;&#x8FC7;114.114.114.114&#x8FD9;&#x53F0;&#x56FD;&#x5185;DNS&#x670D;&#x52A1;&#x5668;&#x6765;&#x89E3;&#x6790;</span>
+server=/cn/114.114.114.114
+
+<span class="hljs-comment"># &#x7ED9;*.apple.com&#x548C;taobao.com&#x4F7F;&#x7528;&#x4E13;&#x7528;&#x7684;DNS</span>
+server=/taobao.com/223.5.5.5
+server=/.apple.com/223.5.5.5
+
+<span class="hljs-comment"># &#x628A;www.hi-linux.com&#x89E3;&#x6790;&#x5230;&#x7279;&#x5B9A;&#x7684;IP</span>
+address=/www.hi-linux.com/192.168.101.107
+
+&#x5728;&#x8FD9;&#x91CC;hi-linux.com&#x76F8;&#x5F53;&#x4E8E;*.mike.com&#x6CDB;&#x89E3;&#x6790;
+address=/hi-linux.com/192.168.101.107
+</code></pre>
+<blockquote>
+<p>&#x6CE8;&#xFF1A;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6DFB;&#x52A0;&#x5230;/etc/dnsmasq.conf&#x4E2D;,&#x4E0D;&#x8FC7;/etc/dnsmasq.d/*.conf&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x5927;&#x4E8E;/etc/dnsmasq.conf&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="&#x4FEE;&#x6539;iptables&#x914D;&#x7F6E;"><a name="&#x4FEE;&#x6539;iptables&#x914D;&#x7F6E;" class="plugin-anchor" href="#&#x4FEE;&#x6539;iptables&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4FEE;&#x6539;iptables&#x914D;&#x7F6E;</h3>
+<ul>
+<li>&#x5141;&#x8BB8;&#x672C;&#x673A;&#x7684;53&#x7AEF;&#x53E3;&#x53EF;&#x5BF9;&#x5916;&#x8BBF;&#x95EE;<pre><code class="lang-bash">$ iptables -A INPUT -p udp -m udp --dport 53 -j ACCEPT
+$ iptables -A INPUT -p tcp -m tcp --dport 53 -j ACCEPT
+</code></pre>
+</li>
+<li><p>&#x8F6C;&#x53D1;DNS&#x8BF7;&#x6C42;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x5F00;&#x542F;&#x6D41;&#x91CF;&#x8F6C;&#x53D1;&#x529F;&#x80FD;</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;1&apos;</span> &gt; /proc/sys/net/ipv4/ip_forward
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;1&apos;</span> &gt; /proc/sys/net/ipv6/ip_forward   <span class="hljs-comment"># IPv6 &#x7528;&#x6237;&#x9009;&#x7528;</span>
+
+<span class="hljs-comment"># &#x6DFB;&#x52A0;&#x6D41;&#x91CF;&#x8F6C;&#x53D1;&#x89C4;&#x5219;&#xFF0C;&#x5C06;&#x5916;&#x90E8;&#x5230;53&#x7684;&#x7AEF;&#x53E3;&#x7684;&#x8BF7;&#x6C42;&#x6620;&#x5C04;&#x5230;Dnsmasq&#x670D;&#x52A1;&#x5668;&#x7684;53&#x7AEF;&#x53E3;</span>
+$ iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53
+$ iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53
+
+<span class="hljs-comment"># &#x5982;&#x679C;&#x8981;&#x9650;&#x5236;&#x53EA;&#x5141;&#x8BB8;&#x5185;&#x7F51;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;</span>
+$ iptables -t nat -A PREROUTING -i eth1 -p upd --dport 53 -j REDIRECT --to-port 53
+</code></pre>
+</li>
+<li>&#x4FDD;&#x5B58;&#x89C4;&#x5219;&#x5E76;&#x91CD;&#x542F;<pre><code class="lang-bash">$ service iptables save
+$ service iptables restart
+</code></pre>
+</li>
+</ul>
+<h3 id="&#x4E00;&#x4E9B;dnsmasq&#x6280;&#x5DE7;"><a name="&#x4E00;&#x4E9B;dnsmasq&#x6280;&#x5DE7;" class="plugin-anchor" href="#&#x4E00;&#x4E9B;dnsmasq&#x6280;&#x5DE7;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00;&#x4E9B;Dnsmasq&#x6280;&#x5DE7;</h3>
+<h4 id="&#x68C0;&#x67E5;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BED;&#x6CD5;"><a name="&#x68C0;&#x67E5;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BED;&#x6CD5;" class="plugin-anchor" href="#&#x68C0;&#x67E5;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BED;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x68C0;&#x67E5;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BED;&#x6CD5;</h4>
+<pre><code class="lang-bash">[root@localhost ~]<span class="hljs-comment"># dnsmasq -test</span>
+dnsmasq: syntax check OK.
+</code></pre>
+<h4 id="dnsmasq&#x6027;&#x80FD;&#x4F18;&#x5316;"><a name="dnsmasq&#x6027;&#x80FD;&#x4F18;&#x5316;" class="plugin-anchor" href="#dnsmasq&#x6027;&#x80FD;&#x4F18;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>Dnsmasq&#x6027;&#x80FD;&#x4F18;&#x5316;:</h4>
+<blockquote>
+<p>&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053;Bind&#x4E0D;&#x914D;&#x5408;&#x6570;&#x636E;&#x5E93;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x8F7D;&#x5165;&#x5E76;&#x8BFB;&#x53D6;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x662F;&#x9020;&#x6210;&#x6027;&#x80FD;&#x4F4E;&#x4E0B;&#x7684;&#x539F;&#x56E0;&#x3002;
+&#x6839;&#x636E;&#x8FD9;&#x70B9;&#x6559;&#x8BAD;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x4E0D;&#x8BFB;&#x53D6;/etc/hosts&#x6587;&#x4EF6;&#x3002;&#x800C;&#x662F;&#x53E6;&#x5916;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5728;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x91CC;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x6BD4;&#x5982;/dev/shm/dnsrecord.txt &#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4E0D;&#x8D39;&#x52B2;&#x4E86;&#xFF0C;&#x53C8;&#x7531;&#x4E8E;&#x5185;&#x5B58;&#x7684;&#x975E;&#x6301;&#x4E45;&#x6027;&#xFF0C;&#x91CD;&#x542F;&#x5C31;&#x6D88;&#x5931;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9A;&#x671F;&#x540C;&#x6B65;&#x786C;&#x76D8;&#x4E0A;&#x7684;&#x67D0;&#x4E2A;&#x5185;&#x5BB9;&#x5230;&#x5185;&#x5B58;&#x6587;&#x4EF6;&#x4E2D;&#x3002;
+&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x6B65;&#x9AA4;:</p>
+</blockquote>
+<ul>
+<li><p>&#x914D;&#x7F6E;dnsmasq</p>
+<pre><code class="lang-bash">$ vim /etc/dnsmasq.conf
+
+no-hosts
+addn-hosts=/dev/shm/dnsrecord.txt
+</code></pre>
+</li>
+<li>&#x89E3;&#x51B3;&#x540C;&#x6B65;&#x95EE;&#x9898;<pre><code class="lang-bash">&#x5F00;&#x673A;&#x542F;&#x52A8;
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;cat /etc/hosts &gt; /dev/shm/dnsrecord.txt&quot;</span> &gt;&gt;/etc/rc.local
+<span class="hljs-comment"># &#x5B9A;&#x65F6;&#x540C;&#x6B65;&#x5185;&#x5BB9;</span>
+$ crontab <span class="hljs-_">-e</span>
+*/10 * * * * cat /etc/hosts &gt; /dev/shm/dnsrecord.txt
+</code></pre>
+</li>
+</ul>
+<h4 id="dnsmasq&#x5FEB;&#x901F;&#x9009;&#x62E9;&#x4E0A;&#x6E38;dns&#x670D;&#x52A1;&#x5668;"><a name="dnsmasq&#x5FEB;&#x901F;&#x9009;&#x62E9;&#x4E0A;&#x6E38;dns&#x670D;&#x52A1;&#x5668;" class="plugin-anchor" href="#dnsmasq&#x5FEB;&#x901F;&#x9009;&#x62E9;&#x4E0A;&#x6E38;dns&#x670D;&#x52A1;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>Dnsmasq&#x5FEB;&#x901F;&#x9009;&#x62E9;&#x4E0A;&#x6E38;DNS&#x670D;&#x52A1;&#x5668;</h4>
+<p>&#x7ECF;&#x5E38;&#x4F1A;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x60C5;&#x666F;&#xFF0C;Dnsmasq&#x670D;&#x52A1;&#x5668;&#x914D;&#x4E86;&#x4E00;&#x5806;&#x4E0A;&#x6E38;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x8F6C;&#x53D1;&#x672C;&#x5730;&#x7684;dns&#x8BF7;&#x6C42;&#xFF0C;&#x7F3A;&#x7701;&#x662F;Dnsmasq&#x4E8B;&#x5B9E;&#x4E0A;&#x662F;&#x53EA;&#x6311;&#x4E86;&#x4E00;&#x4E2A;&#x4E0A;&#x6E38;dns&#x670D;&#x52A1;&#x5668;&#x6765;&#x67E5;&#x8BE2;&#x5E76;&#x8F6C;&#x53D1;&#x7ED3;&#x679C;&#xFF0C;&#x8FD9;&#x6837;&#x5982;&#x679C;&#x9009;&#x9519;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8BDD;&#x4F1A;&#x5BFC;&#x81F4;DNS&#x54CD;&#x5E94;&#x53D8;&#x6162;&#x3002;
+&#x89E3;&#x51B3;&#x65B9;&#x6CD5;:</p>
+<pre><code class="lang-bash">$ vi /etc/dnsmasq.conf
+
+all-servers
+server=8.8.8.8
+server=219.141.136.10
+</code></pre>
+<p>all-servers&#x8868;&#x793A;&#x5BF9;&#x4EE5;&#x4E0B;&#x8BBE;&#x7F6E;&#x7684;&#x6240;&#x6709;server&#x53D1;&#x8D77;&#x67E5;&#x8BE2;&#xFF0C;&#x9009;&#x62E9;&#x56DE;&#x5E94;&#x6700;&#x5FEB;&#x7684;&#x4E00;&#x6761;&#x4F5C;&#x4E3A;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x3002;
+&#x4E0A;&#x9762;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x4E86;&#x4E24;&#x4E2A;dns server&#xFF0C;8.8.8.8(&#x8C37;&#x6B4C;dns)&#x548C;219.141.136.10(&#x79FB;&#x52A8;&#x7684;dns)&#xFF0C;&#x4F1A;&#x540C;&#x65F6;&#x67E5;&#x8BE2;&#x8FD9;&#x4E24;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x8BE2;&#x95EE;dns&#x5730;&#x5740;&#x8C01;&#x8FD4;&#x56DE;&#x5FEB;&#x5C31;&#x91C7;&#x7528;&#x8C01;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<h4 id="dnsmasq-china-list&#x9879;&#x76EE;"><a name="dnsmasq-china-list&#x9879;&#x76EE;" class="plugin-anchor" href="#dnsmasq-china-list&#x9879;&#x76EE;"><i class="fa fa-link" aria-hidden="true"></i></a>dnsmasq-china-list&#x9879;&#x76EE;</h4>
+<p>dnsmasq-china-list&#x9879;&#x76EE;&#x7EF4;&#x62A4;&#x4E86;&#x4E00;&#x5F20;&#x56FD;&#x5185;&#x5E38;&#x7528;&#x4F46;&#x662F;&#x901A;&#x8FC7;&#x56FD;&#x5916;DNS&#x4F1A;&#x89E3;&#x6790;&#x9519;&#x8BEF;&#x7684;&#x7F51;&#x7AD9;&#x57DF;&#x540D;&#x7684;&#x5217;&#x8868;&#xFF0C;&#x4FDD;&#x8BC1;List&#x4E2D;&#x7684;&#x56FD;&#x5185;&#x57DF;&#x540D;&#x5168;&#x90E8;&#x8D70;&#x56FD;&#x5185;DNS&#x670D;&#x52A1;&#x5668;&#x89E3;&#x6790;&#x3002;</p>
+<p>&#x9879;&#x76EE;&#x5730;&#x5740;: <a href="https://github.com/felixonmars/dnsmasq-china-list" target="_blank">https://github.com/felixonmars/dnsmasq-china-list</a></p>
+<p>dnsmasq-china-list&#x4F7F;&#x7528;</p>
+<ul>
+<li>&#x53D6;&#x6D88;dnsmasq.conf&#x91CC;conf-dir=/etc/dnsmasq.d&#x8FD9;&#x4E00;&#x884C;&#x7684;&#x6CE8;&#x91CA;</li>
+<li>&#x83B7;&#x53D6;&#x9879;&#x76EE;&#x6587;&#x4EF6;</li>
+<li>&#x5C06;accelerated-domains.china.conf, bogus-nxdomain.china.conf,google.china.conf(&#x53EF;&#x9009;)&#x653E;&#x5230;/etc/dnsmasq.d/&#x76EE;&#x5F55;&#x4E0B;(&#x5982;&#x76EE;&#x5F55;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;)&#x3002;</li>
+<li>&#x5C06;dnsmasq-update-china-list&#x653E;&#x5230;/usr/bin/&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x6279;&#x91CF;&#x4FEE;&#x6539;DNS&#x670D;&#x52A1;&#x5668;&#x7684;&#x5DE5;&#x5177;(&#x53EF;&#x9009;)&#x3002;</li>
+</ul>
+<p><code>$ git clone https://github.com/felixonmars/dnsmasq-china-list.git</code></p>
+<h2 id="dnsmasq&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a name="dnsmasq&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="plugin-anchor" href="#dnsmasq&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>dnsmasq&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2>
+<p>&#x6CE8;&#x89E3;&#x65F6;&#x95F4;&#xFF1A;2019&#x5E74;08&#x6708;12&#x65E5;02:17:36
+&#x66F4;&#x65B0;&#x81F3;405&#x884C;</p>
+<pre><code class="lang-conf"># Configuration file for dnsmasq.
+# dnsmasq &#x914D;&#x7F6E;&#x6587;&#x4EF6;
+#
+# Format is one option per line, legal options are the same
+# as the long options legal on the command line. See
+# &quot;/usr/sbin/dnsmasq --help&quot; or &quot;man 8 dnsmasq&quot; for details.
+# &#x683C;&#x5F0F;&#x662F;&#x6BCF;&#x884C;&#x4E00;&#x4E2A;&#x9009;&#x9879;&#xFF0C;&#x5408;&#x6CD5;&#x9009;&#x9879;&#x4E0E;&#x547D;&#x4EE4;&#x884C;&#x4E0A;&#x7684;&#x957F;&#x9009;&#x9879;&#x5408;&#x6CD5;&#x76F8;&#x540C;&#x3002;
+# &#x6709;&#x5173;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x9605;&#x201C;/ usr / sbin / dnsmasq --help&#x201D;&#x6216;&#x201C;man 8 dnsmasq&#x201D;&#x3002;
+
+
+# Listen on this specific port instead of the standard DNS port
+# (53). Setting this to zero completely disables DNS function,
+# leaving only DHCP and/or TFTP.
+# &#x4FA6;&#x542C;&#x6B64;&#x7279;&#x5B9A;&#x7AEF;&#x53E3;&#x800C;&#x4E0D;&#x662F;&#x6807;&#x51C6;DNS&#x7AEF;&#x53E3;&#xFF08;53&#xFF09;&#x3002;
+# &#x5C06;&#x6B64;&#x8BBE;&#x7F6E;&#x4E3A;&#x96F6;&#x5C06;&#x5B8C;&#x5168;&#x7981;&#x7528;DNS&#x529F;&#x80FD;&#xFF0C;&#x4EC5;&#x4FDD;&#x7559;DHCP&#x548C;/&#x6216;TFTP&#x3002;
+#port=5353
+
+# The following two options make you a better netizen, since they
+# tell dnsmasq to filter out queries which the public DNS cannot
+# answer, and which load the servers (especially the root servers)
+# unnecessarily. If you have a dial-on-demand link they also stop
+# these requests from bringing up the link unnecessarily.
+
+# &#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x9009;&#x9879;&#x4F7F;&#x60A8;&#x6210;&#x4E3A;&#x66F4;&#x597D;&#x7684;&#x7F51;&#x53CB;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x544A;&#x8BC9;dnsmasq&#x8FC7;&#x6EE4;&#x6389;&#x516C;&#x5171;DNS&#x65E0;&#x6CD5;&#x56DE;&#x7B54;&#x7684;&#x67E5;&#x8BE2;&#xFF0C;
+# &#x4EE5;&#x53CA;&#x4E0D;&#x5FC5;&#x8981;&#x5730;&#x52A0;&#x8F7D;&#x670D;&#x52A1;&#x5668;&#xFF08;&#x5C24;&#x5176;&#x662F;&#x6839;&#x670D;&#x52A1;&#x5668;&#xFF09;&#x7684;&#x67E5;&#x8BE2;&#x3002; &#x5982;&#x679C;&#x60A8;&#x6709;&#x6309;&#x9700;&#x62E8;&#x53F7;&#x94FE;&#x63A5;&#xFF0C;&#x4ED6;&#x4EEC;&#x4E5F;&#x4F1A;&#x963B;&#x6B62;&#x8FD9;&#x4E9B;&#x8BF7;&#x6C42;&#x4E0D;&#x5FC5;&#x8981;&#x5730;&#x663E;&#x793A;&#x94FE;&#x63A5;&#x3002;
+# {&#x5927;&#x4F53;&#x6765;&#x8BB2;&#x5C31;&#x662F;&#xFF1A;1.&#x54EA;&#x4E9B;&#x516C;&#x5171;DNS&#x6CA1;&#x6709;&#x56DE;&#x7B54; 2.&#x54EA;&#x4E9B;root&#x6839;&#x57DF;&#x4E0D;&#x53EF;&#x8FBE;&#x3002;}
+
+
+# Never forward plain names (without a dot or domain part)
+# &#x6C38;&#x8FDC;&#x4E0D;&#x8981;&#x8F6C;&#x53D1;&#x666E;&#x901A;&#x540D;&#x79F0;&#xFF08;&#x6CA1;&#x6709;&#x70B9;&#x6216;&#x57DF;&#x90E8;&#x5206;&#xFF09;{&#x683C;&#x5F0F;&#x9519;&#x8BEF;&#x7684;&#x57DF;&#x540D;}
+#domain-needed
+
+# Never forward addresses in the non-routed address spaces.
+# &#x5207;&#x52FF;&#x8F6C;&#x53D1;&#x975E;&#x8DEF;&#x7531;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x5730;&#x5740;&#x3002;{&#x4E0D;&#x5728;&#x8DEF;&#x7531;&#x5730;&#x5740;&#x4E2D;&#x7684;&#x57DF;&#x540D;}
+#bogus-priv
+
+# Uncomment these to enable DNSSEC validation and caching:
+# (Requires dnsmasq to be built with DNSSEC option.)
+# &#x53D6;&#x6D88;&#x6CE8;&#x91CA;&#x4EE5;&#x542F;&#x7528;DNSSEC&#x9A8C;&#x8BC1;&#x548C;&#x7F13;&#x5B58;&#xFF1A;&#xFF08;&#x9700;&#x8981;&#x4F7F;&#x7528;DNSSEC&#x9009;&#x9879;&#x6784;&#x5EFA;dnsmasq&#x3002;&#xFF09;
+#conf-file=%%PREFIX%%/share/dnsmasq/trust-anchors.conf
+#dnssec
+
+# Replies which are not DNSSEC signed may be legitimate, because the domain
+# is unsigned, or may be forgeries. Setting this option tells dnsmasq to
+# check that an unsigned reply is OK, by finding a secure proof that a DS
+# record somewhere between the root and the domain does not exist.
+# The cost of setting this is that even queries in unsigned domains will need one or more extra DNS queries to verify.
+# &#x56E0;&#x4E3A;&#x57DF;&#x540D;&#x672A;&#x7B7E;&#x540D;&#xFF0C;&#x672A;&#x7B7E;&#x7F72;DNSSEC&#x7684;&#x56DE;&#x590D;&#x53EF;&#x80FD;&#x662F;&#x5408;&#x6CD5;&#x7684;&#xFF0C;&#x6216;&#x8005;&#x53EF;&#x80FD;&#x662F;&#x4F2A;&#x9020;&#x7684;&#x3002;
+# &#x8BBE;&#x7F6E;&#x6B64;&#x9009;&#x9879;&#x4F1A;&#x901A;&#x8FC7;&#x67E5;&#x627E;&#x6839;&#x76EE;&#x5F55;&#x548C;&#x57DF;&#x4E4B;&#x95F4;&#x67D0;&#x5904;&#x7684;DS&#x8BB0;&#x5F55;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5B89;&#x5168;&#x8BC1;&#x636E;&#x6765;&#x544A;&#x77E5;dnsmasq&#x68C0;&#x67E5;&#x672A;&#x7B7E;&#x540D;&#x7684;&#x7B54;&#x590D;&#x662F;&#x5426;&#x6B63;&#x5E38;&#x3002;
+# &#x8BBE;&#x7F6E;&#x6B64;&#x6210;&#x672C;&#x7684;&#x6210;&#x672C;&#x662F;&#xFF0C;&#x5373;&#x4F7F;&#x662F;&#x672A;&#x7B7E;&#x540D;&#x57DF;&#x4E2D;&#x7684;&#x67E5;&#x8BE2;&#xFF0C;&#x4E5F;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x989D;&#x5916;&#x7684;DNS&#x67E5;&#x8BE2;&#x6765;&#x9A8C;&#x8BC1;&#x3002;
+#dnssec-check-unsigned
+
+# Uncomment this to filter useless windows-originated DNS requests
+# which can trigger dial-on-demand links needlessly.
+# Note that (amongst other things) this blocks all SRV requests,
+# so don&apos;t use it if you use eg Kerberos, SIP, XMMP or Google-talk.
+# This option only affects forwarding, SRV records originating for
+# dnsmasq (via srv-host= lines) are not suppressed by it.
+# &#x53D6;&#x6D88;&#x6CE8;&#x91CA;&#x4EE5;&#x8FC7;&#x6EE4;&#x65E0;&#x7528;&#x7684;Windows&#x53D1;&#x8D77;&#x7684;DNS&#x8BF7;&#x6C42;&#xFF0C;&#x8FD9;&#x4E9B;&#x8BF7;&#x6C42;&#x53EF;&#x4EE5;&#x4E0D;&#x5FC5;&#x8981;&#x5730;&#x89E6;&#x53D1;&#x6309;&#x9700;&#x62E8;&#x53F7;&#x94FE;&#x63A5;&#x3002;
+# &#x8BF7;&#x6CE8;&#x610F;&#xFF08;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF09;&#x8FD9;&#x4F1A;&#x963B;&#x6B62;&#x6240;&#x6709;SRV&#x8BF7;&#x6C42;&#xFF0C;&#x56E0;&#x6B64;&#x5982;&#x679C;&#x60A8;&#x4F7F;&#x7528;&#x4F8B;&#x5982;Kerberos&#xFF0C;SIP&#xFF0C;XMMP&#x6216;Google-talk&#xFF0C;&#x8BF7;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x5B83;&#x3002;
+# &#x6B64;&#x9009;&#x9879;&#x4EC5;&#x5F71;&#x54CD;&#x8F6C;&#x53D1;&#xFF0C;&#x6E90;&#x81EA;dnsmasq&#x7684;SRV&#x8BB0;&#x5F55;&#xFF08;&#x901A;&#x8FC7;srv-host = lines&#xFF09;&#x4E0D;&#x4F1A;&#x88AB;&#x5B83;&#x6291;&#x5236;&#x3002;
+#filterwin2k
+
+# Change this line if you want dns to get its upstream servers from
+# somewhere other that /etc/resolv.conf
+# &#x5982;&#x679C;&#x60A8;&#x5E0C;&#x671B;dns&#x4ECE;/etc/resolv.conf&#x4EE5;&#x5916;&#x7684;&#x67D0;&#x4E2A;&#x4F4D;&#x7F6E;&#x83B7;&#x53D6;&#x5176;&#x4E0A;&#x6E38;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x8BF7;&#x66F4;&#x6539;&#x6B64;&#x884C;&#x3002;
+# &#x5982;&#x679C;&#x4E0D;&#x5F00;&#x542F;&#x5C31;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;/etc/resolv.conf&#x91CC;&#x7684;nameserver&#xFF0C;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x9009;&#x9879;&#x6307;&#x5B9A;&#x4ED6;&#x7684;&#x6587;&#x4EF6;&#x3002;
+resolv-file=/etc/resolv.dnsmasq.conf
+
+# By  default,  dnsmasq  will  send queries to any of the upstream
+# servers it knows about and tries to favour servers to are  known
+# to  be  up.  Uncommenting this forces dnsmasq to try each query
+# with  each  server  strictly  in  the  order  they   appear   in
+# /etc/resolv.conf
+# &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;dnsmasq &#x5C06;&#x5411;&#x5176;&#x77E5;&#x9053;&#x7684;&#x4EFB;&#x4F55;&#x4E0A;&#x6E38;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x67E5;&#x8BE2;&#xFF0C;&#x5E76;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528;&#x5DF2;&#x77E5;&#x7684;&#x670D;&#x52A1;&#x5668;&#x3002;
+# &#x53D6;&#x6D88;&#x6CE8;&#x91CA;&#x8FD9;&#x4F1A;&#x5F3A;&#x5236; dnsmasq &#x4E25;&#x683C;&#x6309;&#x7167;&#x5B83;&#x4EEC;&#x5728; /etc/resolv.conf &#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x987A;&#x5E8F;&#x5C1D;&#x8BD5;&#x6BCF;&#x4E2A;&#x67E5;&#x8BE2;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6BCF;&#x4E2A;&#x67E5;&#x8BE2;&#x3002;{resolv.conf&#x7684;&#x987A;&#x5E8F;&#x67E5;&#x8BE2;}
+#strict-order
+
+# If you don&apos;t want dnsmasq to read /etc/resolv.conf or any other
+# file, getting its servers from this file instead (see below), then
+# uncomment this.
+# &#x5982;&#x679C;&#x60A8;&#x4E0D;&#x5E0C;&#x671B; dnsmasq &#x8BFB;&#x53D6; /etc/resolv.conf &#x6216;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x6587;&#x4EF6;&#xFF0C;&#x8BF7;&#x4ECE;&#x6B64;&#x6587;&#x4EF6;&#x4E2D;&#x83B7;&#x53D6;&#x5176;&#x670D;&#x52A1;&#x5668;&#xFF08;&#x8BF7;&#x53C2;&#x9605;&#x4E0B;&#x6587;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x53D6;&#x6D88;&#x6CE8;&#x91CA;&#x3002;
+# {&#x53EA;&#x8BFB;&#x53D6;&#x672C;&#x6587;&#x4EF6;&#xFF0C;&#x4E0D;&#x518D;&#x8BFB;&#x53D6;&#x5176;&#x4ED6;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF1A;resolv&#x3001;hosts&#x7B49;}
+#no-resolv
+
+# If you don&apos;t want dnsmasq to poll /etc/resolv.conf or other resolv
+# files for changes and re-read them then uncomment this.
+# &#x5982;&#x679C;&#x60A8;&#x4E0D;&#x5E0C;&#x671B;dnsmasq&#x8F6E;&#x8BE2;/etc/resolv.conf&#x6216;
+# &#x5176;&#x4ED6;resolv&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x66F4;&#x6539;&#x5E76;&#x91CD;&#x65B0;&#x8BFB;&#x53D6;&#x5B83;&#x4EEC;&#xFF0C;&#x8BF7;&#x53D6;&#x6D88;&#x6CE8;&#x91CA;&#x3002;
+#no-poll
+
+# Add other name servers here, with domain specs if they are for
+# non-public domains.
+# &#x5728;&#x6B64;&#x5904;&#x6DFB;&#x52A0;&#x5176;&#x4ED6;&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x4EEC;&#x9002;&#x7528;&#x4E8E;&#x975E;&#x516C;&#x5171;&#x57DF;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x57DF;&#x89C4;&#x8303;&#x3002;{&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x5185;&#x7F51;&#x57DF;&#x540D;}
+#server=/localnet/192.168.0.1
+server=/web.jdf.lan/192.168.111.2
+
+# Example of routing PTR queries to nameservers: this will send all
+# address-&gt;name queries for 192.168.3/24 to nameserver 10.1.2.3
+# &#x5C06;PTR&#x67E5;&#x8BE2;&#x8DEF;&#x7531;&#x5230;&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;&#x7684;&#x793A;&#x4F8B;&#xFF1A;&#x8FD9;&#x4F1A;&#x5C06;192.168.3/24&#x7684;&#x6240;&#x6709;&#x5730;&#x5740; -&gt; &#x540D;&#x79F0;&#x67E5;&#x8BE2;&#x53D1;&#x9001;&#x5230;&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;10.1.2.3
+# {&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x53CD;&#x5411;&#x89E3;&#x6790;&#xFF0C;&#x6240;&#x6709;192.168.3.0/24&#x7684;&#x5730;&#x5740;&#x90FD;&#x5230;10.1.2.3&#x53BB;&#x89E3;&#x6790;}
+#server=/3.168.192.in-addr.arpa/10.1.2.3
+
+# Add local-only domains here, queries in these domains are answered
+# from /etc/hosts or DHCP only.
+# &#x5728;&#x6B64;&#x5904;&#x6DFB;&#x52A0;&#x4EC5;&#x9650;&#x672C;&#x5730;&#x7684;&#x57DF;&#xFF0C;&#x8FD9;&#x4E9B;&#x57DF;&#x4E2D;&#x7684;&#x67E5;&#x8BE2;&#x4EC5;&#x4ECE;/etc/hosts &#x6216;DHCP&#x56DE;&#x7B54;&#x3002;
+# {&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x57DF;&#x540D;&#xFF0C;&#x4F1A;&#x5728;/etc/hosts&#x4E2D;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;}
+#local=/localnet/
+
+# Add domains which you want to force to an IP address here.
+# The example below send any host in double-click.net to a local
+# web-server.
+# &#x5728;&#x6B64;&#x5904;&#x6DFB;&#x52A0;&#x8981;&#x5F3A;&#x5236;&#x4E3A;IP&#x5730;&#x5740;&#x7684;&#x57DF;&#x3002; &#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x5C06;double-click.net&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x4E3B;&#x673A;&#x53D1;&#x9001;&#x5230;&#x672C;&#x5730;Web&#x670D;&#x52A1;&#x5668;&#x3002;
+# {&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x57DF;&#x540D;&#xFF0C;&#x5F3A;&#x5236;&#x89E3;&#x6790;&#x5230;&#x4F60;&#x6307;&#x5B9A;&#x7684;&#x5730;&#x5740;&#x4E0A;}
+#address=/double-click.net/127.0.0.1
+
+# --address (and --server) work with IPv6 addresses too.
+# --address&#xFF08;&#x548C;--server&#xFF09;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;IPv6&#x5730;&#x5740;&#x3002;
+#address=/www.thekelleys.org.uk/fe80::20d:60ff:fe36:f83
+
+# Add the IPs of all queries to yahoo.com, google.com, and their
+# subdomains to the vpn and search ipsets:
+# &#x5C06;&#x6240;&#x6709;&#x67E5;&#x8BE2;&#x7684;IP&#x6DFB;&#x52A0;&#x5230;yahoo.com&#xFF0C;google.com&#x53CA;&#x5176;&#x5B50;&#x57DF;&#x5230;vpn&#x5E76;&#x641C;&#x7D22;ipsets&#xFF1A;
+#ipset=/yahoo.com/google.com/vpn,search
+
+# You can control how dnsmasq talks to a server: this forces
+# queries to 10.1.2.3 to be routed via eth1
+# &#x60A8;&#x53EF;&#x4EE5;&#x63A7;&#x5236;dnsmasq&#x5982;&#x4F55;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x901A;&#x4FE1;&#xFF1A;&#x8FD9;&#x4F1A;&#x5F3A;&#x5236;&#x6267;&#x884C;
+# &#x67E5;&#x8BE2;&#x8981;&#x901A;&#x8FC7;eth1&#x8DEF;&#x7531;&#x5230;10.1.2.3
+# {&#x53EF;&#x4EE5;&#x63A7;&#x5236;Dnsmasq&#x548C;Server&#x4E4B;&#x95F4;&#x7684;&#x67E5;&#x8BE2;&#x4ECE;&#x54EA;&#x4E2A;&#x7F51;&#x5361;&#x51FA;&#x53BB;}
+# server=10.1.2.3@eth1
+
+# and this sets the source (ie local) address used to talk to
+# 10.1.2.3 to 192.168.1.1 port 55 (there must be an interface with that
+# IP on the machine, obviously).
+# &#x8FD9;&#x8BBE;&#x7F6E;&#x4E86;&#x7528;&#x4E8E;&#x4E0E;10.1.2.3&#x5230;192.168.1.1&#x7AEF;&#x53E3;55&#x901A;&#x4FE1;&#x7684;&#x6E90;&#xFF08;&#x5373;&#x672C;&#x5730;&#xFF09;&#x5730;&#x5740;
+#&#xFF08;&#x663E;&#x7136;&#xFF0C;&#x673A;&#x5668;&#x4E0A;&#x5FC5;&#x987B;&#x6709;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x8BE5;IP&#x7684;&#x63A5;&#x53E3;&#xFF09;&#x3002;
+# {&#x53EF;&#x4EE5;&#x63A7;&#x5236;Dnsmasq&#x548C;Server&#x4E4B;&#x95F4;&#x7684;&#x67E5;&#x8BE2;&#x4ECE;&#x54EA;&#x4E2A;&#x7F51;&#x5361;&#x51FA;&#x53BB;}
+# server=10.1.2.3@192.168.1.1#55
+
+# If you want dnsmasq to change uid and gid to something other
+# than the default, edit the following lines.
+# &#x5982;&#x679C;&#x60A8;&#x5E0C;&#x671B;dnsmasq&#x5C06;uid&#x548C;gid&#x66F4;&#x6539;&#x4E3A;&#x9ED8;&#x8BA4;&#x503C;&#x4EE5;&#x5916;&#x7684;&#x5176;&#x4ED6;&#x5185;&#x5BB9;&#xFF0C;&#x8BF7;&#x7F16;&#x8F91;&#x4EE5;&#x4E0B;&#x884C;&#x3002;
+# {&#x6539;&#x53D8;Dnsmasq&#x9ED8;&#x8BA4;&#x7684;uid&#x548C;gid}
+#user=
+#group=
+
+# If you want dnsmasq to listen for DHCP and DNS requests only on
+# specified interfaces (and the loopback) give the name of the
+# interface (eg eth0) here.
+# Repeat the line for more than one interface.
+# &#x5982;&#x679C;&#x60A8;&#x5E0C;&#x671B;dnsmasq&#x4EC5;&#x5728;&#x6307;&#x5B9A;&#x7684;&#x63A5;&#x53E3;&#xFF08;&#x548C;&#x73AF;&#x56DE;&#xFF09;&#x4E0A;&#x4FA6;&#x542C;DHCP&#x548C;DNS&#x8BF7;&#x6C42;&#xFF0C;
+# &#x8BF7;&#x5728;&#x6B64;&#x5904;&#x63D0;&#x4F9B;&#x63A5;&#x53E3;&#x7684;&#x540D;&#x79F0;&#xFF08;&#x4F8B;&#x5982;eth0&#xFF09;&#x3002; &#x5BF9;&#x591A;&#x4E2A;&#x63A5;&#x53E3;&#x91CD;&#x590D;&#x8BE5;&#x884C;&#x3002;
+# {&#x5982;&#x679C;&#x4F60;&#x60F3;Dnsmasq&#x76D1;&#x542C;&#x67D0;&#x4E2A;&#x7AEF;&#x53E3;&#x4E3A;dhcp&#x3001;dns&#x63D0;&#x4F9B;&#x670D;&#x52A1;}
+interface=eth1
+# Or you can specify which interface _not_ to listen on
+# &#x6216;&#x8005;&#x60A8;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E0D;&#x8981;&#x76D1;&#x542C;&#x7684;&#x63A5;&#x53E3;
+# {&#x4F60;&#x8FD8;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x54EA;&#x4E2A;&#x7AEF;&#x53E3;&#x4F60;&#x4E0D;&#x60F3;&#x76D1;&#x542C;}
+#except-interface=
+# Or which to listen on by address (remember to include 127.0.0.1 if
+# you use this.)
+# &#x6216;&#x8005;&#x901A;&#x8FC7;&#x5730;&#x5740;&#x6536;&#x542C;&#x54EA;&#x4E9B;&#xFF08;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x6B64;&#x5730;&#x5740;&#xFF0C;&#x8BF7;&#x8BB0;&#x4F4F;&#x5305;&#x542B;127.0.0.1&#x3002;&#xFF09;
+# {&#x8BBE;&#x7F6E;&#x60F3;&#x76D1;&#x542C;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x672C;&#x673A;&#x8981;&#x4F7F;&#x7528;&#x5199;&#x4E0A;127.0.0.1&#x3002;}
+listen-address=192.168.111.1
+# If you want dnsmasq to provide only DNS service on an interface,
+# configure it as shown above, and then use the following line to
+# disable DHCP and TFTP on it.
+# &#x5982;&#x679C;&#x60A8;&#x5E0C;&#x671B;dnsmasq&#x4EC5;&#x5728;&#x63A5;&#x53E3;&#x4E0A;&#x63D0;&#x4F9B;DNS&#x670D;&#x52A1;&#xFF0C;&#x8BF7;&#x6309;&#x4E0A;&#x56FE;&#x6240;&#x793A;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x884C;&#x7981;&#x7528;DHCP&#x548C;TFTP&#x3002;
+# {&#x5982;&#x679C;&#x4F60;&#x60F3;&#x5728;&#x67D0;&#x4E2A;&#x7AEF;&#x53E3;&#x53EA;&#x63D0;&#x4F9B;dns&#x670D;&#x52A1;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x7981;&#x6B62;dhcp&#x670D;&#x52A1;}
+#no-dhcp-interface=
+
+# On systems which support it, dnsmasq binds the wildcard address,
+# even when it is listening on only some interfaces. It then discards
+# requests that it shouldn&apos;t reply to. This has the advantage of
+# working even when interfaces come and go and change address. If you
+# want dnsmasq to really bind only the interfaces it is listening on,
+# uncomment this option. About the only time you may need this is when
+# running another nameserver on the same machine.
+# &#x5728;&#x652F;&#x6301;&#x5B83;&#x7684;&#x7CFB;&#x7EDF;&#x4E0A;&#xFF0C;dnsmasq&#x7ED1;&#x5B9A;&#x901A;&#x914D;&#x7B26;&#x5730;&#x5740;&#xFF0C;&#x5373;&#x4F7F;&#x5B83;&#x53EA;&#x4FA6;&#x542C;&#x67D0;&#x4E9B;&#x63A5;&#x53E3;&#x3002;
+# &#x7136;&#x540E;&#x5B83;&#x4E22;&#x5F03;&#x5B83;&#x4E0D;&#x5E94;&#x8BE5;&#x56DE;&#x590D;&#x7684;&#x8BF7;&#x6C42;&#x3002; &#x5373;&#x4F7F;&#x63A5;&#x53E3;&#x6765;&#x6765;&#x53BB;&#x53BB;&#x6539;&#x53D8;&#x5730;&#x5740;&#xFF0C;&#x8FD9;&#x4E5F;&#x5177;&#x6709;&#x5DE5;&#x4F5C;&#x7684;&#x4F18;&#x70B9;&#x3002;
+# &#x5982;&#x679C;&#x60A8;&#x5E0C;&#x671B;dnsmasq&#x4EC5;&#x7ED1;&#x5B9A;&#x5B83;&#x6B63;&#x5728;&#x4FA6;&#x542C;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x8BF7;&#x53D6;&#x6D88;&#x6CE8;&#x91CA;&#x6B64;&#x9009;&#x9879;&#x3002;
+# &#x5173;&#x4E8E;&#x60A8;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x7684;&#x552F;&#x4E00;&#x65F6;&#x95F4;&#x662F;&#x5728;&#x540C;&#x4E00;&#x53F0;&#x8BA1;&#x7B97;&#x673A;&#x4E0A;&#x8FD0;&#x884C;&#x53E6;&#x4E00;&#x4E2A;&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;&#x3002;
+#bind-interfaces
+
+# If you don&apos;t want dnsmasq to read /etc/hosts, uncomment the
+# following line.
+# &#x5982;&#x679C;&#x60A8;&#x4E0D;&#x5E0C;&#x671B;dnsmasq&#x8BFB;&#x53D6;/etc/hosts&#xFF0C;&#x8BF7;&#x53D6;&#x6D88;&#x6CE8;&#x91CA;&#x4EE5;&#x4E0B;&#x884C;&#x3002;
+# {&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x60F3;&#x4F7F;&#x7528;/etc/hosts&#xFF0C;&#x5219;&#x53D6;&#x6D88;&#x4E0B;&#x9762;&#x7684;&#x6CE8;&#x91CA;}
+no-hosts
+# or if you want it to read another file, as well as /etc/hosts, use
+# this.
+# &#x6216;&#x8005;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8BA9;&#x5B83;&#x8BFB;&#x53D6;&#x53E6;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x4EE5;&#x53CA;/etc/hosts&#xFF0C;&#x8BF7;&#x4F7F;&#x7528;&#x5B83;&#x3002;
+# {&#x5982;&#x679C;&#x4F60;&#x9879;&#x8BFB;&#x53D6;&#x5176;&#x4ED6;&#x7C7B;&#x4F3C;/etc/hosts&#x6587;&#x4EF6;&#xFF0C;&#x5219;&#x8FDB;&#x884C;&#x914D;&#x7F6E;}
+#addn-hosts=/etc/banner_add_hosts
+
+# Set this (and domain: see below) if you want to have a domain
+# automatically added to simple names in a hosts-file.
+# &#x5982;&#x679C;&#x8981;&#x5C06;&#x57DF;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5230;hosts&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x7B80;&#x5355;&#x540D;&#x79F0;&#xFF0C;&#x8BF7;&#x8BBE;&#x7F6E;&#x6B64;&#xFF08;&#x548C;&#x57DF;&#xFF1A;&#x89C1;&#x4E0B;&#x6587;&#xFF09;&#x3002;
+# {&#x81EA;&#x52A8;&#x7684;&#x7ED9;hosts&#x4E2D;&#x7684;name&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x57DF;&#x540D;}
+#expand-hosts
+
+# Set the domain for dnsmasq. this is optional, but if it is set, it
+# does the following things.
+# &#x4E3A;dnsmasq&#x8BBE;&#x7F6E;&#x57DF;&#x3002; &#x8FD9;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x5B83;&#xFF0C;&#x5B83;&#x4F1A;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#x3002;
+# 1) Allows DHCP hosts to have fully qualified domain names, as long
+#     as the domain part matches this setting.
+# &#x5141;&#x8BB8;DHCP&#x4E3B;&#x673A;&#x5177;&#x6709;&#x5B8C;&#x5168;&#x9650;&#x5B9A;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x53EA;&#x8981;&#x57DF;&#x90E8;&#x5206;&#x4E0E;&#x6B64;&#x8BBE;&#x7F6E;&#x5339;&#x914D;&#x5373;&#x53EF;&#x3002;
+# 2) Sets the &quot;domain&quot; DHCP option thereby potentially setting the
+#    domain of all systems configured by DHCP
+# &#x8BBE;&#x7F6E;&#x201C;&#x57DF;&#x201D;DHCP&#x9009;&#x9879;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x80FD;&#x8BBE;&#x7F6E;DHCP&#x914D;&#x7F6E;&#x7684;&#x6240;&#x6709;&#x7CFB;&#x7EDF;&#x7684;&#x57DF;
+# 3) Provides the domain part for &quot;expand-hosts&quot;
+# &#x4E3A;&#x201C;expand-hosts&#x201D;&#x63D0;&#x4F9B;&#x57DF;&#x90E8;&#x5206;
+# {&#x7ED9;dhcp&#x670D;&#x52A1;&#x8D4B;&#x4E88;&#x4E00;&#x4E2A;&#x57DF;&#x540D;}
+#domain=thekelleys.org.uk
+
+# Set a different domain for a particular subnet
+# &#x4E3A;&#x7279;&#x5B9A;&#x5B50;&#x7F51;&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x57DF;
+# {&#x7ED9;dhcp&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x57DF;&#x8D4B;&#x4E88;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x57DF;&#x540D;}
+#domain=wireless.thekelleys.org.uk,192.168.2.0/24
+
+# Same idea, but range rather then subnet
+# {&#x540C;&#x4E0A;&#xFF0C;&#x4E0D;&#x8FC7;&#x5B50;&#x57DF;&#x662F;&#x4E00;&#x4E2A;&#x8303;&#x56F4;}
+#domain=reserved.thekelleys.org.uk,192.68.3.100,192.168.3.200
+
+# Uncomment this to enable the integrated DHCP server, you need
+# to supply the range of addresses available for lease and optionally
+# a lease time. If you have more than one network, you will need to
+# repeat this for each network on which you want to supply DHCP
+# service.
+# {dhcp&#x5206;&#x53D1;ip&#x7684;&#x8303;&#x56F4;&#xFF0C;&#x4EE5;&#x53CA;&#x6BCF;&#x4E2A;ip&#x7684;&#x79DF;&#x7EA6;&#x65F6;&#x95F4;}
+dhcp-range=192.168.111.1,192.168.111.10,12h
+
+# This is an example of a DHCP range where the netmask is given. This
+# is needed for networks we reach the dnsmasq DHCP server via a relay
+# agent. If you don&apos;t know what a DHCP relay agent is, you probably
+# don&apos;t need to worry about this.
+# &#x8FD9;&#x662F;&#x7ED9;&#x51FA;&#x7F51;&#x7EDC;&#x63A9;&#x7801;&#x7684;DHCP&#x8303;&#x56F4;&#x7684;&#x793A;&#x4F8B;&#x3002; &#x8FD9;&#x662F;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4E2D;&#x7EE7;&#x4EE3;&#x7406;&#x5230;&#x8FBE;dnsmasq DHCP&#x670D;&#x52A1;&#x5668;&#x7684;&#x7F51;&#x7EDC;&#x6240;&#x5FC5;&#x9700;&#x7684;&#x3002;
+# &#x5982;&#x679C;&#x60A8;&#x4E0D;&#x77E5;&#x9053;DHCP&#x4E2D;&#x7EE7;&#x4EE3;&#x7406;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x60A8;&#x53EF;&#x80FD;&#x4E0D;&#x9700;&#x8981;&#x62C5;&#x5FC3;&#x8FD9;&#x4E00;&#x70B9;&#x3002;
+# {&#x540C;&#x4E0A;&#xFF0C;&#x4E0D;&#x8FC7;&#x7ED9;&#x51FA;&#x4E86;&#x63A9;&#x7801;}
+#dhcp-range=192.168.0.50,192.168.0.150,255.255.255.0,12h
+
+# This is an example of a DHCP range which sets a tag, so that
+# some DHCP options may be set only for this network.
+# &#x8FD9;&#x662F;&#x8BBE;&#x7F6E;&#x6807;&#x8BB0;&#x7684;DHCP&#x8303;&#x56F4;&#x7684;&#x793A;&#x4F8B;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x4EC5;&#x4E3A;&#x8BE5;&#x7F51;&#x7EDC;&#x8BBE;&#x7F6E;&#x4E00;&#x4E9B;DHCP&#x9009;&#x9879;&#x3002;
+#dhcp-range=set:red,192.168.0.50,192.168.0.150
+
+# Use this DHCP range only when the tag &quot;green&quot; is set.
+# &#x4EC5;&#x5728;&#x8BBE;&#x7F6E;&#x4E86;&#x201C;&#x7EFF;&#x8272;&#x201D;&#x6807;&#x8BB0;&#x65F6;&#x624D;&#x4F7F;&#x7528;&#x6B64;DHCP&#x8303;&#x56F4;&#x3002;
+#dhcp-range=tag:green,192.168.0.50,192.168.0.150,12h
+
+# Specify a subnet which can&apos;t be used for dynamic address allocation,
+# is available for hosts with matching --dhcp-host lines. Note that
+# dhcp-host declarations will be ignored unless there is a dhcp-range
+# of some type for the subnet in question.
+# In this case the netmask is implied (it comes from the network
+# configuration on the machine running dnsmasq) it is possible to give
+# an explicit netmask instead.
+# &#x6307;&#x5B9A;&#x4E0D;&#x80FD;&#x7528;&#x4E8E;&#x52A8;&#x6001;&#x5730;&#x5740;&#x5206;&#x914D;&#x7684;&#x5B50;&#x7F51;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x5177;&#x6709;&#x5339;&#x914D;&#x7684;--dhcp-host&#x884C;&#x7684;&#x4E3B;&#x673A;&#x3002;
+# &#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x9664;&#x975E;&#x6709;&#x76F8;&#x5173;&#x5B50;&#x7F51;&#x7684;&#x67D0;&#x79CD;&#x7C7B;&#x578B;&#x7684;dhcp-range&#xFF0C;&#x5426;&#x5219;&#x5C06;&#x5FFD;&#x7565;dhcp-host&#x58F0;&#x660E;&#x3002;
+# &#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x9690;&#x542B;&#x4E86;&#x7F51;&#x7EDC;&#x63A9;&#x7801;&#xFF08;&#x5B83;&#x6765;&#x81EA;&#x8FD0;&#x884C;dnsmasq&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x4E0A;&#x7684;&#x7F51;&#x7EDC;&#x914D;&#x7F6E;&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x660E;&#x786E;&#x7684;&#x7F51;&#x7EDC;&#x63A9;&#x7801;&#x3002;
+#dhcp-range=192.168.0.0,static
+
+# Enable DHCPv6. Note that the prefix-length does not need to be specified
+# and defaults to 64 if missing/
+# &#x542F;&#x7528;DHCPv6&#x3002; &#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x6307;&#x5B9A;prefix-length&#xFF0C;&#x5982;&#x679C;&#x7F3A;&#x5C11;/&#x5219;&#x9ED8;&#x8BA4;&#x4E3A;64
+#dhcp-range=1234::2, 1234::500, 64, 12h
+
+# Do Router Advertisements, BUT NOT DHCP for this subnet.
+# &#x505A;&#x8DEF;&#x7531;&#x5668;&#x5E7F;&#x544A;&#xFF0C;&#x4F46;&#x4E0D;&#x662F;&#x8FD9;&#x4E2A;&#x5B50;&#x7F51;&#x7684;DHCP&#x3002;
+#dhcp-range=1234::, ra-only
+
+# Do Router Advertisements, BUT NOT DHCP for this subnet, also try and
+# add names to the DNS for the IPv6 address of SLAAC-configured dual-stack
+# hosts. Use the DHCPv4 lease to derive the name, network segment and
+# MAC address and assume that the host will also have an
+# IPv6 address calculated using the SLAAC algorithm.
+# &#x505A;&#x8DEF;&#x7531;&#x5668;&#x5E7F;&#x544A;&#xFF0C;&#x4F46;&#x4E0D;&#x662F;&#x8BE5;&#x5B50;&#x7F51;&#x7684;DHCP&#xFF0C;&#x4E5F;&#x5C1D;&#x8BD5;&#x4E3A;DNS&#x6DFB;&#x52A0;SLAAC&#x914D;&#x7F6E;&#x7684;&#x53CC;&#x6808;&#x4E3B;&#x673A;&#x7684;IPv6&#x5730;&#x5740;&#x540D;&#x79F0;&#x3002;
+# &#x4F7F;&#x7528;DHCPv4&#x79DF;&#x7EA6;&#x6765;&#x83B7;&#x53D6;&#x540D;&#x79F0;&#xFF0C;&#x7F51;&#x6BB5;&#x548C;MAC&#x5730;&#x5740;&#xFF0C;&#x5E76;&#x5047;&#x8BBE;&#x4E3B;&#x673A;&#x8FD8;&#x5C06;&#x4F7F;&#x7528;SLAAC&#x7B97;&#x6CD5;&#x8BA1;&#x7B97;IPv6&#x5730;&#x5740;&#x3002;
+#dhcp-range=1234::, ra-names
+
+# Do Router Advertisements, BUT NOT DHCP for this subnet.
+# Set the lifetime to 46 hours. (Note: minimum lifetime is 2 hours.)
+# &#x505A;&#x8DEF;&#x7531;&#x5668;&#x5E7F;&#x544A;&#xFF0C;&#x4F46;&#x4E0D;&#x662F;&#x8FD9;&#x4E2A;&#x5B50;&#x7F51;&#x7684;DHCP&#x3002; &#x5C06;&#x751F;&#x547D;&#x5468;&#x671F;&#x8BBE;&#x7F6E;&#x4E3A;46&#x5C0F;&#x65F6;&#x3002; &#xFF08;&#x6CE8;&#x610F;&#xFF1A;&#x6700;&#x77ED;&#x5BFF;&#x547D;&#x4E3A;2&#x5C0F;&#x65F6;&#x3002;&#xFF09;
+#dhcp-range=1234::, ra-only, 48h
+
+# Do DHCP and Router Advertisements for this subnet. Set the A bit in the RA
+# so that clients can use SLAAC addresses as well as DHCP ones.
+# &#x4E3A;&#x6B64;&#x5B50;&#x7F51;&#x6267;&#x884C;DHCP&#x548C;&#x8DEF;&#x7531;&#x5668;&#x901A;&#x544A;&#x3002; &#x8BBE;&#x7F6E;RA&#x4E2D;&#x7684;A&#x4F4D;&#xFF0C;&#x4EE5;&#x4FBF;&#x5BA2;&#x6237;&#x7AEF;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;SLAAC&#x5730;&#x5740;&#x548C;DHCP&#x5730;&#x5740;&#x3002;
+#dhcp-range=1234::2, 1234::500, slaac
+
+# Do Router Advertisements and stateless DHCP for this subnet. Clients will
+# not get addresses from DHCP, but they will get other configuration information.
+# They will use SLAAC for addresses.
+# &#x4E3A;&#x6B64;&#x5B50;&#x7F51;&#x6267;&#x884C;&#x8DEF;&#x7531;&#x5668;&#x901A;&#x544A;&#x548C;&#x65E0;&#x72B6;&#x6001;DHCP&#x3002;
+# &#x5BA2;&#x6237;&#x7AEF;&#x4E0D;&#x4F1A;&#x4ECE;DHCP&#x83B7;&#x53D6;&#x5730;&#x5740;&#xFF0C;&#x4F46;&#x662F;&#x4ED6;&#x4EEC;&#x5C06;&#x83B7;&#x5F97;&#x5176;&#x4ED6;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x3002; &#x4ED6;&#x4EEC;&#x5C06;&#x4F7F;&#x7528;SLAAC&#x4F5C;&#x4E3A;&#x5730;&#x5740;&#x3002;
+#dhcp-range=1234::, ra-stateless
+
+# Do stateless DHCP, SLAAC, and generate DNS names for SLAAC addresses
+# from DHCPv4 leases.
+# &#x4E3A;DHCPv4&#x79DF;&#x7EA6;&#x4E2D;&#x7684;SLAAC&#x5730;&#x5740;&#x6267;&#x884C;&#x65E0;&#x72B6;&#x6001;DHCP&#xFF0C;SLAAC&#x548C;&#x751F;&#x6210;DNS&#x540D;&#x79F0;&#x3002;
+#dhcp-range=1234::, ra-stateless, ra-names
+
+# Do router advertisements for all subnets where we&apos;re doing DHCPv6
+# Unless overridden by ra-stateless, ra-names, et al, the router
+# advertisements will have the M and O bits set, so that the clients
+# get addresses and configuration from DHCPv6, and the A bit reset, so the
+# clients don&apos;t use SLAAC addresses.
+# &#x4E3A;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x8FDB;&#x884C;DHCPv6&#x7684;&#x6240;&#x6709;&#x5B50;&#x7F51;&#x505A;&#x8DEF;&#x7531;&#x5668;&#x5E7F;&#x544A;&#x9664;&#x975E;&#x88AB;ra-stateless&#xFF0C;ra-names&#x7B49;&#x8986;&#x76D6;&#xFF0C;
+# &#x5426;&#x5219;&#x8DEF;&#x7531;&#x5668;&#x901A;&#x544A;&#x5C06;&#x8BBE;&#x7F6E;M&#x548C;O&#x4F4D;&#xFF0C;&#x4EE5;&#x4FBF;&#x5BA2;&#x6237;&#x7AEF;&#x4ECE;DHCPv6&#x83B7;&#x53D6;&#x5730;&#x5740;&#x548C;&#x914D;&#x7F6E;&#xFF0C;&#x4EE5;&#x53CA;A&#x4F4D;&#x590D;&#x4F4D;&#xFF0C;&#x56E0;&#x6B64;&#x5BA2;&#x6237;&#x7AEF;&#x4E0D;&#x4F7F;&#x7528;SLAAC&#x5730;&#x5740;&#x3002;
+#enable-ra
+
+# Supply parameters for specified hosts using DHCP. There are lots
+# of valid alternatives, so we will give examples of each. Note that
+# IP addresses DO NOT have to be in the range given above, they just
+# need to be on the same network. The order of the parameters in these
+# do not matter, it&apos;s permissible to give name, address and MAC in any
+# order.
+# &#x4F7F;&#x7528;DHCP&#x4E3A;&#x6307;&#x5B9A;&#x4E3B;&#x673A;&#x63D0;&#x4F9B;&#x53C2;&#x6570;&#x3002; &#x6709;&#x5F88;&#x591A;&#x6709;&#x6548;&#x7684;&#x66FF;&#x4EE3;&#x65B9;&#x6848;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x5C06;&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;&#x3002;
+# &#x8BF7;&#x6CE8;&#x610F;&#xFF0C;IP&#x5730;&#x5740;&#x4E0D;&#x5FC5;&#x5728;&#x4E0A;&#x9762;&#x7ED9;&#x51FA;&#x7684;&#x8303;&#x56F4;&#x5185;&#xFF0C;&#x5B83;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x5728;&#x540C;&#x4E00;&#x7F51;&#x7EDC;&#x4E0A;&#x3002;
+# &#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#x7684;&#x987A;&#x5E8F;&#x65E0;&#x5173;&#x7D27;&#x8981;&#xFF0C;&#x5141;&#x8BB8;&#x4EE5;&#x4EFB;&#x4F55;&#x987A;&#x5E8F;&#x7ED9;&#x51FA;&#x540D;&#x79F0;&#xFF0C;&#x5730;&#x5740;&#x548C;MAC&#x3002;
+
+# Always allocate the host with Ethernet address 11:22:33:44:55:66
+# The IP address 192.168.0.60
+# &#x59CB;&#x7EC8;&#x4F7F;&#x7528;&#x4EE5;&#x592A;&#x7F51;&#x5730;&#x5740;11&#xFF1A;22&#xFF1A;33&#xFF1A;44&#xFF1A;55&#xFF1A;66&#x5206;&#x914D;&#x4E3B;&#x673A;IP&#x5730;&#x5740;192.168.0.60
+# {&#x6309;&#x7167;Mac&#x5730;&#x5740;&#x5206;&#x914D;IP}
+#dhcp-host=11:22:33:44:55:66,192.168.0.60
+dhcp-host=08:00:27:b4:c2:15,192.168.111.2,web.jgf.lan
+
+# Always set the name of the host with hardware address
+# &#x59CB;&#x7EC8;&#x4F7F;&#x7528;&#x786C;&#x4EF6;&#x5730;&#x5740;&#x8BBE;&#x7F6E;&#x4E3B;&#x673A;&#x7684;&#x540D;&#x79F0;
+# 11:22:33:44:55:66 to be &quot;fred&quot;
+#dhcp-host=11:22:33:44:55:66,fred
+
+# Always give the host with Ethernet address 11:22:33:44:55:66
+# the name fred and IP address 192.168.0.60 and lease time 45 minutes
+# &#x59CB;&#x7EC8;&#x7ED9;&#x4E3B;&#x673A;&#x63D0;&#x4F9B;&#x4EE5;&#x592A;&#x7F51;&#x5730;&#x5740;11&#xFF1A;22&#xFF1A;33&#xFF1A;44&#xFF1A;55&#xFF1A;66&#x540D;&#x79F0;fred&#x548C;IP&#x5730;&#x5740;192.168.0.60&#x548C;&#x79DF;&#x7528;&#x65F6;&#x95F4;45&#x5206;&#x949F;
+#dhcp-host=11:22:33:44:55:66,fred,192.168.0.60,45m
+
+# Give a host with Ethernet address 11:22:33:44:55:66 or
+# 12:34:56:78:90:12 the IP address 192.168.0.60. Dnsmasq will assume
+# that these two Ethernet interfaces will never be in use at the same
+# time, and give the IP address to the second, even if it is already
+# in use by the first. Useful for laptops with wired and wireless
+# addresses.
+# &#x4E3A;&#x4E3B;&#x673A;&#x63D0;&#x4F9B;&#x4EE5;&#x592A;&#x7F51;&#x5730;&#x5740;11&#xFF1A;22&#xFF1A;33&#xFF1A;44&#xFF1A;55&#xFF1A;66&#x6216;12&#xFF1A;34&#xFF1A;56&#xFF1A;78&#xFF1A;90&#xFF1A;12 IP&#x5730;&#x5740;192.168.0.60&#x3002;
+# Dnsmasq&#x5C06;&#x5047;&#x8BBE;&#x8FD9;&#x4E24;&#x4E2A;&#x4EE5;&#x592A;&#x7F51;&#x63A5;&#x53E3;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#xFF0C;&#x5E76;&#x5C06;IP&#x5730;&#x5740;&#x63D0;&#x4F9B;&#x7ED9;&#x7B2C;&#x4E8C;&#x4E2A;&#xFF0C;&#x5373;&#x4F7F;&#x5B83;&#x5DF2;&#x88AB;&#x7B2C;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x3002;
+# &#x9002;&#x7528;&#x4E8E;&#x6709;&#x7EBF;&#x548C;&#x65E0;&#x7EBF;&#x5730;&#x5740;&#x7684;&#x7B14;&#x8BB0;&#x672C;&#x7535;&#x8111;&#x3002;
+#dhcp-host=11:22:33:44:55:66,12:34:56:78:90:12,192.168.0.60
+
+# Give the machine which says its name is &quot;bert&quot; IP address
+# 192.168.0.70 and an infinite lease
+# &#x7ED9;&#x540D;&#x79F0;&#x4E3A;&#x201C;bert&#x201D;IP&#x5730;&#x5740;192.168.0.70&#x7684;&#x673A;&#x5668;&#x548C;&#x65E0;&#x9650;&#x79DF;&#x7EA6;
+#dhcp-host=bert,192.168.0.70,infinite
+
+# Always give the host with client identifier 01:02:02:04
+# the IP address 192.168.0.60
+# &#x59CB;&#x7EC8;&#x4E3A;&#x4E3B;&#x673A;&#x63D0;&#x4F9B;&#x5BA2;&#x6237;&#x7AEF;&#x6807;&#x8BC6;&#x7B26;01&#xFF1A;02&#xFF1A;02&#xFF1A;04 IP&#x5730;&#x5740;192.168.0.60
+#dhcp-host=id:01:02:02:04,192.168.0.60
+
+# Always give the InfiniBand interface with hardware address
+# 80:00:00:48:fe:80:00:00:00:00:00:00:f4:52:14:03:00:28:05:81 the
+# ip address 192.168.0.61. The client id is derived from the prefix
+# ff:00:00:00:00:00:02:00:00:02:c9:00 and the last 8 pairs of
+# hex digits of the hardware address.
+# &#x59CB;&#x7EC8;&#x7ED9;InfiniBand&#x63A5;&#x53E3;&#x63D0;&#x4F9B;&#x786C;&#x4EF6;&#x5730;&#x5740;&#xFF1A;
+# 80&#xFF1A;00&#xFF1A;00&#xFF1A;48&#xFF1A;fe&#xFF1A;80&#xFF1A;00&#xFF1A;00&#xFF1A;00&#xFF1A;00&#xFF1A;00&#xFF1A;00&#xFF1A;f4&#xFF1A;52&#xFF1A;14&#xFF1A;03&#xFF1A;00&#xFF1A;28&#xFF1A;05&#xFF1A;81
+# ip&#x5730;&#x5740;&#xFF1A;192.168.0.61&#x3002;
+# &#x5BA2;&#x6237;&#x7AEF;ID&#x6E90;&#x81EA;&#x524D;&#x7F00;&#xFF1A;
+# ff&#xFF1A;00&#xFF1A;00&#xFF1A;00&#xFF1A;00&#xFF1A;00&#xFF1A;02&#xFF1A;00&#xFF1A;00&#xFF1A;02&#xFF1A;c9&#xFF1A;00 &#x4EE5;&#x53CA;&#x786C;&#x4EF6;&#x5730;&#x5740;&#x7684;&#x6700;&#x540E;8&#x5BF9;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x6570;&#x5B57;&#x3002;
+#dhcp-host=id:ff:00:00:00:00:00:02:00:00:02:c9:00:f4:52:14:03:00:28:05:81,192.168.0.61
+
+# Always give the host with client identifier &quot;marjorie&quot;
+# the IP address 192.168.0.60
+# &#x59CB;&#x7EC8;&#x4E3A;&#x4E3B;&#x673A;&#x63D0;&#x4F9B;&#x5BA2;&#x6237;&#x7AEF;&#x6807;&#x8BC6;&#x7B26;&#x201C;marjorie&#x201D;&#xFF0C;IP&#x5730;&#x5740;&#x4E3A;192.168.0.60
+#dhcp-host=id:marjorie,192.168.0.60
+
+# Enable the address given for &quot;judge&quot; in /etc/hosts
+# to be given to a machine presenting the name &quot;judge&quot; when
+# it asks for a DHCP lease.
+# &#x5728;/etc/hosts&#x4E2D;&#x4E3A;&#x201C;&#x5224;&#x65AD;&#x201D;&#x63D0;&#x4F9B;&#x7684;&#x5730;&#x5740;&#x5728;&#x5B83;&#x8981;&#x6C42;DHCP&#x79DF;&#x7EA6;&#x65F6;&#x88AB;&#x63D0;&#x4F9B;&#x7ED9;&#x540D;&#x79F0;&#x4E3A;&#x201C;judge&#x201D;&#x7684;&#x673A;&#x5668;&#x3002;
+#dhcp-host=judge
+
+# Never offer DHCP service to a machine whose Ethernet
+# address is 11:22:33:44:55:66
+# &#x5207;&#x52FF;&#x5411;&#x4EE5;&#x592A;&#x7F51;&#x5730;&#x5740;&#x4E3A;11&#xFF1A;22&#xFF1A;33&#xFF1A;44&#xFF1A;55&#xFF1A;66&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x63D0;&#x4F9B;DHCP&#x670D;&#x52A1;
+#dhcp-host=11:22:33:44:55:66,ignore
+
+# Ignore any client-id presented by the machine with Ethernet
+# address 11:22:33:44:55:66. This is useful to prevent a machine
+# being treated differently when running under different OS&apos;s or
+# between PXE boot and OS boot.
+# &#x5FFD;&#x7565;&#x673A;&#x5668;&#x63D0;&#x4F9B;&#x7684;&#x4EFB;&#x4F55;&#x5BA2;&#x6237;&#x673A;ID&#xFF0C;&#x4EE5;&#x592A;&#x7F51;&#x5730;&#x5740;&#x4E3A;11&#xFF1A;22&#xFF1A;33&#xFF1A;44&#xFF1A;55&#xFF1A;66&#x3002;
+# &#x8FD9;&#x6709;&#x52A9;&#x4E8E;&#x9632;&#x6B62;&#x5728;&#x4E0D;&#x540C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E0B;&#x8FD0;&#x884C;&#x6216;&#x5728;PXE&#x5F15;&#x5BFC;&#x548C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5F15;&#x5BFC;&#x4E4B;&#x95F4;&#x5BF9;&#x673A;&#x5668;&#x8FDB;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x5904;&#x7406;&#x3002;
+#dhcp-host=11:22:33:44:55:66,id:*
+
+# Send extra options which are tagged as &quot;red&quot; to
+# the machine with Ethernet address 11:22:33:44:55:66
+# &#x5C06;&#x6807;&#x8BB0;&#x4E3A;&#x201C;&#x7EA2;&#x8272;&#x201D;&#x7684;&#x989D;&#x5916;&#x9009;&#x9879;&#x53D1;&#x9001;&#x5230;&#x5177;&#x6709;&#x4EE5;&#x592A;&#x7F51;&#x5730;&#x5740;11&#xFF1A;22&#xFF1A;33&#xFF1A;44&#xFF1A;55&#xFF1A;66&#x7684;&#x673A;&#x5668;
+#dhcp-host=11:22:33:44:55:66,set:red
+
+# Send extra options which are tagged as &quot;red&quot; to
+# any machine with Ethernet address starting 11:22:33:
+#dhcp-host=11:22:33:*:*:*,set:red
+
+# Give a fixed IPv6 address and name to client with
+# DUID 00:01:00:01:16:d2:83:fc:92:d4:19:e2:d8:b2
+# Note the MAC addresses CANNOT be used to identify DHCPv6 clients.
+# Note also that the [] around the IPv6 address are obligatory.
+#dhcp-host=id:00:01:00:01:16:d2:83:fc:92:d4:19:e2:d8:b2, fred, [1234::5]
+
+# Ignore any clients which are not specified in dhcp-host lines
+# or /etc/ethers. Equivalent to ISC &quot;deny unknown-clients&quot;.
+# This relies on the special &quot;known&quot; tag which is set when
+# a host is matched.
+#dhcp-ignore=tag:!known
+
+# Send extra options which are tagged as &quot;red&quot; to any machine whose
+# DHCP vendorclass string includes the substring &quot;Linux&quot;
+#dhcp-vendorclass=set:red,Linux
+
+# Send extra options which are tagged as &quot;red&quot; to any machine one
+# of whose DHCP userclass strings includes the substring &quot;accounts&quot;
+#dhcp-userclass=set:red,accounts
+
+# Send extra options which are tagged as &quot;red&quot; to any machine whose
+# MAC address matches the pattern.
+#dhcp-mac=set:red,00:60:8C:*:*:*
+
+# If this line is uncommented, dnsmasq will read /etc/ethers and act
+# on the ethernet-address/IP pairs found there just as if they had
+# been given as --dhcp-host options. Useful if you keep
+# MAC-address/host mappings there for other purposes.
+#read-ethers
+
+# Send options to hosts which ask for a DHCP lease.
+# See RFC 2132 for details of available options.
+# Common options can be given to dnsmasq by name:
+# run &quot;dnsmasq --help dhcp&quot; to get a list.
+# Note that all the common settings, such as netmask and
+# broadcast address, DNS server and default route, are given
+# sane defaults by dnsmasq. You very likely will not need
+# any dhcp-options. If you use Windows clients and Samba, there
+# are some options which are recommended, they are detailed at the
+# end of this section.
+
+# Override the default route supplied by dnsmasq, which assumes the
+# router is the same machine as the one running dnsmasq.
+#dhcp-option=3,1.2.3.4
+
+# Do the same thing, but using the option name
+#dhcp-option=option:router,1.2.3.4
+dhcp-option=option:router,192.168.111.1
+
+# Override the default route supplied by dnsmasq and send no default
+# route at all. Note that this only works for the options sent by
+# default (1, 3, 6, 12, 28) the same line will send a zero-length option
+# for all other option numbers.
+#dhcp-option=3
+
+# Set the NTP time server addresses to 192.168.0.4 and 10.10.0.5
+#dhcp-option=option:ntp-server,192.168.0.4,10.10.0.5
+
+# Send DHCPv6 option. Note [] around IPv6 addresses.
+#dhcp-option=option6:dns-server,[1234::77],[1234::88]
+dhcp-option=option:dns-server,192.168.111.1
+
+# Send DHCPv6 option for namservers as the machine running
+# dnsmasq and another.
+#dhcp-option=option6:dns-server,[::],[1234::88]
+
+# Ask client to poll for option changes every six hours. (RFC4242)
+#dhcp-option=option6:information-refresh-time,6h
+
+# Set option 58 client renewal time (T1). Defaults to half of the
+# lease time if not specified. (RFC2132)
+#dhcp-option=option:T1,1m
+
+# Set option 59 rebinding time (T2). Defaults to 7/8 of the
+# lease time if not specified. (RFC2132)
+#dhcp-option=option:T2,2m
+
+# Set the NTP time server address to be the same machine as
+# is running dnsmasq
+#dhcp-option=42,0.0.0.0
+
+# Set the NIS domain name to &quot;welly&quot;
+#dhcp-option=40,welly
+
+# Set the default time-to-live to 50
+#dhcp-option=23,50
+
+# Set the &quot;all subnets are local&quot; flag
+#dhcp-option=27,1
+
+# Send the etherboot magic flag and then etherboot options (a string).
+#dhcp-option=128,e4:45:74:68:00:00
+#dhcp-option=129,NIC=eepro100
+
+# Specify an option which will only be sent to the &quot;red&quot; network
+# (see dhcp-range for the declaration of the &quot;red&quot; network)
+# Note that the tag: part must precede the option: part.
+#dhcp-option = tag:red, option:ntp-server, 192.168.1.1
+
+# The following DHCP options set up dnsmasq in the same way as is specified
+# for the ISC dhcpcd in
+# http://www.samba.org/samba/ftp/docs/textdocs/DHCP-Server-Configuration.txt
+# adapted for a typical dnsmasq installation where the host running
+# dnsmasq is also the host running samba.
+# you may want to uncomment some or all of them if you use
+# Windows clients and Samba.
+#dhcp-option=19,0           # option ip-forwarding off
+#dhcp-option=44,0.0.0.0     # set netbios-over-TCP/IP nameserver(s) aka WINS server(s)
+#dhcp-option=45,0.0.0.0     # netbios datagram distribution server
+#dhcp-option=46,8           # netbios node type
+
+# Send an empty WPAD option. This may be REQUIRED to get windows 7 to behave.
+#dhcp-option=252,&quot;\n&quot;
+
+# Send RFC-3397 DNS domain search DHCP option. WARNING: Your DHCP client
+# probably doesn&apos;t support this......
+#dhcp-option=option:domain-search,eng.apple.com,marketing.apple.com
+
+# Send RFC-3442 classless static routes (note the netmask encoding)
+#dhcp-option=121,192.168.1.0/24,1.2.3.4,10.0.0.0/8,5.6.7.8
+
+# Send vendor-class specific options encapsulated in DHCP option 43.
+# The meaning of the options is defined by the vendor-class so
+# options are sent only when the client supplied vendor class
+# matches the class given here. (A substring match is OK, so &quot;MSFT&quot;
+# matches &quot;MSFT&quot; and &quot;MSFT 5.0&quot;). This example sets the
+# mtftp address to 0.0.0.0 for PXEClients.
+#dhcp-option=vendor:PXEClient,1,0.0.0.0
+
+# Send microsoft-specific option to tell windows to release the DHCP lease
+# when it shuts down. Note the &quot;i&quot; flag, to tell dnsmasq to send the
+# value as a four-byte integer - that&apos;s what microsoft wants. See
+# http://technet2.microsoft.com/WindowsServer/en/library/a70f1bb7-d2d4-49f0-96d6-4b7414ecfaae1033.mspx?mfr=true
+#dhcp-option=vendor:MSFT,2,1i
+
+# Send the Encapsulated-vendor-class ID needed by some configurations of
+# Etherboot to allow is to recognise the DHCP server.
+#dhcp-option=vendor:Etherboot,60,&quot;Etherboot&quot;
+
+# Send options to PXELinux. Note that we need to send the options even
+# though they don&apos;t appear in the parameter request list, so we need
+# to use dhcp-option-force here.
+# See http://syslinux.zytor.com/pxe.php#special for details.
+# Magic number - needed before anything else is recognised
+#dhcp-option-force=208,f1:00:74:7e
+# Configuration file name
+#dhcp-option-force=209,configs/common
+# Path prefix
+#dhcp-option-force=210,/tftpboot/pxelinux/files/
+# Reboot time. (Note &apos;i&apos; to send 32-bit value)
+#dhcp-option-force=211,30i
+
+# Set the boot filename for netboot/PXE. You will only need
+# this if you want to boot machines over the network and you will need
+# a TFTP server; either dnsmasq&apos;s built-in TFTP server or an
+# external one. (See below for how to enable the TFTP server.)
+#dhcp-boot=pxelinux.0
+
+# The same as above, but use custom tftp-server instead machine running dnsmasq
+#dhcp-boot=pxelinux,server.name,192.168.1.100
+
+# Boot for iPXE. The idea is to send two different
+# filenames, the first loads iPXE, and the second tells iPXE what to
+# load. The dhcp-match sets the ipxe tag for requests from iPXE.
+#dhcp-boot=undionly.kpxe
+#dhcp-match=set:ipxe,175 # iPXE sends a 175 option.
+#dhcp-boot=tag:ipxe,http://boot.ipxe.org/demo/boot.php
+
+# Encapsulated options for iPXE. All the options are
+# encapsulated within option 175
+#dhcp-option=encap:175, 1, 5b         # priority code
+#dhcp-option=encap:175, 176, 1b       # no-proxydhcp
+#dhcp-option=encap:175, 177, string   # bus-id
+#dhcp-option=encap:175, 189, 1b       # BIOS drive code
+#dhcp-option=encap:175, 190, user     # iSCSI username
+#dhcp-option=encap:175, 191, pass     # iSCSI password
+
+# Test for the architecture of a netboot client. PXE clients are
+# supposed to send their architecture as option 93. (See RFC 4578)
+#dhcp-match=peecees, option:client-arch, 0 #x86-32
+#dhcp-match=itanics, option:client-arch, 2 #IA64
+#dhcp-match=hammers, option:client-arch, 6 #x86-64
+#dhcp-match=mactels, option:client-arch, 7 #EFI x86-64
+
+# Do real PXE, rather than just booting a single file, this is an
+# alternative to dhcp-boot.
+#pxe-prompt=&quot;What system shall I netboot?&quot;
+# or with timeout before first available action is taken:
+#pxe-prompt=&quot;Press F8 for menu.&quot;, 60
+
+# Available boot services. for PXE.
+#pxe-service=x86PC, &quot;Boot from local disk&quot;
+
+# Loads &lt;tftp-root&gt;/pxelinux.0 from dnsmasq TFTP server.
+#pxe-service=x86PC, &quot;Install Linux&quot;, pxelinux
+
+# Loads &lt;tftp-root&gt;/pxelinux.0 from TFTP server at 1.2.3.4.
+# Beware this fails on old PXE ROMS.
+#pxe-service=x86PC, &quot;Install Linux&quot;, pxelinux, 1.2.3.4
+
+# Use bootserver on network, found my multicast or broadcast.
+#pxe-service=x86PC, &quot;Install windows from RIS server&quot;, 1
+
+# Use bootserver at a known IP address.
+#pxe-service=x86PC, &quot;Install windows from RIS server&quot;, 1, 1.2.3.4
+
+# If you have multicast-FTP available,
+# information for that can be passed in a similar way using options 1
+# to 5. See page 19 of
+# http://download.intel.com/design/archives/wfm/downloads/pxespec.pdf
+
+
+# Enable dnsmasq&apos;s built-in TFTP server
+#enable-tftp
+
+# Set the root directory for files available via FTP.
+#tftp-root=/var/ftpd
+
+# Do not abort if the tftp-root is unavailable
+#tftp-no-fail
+
+# Make the TFTP server more secure: with this set, only files owned by
+# the user dnsmasq is running as will be send over the net.
+#tftp-secure
+
+# This option stops dnsmasq from negotiating a larger blocksize for TFTP
+# transfers. It will slow things down, but may rescue some broken TFTP
+# clients.
+#tftp-no-blocksize
+
+# Set the boot file name only when the &quot;red&quot; tag is set.
+#dhcp-boot=tag:red,pxelinux.red-net
+
+# An example of dhcp-boot with an external TFTP server: the name and IP
+# address of the server are given after the filename.
+# Can fail with old PXE ROMS. Overridden by --pxe-service.
+#dhcp-boot=/var/ftpd/pxelinux.0,boothost,192.168.0.3
+
+# If there are multiple external tftp servers having a same name
+# (using /etc/hosts) then that name can be specified as the
+# tftp_servername (the third option to dhcp-boot) and in that
+# case dnsmasq resolves this name and returns the resultant IP
+# addresses in round robin fashion. This facility can be used to
+# load balance the tftp load among a set of servers.
+#dhcp-boot=/var/ftpd/pxelinux.0,boothost,tftp_server_name
+
+# Set the limit on DHCP leases, the default is 150
+#dhcp-lease-max=150
+
+# The DHCP server needs somewhere on disk to keep its lease database.
+# This defaults to a sane location, but if you want to change it, use
+# the line below.
+#dhcp-leasefile=/var/lib/misc/dnsmasq.leases
+
+# Set the DHCP server to authoritative mode. In this mode it will barge in
+# and take over the lease for any client which broadcasts on the network,
+# whether it has a record of the lease or not. This avoids long timeouts
+# when a machine wakes up on a new network. DO NOT enable this if there&apos;s
+# the slightest chance that you might end up accidentally configuring a DHCP
+# server for your campus/company accidentally. The ISC server uses
+# the same option, and this URL provides more information:
+# http://www.isc.org/files/auth.html
+#dhcp-authoritative
+
+# Set the DHCP server to enable DHCPv4 Rapid Commit Option per RFC 4039.
+# In this mode it will respond to a DHCPDISCOVER message including a Rapid Commit
+# option with a DHCPACK including a Rapid Commit option and fully committed address
+# and configuration information. This must only be enabled if either the server is
+# the only server for the subnet, or multiple servers are present and they each
+# commit a binding for all clients.
+#dhcp-rapid-commit
+
+# Run an executable when a DHCP lease is created or destroyed.
+# The arguments sent to the script are &quot;add&quot; or &quot;del&quot;,
+# then the MAC address, the IP address and finally the hostname
+# if there is one.
+#dhcp-script=/bin/echo
+
+# Set the cachesize here.
+#cache-size=150
+
+# If you want to disable negative caching, uncomment this.
+#no-negcache
+
+# Normally responses which come from /etc/hosts and the DHCP lease
+# file have Time-To-Live set as zero, which conventionally means
+# do not cache further. If you are happy to trade lower load on the
+# server for potentially stale date, you can set a time-to-live (in
+# seconds) here.
+#local-ttl=
+
+# If you want dnsmasq to detect attempts by Verisign to send queries
+# to unregistered .com and .net hosts to its sitefinder service and
+# have dnsmasq instead return the correct NXDOMAIN response, uncomment
+# this line. You can add similar lines to do the same for other
+# registries which have implemented wildcard A records.
+#bogus-nxdomain=64.94.110.11
+
+# If you want to fix up DNS results from upstream servers, use the
+# alias option. This only works for IPv4.
+# This alias makes a result of 1.2.3.4 appear as 5.6.7.8
+#alias=1.2.3.4,5.6.7.8
+# and this maps 1.2.3.x to 5.6.7.x
+#alias=1.2.3.0,5.6.7.0,255.255.255.0
+# and this maps 192.168.0.10-&gt;192.168.0.40 to 10.0.0.10-&gt;10.0.0.40
+#alias=192.168.0.10-192.168.0.40,10.0.0.0,255.255.255.0
+
+# Change these lines if you want dnsmasq to serve MX records.
+
+# Return an MX record named &quot;maildomain.com&quot; with target
+# servermachine.com and preference 50
+#mx-host=maildomain.com,servermachine.com,50
+
+# Set the default target for MX records created using the localmx option.
+#mx-target=servermachine.com
+
+# Return an MX record pointing to the mx-target for all local
+# machines.
+#localmx
+
+# Return an MX record pointing to itself for all local machines.
+#selfmx
+
+# Change the following lines if you want dnsmasq to serve SRV
+# records.  These are useful if you want to serve ldap requests for
+# Active Directory and other windows-originated DNS requests.
+# See RFC 2782.
+# You may add multiple srv-host lines.
+# The fields are &lt;name&gt;,&lt;target&gt;,&lt;port&gt;,&lt;priority&gt;,&lt;weight&gt;
+# If the domain part if missing from the name (so that is just has the
+# service and protocol sections) then the domain given by the domain=
+# config option is used. (Note that expand-hosts does not need to be
+# set for this to work.)
+
+# A SRV record sending LDAP for the example.com domain to
+# ldapserver.example.com port 389
+#srv-host=_ldap._tcp.example.com,ldapserver.example.com,389
+
+# A SRV record sending LDAP for the example.com domain to
+# ldapserver.example.com port 389 (using domain=)
+#domain=example.com
+#srv-host=_ldap._tcp,ldapserver.example.com,389
+
+# Two SRV records for LDAP, each with different priorities
+#srv-host=_ldap._tcp.example.com,ldapserver.example.com,389,1
+#srv-host=_ldap._tcp.example.com,ldapserver.example.com,389,2
+
+# A SRV record indicating that there is no LDAP server for the domain
+# example.com
+#srv-host=_ldap._tcp.example.com
+
+# The following line shows how to make dnsmasq serve an arbitrary PTR
+# record. This is useful for DNS-SD. (Note that the
+# domain-name expansion done for SRV records _does_not
+# occur for PTR records.)
+#ptr-record=_http._tcp.dns-sd-services,&quot;New Employee Page._http._tcp.dns-sd-services&quot;
+
+# Change the following lines to enable dnsmasq to serve TXT records.
+# These are used for things like SPF and zeroconf. (Note that the
+# domain-name expansion done for SRV records _does_not
+# occur for TXT records.)
+
+#Example SPF.
+#txt-record=example.com,&quot;v=spf1 a -all&quot;
+
+#Example zeroconf
+#txt-record=_http._tcp.example.com,name=value,paper=A4
+
+# Provide an alias for a &quot;local&quot; DNS name. Note that this _only_ works
+# for targets which are names from DHCP or /etc/hosts. Give host
+# &quot;bert&quot; another name, bertrand
+#cname=bertand,bert
+
+# For debugging purposes, log each DNS query as it passes through
+# dnsmasq.
+#log-queries
+
+# Log lots of extra information about DHCP transactions.
+#log-dhcp
+
+# Include another lot of configuration options.
+#conf-file=/etc/dnsmasq.more.conf
+#conf-dir=/etc/dnsmasq.d
+
+# Include all the files in a directory except those ending in .bak
+#conf-dir=/etc/dnsmasq.d,.bak
+
+# Include all files in a directory which end in .conf
+conf-dir=/etc/dnsmasq.d/,*.conf
+
+# If a DHCP client claims that its name is &quot;wpad&quot;, ignore that.
+# This fixes a security hole. see CERT Vulnerability VU#598349
+#dhcp-name-match=set:wpad-ignore,wpad
+#dhcp-ignore-names=tag:wpad-ignore
+</code></pre>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="software.html" class="navigation navigation-prev " aria-label="Previous page: 基础服务">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="lamp.html" class="navigation navigation-next " aria-label="Next page: LAMP - yum 安装">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"DNS - dnsmasq","level":"1.3.1","depth":2,"next":{"title":"LAMP - yum 安装","level":"1.3.2","depth":2,"path":"software/lamp.md","ref":"software/lamp.md","articles":[]},"previous":{"title":"基础服务","level":"1.3","depth":1,"path":"software/software.md","ref":"software/software.md","articles":[{"title":"DNS - dnsmasq","level":"1.3.1","depth":2,"path":"software/dnsmasq.md","ref":"software/dnsmasq.md","articles":[]},{"title":"LAMP - yum 安装","level":"1.3.2","depth":2,"path":"software/lamp.md","ref":"software/lamp.md","articles":[]},{"title":"apache + Tomcat","level":"1.3.3","depth":2,"path":"software/apacheTomcat.md","ref":"software/apacheTomcat.md","articles":[]},{"title":"NFS 在 centOS7 下 yum 安装","level":"1.3.4","depth":2,"path":"software/nfsforcentos7.md","ref":"software/nfsforcentos7.md","articles":[]},{"title":"keepalived 在 centOS7 安装","level":"1.3.5","depth":2,"path":"software/keepalived.md","ref":"software/keepalived.md","articles":[]},{"title":"HAProxy1.8 在 centOS7 下 yum 安装","level":"1.3.6","depth":2,"path":"software/haproxy1.8.md","ref":"software/haproxy1.8.md","articles":[]},{"title":"Percona 搭建高可用的 MySQL 数据库","level":"1.3.7","depth":2,"path":"software/perconaCluster.md","ref":"software/perconaCluster.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["page-toc","mathjax","-lunr","-search","search-plus","github","todo","terminal","anchors","edit-link","image-captions","image-wrapper","popup","custom-favicon"],"root":".","styles":{"website":"assets/css/WebStyle.css","pdf":"assets/css/PdfStyle.css","mobi":"assets/css/MobiStyle.css","epub":"assets/css/EpubStyle.css"},"pluginsConfig":{"image-wrapper":{},"github":{"url":"https://github.com/renkeju/gitbook-template"},"todo":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.png","custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"terminal":{"copyButtons":true,"fade":true,"style":"flat"},"edit-link":{"label":"编辑这个页面","base":"https://github.com/renkeju/gitbook-template/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{},"image-captions":{"caption":"图 _PAGE_LEVEL_ - _CAPTION_ ","images":{"1.1.1":{"skip":true},"1.1.2":{"skip":true}},"variable_name":"_pictures"}},"theme":"default","author":"clement","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"network/2.TcpProts.html#fig1.2.2.1","level":"1.2.2","list_caption":"Figure: TCP协议族","alt":"TCP协议族","nro":1,"url":"/images/networks/TcpIpProtocols/TCPIP协议族.jpg","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议族","attributes":{},"title":"TCP协议族","skip":false,"key":"1.2.2.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: TCP协议工作机制","alt":"TCP协议工作机制","nro":2,"url":"/images/networks/CommunicationProtocol/TCP状态转换图.PNG","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议工作机制","attributes":{},"title":"TCP协议工作机制","skip":false,"key":"1.2.3.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.2","level":"1.2.3","list_caption":"Figure: TCP数据包头格式","alt":"TCP数据包头格式","nro":3,"url":"/images/networks/CommunicationProtocol/TCP数据包头格式.gif","index":2,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP数据包头格式","attributes":{},"title":"TCP数据包头格式","skip":false,"key":"1.2.3.2"}]},"title":"An Introduction to Linux Basics","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":"https://www.baidu.com/"},"gitbook":false,"sharing":{"twitter":false,"facebook":false,"all":false}},"gitbook":"3.2.3"},"file":{"path":"software/dnsmasq.md","mtime":"2020-02-24T08:04:36.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-24T08:05:26.750Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-terminal/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

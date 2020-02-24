@@ -1,0 +1,879 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>apache + Tomcat · An Introduction to Linux Basics</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="clement">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-terminal/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="nfsforcentos7.html" />
+    
+    
+    <link rel="prev" href="lamp.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://www.baidu.com/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../network/network.html">
+            
+                <a href="../network/network.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../network/1.Network-Basics.html">
+            
+                <a href="../network/1.Network-Basics.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../network/2.TcpProts.html">
+            
+                <a href="../network/2.TcpProts.html">
+            
+                    
+                    TCP/IP协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../network/3.CommProt.html">
+            
+                <a href="../network/3.CommProt.html">
+            
+                    
+                    网络通讯协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../network/4.NTM.html">
+            
+                <a href="../network/4.NTM.html">
+            
+                    
+                    网络传输介质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../network/5.win2008.html">
+            
+                <a href="../network/5.win2008.html">
+            
+                    
+                    winServe 2008
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../network/6.VmwareNetAd.html">
+            
+                <a href="../network/6.VmwareNetAd.html">
+            
+                    
+                    VMware 网络模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="software.html">
+            
+                <a href="software.html">
+            
+                    
+                    基础服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="dnsmasq.html">
+            
+                <a href="dnsmasq.html">
+            
+                    
+                    DNS - dnsmasq
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="lamp.html">
+            
+                <a href="lamp.html">
+            
+                    
+                    LAMP - yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3" data-path="apacheTomcat.html">
+            
+                <a href="apacheTomcat.html">
+            
+                    
+                    apache + Tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="nfsforcentos7.html">
+            
+                <a href="nfsforcentos7.html">
+            
+                    
+                    NFS 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="keepalived.html">
+            
+                <a href="keepalived.html">
+            
+                    
+                    keepalived 在 centOS7 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="haproxy1.8.html">
+            
+                <a href="haproxy1.8.html">
+            
+                    
+                    HAProxy1.8 在 centOS7 下 yum 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="perconaCluster.html">
+            
+                <a href="perconaCluster.html">
+            
+                    
+                    Percona 搭建高可用的 MySQL 数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="software.html">
+            
+                <a href="software.html">
+            
+                    
+                    zabbix
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../zabbix/nginx.html">
+            
+                <a href="../zabbix/nginx.html">
+            
+                    
+                    nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../zabbix/php-fpm.html">
+            
+                <a href="../zabbix/php-fpm.html">
+            
+                    
+                    php-fpm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../CentOS7/system.html">
+            
+                <a href="../CentOS7/system.html">
+            
+                    
+                    CentOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../otherSys/otherSys.html">
+            
+                <a href="../otherSys/otherSys.html">
+            
+                    
+                    其他系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../otherSys/alpineLinux.html">
+            
+                <a href="../otherSys/alpineLinux.html">
+            
+                    
+                    alpine Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../VScode/VScode.html">
+            
+                <a href="../VScode/VScode.html">
+            
+                    
+                    VScode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../VScode/settingSync.html">
+            
+                <a href="../VScode/settingSync.html">
+            
+                    
+                    Settings Sync插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >apache + Tomcat</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+ * @Description:
+ * @Author: 焦国峰
+ * @Github: https://github.com/clement-jiao
+ * @Date: 2019-08-15 00:07:05
+ * @LastEditors: clement-jiao
+ * @LastEditTime: 2019-08-18 18:14:23
+ -->
+<h1 id="tomcat&#x73AF;&#x5883;&#x5B89;&#x88C5;&#x53CA;&#x4E0E;apache&#x6574;&#x5408;"><a name="tomcat&#x73AF;&#x5883;&#x5B89;&#x88C5;&#x53CA;&#x4E0E;apache&#x6574;&#x5408;" class="plugin-anchor" href="#tomcat&#x73AF;&#x5883;&#x5B89;&#x88C5;&#x53CA;&#x4E0E;apache&#x6574;&#x5408;"><i class="fa fa-link" aria-hidden="true"></i></a>Tomcat&#x73AF;&#x5883;&#x5B89;&#x88C5;&#x53CA;&#x4E0E;apache&#x6574;&#x5408;</h1>
+<h2 id="&#x5B89;&#x88C5;java&#x4E0E;apache"><a name="&#x5B89;&#x88C5;java&#x4E0E;apache" class="plugin-anchor" href="#&#x5B89;&#x88C5;java&#x4E0E;apache"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;Java&#x4E0E;apache</h2>
+<ul>
+<li><p>&#x5B89;&#x88C5;</p>
+<pre><code class="lang-bash">yum install -y java-1.8.0-openjdk-devel.x86_64 \
+java-1.8.0-openjdk.x86_64 \
+httpd httpd-devel
+</code></pre>
+</li>
+<li><p>&#x914D;&#x7F6E;Java&#x73AF;&#x5883;&#x53D8;&#x91CF;</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">export</span> JAVA_HOME=/usr/lib/jvm/java-latest
+<span class="hljs-built_in">export</span> JRE_HOME=<span class="hljs-variable">$JAVA_HOME</span>/jre
+<span class="hljs-built_in">export</span> JAVA_BIN=<span class="hljs-variable">$JAVA_HOME</span>/bin
+<span class="hljs-built_in">export</span> JAVA_LIB=<span class="hljs-variable">$JAVA_HOME</span>/lib
+<span class="hljs-built_in">export</span> CLASSPATH=.:<span class="hljs-variable">$JAVA_LIB</span>/tools.jar:<span class="hljs-variable">$JAVA_LIB</span>/dt.jar
+<span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$JAVA_BIN</span>:<span class="hljs-variable">$PATH</span>
+</code></pre>
+</li>
+<li><p>&#x5B89;&#x88C5;&#x5B8C;&#x6BD5;&#x540E;&#xFF0C;&#x8FD0;&#x884C;java -version &#x5C06;&#x8F93;&#x51FA;&#x5982;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code>[root@localhost temp]# java -version
+openjdk version &quot;1.8.0_222&quot;
+OpenJDK Runtime Environment (build 1.8.0_222-b10)
+OpenJDK 64-Bit Server VM (build 25.222-b10, mixed mode)&#x3011;
+
+[root@localhost temp]# httpd -v
+Server version: Apache/2.4.6 (CentOS)
+Server built:   Jul 29 2019 17:18:49
+</code></pre></li>
+</ul>
+<hr>
+<h2 id="&#x4E0B;&#x8F7D;tomcat-&#x53CA;&#x8FDE;&#x63A5;&#x5668;"><a name="&#x4E0B;&#x8F7D;tomcat-&#x53CA;&#x8FDE;&#x63A5;&#x5668;" class="plugin-anchor" href="#&#x4E0B;&#x8F7D;tomcat-&#x53CA;&#x8FDE;&#x63A5;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E0B;&#x8F7D;Tomcat &#x53CA;&#x8FDE;&#x63A5;&#x5668;</h2>
+<p>tomcat &#x7248;&#x672C;&#xFF1A;8.5.43&#xFF0C;&#x53EF;&#x4EE5;&#x53BB;&#x5B98;&#x7F51;&#x4E0B;&#x8F7D;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684; <a href="https://tomcat.apache.org/download-80.cgi" target="_blank">tomcat 8.5.x</a> &#x3002;</p>
+<pre><code class="lang-bash">wge http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.43/bin/apache-tomcat-8.5.43.tar.gz
+</code></pre>
+<p>jk_mod &#x7248;&#x672C;&#xFF1A;1.2.46 &#x53EF;&#x4EE5;&#x53BB;&#x5B98;&#x7F51;&#x4E0B;&#x8F7D;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684; <a href="http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.46-src.tar.gz" target="_blank">Tomcat Connectors JK 1.2</a></p>
+<pre><code class="lang-bash">wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.46-src.tar.gz
+
+yum install -y gcc gcc* gcc-c++ ntp make imake cmake automake autoconf    <span class="hljs-comment"># &#x786E;&#x8BA4;&#x662F;&#x5426;&#x5B89;&#x88C5; gcc</span>
+
+tar zxf tomcat-connectors-1.2.46-src.tar.gz
+mv tomcat-connectors-1.2.46-src jk
+<span class="hljs-built_in">cd</span> jk/apache2.0 &amp; ./configure --with-apxs=/usr/bin/apxs    <span class="hljs-comment"># &#x5148;&#x786E;&#x8BA4;apxs&#x662F;&#x5426;&#x5728;&#x90A3;&#x4E2A;&#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5C31;&#x5B89;&#x88C5; httpd-devel</span>
+make
+cp jk/conf/* /etc/httpd/conf.d
+</code></pre>
+<hr>
+<h2 id="&#x6DFB;&#x52A0;tomcat&#x7528;&#x6237;"><a name="&#x6DFB;&#x52A0;tomcat&#x7528;&#x6237;" class="plugin-anchor" href="#&#x6DFB;&#x52A0;tomcat&#x7528;&#x6237;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6DFB;&#x52A0;Tomcat&#x7528;&#x6237;</h2>
+<pre><code class="lang-bash">useradd -m -U <span class="hljs-_">-d</span> /home/tomcat <span class="hljs-_">-s</span> /bin/<span class="hljs-literal">false</span> tomcat
+</code></pre>
+<hr>
+<h2 id="&#x5B89;&#x88C5;-tomcat-&#x8FDE;&#x63A5;&#x5668;"><a name="&#x5B89;&#x88C5;-tomcat-&#x8FDE;&#x63A5;&#x5668;" class="plugin-anchor" href="#&#x5B89;&#x88C5;-tomcat-&#x8FDE;&#x63A5;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5; tomcat &#x8FDE;&#x63A5;&#x5668;</h2>
+<p>&#x9996;&#x5148;&#x786E;&#x8BA4; httpd httpd-devel &#x4E0E; tomcat &#x90FD;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;mod_jk&#x7684;&#x5B89;&#x88C5;</p>
+<pre><code class="lang-bash">tar -zxf tomcat-connectors-1.2.42-src.tar.gz -C jk
+<span class="hljs-built_in">cd</span> jk/native/
+./configure --with-apxs=/usr/bin/apxs         <span class="hljs-comment"># &#x5982;&#x679C;&#x627E;&#x4E0D;&#x5230;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x5219;&#x9700;&#x8981;&#x5B89;&#x88C5; httpd-devel</span>
+make                                          <span class="hljs-comment"># &#x8BB0;&#x5F97;&#x5B89;&#x88C5;gcc</span>
+cp ./apache-2.0/mod_jk.so /etc/httpd/modules/ <span class="hljs-comment"># &#x628A;&#x7F16;&#x8BD1;&#x597D;&#x7684;mod_jk.so&#x62F7;&#x8D1D;&#x5230;&#x81EA;&#x5DF1;httpd&#x7684;modules&#x76EE;&#x5F55;&#x4E0B;</span>
+</code></pre>
+<hr>
+<h2 id="&#x4FEE;&#x6539;tomcat&#x76EE;&#x5F55;&#x6743;&#x9650;"><a name="&#x4FEE;&#x6539;tomcat&#x76EE;&#x5F55;&#x6743;&#x9650;" class="plugin-anchor" href="#&#x4FEE;&#x6539;tomcat&#x76EE;&#x5F55;&#x6743;&#x9650;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4FEE;&#x6539;Tomcat&#x76EE;&#x5F55;&#x6743;&#x9650;</h2>
+<ul>
+<li><p>&#x5C06;&#x76EE;&#x5F55;&#x6240;&#x6709;&#x6743;&#x66F4;&#x6539;&#x4E3A;tomcat&#xFF1A;tomcat&#xFF1A;</p>
+<pre><code class="lang-bash">chown -R tomcat:tomcat /tomcat
+</code></pre>
+</li>
+<li><p>&#x4E3A;bin&#x76EE;&#x5F55;&#x6DFB;&#x52A0;&#x53EF;&#x6267;&#x884C;&#x6743;&#x9650;</p>
+<pre><code class="lang-bash">chmod +x /tomcat/latest/bin/*.sh
+</code></pre>
+<blockquote>
+<p>Tomcat 8.5&#x7ECF;&#x5E38;&#x66F4;&#x65B0;&#xFF0C;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x8F6F;&#x8FDE;&#x63A5;tomcat-latest&#x6307;&#x5411;Tomcat&#x76EE;&#x5F55;</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="&#x521B;&#x5EFA;systemd-unit-&#x6587;&#x4EF6;"><a name="&#x521B;&#x5EFA;systemd-unit-&#x6587;&#x4EF6;" class="plugin-anchor" href="#&#x521B;&#x5EFA;systemd-unit-&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;systemd unit &#x6587;&#x4EF6;</h2>
+<p>&#x53EF;&#x4EE5;&#x66F4;&#x65B9;&#x4FBF;&#x7684;&#x7BA1;&#x7406;Tomcat&#x8FDB;&#x7A0B;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># vim /etc/systemd/system/tomcat.service</span>
+
+[Unit]
+Description=Tomcat 8.5 servlet container
+After=network.target
+
+[Service]
+Type=forking
+
+User=tomcat
+Group=tomcat
+
+Environment=<span class="hljs-string">&quot;JAVA_HOME=/usr/lib/jvm/java-latest&quot;</span>
+Environment=<span class="hljs-string">&quot;JAVA_OPTS=-Djava.security.egd=file:///dev/urandom&quot;</span>
+
+Environment=<span class="hljs-string">&quot;CATALINA_BASE=/tomcat/latest&quot;</span>
+Environment=<span class="hljs-string">&quot;CATALINA_HOME=/tomcat/latest&quot;</span>
+Environment=<span class="hljs-string">&quot;CATALINA_PID=/tomcat/temp/tomcat.pid&quot;</span>
+Environment=<span class="hljs-string">&quot;CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC&quot;</span>
+
+ExecStart=/tomcat/latest/bin/startup.sh         <span class="hljs-comment"># &#x6CE8;&#x610F;&#x66F4;&#x6539;&#x8DEF;&#x5F84;&#xFF0C;&#x4E00;&#x822C;&#x51FA;&#x9519;&#x90FD;&#x662F;&#x8DEF;&#x5F84;&#x914D;&#x7F6E;&#x4E0D;&#x5BF9;</span>
+ExecStop=/tomcat/latest/bin/shutdown.sh         <span class="hljs-comment"># &#x6CE8;&#x610F;&#x66F4;&#x6539;&#x8DEF;&#x5F84;&#xFF0C;&#x4E00;&#x822C;&#x51FA;&#x9519;&#x90FD;&#x662F;&#x8DEF;&#x5F84;&#x914D;&#x7F6E;&#x4E0D;&#x5BF9;</span>
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<hr>
+<h2 id="&#x91CD;&#x542F;-systemd-&#x670D;&#x52A1;"><a name="&#x91CD;&#x542F;-systemd-&#x670D;&#x52A1;" class="plugin-anchor" href="#&#x91CD;&#x542F;-systemd-&#x670D;&#x52A1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x91CD;&#x542F; systemd &#x670D;&#x52A1;</h2>
+<p>&#x91CD;&#x542F; systemd &#x5E76;&#x901A;&#x8FC7;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x542F;&#x52A8;Tomcat&#x3001;apache&#x670D;&#x52A1;&#xFF1A;</p>
+<pre><code class="lang-bash">systemctl daemon-reload
+systemctl restart tomcat httpd
+</code></pre>
+<hr>
+<h2 id="&#x68C0;&#x67E5;&#x670D;&#x52A1;&#x72B6;&#x6001;"><a name="&#x68C0;&#x67E5;&#x670D;&#x52A1;&#x72B6;&#x6001;" class="plugin-anchor" href="#&#x68C0;&#x67E5;&#x670D;&#x52A1;&#x72B6;&#x6001;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x68C0;&#x67E5;&#x670D;&#x52A1;&#x72B6;&#x6001;</h2>
+<pre><code class="lang-bash">systemctl status tomcat               <span class="hljs-comment"># &#x68C0;&#x67E5;&#x670D;&#x52A1;&#x72B6;&#x6001;&#x662F;&#x56E0;&#x4E3A;&#x5373;&#x4F7F;&#x542F;&#x52A8;&#x5931;&#x8D25;&#x4E5F;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;</span>
+
+systemctl <span class="hljs-built_in">enable</span> tomcat               <span class="hljs-comment"># &#x5982;&#x679C;&#x6CA1;&#x51FA;&#x9519;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x6210;&#x5F00;&#x673A;&#x542F;&#x52A8;</span>
+
+systemctl <span class="hljs-built_in">enable</span> --now tomcat httpd   <span class="hljs-comment"># &#x4E5F;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x5199;&#xFF1A;&#x8BBE;&#x7F6E;&#x5F00;&#x673A;&#x81EA;&#x542F;&#x5E76;&#x542F;&#x52A8;&#x670D;&#x52A1;</span>
+</code></pre>
+<ul>
+<li>&#x5982;&#x679C;&#x542F;&#x52A8;&#x5931;&#x8D25;<ol>
+<li><strong>tomcat.service &#x8DEF;&#x5F84;&#x4E0D;&#x5BF9;</strong></li>
+<li><strong>tomcat &#x76EE;&#x5F55;&#x6743;&#x9650;&#x6CA1;&#x6539;</strong></li>
+<li><strong>tomcat bin&#x76EE;&#x5F55;&#x6CA1;&#x52A0;&#x6267;&#x884C;&#x6743;&#x9650;</strong></li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="&#x5173;&#x95ED;&#x9632;&#x706B;&#x5899;"><a name="&#x5173;&#x95ED;&#x9632;&#x706B;&#x5899;" class="plugin-anchor" href="#&#x5173;&#x95ED;&#x9632;&#x706B;&#x5899;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5173;&#x95ED;&#x9632;&#x706B;&#x5899;</h2>
+<ul>
+<li><p>&#x5F7B;&#x5E95;&#x5173;&#x95ED;</p>
+<pre><code class="lang-bash">systemctl stop firewalld.service
+</code></pre>
+</li>
+<li><p>&#x653E;&#x884C;</p>
+<pre><code class="lang-bash">firewall-cmd --zone=public --permanent --add-port=8080/tcp
+firewall-cmd --reload
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="&#x914D;&#x7F6E;-tomcat-&#x7BA1;&#x7406;&#x754C;&#x9762;"><a name="&#x914D;&#x7F6E;-tomcat-&#x7BA1;&#x7406;&#x754C;&#x9762;" class="plugin-anchor" href="#&#x914D;&#x7F6E;-tomcat-&#x7BA1;&#x7406;&#x754C;&#x9762;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x914D;&#x7F6E; Tomcat &#x7BA1;&#x7406;&#x754C;&#x9762;</h2>
+<p>&#x8981;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x80FD;&#x591F;&#x8BBF;&#x95EE;tomcat web&#x754C;&#x9762;&#x7684;&#x65B0;&#x7528;&#x6237;&#xFF08;manager-gui&#x548C;admin-gui&#xFF09;&#xFF0C;&#x9700;&#x8981;&#x5728; tomcat-users.xml &#x6587;&#x4EF6;&#x4E2D;&#x5B9A;&#x4E49;&#x7528;&#x6237;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<ul>
+<li><p>&#x4FEE;&#x6539; tomcat-users.xml &#x6587;&#x4EF6;</p>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!-- vim /tomcat/conf/tomcat-users.xml --&gt;</span>
+
+<span class="hljs-comment">&lt;!-- &#x53D6;&#x6D88;37&#x884C;&#x6CE8;&#x91CA;&#x5E76;&#x4FEE;&#x6539;&lt;tomcat-users&gt;...&lt;/tomcat-users&gt;&#x533A;&#x57DF; --&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;tomcat&quot;</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;manager-gui&quot;</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;admin-gui&quot;</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;manager-script&quot;</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;admin-script&quot;</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">user</span> <span class="hljs-attr">username</span>=<span class="hljs-string">&quot;tomcat&quot;</span> <span class="hljs-attr">password</span>=<span class="hljs-string">&quot;tomcat&quot;</span> <span class="hljs-attr">roles</span>=<span class="hljs-string">&quot;tomcat,manager-gui&quot;</span>/&gt;</span>
+
+  <span class="hljs-comment">&lt;!--
+    &#x6CE8;&#x610F;&#x6700;&#x540E;&#x4E00;&#x884C;role&#x8BBE;&#x7F6E;&#x4E14;&#x5728;403&#x9875;&#x9762;&#x4E0A;&#x6709;&#x8BF4;&#x660E;&#xFF1A;
+    &#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x5BF9;&#x4E8E;Tomcat 7&#x4EE5;&#x4E0A;&#xFF0C;&#x4F7F;&#x7528;&#x7BA1;&#x7406;&#x5668;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6240;&#x9700;&#x7684;&#x89D2;&#x8272;&#x5DF2;&#x4ECE;&#x5355;&#x4E2A;&#x7BA1;&#x7406;&#x5668;&#x89D2;&#x8272;&#x66F4;&#x6539;&#x4E3A;&#x4EE5;&#x4E0B;&#x56DB;&#x4E2A;&#x89D2;&#x8272;&#x3002;&#x60A8;&#x9700;&#x8981;&#x5206;&#x914D;&#x60A8;&#x5E0C;&#x671B;&#x8BBF;&#x95EE;&#x7684;&#x529F;&#x80FD;&#x6240;&#x9700;&#x7684;&#x89D2;&#x8272;&#x3002;
+    manager-gui&#xFF1A;&#x5141;&#x8BB8;&#x8BBF;&#x95EE;HTML GUI&#x548C;&#x72B6;&#x6001;&#x9875;&#x9762;
+    manager-script&#xFF1A;&#x5141;&#x8BB8;&#x8BBF;&#x95EE;&#x6587;&#x672C;&#x754C;&#x9762;&#x548C;&#x72B6;&#x6001;&#x9875;&#x9762;
+    manager-jmx&#xFF1A;&#x5141;&#x8BB8;&#x8BBF;&#x95EE;JMX&#x4EE3;&#x7406;&#x548C;&#x72B6;&#x6001;&#x9875;&#x9762;
+    manager-status&#xFF1A;&#x4EC5;&#x5141;&#x8BB8;&#x8BBF;&#x95EE;&#x72B6;&#x6001;&#x9875;&#x9762;
+
+    HTML&#x63A5;&#x53E3;&#x53D7;CSRF&#x4FDD;&#x62A4;&#xFF0C;&#x4F46;&#x6587;&#x672C;&#x548C;JMX&#x63A5;&#x53E3;&#x4E0D;&#x53D7;&#x4FDD;&#x62A4;&#x3002;&#x4E3A;&#x4E86;&#x4FDD;&#x6301;CSRF&#x4FDD;&#x62A4;&#xFF1A;
+      &#x5177;&#x6709; manager-gui &#x89D2;&#x8272;&#x7684;&#x7528;&#x6237; &#x4E0D;&#x5E94; &#x88AB;&#x6388;&#x4E88; manager-script &#x6216; manager-jmx &#x89D2;&#x8272;&#x3002;
+      &#x5982;&#x679C;&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;text&#x6216;jmx&#x63A5;&#x53E3;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x4E3A;&#x4E86;&#x6D4B;&#x8BD5;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E9B;&#x63A5;&#x53E3;&#x7528;&#x4E8E;&#x5DE5;&#x5177;&#x800C;&#x975E;&#x4EBA;&#x7C7B;&#xFF09;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x5728;&#x4E4B;&#x540E;&#x5173;&#x95ED;&#x6D4F;&#x89C8;&#x5668;&#x4EE5;&#x7EC8;&#x6B62;&#x4F1A;&#x8BDD;&#x3002;
+  --&gt;</span>
+</code></pre>
+</li>
+<li><p>&#x4FEE;&#x6539; manager.xml &#x6587;&#x4EF6;</p>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!-- vim /tomcat/conf/Catalina/localhost/manager.xml --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Context</span> <span class="hljs-attr">privileged</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">antiResourceLocking</span>=<span class="hljs-string">&quot;false&quot;</span>
+      <span class="hljs-attr">docBase</span>=<span class="hljs-string">&quot;${catalina.home}/webapps/manager&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">Valve</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;org.apache.catalina.valves.RemoteAddrValve&quot;</span> <span class="hljs-attr">allow</span>=<span class="hljs-string">&quot;^.*$&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">Context</span>&gt;</span>
+</code></pre>
+<blockquote>
+<p>&#x4FDD;&#x5B58;&#x9000;&#x51FA;&#x5E76;&#x91CD;&#x542F;: systemctl restart tomcat</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="&#x4FEE;&#x6539;modjk&#x914D;&#x7F6E;&#x4EE5;&#x8FDE;&#x63A5;apache"><a name="&#x4FEE;&#x6539;modjk&#x914D;&#x7F6E;&#x4EE5;&#x8FDE;&#x63A5;apache" class="plugin-anchor" href="#&#x4FEE;&#x6539;modjk&#x914D;&#x7F6E;&#x4EE5;&#x8FDE;&#x63A5;apache"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4FEE;&#x6539;mod_JK&#x914D;&#x7F6E;&#x4EE5;&#x8FDE;&#x63A5;apache</h2>
+<p>JK&#x6700;&#x5173;&#x952E;&#x7684;&#x56DB;&#x4E2A;&#x6587;&#x4EF6;&#x5206;&#x522B;&#x662F;&#xFF1A;</p>
+<pre><code class="lang-text">httpd.conf&#xFF1A;Apache &#x670D;&#x52A1;&#x5668;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x7528;&#x6765;&#x52A0;&#x8F7D;JK&#x6A21;&#x5757;&#x4EE5;&#x53CA;&#x6307;&#x5B9A;JK&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4FE1;&#x606F;
+
+httpd-jk.conf&#xFF1A; &#x662F; module/mod_jk.so &#x6A21;&#x5757;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;,&#x7528;&#x6765;&#x901A;&#x77E5; apache &#x5C06;&#x54EA;&#x4E9B;&#x6587;&#x4EF6;&#x8F6C;&#x53D1;&#x81F3; tomcat &#x6765;&#x5904;&#x7406;
+
+worker.properties&#xFF1A; tomcat &#x670D;&#x52A1;&#x5668;&#x7684;&#x8FDE;&#x63A5;&#x6587;&#x4EF6;
+
+uriworkermap.properties&#xFF1A;URL&#x6620;&#x5C04;&#x6587;&#x4EF6;&#xFF0C;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x54EA;&#x4E9B;URL&#x7531;tomcat&#x5904;&#x7406;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x54EA;&#x4E9B;URL&#x4E0D;&#x8BA9;tomcat&#x5904;&#x7406;&#xFF0C;&#x53D6;&#x53CD;&#x7528;!&#x53F7;&#x3002;
+</code></pre>
+<ul>
+<li><p><strong>httpd.conf</strong></p>
+<pre><code class="lang-bash"><span class="hljs-comment"># vim /etc/httpd/conf/httpd.conf</span>
+
+&#x4FEE;&#x6539; ServerName &#xFF1A;
+</code></pre>
+</li>
+<li><p><strong>worker.properties</strong>
+<a href="http://binnyblog.com/article/199" target="_blank">Apache+JK+Tomcat&#x8D1F;&#x8F7D;&#x5E73;&#x8861;&#x914D;&#x7F6E;</a>&#x4E00;&#x6587;&#x8BF4;&#x660E;&#x4E86;jk_mod&#x5206;&#x53D1;&#x8BF7;&#x6C42;&#x7C7B;&#x578B;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># vim /etc/httpd/conf.d/tomcat/worker.properties</span>
+
+worker.list=connect,jk-status,tomcat1   <span class="hljs-comment"># tomcat &#x540D;&#x79F0;&#xFF0C;&#x540E;&#x9762;&#x7684;httpd-jk.conf&#x3001;uriworkermap.properties&#x3001;server.xml&#x9700;&#x8981;&#x4E00;&#x81F4;&#x6216;&#x5B58;&#x5728;&#x6B64;&#x5217;&#x8868;</span>
+worker.tomcat1.type=ajp13               <span class="hljs-comment"># &#x4F7F;&#x7528;&#x7684;&#x534F;&#x8BAE;&#xFF1A;AJP/13</span>
+worker.tomcat1.host=192.168.0.50        <span class="hljs-comment"># tomcat&#x5730;&#x5740;</span>
+worker.tomcat1.port=8009                <span class="hljs-comment"># tomcat&#x7AEF;&#x53E3;</span>
+worker.tomcat1.lbfactor=1               <span class="hljs-comment"># &#x670D;&#x52A1;&#x5668;&#x6743;&#x91CD;</span>
+
+<span class="hljs-comment">#=========controller==========          # &#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x5668;</span>
+<span class="hljs-comment"># worker.controller.type=lb               # &#x91C7;&#x7528;&#x7C7B;&#x578B;&#x4E3A; lb &#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7C7B;&#x578B;</span>
+<span class="hljs-comment"># worker.connect.balanced_workers=tomcat1 # &#x6307;&#x5B9A;&#x8D1F;&#x8F7D;&#x5217;&#x8868;&#xFF0C;&#x9017;&#x53F7;&#x5206;&#x9694;</span>
+<span class="hljs-comment"># worker.connect.sticky_session=false     # &#x6B64;&#x5904;&#x6307;&#x5B9A;&#x96C6;&#x7FA4;&#x662F;&#x5426;&#x9700;&#x8981;&#x4F1A;&#x8BDD;&#x590D;&#x5236;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x4E3A;true&#xFF0C;&#x5219;&#x8868;&#x660E;&#x4F1A;&#x8BDD;&#x7C98;&#x6027;&#xFF0C;&#x4E0D;&#x8FDB;&#x884C;&#x4F1A;&#x8BDD;&#x590D;&#x5236;&#xFF0C;&#x5F53;&#x67D0;&#x7528;&#x6237;&#x7684;&#x8BF7;&#x6C42;&#x7B2C;&#x4E00;&#x6B21;&#x5206;&#x53D1;&#x5230;&#x54EA;&#x4E00; tomcat &#x540E;&#xFF0C;</span>
+                                          <span class="hljs-comment"># &#x540E;&#x7EED;&#x7684;&#x8BF7;&#x6C42;&#x4F1A;&#x4E00;&#x76F4;&#x5206;&#x53D1;&#x5230;&#x6B64;&#x53F0; tomcat &#x670D;&#x52A1;&#x5668;&#x4E0A;&#x5904;&#x7406;&#xFF1B;&#x5982;&#x679C;&#x8BBE;&#x4E3A; false &#xFF0C;&#x5219;&#x8868;&#x660E;&#x9700;&#x8981;&#x4F1A;&#x8BDD;&#x590D;&#x5236;&#x3002;</span>
+worker.connect.sticky_session_force=1   <span class="hljs-comment"># &#x8FD9;&#x6837;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x5668;lb &#x5C31;&#x4F1A;&#x5C3D;&#x91CF;&#x4FDD;&#x6301;&#x4E00;&#x4E2A;session&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4F7F;&#x7528;&#x6237;&#x5728;&#x4E00;&#x6B21;&#x4F1A;&#x8BDD;&#x4E2D;&#x8DDF;&#x540C;&#x4E00;&#x4E2A; tomcat &#x8FDB;&#x884C;&#x4EA4;&#x4E92;</span>
+
+<span class="hljs-comment">#===========status============</span>
+worker.status.type=status               <span class="hljs-comment"># &#x7528;&#x4E8E; httpd &#x81EA;&#x8EAB;&#x72B6;&#x6001;&#x76D1;&#x63A7;&#x7684; status</span>
+</code></pre>
+</li>
+<li><p>httpd-jk.conf</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># vim /etc/httpd/conf.d/httpd-jk.conf</span>
+LoadModule jk_module modules/mod_jk.so  <span class="hljs-comment"># &#x5168;&#x5C40;&#x53EA;&#x9700;&#x52A0;&#x8F7D;/&#x5199;&#x4E00;&#x6B21;</span>
+&lt;IfModule jk_module&gt;
+
+  JkWorkersFile conf.d/tomcat/workers.properties  <span class="hljs-comment"># &#x6307;&#x660E; worker &#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+  JkLogFile logs/mod_jk.log             <span class="hljs-comment"># &#x65E5;&#x5FD7;&#x8DEF;&#x5F84;</span>
+  JkLogLevel info                       <span class="hljs-comment"># &#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x7EA7;&#x522B;</span>
+  JkShmFile logs/mod_jk.shm             <span class="hljs-comment"># &#x5171;&#x4EAB;&#x5185;&#x5B58;&#x6587;&#x4EF6;</span>
+  JkMount /tomcat/webapps/power/*.jsp tomcat1      <span class="hljs-comment"># &#x54EA;&#x4E9B;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6587;&#x4EF6;&#x9700;&#x8981;&#x88AB;&#x54EA;&#x4E2A;tomcat&#x8F6C;&#x53D1;</span>
+
+&lt;IfModule jk_module&gt;
+</code></pre>
+</li>
+<li><p>uriworkermap.properties
+&#x8FFD;&#x52A0;&#x5982;&#x4E0B;&#x884C;&#xFF1A;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># vim /etc/httpd/conf.d/tomcat/uriworkermap.properties</span>
+!/*=connect
+!/*.gif=tomcat1         <span class="hljs-comment"># &#x5C06;&#x4EE5; .gif &#x7ED3;&#x5C3E;&#x7684;&#x6587;&#x4EF6; &#x4E0D;&#x8F6C;&#x53D1; &#x81F3; tomcat &#x5904;&#x7406;</span>
+!/*.jpg=tomcat1         <span class="hljs-comment"># &#x53BB;&#x6389; &#xFF01; &#x53F7;&#xFF0C;&#x5C06;&#x7531; tomcat &#x6765;&#x5904;&#x7406;</span>
+!/*.png=tomcat1
+!/*.css=tomcat1
+!/*.js=tomcat1
+!/*.htm=tomcat1
+!/*.html=tomcat1
+</code></pre>
+</li>
+<li><p>server.xml
+&#x5728;tomcat&#x4E2D;&#x914D;&#x7F6E; jvmRoute&#xFF0C;&#x4E0E; workers.properties &#x4E2D;&#x6307;&#x540D;&#x7684; worker &#x5BF9;&#x5E94;</p>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!-- vim /tomcat/conf/server.xml --&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">Engine</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;Catalina&quot;</span> <span class="hljs-attr">defaultHost</span>=<span class="hljs-string">&quot;localhost&quot;</span> <span class="hljs-attr">jvmRoute</span>=<span class="hljs-string">&quot;tomcat1&quot;</span>&gt;</span>
+</code></pre>
+<blockquote>
+<p>systemctl restart httpd tomcat</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="&#x76F8;&#x5173;&#x6587;&#x6863;&#x8D44;&#x6599;"><a name="&#x76F8;&#x5173;&#x6587;&#x6863;&#x8D44;&#x6599;" class="plugin-anchor" href="#&#x76F8;&#x5173;&#x6587;&#x6863;&#x8D44;&#x6599;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x76F8;&#x5173;&#x6587;&#x6863;/&#x8D44;&#x6599;</h2>
+<ul>
+<li><a href="http://binnyblog.com/article/199" target="_blank">Apache+JK+Tomcat&#x8D1F;&#x8F7D;&#x5E73;&#x8861;&#x914D;&#x7F6E;</a></li>
+<li><a href="http://binnyblog.com/article/199" target="_blank">&#x5173;&#x4E8E; Include conf/mod_jk.confd &#x7684;&#x8BF4;&#x660E;</a></li>
+<li><a href="https://www.twblogs.net/a/5c7019abbd9eee7f07340b16" target="_blank">Apache&#x901A;&#x8FC7;mod_jk&#x6574;&#x5408;Tomcat</a></li>
+<li><a href="https://blog.csdn.net/wanghjbuf/article/details/53701323" target="_blank">Apache+Tomcat&#x914D;&#x7F6E;&#x8F6C;&#x53D1;</a></li>
+<li><a href="https://blog.csdn.net/yuanyuan_186/article/details/51290912" target="_blank">workers.properties &#x76F8;&#x5173;&#x535A;&#x5BA2;</a></li>
+<li><a href="https://blog.csdn.net/bbwangj/article/details/82119631" target="_blank">Tomcat &#x5E76;&#x90E8;&#x7F72;web&#x5E94;&#x7528; ( &#x4E09;&#x79CD;&#x65B9;&#x5F0F; )</a></li>
+<li><a href="http://tomcat.apache.org/connectors-doc/reference/workers.html" target="_blank">workers.properties &#x5B98;&#x65B9;&#x6587;&#x6863;</a></li>
+<li><a href="https://linuxize.com/post/how-to-install-tomcat-8-5-on-centos-7/" target="_blank">How to install Tomcat 8.5 on CentOS 7</a></li>
+<li><a href="https://support.plesk.com/hc/en-us/articles/115003727873-Website-on-Tomcat-shows-500-error-Could-not-find-worker-with-name" target="_blank">&#x5173;&#x4E8E;&#x8BBF;&#x95EE;&#x8D44;&#x6E90;500&#x7684;&#x8BF4;&#x660E;</a></li>
+<li><a href="https://support.plesk.com/hc/en-us/articles/115003727873-Website-on-Tomcat-shows-500-error-Could-not-find-worker-with-name" target="_blank">Tomcat&#x4E0A;&#x7684;&#x7F51;&#x7AD9;&#x663E;&#x793A;500&#x9519;&#x8BEF;</a></li>
+<li><a href="http://luyiminggonnabeok.cn/2018/08/30/%E9%80%9A%E8%BF%87mod-jk%E5%AE%9E%E7%8E%B0apache%E4%B8%8Etomcat%E6%95%B4%E5%90%88/" target="_blank">&#x901A;&#x8FC7;mod_jk&#x5B9E;&#x73B0;apache&#x4E0E;tomcat&#x6574;&#x5408;</a></li>
+</ul>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="lamp.html" class="navigation navigation-prev " aria-label="Previous page: LAMP - yum 安装">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="nfsforcentos7.html" class="navigation navigation-next " aria-label="Next page: NFS 在 centOS7 下 yum 安装">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"apache + Tomcat","level":"1.3.3","depth":2,"next":{"title":"NFS 在 centOS7 下 yum 安装","level":"1.3.4","depth":2,"path":"software/nfsforcentos7.md","ref":"software/nfsforcentos7.md","articles":[]},"previous":{"title":"LAMP - yum 安装","level":"1.3.2","depth":2,"path":"software/lamp.md","ref":"software/lamp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-toc","mathjax","-lunr","-search","search-plus","github","todo","terminal","anchors","edit-link","image-captions","image-wrapper","popup","custom-favicon"],"root":".","styles":{"website":"assets/css/WebStyle.css","pdf":"assets/css/PdfStyle.css","mobi":"assets/css/MobiStyle.css","epub":"assets/css/EpubStyle.css"},"pluginsConfig":{"image-wrapper":{},"github":{"url":"https://github.com/renkeju/gitbook-template"},"todo":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.png","custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"terminal":{"copyButtons":true,"fade":true,"style":"flat"},"edit-link":{"label":"编辑这个页面","base":"https://github.com/renkeju/gitbook-template/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{},"image-captions":{"caption":"图 _PAGE_LEVEL_ - _CAPTION_ ","images":{"1.1.1":{"skip":true},"1.1.2":{"skip":true}},"variable_name":"_pictures"}},"theme":"default","author":"clement","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"network/2.TcpProts.html#fig1.2.2.1","level":"1.2.2","list_caption":"Figure: TCP协议族","alt":"TCP协议族","nro":1,"url":"/images/networks/TcpIpProtocols/TCPIP协议族.jpg","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议族","attributes":{},"title":"TCP协议族","skip":false,"key":"1.2.2.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: TCP协议工作机制","alt":"TCP协议工作机制","nro":2,"url":"/images/networks/CommunicationProtocol/TCP状态转换图.PNG","index":1,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP协议工作机制","attributes":{},"title":"TCP协议工作机制","skip":false,"key":"1.2.3.1"},{"backlink":"network/3.CommProt.html#fig1.2.3.2","level":"1.2.3","list_caption":"Figure: TCP数据包头格式","alt":"TCP数据包头格式","nro":3,"url":"/images/networks/CommunicationProtocol/TCP数据包头格式.gif","index":2,"caption_template":"图 _PAGE_LEVEL_ - _CAPTION_ ","label":"TCP数据包头格式","attributes":{},"title":"TCP数据包头格式","skip":false,"key":"1.2.3.2"}]},"title":"An Introduction to Linux Basics","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":"https://www.baidu.com/"},"gitbook":false,"sharing":{"twitter":false,"facebook":false,"all":false}},"gitbook":"3.2.3"},"file":{"path":"software/apacheTomcat.md","mtime":"2020-02-24T08:04:36.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-24T08:05:26.750Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-terminal/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
