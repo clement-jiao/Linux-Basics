@@ -20,9 +20,10 @@ web层： nginx，Tomcat
 )
 - kibana下载地址(建议与es同版本):https://artifacts.elastic.co/downloads/kibana/kibana-7.5.2-linux-x86_64.tar.gz
 - filebeat下载地址：https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.5.2-x86_64.rpm
-- logstash下载地址：https://artifacts.elastic.co/downloads/logstash/logstash-7.5.#### 2.rpm
+- logstash下载地址：https://artifacts.elastic.co/downloads/logstash/logstash-7.52.rpm
 ##### 3.2 安装java
 ```bash
+[root@elk-6-8-6 ~]$ yum install -y java-1.8.0-openjdk.x86_64
 [root@localhost ~]$ java -version
 java version "1.8.0_231"
 Java(TM) SE Runtime Environment (build 1.8.0_231-b11)
@@ -30,8 +31,8 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.231-b11, mixed mode)
 ```
 ##### 3.3 更新时间: **必要项**
 ```bash
-[root@localhost ~]# yum install ntpdate.x86_64 -y
-[root@localhost ~]# ntpdate time1.aliyun.com
+[root@localhost ~]$ yum install ntpdate.x86_64 -y
+[root@localhost ~]$ ntpdate time1.aliyun.com
 ```
 #### 3.3.1 注意nginx、filebeat、elasticsearch时区问题！！！
 
@@ -158,7 +159,7 @@ i18n.locale: "zh-CN"
 ```
 ##### 3.9 安装filebeat和logstash
 ```bash
-[root@es001 elk]$ yum install -y filebeat-7.5.2-x86_64.rpm logstash-7.5.#### 2.rpm
+[root@es001 elk]$ yum install -y filebeat-7.5.2-x86_64.rpm logstash-7.52.rpm
 ```
 ##### 3.9.1 相关配置目录及配置文件
 ```bash
