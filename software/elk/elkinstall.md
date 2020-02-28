@@ -179,6 +179,8 @@ i18n.locale: "zh-CN"
 ```
 
 ##### 3.9.2 filebeat 启动必要配置
+multiline.pattern的正则测试网站:https://play.golang.org/p/L2MboReUDc2
+```var pattern = `^\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d{3}\s+(INFO|ERROR|WARN)```
 ```yaml
 filebeat.inputs:
 - type: log
@@ -192,6 +194,16 @@ filebeat.inputs:
     - /docker/nginx/log/3.access.log
     - /docker/nginx/log/4.access.log
     - /docker/nginx/log/uat.access.log
+# =======================docker 日志============================== #
+# https://www.elastic.co/guide/en/beats/filebeat/6.8/filebeat-input-docker.html
+- type: docker
+  # Docker容器ID
+  containers.ids:
+    - '8b6fe7dc9e067b58476dc57d6986dd96d7100430c5de3b109a99cd56ac655347'
+  # Docker日志所在的基本路径。默认值为/var/lib/docker/containers
+  containers.path:
+    - '/var/lib/docker/containers'
+
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
   reload.enabled: false
