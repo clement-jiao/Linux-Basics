@@ -1,0 +1,32 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /var/log/nginx/access.log
+  json.keys_under_root: true
+  json.overwrite_keys: true
+  tags: ["access"]
+
+- type: log
+  enabled: true
+  paths:
+    - /var/log/nginx/error.log
+  tags: ["error"]
+
+setup.kibana:
+  host: "192.168.11.88"
+
+output.elasticsearch:
+  hosts: ["192.168.11.88:9200"]
+  indices:
+    - index: "nginx-access-%{[beat.version]}-%{+yyyy.MM}"
+      when.contains:
+        tags: "access"
+    - index: "nginx-error-%{[beat.version]}-%{+yyyy.MM}"
+      when.contains:
+        tags: "error"
+
+setup.template.name: "nginx"
+setup.template.pattern: "nginx-*"
+setup.template.enabled: false
+setup.template.overwrite: true

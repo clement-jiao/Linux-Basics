@@ -224,7 +224,7 @@ setup.template.overwrite: true                          # 修改索引名必要�
 ##### 3.10 docker安装elk
 ```yaml
 # 未验证
-version: '##### 3.7'
+version: '3.7'
 services:
   elasticsearch:
     image: elasticsearch:v1
