@@ -4,7 +4,7 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2020-02-15 22:36:06
  * @LastEditors: clement-jiao
- * @LastEditTime: 2020-02-15 22:36:07
+ * @LastEditTime: 2020-03-07 21:24:11
  -->
 
 ### date 的昨天今天和明天
@@ -72,3 +72,10 @@ num2=`date -d $1 +%V`
 echo "Start with Sunday as a week,"$1" week number is "$num1;
 echo "Start with Monday as a week,"$1" week number is "$num2;
 ```
+### 在定时任务中的使用
+
+```bash
+# `date +"\%Y\%m\%d_\%H:\%M"`
+# 或
+# $(date +"\%Y\%m\%d_\%H:\%M")
+ ```
