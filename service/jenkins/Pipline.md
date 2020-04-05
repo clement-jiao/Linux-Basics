@@ -34,6 +34,7 @@ pipeline{
   agent {
     node {
       label 'master'
+      customWorkspace "${workspace}"    // 指定运行工作目录(可选)
     }
   }
   // stages: 流水线中多个stage的容器, stage部分至少包含一个stage
@@ -94,9 +95,10 @@ pipeline 支持的指令:
 用于配置整个pipeline 本身的选项
 ```groovy
 options{
-  buildDiscarder(logRotator(numToKeepStr:'30'))
-  timeout(time: 1, unit: 'HOURS')
-  disableConcurrentBuilds()
+  buildDiscarder(logRotator(numToKeepStr:'30'))   // 构建丢弃规则
+  timeout(time: 1, unit: 'HOURS')   // 流水线超时时间设置
+  disableConcurrentBuilds()   // 禁止并行
+  timestamps()    // 日志时间
 }
 ```
 buildDiscarder: 保存最近历史构建记录的数量
