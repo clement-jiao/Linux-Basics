@@ -4,12 +4,12 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2019-08-13 23:39:32
  * @LastEditors: clement-jiao
- * @LastEditTime: 2020-04-19 10:59:38
+ * @LastEditTime: 2019-08-20 02:44:05
  -->
-## Linux环境下LAMP环境yum安装
+##Linux环境下LAMP环境yum安装
 
 
-### 替换yum源
+###替换yum源
 
 - 使用remi的源来安装php7.3，首先添加源：
 
@@ -38,18 +38,18 @@
   sudo sed -i 's#http://mirrors\.ustc\.edu\.cn#https://mirrors.ustc.edu.cn#g' /etc/yum.repos.d/mariadb
   ```
 
-### 安装Apache
+###安装Apache
 
 ```bash
 yum install -y httpd httpd-devel
 ```
-### 安装MariaDB
+###安装MariaDB
 
 ```bash
 sudo yum install MariaDB-server MariaDB-client
 ```
 
-### 安装php模块：
+###安装php模块：
 
 ```bash
 yum --enablerepo=remi install php73-php php73-php-pear php73-php-bcmath \
@@ -60,14 +60,14 @@ php73-php-process php73-php-pecl-imagick php73-php-devel php73-php-mbstring \
 php73-php-zip php73-php-ldap php73-php-imap php73-php-pecl-mcrypt
 ```
 
-### 运行版本
+###运行版本
 运行并查看版本， 重启命令， 添加自动启动，链接php文件
 ```bash
 php73 -v
 # ln -s /opt/remi/php73/root/usr/bin/php /usr/bin/php    # 可不用链接
 ```
 
-### 修改配置文件:
+###修改配置文件:
 
 - apache:
   ```bash
@@ -85,13 +85,13 @@ php73 -v
   memory_limit = 512M
   ```
 
-### 启动服务
+###启动服务
 
 ```bash
  systemctl restart httpd.service mariadb.service    # php73-php-fpm.service
 ```
 
-### 卸载软件
+###卸载软件
 ```bash
 yum remove php73-php*
 ```

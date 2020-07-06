@@ -10,6 +10,8 @@ ansible-onos-cluster/
 *.tmp
 *.swp
 *.edx
+*.pyc
+*.h
 .DS_Store
 .vscode/
-
+ipip/venv/
