@@ -14,4 +14,4 @@ ansible-onos-cluster/
 *.h
 .DS_Store
 .vscode/
-ipip/venv/
+*/venv/
