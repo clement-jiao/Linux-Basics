@@ -1,0 +1,17 @@
+// 代表整条流水线，包含整条流水线的逻辑
+pipeline{
+  // 制定流水线的执行位置,流水线中每个阶段都必须在某个地方执行(物理机/虚拟机/docker容器),agent部分指定具体在哪执行
+  agent any
+  // stages: 流水线中多个stage的容器, stage部分至少包含一个stage
+  stages {
+    // 阶段: 代表流水线的阶段,每个阶段都必须有名称
+    stage('build'){
+      steps {
+        echo 'hello word!'
+      }
+    }
+    stage('deploy'){
+
+    }
+  } // stages end
+} // pipeline end

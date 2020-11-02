@@ -10,6 +10,8 @@ Jenkins 1.X 只能通过界面手动操作来“描述”部署流水线。Jenki
 Jenkins Pipeline 的定义通常被写入到一个文本文件里(称为Jenkinsfile)，该文件可以被放入项目的源代码控制库中。
 Jenkinsfile 不一定叫 Jenkinsfile，可以在源代码中定义。
 
+[官方文档: https://www.jenkins.io/zh/doc/book/pipeline/syntax/](https://www.jenkins.io/zh/doc/book/pipeline/syntax/)
+
 ### 二、基础语法
 ```groovy
 pipeline{
@@ -57,6 +59,7 @@ post:包含的是在整个pipeline 或stage完成后的附加步骤
 示例:
 ```groovy
 post {
+
   always {
     script {
       allure includeProperties: false, jdk: '', report: 'jenkins-allure-report', results: [[path: 'allure-results']]
