@@ -119,7 +119,7 @@ david=#
 
 ##### 3.3 以人性化的方式显示大小
 ```sql
-david=# select pg_size_pretty(pg_database_size('david'));
+david=# select pg_size_pretty(pg_database_size('databasesName'));
  pg_size_pretty
 ----------------
  182 MB
@@ -171,7 +171,7 @@ david=#
 ```
 idx_test 和idx_join_date_test 两个索引大小加起来差不多等于上面pg_indexes_size() 查询出来的索引大小。
 
-##### 3.6 查看指定schema 里所有的索引大小，按从大到小的顺序排列。
+##### 3.6 查看指定 schema 里所有的索引大小，按从大到小的顺序排列。
 ```sql
 david=# select * from pg_namespace;
       nspname       | nspowner |               nspacl
@@ -259,7 +259,7 @@ david=# select pg_size_pretty(pg_total_relation_size('test'));
 
 david=#
 ```
-##### 3.9 查看指定schema 里所有的表大小，按从大到小的顺序排列。
+##### 3.9 查看指定 schema 里所有的表大小，按从大到小的顺序排列。
 ```sql
 david=# select relname, pg_size_pretty(pg_relation_size(relid)) from pg_stat_user_tables where schemaname='public' order by pg_relation_size(relid) desc;
             relname            | pg_size_pretty
