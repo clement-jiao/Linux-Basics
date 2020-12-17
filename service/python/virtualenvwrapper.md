@@ -81,19 +81,19 @@ $ virtualenv [虚拟环境名称]
 
 其他命令如下：
 ```bash
-(虚拟环境名称) [root@localhost ~]$ lsvirtualenv -b        # 列出虚拟环境
+(虚拟环境名称) [root@localhost ~]$ lsvirtualenv -b  # 列出虚拟环境
 
-[root@localhost ~]$ workon [虚拟环境名称]   # 切换虚拟环境
+[root@localhost ~]$ workon [虚拟环境名称]           # 切换虚拟环境
 
-[root@localhost ~]$ lssitepackages         # 查看环境里安装了哪些包
+[root@localhost ~]$ lssitepackages                  # 查看环境里安装了哪些包
 
-[root@localhost ~]$ cdvirtualenv [子目录名] # 进入当前环境的目录
+[root@localhost ~]$ cdvirtualenv [子目录名]         # 进入当前环境的目录
 
-[root@localhost ~]$ cpvirtualenv [source] [dest] # 复制虚拟环境
+[root@localhost ~]$ cpvirtualenv [source] [dest]    # 复制虚拟环境
 
-[root@localhost ~]$ deactivate             # 退出虚拟环境
+[root@localhost ~]$ deactivate                      # 退出虚拟环境
 
-[root@localhost ~]$ rmvirtualenv [虚拟环境名称]   # 删除虚拟环境
+[root@localhost ~]$ rmvirtualenv [虚拟环境名称]     # 删除虚拟环境
 ```
 
 

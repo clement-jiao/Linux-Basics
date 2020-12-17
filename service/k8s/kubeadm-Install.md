@@ -4,14 +4,14 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2020-12-02 23:09:37
  * @LastEditors: clement-jiao
- * @LastEditTime: 2020-12-03 00:23:22
+ * @LastEditTime: 2020-12-03 15:12:01
 -->
 
 | **角色** |        IP    |
 |  :---:   |   :---:      |
-|  master  | 192.168.11.1 |
-|  node1   | 192.168.11.1 |
-|  node2   | 192.168.11.1 |
+|  master  | 192.168.11.141 |
+|  node1   | 192.168.11.142 |
+|  node2   | 192.168.11.143 |
 
 ###### 安装前初始化环境
 ```bash
