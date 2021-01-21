@@ -21,3 +21,5 @@ Cannot open self /usr/local/bin/docker-compose or archive /usr/local/bin/docker-
 # 换一种下载方式
 [deploy@iZbp1eelh6pez5j1wzv881Z :~]$ wget https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m) -O /usr/local/bin/docker-compose
 ```
+
+
