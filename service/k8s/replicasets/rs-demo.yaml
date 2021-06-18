@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs-myapp
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rs-myapp-label
+      release: canary
+  template:
+    metadata:
+      name: rs-myapp-pods
+      labels:
+        app: rs-myapp-label
+        release: canary
+        envs: qa
+    spec:
+      containers:
+        - image:  ikubernetes/myapp:v1
+          name:  my-name
+          ports:
+            - name:  rs-myapp-ports
+              containerPort:  80
+          readinessProbe:
+            httpGet:
+              port: 80
+              scheme: http
+          livenessProbe:
+            httpGet:
+              port: 80
+              scheme: http
+          env:
+            - name: clement
+              value: clement-test
+
+          
