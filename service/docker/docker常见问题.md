@@ -6,8 +6,11 @@
  * @LastEditors: clement-jiao
  * @LastEditTime: 2020-11-27 11:57:58
 -->
-### docker 常见问题总结
-##### docker-compose 安装失败 Cannot open self /usr/local/bin/docker-compose
+## docker 常见问题总结
+
+### docker-compose 安装失败
+
+**docker-compose 安装失败 Cannot open self /usr/local/bin/docker-compose**
 
 使用 docker compose 运行报错:
 ```bash
@@ -21,5 +24,33 @@ Cannot open self /usr/local/bin/docker-compose or archive /usr/local/bin/docker-
 # 换一种下载方式
 [deploy@iZbp1eelh6pez5j1wzv881Z :~]$ wget https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m) -O /usr/local/bin/docker-compose
 ```
+
+
+
+### 指定 http 型私有仓库
+
+一般会报错：
+
+```bash
+docker pull 192.168.99.100:5000/image
+Using default tag: latest
+Error response from daemon: Get https://192.168.99.100:5000/v2/: http: server gave HTTP response to HTTPS client
+```
+
+在 `/etc/docker/daemon.json` 中加入
+
+```bash
+vim /etc/docker/daemon.json
+{"insecure-registries":["192.168.99.100:5000"]}
+
+# 重启 docker
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+[windows - Docker repository server gave HTTP response to HTTPS client - Stack Overflow](https://stackoverflow.com/questions/49674004/docker-repository-server-gave-http-response-to-https-client)
+
+
+
 
 

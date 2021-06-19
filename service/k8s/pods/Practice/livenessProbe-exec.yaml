@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: livenessProbe-demo
+  name: liveness-exec
+spec:
+  containers:
+  - name: liveness-demo
+    image: busybox:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    args:
+    - /bin/sh
+    - -c
+    - touch /tmp/health_check; sleep 60; rm -rf /tmp/health_check; sleep 300;
+    livenessProbe:  # 存活检测
+      exec:
+        command:
+        - test
+        - -e
+        - /tmp/health_check
+

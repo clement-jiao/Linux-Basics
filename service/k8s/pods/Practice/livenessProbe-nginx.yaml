@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: liveness-nginx
+  labels:
+    app: liveness-nginx
+    test: livenessProbe-demo
+spec:
+  containers:
+  - name: liveness-nginx-container-demo
+    image: nginx:1.14-alpine
+    ports:
+      - name: nginxport
+        containerPort: 80
+        protocol: TCP
+    resources:  # 资源限制
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    lifecycle:  # 生命周期，启动前做什么操作
+      postStart:
+        exec:
+          command:
+          - /bin/sh
+          - -c
+          - 'echo Health > /usr/share/nginx/html/health_check'
+    livenessProbe:  # 健康状态检测
+      initialDelaySeconds: 3    # 容器初始化延迟(启动活动探测之前容器启动后的秒数)
+      successThreshold: 1       # 成功次数, 必须为1
+      failureThreshold: 2       # 最小连续失败次数
+      periodSeconds: 3          # 执行探测的频率(探测周期)
+      timeoutSeconds: 1         # 探测超时时间(探测超时后的秒数。默认为 1 秒)
+      httpGet:                  # 指定要执行的 http 请求
+        port: nginxport
+        path: /health_check
+        scheme: HTTP
+

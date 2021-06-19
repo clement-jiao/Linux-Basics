@@ -81,6 +81,7 @@ gpgcheck=0
 repo_gpgcheck=0
 gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
 https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+EOF
 ```
 ##### 3.3 安装kubeadm, kubelet和kubectl
 ```bash
@@ -93,10 +94,13 @@ https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
 在 192.168.11.141 (Master中)执行
 ```bash
 [root@k8s-master ~]$ kubeadm init\
---apiserver-advertise-address=192.168.11.141 \
---image-repository registry.aliyuncs.com/google_containers \
---service-cidr=10.96.0.0/12 \
---pod-network-cidr=10.244.0.0/16 \
+--apiserver-advertise-address=192.168.11.141 \	# 指定api server
+--image-repository registry.aliyuncs.com/google_containers \  # 指定拉取镜像仓库，可通过 kubeadm config images list 查看
+--service-cidr=10.96.0.0/12 \  # 指定 service 网络
+--pod-network-cidr=10.244.0.0/16 \ # 指定 pod 网络
+--ignore-preflight-errors=Swap\		 # 指定忽略 已启用 swap 分区的错误
+--dry-run \		# Don't apply any changes; just output what would be done.
+
 # 会拉取几个镜像:
 # kuber-proxy
 # kube-apiserver

@@ -49,9 +49,11 @@ create_user(){
 }
 
 install_tool(){
-    yum update -y
-
-    yum install iptables-services vim wget dos2unix git tree lvm2 lsb net-tools openssh-clients vim-enhanced zip unzip telnet lsof ntsysv lrzsz -y
+    # sed -e 's/mirrorlist/#mirrorlist/g' -e 's|#baseurl=http://mirror.centos.org/|baseurl=http://mirror.sjtu.edu.cn/|g' -i.bak /etc/yum.repos.d/CentOS-Base.repo
+    sudo yum install -y epel-release && \
+    sudo yum makecache && \
+    sudo yum update -y && \
+    sudo yum install -y iptables-services vim wget dos2unix git tree lvm2 lsb net-tools openssh-clients vim-enhanced zip unzip telnet lsof wget ntsysv lrzsz bash-completion.noarch ncdu htop 
 
     yum install gcc gcc* gcc-c++ ntp make imake cmake automake autoconf compat* apr* nasm* python-devel bison-devel zlib zlib-devel glibc glibc-devel glib2 libxml glib2-devel libxml2 libxml2-devel bzip2 bzip2-devel libXpm libXpm-devel libidn libidn-devel libtool libtool-ltdl-devel* libmcrypt libmcrypt-devel libevent-devel libmcrypt* libicu-devel libxslt-devel postgresql-devel libaio libaio-devel curl curl-devel perl perl-Net-SSLeay  perl-Time-HiRespcre perl-ExtUtils-MakeMaker perl-DBD-MySQL.* pcre pcre-devel ncurses ncurses-devel openssl openssl-devel openldap openldap-devel openldap-clients openldap-servers krb5 krb5-devel e2fsprogs e2fsprogs-devel libjpeg libpng libjpeg-devel libjpeg-6b libjpeg-devel-6b libpng-devel libtiff-devel freetype freetype-devel fontconfig-devel gd gd-devel expat-devel gettext-devel kernel package screen sysstat flex bison cpio nss_ldap pam-devel compat-libstdc++-33 --skip-broken -y
 }
