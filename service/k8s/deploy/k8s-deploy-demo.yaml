@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-demo
+  namespace: default
+spec:
+  replicas: 5
+  strategy:
+    rollingUpdate:
+      maxSurge: 3
+  selector:
+    matchLabels:
+      app: deploy-myapp
+  template:
+    metadata:
+      labels:
+        app: deploy-myapp
+        release: canary
+    spec:
+      containers:
+      - name: dpc-demo
+        image: ikubernetes/myapp:v7
+        env:
+          username: clement
+          password: clement_password
+        ports:
+        - name: app-http
+          containerPort: 80
+          protocol: TCP

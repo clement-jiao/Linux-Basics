@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: default
+spec:
+  selector: # 要与 template 中的 labels 相匹配
+    matchLabels:
+      app: redis
+      role: logstorage
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: logstorage
+    spec:
+      containers:
+        - name: redis
+          image: redis:4.0-alpine
+          ports:
+            - name: redis-port
+              containerPort: 6379
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ds-demo2
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: filebeat
+      release: stable
+  template:
+    metadata:
+      labels:
+        app: filebeat
+        release: stable
+    spec:
+      containers:
+      - name: filebeat
+        image: ikubernetes/filebeat:5.6.6-alpine
+        env:
+          - name: REDIS_HOST
+            value: redis.default.svc.cluster.local
+          - name: REDIS_LOG_LEVEL
+            value: info
+          - name: Redis_Port
+            value: "6379"
+          - name: username
+            value: root
+          - name: password
+            value: Redis_Password
+

@@ -4,7 +4,7 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2020-06-05 00:24:59
  * @LastEditors: clement-jiao
- * @LastEditTime: 2020-06-05 00:27:43
+ * @LastEditTime: 2021-06-20 01:04:11
 -->
 
 ### sourcetree安装跳过注册方法
@@ -49,3 +49,13 @@
 ```
 
 3、重新点击SourceTree.exe安装，弹出 Mercurial 窗口时，选择最后一项安装即可。
+
+
+### 删除已经提交到远程的commit
+#### 首先是重置到上一次commit
+右键需要回滚的分支：**选择重置当前分支到此次提交**
+#### 然后打开终端:
+使用 `git push origin -f` 命令 使本次提交为强制 push
+
+
+(三种清除Git提交历史的方法)[https://blog.csdn.net/yiifaa/article/details/78603410]
