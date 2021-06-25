@@ -3,7 +3,7 @@ services:
   # 反向代理 nginx -> traefik
   # https://doc.traefik.io/traefik/
   reverse-proxy:
-    image: traefik:v2.4.8
+    image: traefik:v2.4.9
     container_name: traefik
     command:
       # 启用控制面板
