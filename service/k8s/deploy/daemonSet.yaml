@@ -1,0 +1,74 @@
+# <!--
+#  * @Description:
+#  * @Author: 焦国峰
+#  * @Github: https://github.com/clement-jiao
+#  * @Date: 2021-06-28 06:48:45
+#  * @LastEditors: clement-jiao
+#  * @LastEditTime: 2021-06-28 06:48:52
+# -->
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: default
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: redis
+      release: stable
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+  template:
+    metadata:
+      labels:
+        app: redis
+        release: stable
+    spec:
+      containers:
+        - name: redis
+          images: redis:4.0-alpine
+          ports:
+            - name: redisport
+              containerPort: 6379
+
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: filebeat
+  namespace: filebeat-ds
+spec:
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: filebeat-ds
+      release: stable
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+  template:
+    metadata:
+      labels:
+        app: filebeat-ds
+        release: stable
+    spec:
+      containes:
+        - name: filebeat
+          image: ikubernetes/filebeat:v5.6.5-alpine
+          env:
+            - name: REDIS_HOST
+              value: redis.default.svc.cluster.local
+            - name: REDIS_LOG_LEVEL
+              value: info
+          ports:
+            - name: http
+              containerPort: 80
+
+
+

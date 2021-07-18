@@ -1,0 +1,41 @@
+# <!--
+#  * @Description:
+#  * @Author: 焦国峰
+#  * @Github: https://github.com/clement-jiao
+#  * @Date: 2021-06-28 06:48:45
+#  * @LastEditors: clement-jiao
+#  * @LastEditTime: 2021-06-28 06:48:52
+# -->
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-rollingUpdate
+  namespace: myapp
+spec:
+  minReadySeconds: 3
+  replicas: 7
+  revisionHistoryLimit: 10
+  strategy:
+    type: rollingUpdate
+    RollingUpdate:
+      maxSurge: 3
+  selector:
+    matchLabels:
+      app: myapp-whoami
+      release: canary
+  template:
+    metadata:
+      labels:
+        app: myapp-whoami
+        release: canary
+    spec:
+      containes:
+        - name: myapp-whoami
+          image: ikubernetes/myapp:v1
+          ports:
+            - name: http
+              containerPort: 80
+
+
+
