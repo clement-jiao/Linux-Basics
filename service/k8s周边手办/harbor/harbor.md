@@ -49,14 +49,14 @@ tar zxf harbor-online-installer-v2.2.1.tgz && cd harbor/ && cp harbor.yml.tmpl h
 
 ```yaml
 # 注意需要修改的地方
-hostname: registry-harbor.lunaon.net
+hostname: registry-harbor.clemente.net
 https:
   # https port for harbor, default is 443
   port: 443
   # The path of cert and key files for nginx
   # 证书是acme目录
-  certificate: /root/.acme.sh/registry-harbor.lunaon.net/fullchain.cer
-  private_key: /root/.acme.sh/registry-harbor.lunaon.net/registry-harbor.lunaon.net.key
+  certificate: /root/.acme.sh/registry-harbor.clemente.net/fullchain.cer
+  private_key: /root/.acme.sh/registry-harbor.clemente.net/registry-harbor.clemente.net.key
 
 # 如果使用外部db则不需要注释这行
 database:
@@ -98,7 +98,7 @@ do
   then
     # echo "$file is directory"
     registryName=$(basename $file)
-    skopeo sync --src docker --dest docker registry.lunaon.net:5000/$registryName registry-harbor.lunaon.net/lunaon
+    skopeo sync --src docker --dest docker registry.clemente.net:5000/$registryName registry-harbor.clemente.net/clemente
     # mkdir -p /root/registry/$registryName
     # echo $registryName
   elif [ -f "$file" ]
@@ -106,8 +106,8 @@ do
     echo "$file is file"
   fi
 done
-#/usr/bin/skopeo login --get-login registry.lunaon.net:5000
-#/usr/bin/skopeo login --get-login harbor.lunaon.net
+#/usr/bin/skopeo login --get-login registry.clemente.net:5000
+#/usr/bin/skopeo login --get-login harbor.clemente.net
 ```
 
 #### return 403之类的问题
@@ -138,7 +138,7 @@ done
 name=$1
 # SHELL_FOLDER=$(cd "$(dirname "$0")";pwd)
 SHELL_FOLDER=/data/secret/cert/
-domainName=registry-harbor.lunaon.net
+domainName=registry-harbor.clemente.net
 
 if [ -z $name ]; then
   name=""
@@ -152,7 +152,7 @@ if [ $name == "init" ]; then
   chmod a+x ~/.acme.sh/acme.sh
   # auto update
   ~/.acme.sh/acme.sh  --upgrade
-  ~/.acme.sh/acme.sh  --issue -d $domainName --standalone --httpport 80 --force
+  ~/.acme.sh/acme.sh  --issue -d $domainName --standalone --httpport 80 --force --server  letsencrypt
   elif [ $name == "refresh" ]; then
       echo "refresh domain cert"
       # rm -rf  /data/secret/cert/server.key

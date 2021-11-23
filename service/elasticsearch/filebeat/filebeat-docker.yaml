@@ -1,0 +1,21 @@
+filebeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    reload.enabled: false
+
+processors:
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+
+output.logstash:
+  hosts: ["172.30.27.68:5044"]
+
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /logs/igcampaign-*.log
+  multiline.pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+\d{2}:\d{2}\s+(EMERG|ALERT|CRIT|ERR|WARN|NOTICE|INFO|DEBUG|NOT_DEFINED)'
+  multiline.negate: true
+  multiline.match: after
+  exclude_lines: ['^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+\d{2}:\d{2}\s+(EMERG|ALERT|CRIT|NOTICE|INFO|DEBUG|NOT_DEFINED)']

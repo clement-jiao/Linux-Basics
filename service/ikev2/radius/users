@@ -1,0 +1,22 @@
+
+# 为了测试开启的用户，不知道对生产环境的用户有何影响
+steve   Cleartext-Password := "testing"
+        Service-Type = Framed-User,
+        Framed-Protocol = PPP,
+        Framed-IP-Address = 172.16.3.33,
+        Framed-IP-Netmask = 255.255.255.0,
+        Framed-Routing = Broadcast-Listen,
+        Framed-Filter-Id = "std.ppp",
+        Framed-MTU = 1500,
+        Framed-Compression = Van-Jacobsen-TCP-IP
+
+# 以下为默认
+# DEFAULT Framed-Protocol := PPP
+DEFAULT Framed-Protocol == PPP
+        Framed-Protocol = PPP,
+        Framed-Compression = Van-Jacobson-TCP-IP
+DEFAULT Hint == "CSLIP"
+        Framed-Protocol = SLIP,
+        Framed-Compression = Van-Jacobson-TCP-IP
+DEFAULT Hint == "SLIP"
+        Framed-Protocol = SLIP

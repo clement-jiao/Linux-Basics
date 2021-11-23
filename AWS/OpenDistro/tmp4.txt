@@ -1,0 +1,43 @@
+template_mysql_default          [mysql-*]                           1 60003    hot_delete_workflow_6M       1
+template_logstash_logs_6m       [logs-*, serverlogs-*]              1 60003    hot_delete_workflow_6M       1
+
+template_logstash_logs_3m       [logs-notype-*]                     2 60003    hot_delete_workflow_3M       1
+template_mysql_callback_records [mysql-callback-records-*]          2 60003    hot_delete_workflow_3M       1
+template_logstash_logs_2m       [logs-test-*, serverlogs-cutout-*]  2 60003    hot_delete_workflow_2M       1
+
+template_users_ins              [users-ins-*]                       0          hot_delete_workflow_6M       1
+template_users                  [users-*]                           0          
+template_dynamo_default         [dynamo-*]                          1 60003    
+template_filbeat_default        [filebeat-*]                        1 60003    
+template_serverlogs_smmorder    [serverlogs-smmorder-*]             2 60003    
+template_mysql_callback_redeem  [mysql-callback-redeem-*]           2 60003    
+
+
+
+GET _template/template_mysql_callback_records
+GET _template/template_users                 
+GET _template/template_users_ins             
+GET _template/template_mysql_default         
+GET _template/template_dynamo_default        
+GET _template/template_logstash_logs_3m      
+GET _template/template_serverlogs_smmorder   
+GET _template/template_logstash_logs_2m      
+GET _template/template_filbeat_default       
+GET _template/template_logstash_logs_6m      
+GET _template/template_mysql_callback_redeem 
+
+
+PUT /_template/template_mysql_callback_records
+{
+  "template_mysql_callback_records" : {
+    "order" : 2,
+    "version" : 60003,
+    "index_patterns" : [
+      "mysql-callback-records-*"
+    ],
+    "settings" : { },
+    "mappings" : { },
+    "aliases" : { }
+  }
+}
+

@@ -1,0 +1,52 @@
+version: "3"
+services:
+  whoami-11:
+    image: registry-harbor.clemente.net/clemente/whoami-11:dev
+    container_name: whoami-11
+    network: dev_environment
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=dev_environment"
+
+      - "traefik.http.routers.whoami-11.entrypoints=web"
+      - "traefik.http.routers.whoami-11.service=whoami-11"
+      - "traefik.http.services.whoami-11.loadbalancer.server.port=8081"
+      - "traefik.http.routers.whoami-11.rule=Host(`whoami-11.clemente.net`)"
+
+#      - "traefik.http.routers.whoami-22.entrypoints=web"
+      - "traefik.http.routers.whoami-22.service=whoami-22"
+      - "traefik.http.services.whoami-22.loadbalancer.server.port=8082"
+      - "traefik.http.routers.whoami-22.rule=Host(`whoami-22.clemente.net`)"
+
+  # 容器 whoami 的实例
+  clement1:
+    image: emilevauge/whoami
+    container_name: clement_1
+    ports:
+     - 8082:80
+    networks:
+      - dev_environment
+    labels:
+      - "traefik.tcp.routers.clement_1.rule=HostSNI(`whoami-1.clement.net`)"
+      - "traefik.tcp.routers.clement_1.entrypoints=who"
+
+# docker run  -d 
+# --name=whoami-11
+# --net=dev_environment 
+
+# 手动增加 label 的示例
+# -l traefik.enable=true 
+# -l traefik.docker.network=dev_environment 
+# -l traefik.http.routers.24814.entrypoints=web 
+# -l traefik.http.routers.24814.service=24814
+# -l traefik.http.services.24814.loadbalancer.server.port=8081 
+# -l traefik.http.routers.24814.rule=Host(`whoami-11.clemente.net`) 
+
+
+# -l traefik.docker.network=dev_environment 
+# -l traefik.http.routers.25089.entrypoints=web 
+# -l traefik.http.routers.25089.service=25089 
+# -l traefik.http.services.25089.loadbalancer.server.port=8082 
+# -l traefik.http.routers.25089.rule=Host(`whoami-22.clemente.net`)
+
+# registry-harbor.clemente.net/clemente/whoami-11:dev

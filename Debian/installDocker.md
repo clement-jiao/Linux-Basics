@@ -7,7 +7,7 @@
 ### 安装依赖
 
 ```bash
-sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 lsb-release software-properties-common wget vim
+apt-get update && apt-get install -y apt-transport-https ca-certificates curl gnupg2 lsb-release software-properties-common wget vim htop ncdu curl nethogs
 
 # 添加秘钥
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg

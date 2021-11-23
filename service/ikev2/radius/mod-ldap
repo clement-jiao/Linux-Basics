@@ -1,0 +1,104 @@
+ldap {
+        server = '172.16.188.242'               # 指定ldap地址，需要在compose中指定host级网络，不然无法连接到 ldap 很诡异，有可能是iptables问题。(这个问题检查出来是docker网络没有连接，在 compose 里指定好同一docker网络就行了)
+        port = 389
+        identity = 'cn=admin,dc=clemente,dc=com'  # DN 用户
+        password = ldap123                      # 密码
+        base_dn = 'ou=user,dc=clemente,dc=com'    # 搜索域
+        sasl {
+        }
+        update {
+                control:Password-With-Header    += 'userPassword'       # 要求 ldap 中保存明文密码
+                # control:NT-Password           := 'ntPassword'         # 可以通过 NT-Password 将密码加密为 sambaPassword，但是需要Samba的schema支持，在镜像中支持这个但还不知道如何设置。
+                control:                        += 'radiusControlAttribute'
+                request:                        += 'radiusRequestAttribute'
+                reply:                          += 'radiusReplyAttribute'
+        }
+        # 在 user 字段上方需要将此段落注释（在某个博客里看到的）
+        #  Name of the attribute that contains the user DN.
+        #  The default name is LDAP-UserDn.
+        #
+        #  If you have multiple LDAP instances, you should
+        #  change this configuration item to:
+        #
+        #       ${.:instance}-LDAP-UserDn
+        #
+        #  That change allows the modules to set their own
+        #  User DN, and to not conflict with each other.
+        #
+#       user_dn = "LDAP-UserDn"  # 记得这个 user_dn 要注释掉，照着其他人文档做了好多遍都不成最后一个个检查发现遗漏了这个
+
+        #
+        #  User object identification.
+        #
+        user {
+                base_dn = "${..base_dn}"
+                filter = "(uid=%{%{Stripped-User-Name}:-%{User-Name}})"
+                sasl {
+                }
+        }
+        group {
+                base_dn = "${..base_dn}"
+                filter = '(objectClass=posixGroup)'
+                membership_attribute = 'memberOf'
+        }
+        profile {
+        }
+        client {
+                base_dn = "${..base_dn}"
+                filter = '(objectClass=radiusClient)'
+                template {
+                }
+                attribute {
+                        ipaddr                          = 'radiusClientIdentifier'
+                        secret                          = 'radiusClientSecret'
+                }
+        }
+        accounting {
+                reference = "%{tolower:type.%{Acct-Status-Type}}"
+                type {
+                        start {
+                                update {
+                                        description := "Online at %S"
+                                }
+                        }
+                        interim-update {
+                                update {
+                                        description := "Last seen at %S"
+                                }
+                        }
+                        stop {
+                                update {
+                                        description := "Offline at %S"
+                                }
+                        }
+                }
+        }
+        post-auth {
+                update {
+                        description := "Authenticated at %S"
+                }
+        }
+        options {
+                chase_referrals = yes
+                rebind = yes
+                res_timeout = 10
+                srv_timelimit = 3
+                net_timeout = 1
+                idle = 60
+                probes = 3
+                interval = 3
+                ldap_debug = 0x0028
+        }
+        tls {
+        }
+        pool {
+                start = ${thread[pool].start_servers}
+                min = ${thread[pool].min_spare_servers}
+                max = ${thread[pool].max_servers}
+                spare = ${thread[pool].max_spare_servers}
+                uses = 0
+                retry_delay = 30
+                lifetime = 0
+                idle_timeout = 60
+        }
+}

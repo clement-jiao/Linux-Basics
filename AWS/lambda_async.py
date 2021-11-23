@@ -13,8 +13,8 @@ def time_flag():
 
 ic.configureOutput(prefix=time_flag,includeContext=True)
 
-app_id = 'cli_a0b6f91bba78100c'
-app_secret = 'j5WOF9FtdDXXqbIaeDlK0bHk70B2bB7V'
+app_id = 'cli_a0b6f91bbaxxxxxc'
+app_secret = 'j5WOF9FtdDXXqbIaeDlK0bHkxxxxxxxV'
 
 CloudWatchLogs = boto3.client("logs")
 cloudwatch = boto3.client('cloudwatch')

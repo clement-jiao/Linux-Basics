@@ -6,7 +6,7 @@
 name=$1
 # SHELL_FOLDER=$(cd "$(dirname "$0")";pwd)
 SHELL_FOLDER=/data/secret/cert/
-domainName=registry-harbor.lunaon.net
+domainName=registry-harbor.clemente.net
 if [ -z $name ]; then
   name=""
 fi
@@ -28,7 +28,8 @@ if [ $name == "init" ]; then
       ~/.acme.sh/acme.sh  --installcert --issue -d $domainName \
                           --key-file $SHELL_FOLDER/server.key \
                           --fullchain-file $SHELL_FOLDER/server.crt \
-                          --standalone --force
+                          --standalone 
+                          # --force
                           # --reloadcmd "/usr/bin/docker start nginx"
       chown -R 10000:10000 /data/secret/cert/
       /usr/bin/docker start nginx

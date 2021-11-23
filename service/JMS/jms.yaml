@@ -1,3 +1,4 @@
+# 一键启动的 jump server
 version: '3'
 services:
   core:

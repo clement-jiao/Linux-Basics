@@ -1,0 +1,54 @@
+version: '3'
+services:
+  Radius:
+    container_name: radius
+    image: freeradius/freeradius-server:latest
+    restart: always
+    volumes:
+      - /docker/freeradius/logs:/var/log/freeradius
+      - /docker/freeradius:/etc/freeradius
+    ports:
+      - 1812:1812/udp
+      - 1813:1813/udp
+      - 1815:1815/udp
+    depends_on:
+      - openLDAP
+    networks:
+      - jms_network
+
+  openLDAP:
+    container_name: ldap
+    image: osixia/openldap:1.5.0
+    restart: always
+    environment:
+      LDAP_TLS_VERIFY_CLIENT: "never"
+      LDAP_ORGANISATION: "CMEVER Tech"
+      LDAP_DOMAIN: "clemente.com"
+      LDAP_ADMIN_PASSWORD: "ldap123"
+    volumes:
+      - /docker/ldap/conf:/etc/ldap/slapd.d
+      - /docker/ldap/data:/var/lib/ldap
+    ports:
+      - 636:636
+      - 389:389
+    networks:
+      - jms_network
+
+  PHPLDAPAdmin:
+    container_name: admin
+    image: osixia/phpldapadmin:0.9.0
+    environment:
+        PHPLDAPADMIN_LDAP_HOSTS: ldap
+    # 可以在 config 里配置 ldap 地址但是不能指定端口，至少目前还没找到在compose的哪里配置。
+    # 在 https://github.com/osixia/docker-phpLDAPadmin#environment-variables 中
+    #volumes:
+    #  - /docker/config/config.php:/container/service/phpldapadmin/assets/config/config.php
+    ports:
+      - 443:443
+      - 80:80
+    networks:
+      - jms_network
+
+networks:
+  jms_network:
+    driver: bridge

@@ -1,0 +1,212 @@
+[
+    {
+        "add": {
+            "index": "users-ins-2021-08",
+            "alias": "users-ins",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "serverlogs-unit-test-2021-08",
+            "alias": "serverlogs-unit-test",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "serverlogs-tiktok_iap_check_sqs_consumer-2021-08",
+            "alias": "serverlogs-tiktok_iap_check_sqs_consumer",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "serverlogs-sscallback-user-coins-2021-08",
+            "alias": "serverlogs-sscallback-user-coins",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "serverlogs-sscallback-ins-coins-2021-08",
+            "alias": "serverlogs-sscallback-ins-coins",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "serverlogs-smmorder-2021-08",
+            "alias": "serverlogs-smmorder",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "serverlogs-check_android_iap-2021-08",
+            "alias": "serverlogs-check_android_iap",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "serverlogs-cash-reward-service-2021-08",
+            "alias": "serverlogs-cash-reward-service",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "serverlogs-callback-service-2021-08",
+            "alias": "serverlogs-callback-service",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "serverlogs-ai-third-party-service-2021-08",
+            "alias": "serverlogs-ai-third-party-service",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "mysql-callback-records-tapresearch-2021-08",
+            "alias": "mysql-callback-records-tapresearch",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "mysql-callback-records-tapjoy-2021-08",
+            "alias": "mysql-callback-records-tapjoy",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "mysql-callback-records-pollfish-2021-08",
+            "alias": "mysql-callback-records-pollfish",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "mysql-callback-records-offertoro-2021-08",
+            "alias": "mysql-callback-records-offertoro",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "mysql-callback-records-ironsource-2021-08",
+            "alias": "mysql-callback-records-ironsource",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "mysql-callback-records-fyber-2021-08",
+            "alias": "mysql-callback-records-fyber",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "mysql-callback-records-colorcash-2021-08",
+            "alias": "mysql-callback-records-colorcash",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "mysql-callback-records-ayetstudio-2021-08",
+            "alias": "mysql-callback-records-ayetstudio",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "mysql-callback-records-adscendmedia-2021-08",
+            "alias": "mysql-callback-records-adscendmedia",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "mysql-callback-records-adgem-2021-08",
+            "alias": "mysql-callback-records-adgem",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "mysql-callback-records-max-2021-08",
+            "alias": "mysql-callback-records-max",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "mysql-callback-redeem-2021-08",
+            "alias": "mysql-callback-redeem",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "logs-tik-2021-08",
+            "alias": "logs-tik",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "logs-notype-2021-08",
+            "alias": "logs-notype",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "logs-color-2021-08",
+            "alias": "logs-color",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "logs-ai-2021-08",
+            "alias": "logs-ai",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "filebeat-2021-08",
+            "alias": "filebeat",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "dynamo-user-2021-08",
+            "alias": "dynamo-user",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "logs-ins-2021-08",
+            "alias": "logs-ins",
+            "is_write_index": true
+        }
+    },
+    {
+        "add": {
+            "index": "logs-cash-2021-08",
+            "alias": "logs-cash",
+            "is_write_index": true
+        }
+    }
+]

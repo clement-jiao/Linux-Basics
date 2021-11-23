@@ -1,0 +1,65 @@
+
+[global]
+  checkNewVersion = false
+  sendAnonymousUsage = true
+
+# 声明入口点
+[entryPoints]
+  [entryPoints.http]
+    address = ":80"
+    [entryPoints.web.http.redirections]
+      [entryPoints.web.http.redirections.entryPoint]
+        to = "websecure"
+        permanent = true
+  [entryPoints.https]
+    address = ":443"
+  [entryPoints.traefik]
+    address = ":8080"
+
+# 声明提供者
+[providers]
+# docker作为提供者，默认配置需要共享套接字，因此会不安全，所以这里注释掉了，没有启用
+  [providers.docker]
+    exposedByDefault = false          # 关闭对Docker容器的自动发现，默认是true
+    httpClientTimeout = 60
+    # 关闭后需要在docker-compose里面单独对某个容器加入- "traefik.enable=true" 标签，容器才能被发现。
+    # endpoint = "unix:///var/run/docker.sock"
+
+    # 文件作为提供者
+  [providers.file]
+    # directory = "/etc/traefik"      # 可以监听某个目录下的所有 .toml 文件
+    filename = "dynamic_conf.toml"    # 加载动态文件配置
+    watch = true                      # 允许Traefik自动监视文件更改
+[api]
+  dashboard = true        # 开启WEB面板
+  insecure = true         # 开启不安全模式
+  debug = true
+[log]
+  level = "DEBUG"
+  filePath = "/root/traefik/log/debug.log"
+[accessLog]
+  filePath = "/root/traefik/log/access.log"
+  bufferingSize = 100     # 文件自动分割
+  
+[certificatesResolvers]
+  [certificatesResolvers.traefikssl]
+    [certificatesResolvers.traefikssl.acme]
+      httpchallenge = true
+      email = "admin@clement.com"
+      storage = "/etc/traefik/cert/acme.json"
+    [certificatesResolvers.traefikssl.acme.httpChallenge]
+      entryPoint = "http"
+
+
+# 容器标签
+# - "traefik.http.routers.proxys.entrypoints=web"
+# - "traefik.http.routers.proxys.service=proxys"
+# - "traefik.http.routers.proxys.rule=Host(`whoami-traefik.clement.com`)"
+# - "traefik.http.services.proxys.loadbalancer.server.port=8080"
+
+# https://huangbin.xin/p/52 (比较完整的解析和示例，其实官方文档更全面)
+# https://www.qikqiak.com/traefik-book/  (中文文档：由官方文档翻译来的凑合看看吧，具体还是得以官方文档为准)
+# https://www.bookstack.cn/read/traefik/0.md (同上一样是中文文档)
+# https://stackoverflow.com/a/52174595/10688971 (Stack Overflow 的反向代理回答）
+# https://www.bookstack.cn/read/traefik-2.2-en/934244909017968f.md (这是一本traefik的书？)
+# https://www.cnblogs.com/rongfengliang/p/11552607.html (反向代理中路由相关的)

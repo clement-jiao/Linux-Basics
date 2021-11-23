@@ -1,0 +1,72 @@
+{
+    "policy": {
+        "policy_id": "hot_rollover_delete_3M",
+        "description": "Retain 3 months of data",
+        "last_updated_time": 1623060556707,
+        "schema_version": 1,
+        "error_notification": null,
+        "default_state": "hot",
+        "states": [
+            {
+                "name": "hot",
+                "actions": [],
+                "transitions": [
+                    {
+                        "state_name": "rollover",
+                        "conditions": {
+                            "min_index_age": "30d"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "rollover",
+                "actions": [
+                    {
+                        "rollover": {}
+                    }
+                ],
+                "transitions": [
+                    {
+                        "state_name": "delete",
+                        "conditions": {
+                            "min_index_age": "91d"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "delete",
+                "actions": [
+                    {
+                        "delete": {}
+                    }
+                ],
+                "transitions": []
+            }
+        ],
+        "ism_template": [
+            {
+                "last_updated_time": 1626052627577,
+                "index_patterns": [
+                    "likes-*"
+                ],
+                "priority": 1
+            },
+            {
+                "last_updated_time": 1626052627577,
+                "index_patterns": [
+                    "follows-*"
+                ],
+                "priority": 2
+            },
+            {
+                "last_updated_time": 1626052627577,
+                "index_patterns": [
+                    "clement-*"
+                ],
+                "priority": 3
+            }
+        ]
+    }
+}

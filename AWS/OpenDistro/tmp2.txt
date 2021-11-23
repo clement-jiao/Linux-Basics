@@ -1,0 +1,19 @@
+GET _cat/templates
+
+GET /_template/template_logstash_logs_2m
+GET _template/template_users_ins
+
+
+
+
+GET _template/template_mysql_callback_records
+GET _template/template_users                 
+GET _template/template_users_ins             
+GET _template/template_mysql_default         
+GET _template/template_dynamo_default        
+GET _template/template_logstash_logs_3m      
+GET _template/template_serverlogs_smmorder   
+GET _template/template_logstash_logs_2m      
+GET _template/template_filbeat_default       
+GET _template/template_logstash_logs_6m      
+GET _template/template_mysql_callback_redeem 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- Label唯一的标识 -->
+  <key>Label</key>
+  <string>com.tiktok-signature.plist</string>
+  <!-- 指定要运行的脚本 -->
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/build/item/tiktok-signature/cron.sh</string>
+  </array>
+  <!-- 指定要运行的时间 -->
+  <key>StartInterval</key>
+  <integer>7200</integer>
+<!-- 标准输出文件 -->
+<key>StandardOutPath</key>
+<string>/Users/build/item/tiktok-signature/logs/cron.run</string>
+<!-- 标准错误输出文件，错误日志 -->
+<key>StandardErrorPath</key>
+<string>/Users/build/item/tiktok-signature/logs/cron.err</string>
+</dict>
+</plist>

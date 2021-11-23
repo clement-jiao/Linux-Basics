@@ -4,7 +4,7 @@
 
 # The IP address or hostname to access admin UI and registry service.
 # DO NOT use localhost or 127.0.0.1, because Harbor needs to be accessed by external clients.
-hostname: registry-harbor.lunaon.net
+hostname: registry-harbor.clemente.net
 
 # http related config
 http:
@@ -16,8 +16,8 @@ https:
   # https port for harbor, default is 443
   port: 443
   # The path of cert and key files for nginx
-  certificate: /root/.acme.sh/registry-harbor.lunaon.net/fullchain.cer
-  private_key: /root/.acme.sh/registry-harbor.lunaon.net/registry-harbor.lunaon.net.key
+  certificate: /root/.acme.sh/registry-harbor.clemente.net/fullchain.cer
+  private_key: /root/.acme.sh/registry-harbor.clemente.net/registry-harbor.clemente.net.key
 
 # # Uncomment following will enable tls communication between all harbor components
 # internal_tls:

@@ -1,0 +1,21 @@
+server site_ldap {  # 通过 ldap 认证，实际是 radius 自己用的，我们强制指定这个端口也能认证，不过因为密码加密的原因用的还是 1812 这个端口。
+    listen {
+         ipaddr = 0.0.0.0
+         port = 1815
+         type = auth
+     }
+     authorize {
+         update {
+             control:Auth-Type := ldap
+             }
+         }
+     authenticate {
+         Auth-Type ldap {
+             ldap
+             }
+         }
+     post-auth {
+         Post-Auth-Type Reject {
+             }
+         }
+ }

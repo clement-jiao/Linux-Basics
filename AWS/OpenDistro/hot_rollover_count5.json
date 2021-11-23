@@ -1,0 +1,42 @@
+{
+  "commit": "# OpenDistro auto rollover template",
+  "policy": {
+    "description": "clement_test_0403",
+    "last_updated_time": 1623060556707,
+    "schema_version": 1,
+    "error_notification": null,
+    "default_state": "hot",
+    "states": [
+      {
+        "name": "hot",
+        "actions": [],
+        "transitions": [
+          {
+            "state_name": "rollover",
+            "conditions": {
+              "min_doc_count": 5
+            }
+          }
+        ]
+      },
+      {
+        "name": "rollover",
+        "actions": [
+          {
+            "rollover": {}
+          }
+        ],
+        "transitions": []
+      }
+    ],
+    "ism_template": [
+      {
+        "last_updated_time": 1626052627577,
+        "index_patterns": [
+          "devclement-*"
+        ],
+        "priority": 100
+      }
+    ]
+  }
+}

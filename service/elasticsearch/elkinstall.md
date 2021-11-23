@@ -282,7 +282,7 @@ networks:
 ```
 ##### 4.1.2 docker-compose安装nginx
 ```yaml
-version: '##### 3.7'
+version: '3.7'
 services:
   nginx001:
     image: nginx:latest

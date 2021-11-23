@@ -1,0 +1,184 @@
+version: '3'
+services:
+  postgresql:
+    image: goharbor/harbor-db:v2.2.1
+    container_name: harbor-pgsql
+    restart: always
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - DAC_OVERRIDE
+      - SETGID
+      - SETUID
+    volumes:
+      - ./pgsql96-data:/var/lib/postgresql/data
+    networks:
+      - dev_environment
+    dns_search: .
+    ports:
+      - 15432:5432
+    env_file:
+      - ./pgsql96.conf.d/env
+
+  mysql56:
+    image: mysql:5.6.44
+    restart: always
+    volumes:
+      - ./localtime:/etc/localtime
+      - ./mysql56.conf.d:/etc/mysql/mysql.conf.d/
+      - ./mysql56-data:/var/lib/mysql
+      - ./mysql56-init:/docker-entrypoint-initdb.d/
+    environment:
+      MYSQL_ROOT_PASSWORD: wearelunaon123456
+    ports:
+      - 3356:3306
+    networks:
+      - dev_environment
+  redis6:
+    image: redis:6.0.1
+    restart: always
+    volumes:
+      - ./localtime:/etc/localtime
+      - ./redis6-data:/data
+    ports:
+      - 6360:6379
+    networks:
+      - dev_environment
+  redis-ins:
+    image: redis:2.8.23
+    restart: always
+    volumes:
+      - ./localtime:/etc/localtime
+      - ./redis-ins-data:/data
+    ports:
+      - 6323:6379
+    networks:
+      - dev_environment
+  # user: lunaon, password: wearelunaon123456，made at docker container by: htpasswd -Bbn lunaon wearelunaon123456 > /etc/htpasswd
+#  registry:
+#    image: registry:2.7.1
+#    restart: always
+#    volumes:
+#      - ./localtime:/etc/localtime
+#      - ./registry-data:/var/lib/registry
+#      - ./registry-conf/htpasswd:/etc/htpasswd
+#      - ./certs/:/certs
+#    environment:
+#      REGISTRY_AUTH: htpasswd
+#      REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+#      REGISTRY_AUTH_HTPASSWD_PATH: /etc/htpasswd
+#      REGISTRY_HTTP_ADDR: 0.0.0.0:5000
+#      REGISTRY_HTTP_TLS_CERTIFICATE: /certs/registry.cer
+#      REGISTRY_HTTP_TLS_KEY: /certs/registry.key
+#    ports:
+#      - 5000:5000
+#    networks:
+#      - dev_environment
+  nginx:
+    image: nginx:stable-alpine
+    restart: always
+    volumes:
+      - ./localtime:/etc/localtime
+      - ./nginx-html:/var/www/html
+    networks:
+      - dev_environment
+  cnpmjs:
+    restart: always
+    build:
+      context: .
+      dockerfile: ./cnpm-data/baseFile/Dockerfile
+    image: cnpmjs.org
+    container_name: cnpm-web
+    volumes:
+      - ./cnpm-data:/var/data/cnpm_data
+      - ./cnpm-conf:/var/app/cnpmjs.org/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=dev_environment"
+      - "traefik.http.routers.cnmpjs-web.entrypoints=web"
+      - "traefik.http.routers.cnpmjs-web.service=cnpmjs-web"
+      - "traefik.http.services.cnpmjs-web.loadbalancer.server.port=80"
+      - "traefik.http.routers.cnpmjs-web.rule=Host(`registry-cnpmjs.lunaon.net`)"
+    networks:
+      - dev_environment
+
+  # 反向代理 nginx -> traefik
+  reverse-proxy:
+    image: traefik:v2.4.9
+    container_name: traefik
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--providers.docker.exposedByDefault=false"
+      - "--certificatesresolvers.traefikssl.acme.httpchallenge=true"
+      - "--certificatesresolvers.traefikssl.acme.email=admin@lunaon.com"
+      - "--certificatesresolvers.traefikssl.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.traefikssl.acme.storage=/etc/traefik/cert/acme.json"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=dev_environment"
+      - "traefik.http.routers.reverse-proxy.entrypoints=web"
+      - "traefik.http.routers.reverse-proxy.service=reverse-proxy"
+      - "traefik.http.routers.reverse-proxy.middlewares=lunaon-auth@docker"
+      - "traefik.http.routers.reverse-proxy.rule=Host(`traefik.lunaon.net`)"
+      - "traefik.http.services.reverse-proxy.loadbalancer.server.port=8080"
+
+      - "traefik.http.routers.reverse-proxy-tls.entrypoints=websecure"
+      - "traefik.http.routers.reverse-proxy-tls.service=reverse-proxy-tls"
+      - "traefik.http.routers.reverse-proxy-tls.tls.certresolver=traefikssl"
+      - "traefik.http.routers.reverse-proxy-tls.middlewares=lunaon-auth@docker"
+      - "traefik.http.routers.reverse-proxy-tls.rule=Host(`traefik.lunaon.net`)"
+      - "traefik.http.services.reverse-proxy-tls.loadbalancer.server.port=8080"
+      - "traefik.http.middlewares.lunaon-auth.basicauth.users=lunaon:$$apr1$$kjXOlnsO$$Q/Qs/KvD8uyFPGiem17vo0"
+    networks:
+      - dev_environment
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik/cert/:/etc/traefik/cert/
+    
+    
+      
+#  elasticsearch:
+#    image: docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+#    restart: always
+#    environment:
+#      - cluster.name=docker-cluster
+#      - bootstrap.memory_lock=true
+##      - discovery.type=single-node
+#      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+#    volumes:
+#      - ./els-data:/usr/share/elasticsearch/data
+#    ulimits:
+#      memlock:
+#        soft: -1
+#        hard: -1
+#    ports:
+#      - "9200:9200"
+#    networks:
+#      - dev_environment
+#  kibana:
+#    image: docker.elastic.co/kibana/kibana:6.3.2
+#    restart: always
+#    ports:
+#      - "5601:5601"
+##    volumes:
+##      - ./kibana.yml:/usr/share/kibana/config/kibana.yml
+#    networks:
+#      - dev_environment
+networks:
+  dev_environment:
+    driver: bridge
+
+
+# https://juejin.cn/post/6844903976534540296 连接外部网络
+# my-pre-existing-network：是 dk network ls 完整的网络名称
+# networks:
+#   default:
+#     external:
+#       name: my-pre-existing-network

@@ -1,0 +1,50 @@
+version: 3
+services:
+  # 反向代理 nginx -> traefik
+  # https://doc.traefik.io/traefik/
+  reverse-proxy:
+    image: traefik:v2.4.9
+    container_name: traefik
+    # 改为通过配置文件读取
+    # command:
+    #   # 启用控制面板
+    #   - "--api.insecure=true"
+    #   # docker 模式
+    #   - "--providers.docker=true"
+    #   - "--entrypoints.web.address=:80"
+    #   - "--entrypoints.websecure.address=:443"
+    #   # 不暴露非 "traefik.enable=true" 标签容器
+    #   - "--providers.docker.exposedByDefault=false"
+    #   - "--certificatesresolvers.traefikssl.acme.httpchallenge=true"
+    #   - "--certificatesresolvers.traefikssl.acme.email=admin@clemente.com"
+    #   - "--certificatesresolvers.traefikssl.acme.httpchallenge.entrypoint=web"
+    #   - "--certificatesresolvers.traefikssl.acme.storage=/etc/traefik/cert/acme.json"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=dev_environment"
+      - "traefik.http.routers.reverse-proxy.entrypoints=web"
+      # 定义 service 的服务名
+      - "traefik.http.routers.reverse-proxy.service=reverse-proxy"
+      # 指定使用认证中间件
+      - "traefik.http.routers.reverse-proxy.middlewares=clemente-auth@docker"
+      - "traefik.http.routers.reverse-proxy.rule=Host(`traefik.clemente.net`)"
+      - "traefik.http.services.reverse-proxy.loadbalancer.server.port=8080"
+
+      - "traefik.http.routers.reverse-proxy-tls.entrypoints=websecure"
+      - "traefik.http.routers.reverse-proxy-tls.service=reverse-proxy-tls"
+      - "traefik.http.routers.reverse-proxy-tls.tls.certresolver=traefikssl"
+      - "traefik.http.routers.reverse-proxy-tls.middlewares=clemente-auth@docker"
+      - "traefik.http.routers.reverse-proxy-tls.rule=Host(`traefik.clemente.net`)"
+      - "traefik.http.services.reverse-proxy-tls.loadbalancer.server.port=8080"
+      # 认证中间件设置：现在是 md5 加密得去官方文档上找找是什么加密方法，还有注意需要双 $ 符号进行转义
+      - "traefik.http.middlewares.clemente-auth.basicauth.users=clemente:$$2942872159e25041d79246a1f21eba57ad71c1f6"
+    networks:
+      - dev_environment
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik/cert/:/etc/traefik/cert/
+      - ./traefik.toml:/etc/traefik/traefik.toml
+      # - ./dynamic.toml:/etc/traefik/dynamic.toml
