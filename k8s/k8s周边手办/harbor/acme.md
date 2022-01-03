@@ -1,3 +1,5 @@
+### acme.sh 示例
+```bash
 #!/bin/bash
 # Usage: ./cert.sh [init|refresh]
 
@@ -36,3 +38,4 @@ if [ $name == "init" ]; then
   else
     echo "Doesn't support arg $name, please use ./cert.sh [init|refresh]"
 fi
+```

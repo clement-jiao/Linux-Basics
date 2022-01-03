@@ -1,0 +1,123 @@
+
+
+[[tls.certificates]]
+     #这里文件名需注意，要与域名匹配
+    certFile = "./ssl/api.huangbin.xin.pem"
+    keyFile = "./ssl/api.huangbin.xin.key"
+[[tls.certificates]]
+     # 这里文件名需注意，要与域名匹配
+    certFile = "./ssl/huangbin.xin.pem"
+    keyFile = "./ssl/huangbin.xin.key"
+#路由配置
+
+
+
+[http.routers]
+        #API网站
+        #声明一个名为api_dev的路由，主要用于本地调试
+    [http.routers.api_dev]
+                #未指明入口点，则默认针对全部入口点
+                #路由规则是匹配特定域名
+        rule = "Host(`api.localhost`)"
+                #路由指向一个名为service-api的服务
+        service = "service-api"
+
+        #声明一个名为api_prod_tls的路由，针对https，并开启TLS
+    [http.routers.api_prod_tls]
+                #针对名为https的入口点
+        entryPoints = ["https"]
+        rule = "Host(`api.huangbin.xin`)"
+        service = "service-api"
+                #针对这个路由开启TLS
+        [http.routers.api_prod_tls.tls]
+
+        #声明一个名为api_prod的路由，与上面同样的域名，但会强制将http请求重定向跳转到上面定义的https入口点
+    [http.routers.api_prod]
+                #针对名为http的入口点
+        entryPoints = ["http"]
+                #相比上文的路由，这里加了一个中间件，处理重定向
+        middlewares = ["tls-redirect"]
+        rule = "Host(`api.huangbin.xin`)"
+        service = "service-api"
+
+    [http.routers.web_default]
+        rule = "Host(`localhost`)"
+        service = "service-web"
+
+        #坑点一个，以下同一个域名同时面对两个规则，优先级priority的值默认都是0，那么取规则最长的路由
+        [http.routers.web_dev_long]
+        rule = "HostRegexp(`*.localhost`)"
+        service = "service-web"
+                priority = 0
+    [http.routers.web_dev]
+        rule = "Host(`hb.localhost`)"
+        service = "service-web"
+                priority = 0
+
+        #主站，配置与上文大同小异，进修改了域名和服务名
+    [http.routers.web_prod_tls]
+        #由于下文已经存在了TLS节点，所以这里即使不写entryPoints = ["https"]，也仍然会只处理https请求，忽略http请求，而且Traefik将终止SSL连接，直接将解密的数据发送到services
+        rule = "Host(`huangbin.xin`)"
+        service = "service-web"
+        [http.routers.web_prod_tls.tls]
+    [http.routers.web_prod]
+        entryPoints = ["http"]
+        middlewares = ["tls-redirect"]
+        rule = "Host(`huangbin.xin`)"
+        service = "service-web"
+
+#中间件配置
+[http.middlewares]
+        #重定向方案，将http强制跳转到https
+    [http.middlewares.tls-redirect.redirectScheme]
+                #重定向到入口点https
+        scheme = "https"
+                #开启301永久重定向
+                permanent = true
+#服务配置
+[http.services]
+        #声明一个名为service-api的服务
+    [http.services.service-api]
+        #声明一组负载均衡器
+                [http.services.service-api.loadBalancer]
+                        #声明一台服务器
+            [[http.services.service-api.loadBalancer.servers]]
+                url = "http://api_iqiar/"     #官方文档没有讲明白，注意这里需填写可以被traefik访问到的url地址，这里api_iqiar是我的docker容器名称，还可以改为服务器host或者ip
+                        #再声明另一台服务器，组成负载均衡
+                        [[http.services.service-api.loadBalancer.servers]]
+                url = "http://api_iqiar_2/"
+    [http.services.service-web]
+        [http.services.service-web.loadBalancer]
+            [[http.services.service-web.loadBalancer.servers]]
+                url = "http://web_hbxin/"
+
+
+
+
+
+[http.routers]
+  [http.routers.whomai_1]
+      rule = "Host(`whoami-1.lunaon.net`)"
+      service = "whomai_1"
+
+[http.services]
+    [http.services.whomai_1]
+      [http.services.whomai_1.loadBalancer]
+        [[http.services.whomai_1.loadBalancer.servers]]
+          url = "http://172.30.23.233:8081/"
+        [[http.services.whomai_1.loadBalancer.servers]]
+          url = "http://172.30.23.233:8081/"
+
+
+
+
+
+    [http.services.service-web]
+      [http.services.service-web.loadBalancer]
+        [[http.services.service-web.loadBalancer.servers]]
+          url = "http://web_hbxin/"
+
+
+
+
+
