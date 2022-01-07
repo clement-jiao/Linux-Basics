@@ -18,19 +18,19 @@
 
 **Docker 各组件间的逻辑架构及交互关系如图 1-1所示。**
 
-![](C:\Users\admin\Documents\devops\Linux-Basics\k8s\k8s基础\._images\Kubernetes 系统基础\1-1Docker逻辑架构.jpg)
+![](.\._images\Kubernetes 系统基础\1-1Docker逻辑架构.jpg)
 
 任何拥有 Docker 运行时引擎的主机都能够根据同一个镜像创建并启动运行环境完全一致的容器，在容器中添加新数据或修改现有数据的结果都存储在由容器附加在镜像之上的可写顶层中。因此，同一 Docker 主机上的多个容器可以共享同一基础镜像，但各有自己的数据状态。Docker 使用 aufs、devicemapper、overlay2 等存储驱动程序来管理镜像层和可写容器层的内容，尽管每种存储驱动程序实现的管理方式不尽相同，但它们都使用可堆的镜像层和写时复制(CoW)策略。
 
 删除容器会同时删除其创建的可写顶层，这将会导致容器生成的状态数据全部丢失。Docker支持使用存储卷（volume）技术来绕过存储驱动程序，将数据存储在宿主机可达的存储空间上以实现跨容器生命周期的数据持久性，也支持使用卷驱动器（Docker引擎存储卷插件）将数据直接存储在远程系统上，如图1-2所示。
 
-![](C:\Users\admin\Documents\devops\Linux-Basics\k8s\k8s基础\._images\Kubernetes 系统基础\1-2Docker存储卷.jpg)
+![](.\._images\Kubernetes 系统基础\1-2Docker存储卷.jpg)
 
 拥有独立网络名称空间的各容器应用间通信将依赖于名称空间中可使用设备及相关的 IP 地址、路由和 iptables 规则等网络配置。Linux内核支持多种类型的虚拟网络设备，例如Veth、Bridge、802.q VLAN device和TAP等，并支持按需创建虚拟网络设备并组合出多样化的功能和网络拓扑。Docker借助虚拟网络设备、网络驱动、IPAM（IP地址分配）、路由和iptables等实现了桥接模式、主机模式、容器模式和无网络等几种单主机网络模型。
 
 **图 1-3 显示了 Docker 默认的桥接网络拓扑。**
 
-![](C:\Users\admin\Documents\devops\Linux-Basics\k8s\k8s基础\._images\Kubernetes 系统基础\1-3Docker默认的桥接网络拓扑.jpg)
+![](.\._images\Kubernetes 系统基础\1-3Docker默认的桥接网络拓扑.jpg)
 
 对于跨主机的容器间互联互通需求，Docker默认通过端口映射（DNAT）进行，这需要将容器端口暴露给宿主机，且将服务端的容器地址设置为对客户端不可见。然而，生产环境中部署、运行分布式应用对于构建跨主机容器网络几乎是必然需求。目前，封包（Overlay Network）和路由（routing network）是常见的跨主机容器间通信的解决方案，前一种类型中常见的协议有VXLAN、IPIP隧道和GRE等。2015年3月，Docker收购了SDN初创公司SocketPlane，并由此创建了CNM（Container Network Model）及其由Docker中剥离出来的单独网络实现 libnetwork，该实现使用驱动程序/插件模型支持许多基础网络技术，如 IP VLAN、MAC VLAN、Overlay、Bridge 和 Host 等。
 
@@ -45,7 +45,7 @@ containerd是一个守护进程，它几乎囊括了容器运行时所需要的�
 
 **如图 1-4 所示 Docker项目组件架构与运行容器的方式。**
 
-<img src="C:\Users\admin\Documents\devops\Linux-Basics\k8s\k8s基础\._images\Kubernetes 系统基础\1-4Docker引擎的组件.jpg" style="zoom:50%;" />
+<img src=".\._images\Kubernetes 系统基础\1-4Docker引擎的组件.jpg" style="zoom:50%;" />
 
 近年来，出于各种设计目标的容器运行时项目越来越多，较主流的有 CRI-O、Podman 和 Kata Containers 等。CRI-O是一款类似于 containerd 的高级运行时，在底层同样需要调用低级运行时负责具体的容器管理任务，支持与 OCI 兼容的运行时（目前使用runC）。它为 Kubernetes CRI（容器运行时接口）提供了轻量级的容器运行方案，核心目标是在kubelet 和 OCI 运行时之间提供一个黏合层，支持从 Kubernetes 直接运行容器（无须再依赖任何其他代码或工具），以取代有着较长集成链路的 Docker 容器引擎。
 
@@ -59,7 +59,7 @@ containerd是一个守护进程，它几乎囊括了容器运行时所需要的�
 
 Docker 和 rkt 都是经典容器技术的实现，同一主机上的各容器共享内核，轻量、快速，但也因隔离性差、内核版本绑定（容器应用受限于容器引擎宿主机的内核版本）以及不支持异构的硬件平台等原因为人诟病。所以，基于虚拟化或者独立内核的安全容器项目悄然兴起，2017年底，由 Intel Clear Container 和 Hyper.sh RunV 项目合并而来的 Kata Containers 就是代表之一。Kata Containers 在专用的精简内核中运行容器，提供网络、I/O 和内存的隔离，并可以通过虚拟化 VT 扩展进行硬件强制隔离，因而更像一个传统的、精简版的或轻量化的虚拟机，如图1-5所示。但 Kata Containers又是一个容器技术，支持 OCI 规范和 Kubernetes CRI 接口，并能够提供与标准 Linux 容器一致的性能。Kata Containers致力于通过轻量级虚拟机来构建安全的容器运行时，因而也更适用于多租户公有云，以及对项目隔离有着较高标准的私有云场景。
 
-<img src="C:\Users\admin\Documents\devops\Linux-Basics\k8s\k8s基础\._images\Kubernetes 系统基础\1-5经典容器与Kata Container.jpg" style="zoom:80%;" />
+<img src=".\._images\Kubernetes 系统基础\1-5经典容器与Kata Container.jpg" style="zoom:80%;" />
 
 ### 1.1.3　为什么需要容器编排系统
 
@@ -120,7 +120,7 @@ Kubernetes 是一个跨多主机的容器编排平台，它使用共享网络将
 
 **图1-6为Kubernetes集群工作模式示意图。**
 
-<img src="C:\Users\admin\Documents\devops\Linux-Basics\k8s\k8s基础\._images\Kubernetes 系统基础\1-6Kubernetes集群.jpg" style="zoom:80%;" />
+<img src=".\._images\Kubernetes 系统基础\1-6Kubernetes集群.jpg" style="zoom:80%;" />
 
 - Master Node
 
@@ -136,7 +136,7 @@ Kubernetes 是一个跨多主机的容器编排平台，它使用共享网络将
 
 **Kubernetes Pod 如图1-7所示。**
 
-![](C:\Users\admin\Documents\devops\Linux-Basics\k8s\k8s基础\._images\Kubernetes 系统基础\1-7Kubernetes Pod.jpg)
+![](.\._images\Kubernetes 系统基础\1-7Kubernetes Pod.jpg)
 
 不过，Kubernetes 的功能并不限于简单的容器调度，其本质是“以应用为中心”的现代应用基础设施，它通过管理各种基础支撑类服务（例如消息队列、集群存储系统、服务发现、数据处理框架以及负载均衡器等）将各种传统中间件“下沉”至自身内部，并经由声明式 API 向上层应用暴露这些基础设施能力。Kubernetes 实际上是一个 Platform for Platform 类型的项目，其根本目的在于方便基础设施工程师（或称为“容器团队”等）构建其他的平台系统，例如 Service Mesh、PaaS 或 Serverless 等。
 
@@ -165,7 +165,7 @@ Kubernetes 属于典型的 Server-Client 形式的二层架构，在程序级别
 
 **各组件如图1-8中的粗体部分组件所示。**
 
-![](C:\Users\admin\Documents\devops\Linux-Basics\k8s\k8s基础\._images\Kubernetes 系统基础\1-8Kubernetes系统组件.jpg)
+![](.\._images\Kubernetes 系统基础\1-8Kubernetes系统组件.jpg)
 
 1. Master组件：
 
@@ -229,11 +229,180 @@ kubelet 会持续监视当前节点上各 Pod 的健康状态，包括基于用�
 
 ## 1.3　应用的运行与互联互通
 
+如前所述，首先将部署于集群操作系统 Kubernetes 之上的应用定义为 Pod 的 API 对象描述，提交给 API Server 后经调度器从可用的工作节点中匹配出一个最佳选择，而后由相应工作节点上的 kubelet 代理程序根据其定义进行 Pod 创建、运行和状态监控等操作。位于同一网络中的各 Pod 实例可直接互相通信，但“用后即弃”的 Pod 自身的 IP 地址显然无法作为可持续使用的访问入口。Service 资源用于为 Pod 提供固定访问端点，并基于该端点将流量调度至一组 Pod 实例之上。
 
+### 1.3.1　Pod与Service
 
+Pod 本质上是共享 Network、IPC 和 UTS 名称空间以及存储资源的容器集合，如图 1-9 所示。我们可以把每个 Pod 对象想象成一个逻辑主机，它类似于现实世界中的物理主机或虚拟机，而运行于同一个 Pod 对象中多个进程则类似于物理机或虚拟机上独立运行的进程，不同的是，Pod 中各进程运行于彼此隔离的容器中，并于各容器间共享网络和存储两种关键资源。
 
+**Pod及其组成关系如图 1-9 所示**
 
+![](._images/Kubernetes 系统基础/1-9Pod及其组成关系.jpg)
 
+同一 Pod 内部的各容器具有“超亲密”关系，它们共享网络协议栈、网络设备、路由、IP 地址和端口等网络资源，可以基于本地回环接口 lo 互相通信。每个 Pod 上还可附加一组“存储卷”（volume）资源，它们同样可由内部所有容器使用而实现数据共享。持久类型的存储卷还能够确保在容器终止后被重启，甚至容器被删除后数据也不会丢失。
+
+同时，这些以 Pod 形式运行于 Kubernetes 之上的应用通常以服务类程序居多，其客户端可能来自集群之外，例如现实中的用户，也可能是当前集群中其他Pod 中的应用，如图1-10所示。Kubernetes 集群的网络模型要求其各Pod对象的IP地址位于同一网络平面内（同一IP网段），各Pod间可使用真实IP地址直接进行通信而无须NAT功能介入，无论它们运行于集群内的哪个工作节点之上，这些Pod对象就像是运行于同一局域网中的多个主机上。
+
+**Pod及其客户端如图1-10所示。**
+
+![](._images/Kubernetes 系统基础/1-10Pod及其客户端.jpg)
+
+Pod 对象拥有生命周期，它会在自身故障或所在的工作节点故障时被替换为一个新的实例，其 IP 地址通常也会随之改变，这就给集群中的 Pod 应用间依赖关系的维护带来了麻烦：前端 Pod 应用（依赖方）无法基于固定地址持续跟踪后端 Pod 应用（被依赖方）。为此，Kubernetes 设计了有着稳定可靠 IP 地址的 Service 资源，作为一组提供了相同服务的 Pod 对象的访问入口，由客户端Pod向目标Pod所属的 Service 对象的 IP 地址发起访问请求，并由相关的 Service 对象调度并代理至后端的 Pod 对象。
+
+Service 是由基于匹配规则在集群中挑选出的一组 Pod 对象的集合、访问这组Pod 集合的固定 IP 地址，以及对请求进行调度的方法等功能所构成的一种 API 资源类型，是 Pod 资源的代理和负载均衡器。Service 匹配 Pod 对象的规则可用“标签选择器”进行体现，并根据标签来过滤符合条件的资源对象，**如图1-11所示**。标签是附加在 Kubernetes API 资源对象之上的具有辨识性的分类标识符，使用键值型数据表达，通常仅对用户具有特定意义。一个对象可以拥有多个标签，一个标签也可以附加于多个对象（通常是同一类对象）之上。
+
+**图1-11 Kubernetes资源标签**
+
+![](._images/Kubernetes 系统基础/1-11Kubernetes资源标签.jpg)
+
+每个节点上运行的 kube-proxy 组件负责管理各 Pod 与 Service 之间的网络连接，它并非 Kubernetes 内置的代理服务器，而是一个基于出站流量的负载均衡器组件。针对每个 Service，kube-proxy 都会在当前节点上转换并添加相应 iptables DNAT 规则或 ipvs 规则，从而将目标地址为某 Service 对象的 ClusterIP 的流量调度至该 Service 根据标签选择器匹配出的 Pod 对象之上。
+
+即使 Service 有着固定的 IP 地址可用作服务访问入口，但现实中用户更容易记忆和使用的还是服务的名称，Kubernetes 使用定制的 DNS 服务为这类需求提供了自动的服务注册和服务发现功能。CoreDNS 附件会为集群中的每个 Service 对象（包括 DNS 服务自身）生成唯一的 DNS 名称标识，以及相应的 DNS 资源记录，服务的 DNS 名称遵循标准的 svc.namespace.svc.cluster-domain 格式。例如 CoreDNS 自身的服务名称为 kube-dns.kube-system.svc.cluster.local.，则它的 ClusterIP 通常是 10.96.0.10。
+
+除非出于管理目的有意调整，Service 资源的名称和 ClusterIP 在其整个生命周期内都不会发生变动。kubelet 会在创建 Pod 容器时，自动在 /etc/resolv.conf 文件中配置 Pod 容器使用集群上 CoreDNS 服务的 ClusterIP 作为 DNS 服务器，因而各 Pod 可针对任何 Service 的名称直接请求相应的服务。换句话说， Pod 可通过kube-dns.kube-system.svc.cluster.local. 来访问集群 DNS 服务。
+
+### 1.3.2　Pod控制器
+
+Pod 有着生命周期，且非正常终止的 Pod 对象本身不具有“自愈”功能，若kubelet 在 Pod 监视周期中发现故障，将重启或创建新的 Pod 实例来取代故障的实例以完成 Pod 实例恢复。但因 kubelet 程序或工作节点故障时导致的 Pod 实例故障却无从恢复。另外，因资源耗尽或节点故障导致的回收操作也会删除相关的 Pod 实例。因而，我们需要借助专用于管控 Pod 对象的控制器资源来构建能够跨越工作节点生命周期的 Pod 实例，例如 Deployment 或 StatefulSet 等控制器。
+
+控制器是支撑 Kubernetes 声明式 API 的关键组件，它持续监视对 API Server 上的 API 对象的添加、更新和删除等更改操作，并在发生此类事件时执行目标对象相应的业务逻辑，从而将客户端的管理指令转为对象管理所需要的真正的操作过程。简单来说，一个具体的控制器对象是一个控制循环程序，它在单个 API 对象上创建一个控制循环以确保该对象的状态符合预期。不同类型的 Pod 控制器在不同维度完成符合应用需求的管理模式，例如 Deployment 控制器资源可基于“Pod 模板”创建 Pod 实例，并确保实例数目精确反映期望的数量；另外，控制器还支持应用规模中 Pod 实例的自动扩容、缩容、滚动更新和回滚，以及创建工作节点故障时的重建等运维管理操作。图1-12中的 Deployment 就是这类控制器的代表实现，是目前最常用的用于管理无状态应用的 Pod 控制器。
+
+**图 1-12 Pod控制器**
+
+![](._images/Kubernetes 系统基础/1-12Pod控制器.jpg)
+
+Deployment 控制器的定义通常由期望的副本数量、 Pod 模板和标签选择器组成，它会根据标签选择器对 Pod 对象的标签进行匹配检查，所有满足选择条件的 Pod 对象都将受控于当前控制器并计入其副本总数，以确保此数目能精确反映期望的副本数。
+
+然而，在接收到的请求流量负载显著低于或接近已有 Pod 副本的整体承载能力时，用户需要手动修改 Deployment 控制器中的期望副本数量以实现应用规模的扩容或缩容。不过，当集群中部署了 Metrics Server 或 Prometheus 一类的资源指标监控附件时，用户还可以使用 Horizontal Pod Autoscaler（HPA）根据Pod对象的CPU 等资源占用率计算出合适的 Pod 副本数量，并自动修改 Pod 控制器中期望的副本数以实现应用规模的动态伸缩，提高集群资源利用率，如图1-13所示。
+
+**图 1-13 HPA**
+
+<img src="https://img9.doubanio.com/view/ark_works_pic/common-largeshow/public/1347426347.jpg" style="zoom: 67%;" />
+
+另外，StatefulSet控制器专用于管理有状态应用的Pod实例，其他常用的 Pod 控制器还有 ReplicaSet、DaemonSet、Job 和 CronJob 等，分别用于不同控制模型的工作负载，后面章节会详细介绍。
+
+### 1.3.3　Kubernetes网络基础
+
+根据 1.3.1 节的介绍可以总结出，Kubernetes 的网络中存在 4 种主要类型的通信：同一 Pod 内的容器间通信、各 Pod 彼此间通信、Pod 与 Service 间的通信以及集群外部的流量与 Service 间的通信。 Kubernetes 对 Pod 和 Service 资源对象分别使用了专用网络，Service 的网络则由 Kubernetes 集群自行管理，但集群自身并未实现任何形式的 Pod 网络，仍要借助于兼容 CNI（容器网络接口）规范网络插件配置实现，如图1-14所示。这些插件必须满足以下需求：
+
+- 所有 Pod 间均可不经 NAT 机制而直接通信；
+- 所有节点均可不经 NAT 机制直接与所有容器通信；
+- 所有 Pod 对象都位于同一平面网络中，而且可以使用 Pod 自身的地址直接通信。
+
+**图 1-14 Kubernetes网络环境**
+
+![](._images/Kubernetes 系统基础/1347426676.jpg)
+
+Pod 网络及其 IP 由 Kubernetes 的网络插件负责配置和管理，具体使用的网络地址可在管理配置网络插件时指定，例如 Flannel 网络插件默认使用 10.244.0.0/16 网络，而 Calico 默认使用 192.168.0.0/16 网络。对比来说，Service 的地址却是一个虚拟 IP 地址，它不会被添加在任何网络接口设备上，而是由kube-proxy配置在每个工作节点上的iptables或ipvs规则中以进行流量分发，这些规则的作用域也仅限于当前节点自身，因此每个节点上的kube-proxy都会为每个Service创建相应的规则。
+
+Service IP 也称为 Cluster IP，专用于集群内通信，一般使用不同于Pod网络的专用地址段，例如 10.96.0.0/12 网络，各 Service 对象的 IP 地址在此范围内由系统创建 Service 对象时动态分配。集群内的 Pod 对象可直接用 Cluster IP 作为目标服务的地址，就像 Pod 对象直接提供了某种服务。如图1-15中，Client Pod 提供相应 Service 的访问等，但集群网络属于私有网络地址，仅能服务集群内部的流量。
+概括来说，Kubernetes 集群上会存在 3 个分别用于节点、Pod 和 Service 的不同网络，3 种网络在工作节点之上实现交汇，由节点内核中的路由组件以及iptables/netfilter 和 ipvs 等完成网络间的报文转发，例如 Pod 与 Service，Node 与 Service 之间等的流量，如图1-14所示。
+
+1.节点网络：
+
+各主机（Master和Node）自身所属的网络，相关 IP 地址配置在节点的网络接口，用于各主机之间的通信，例如 Master 与各 Node 间的通信。此地址配置在 Kubernetes 集群构建之前，它并不能由 Kubernetes 管理，需要管理员在集群构建之前就自行确定其地址配置及管理方式。
+
+2.Pod网络：
+
+Pod 对象所属的网络，相关地址配置在Pod网络接口，用于各 Pod 间的通信。Pod 网络是一种虚拟网络，需要通过传统的 kubenet 网络插件或新式的 CNI 网络插件实现，常见的实现机制有 Overlay 和 Underlay 两种。常见的解决方案有十多种，相关插件可以以系统守护进程方式运行于 Kubernetes 集群之外，也可以托管在 Kubernetes 之上的 DaemonSet 控制器，需在构建 Kubernetes 集群时由管理员选择和部署。
+
+3.Service网络
+
+一个虚拟网络，相关地址不会配置在任何主机或 Pod 的网络接口之上，而是通过 Node 上的 kube-proxy 配置为节点的 iptables 或 ipvs 规则，进而将发往此地址的所有流量调度至 Service 后端的各 Pod 对象之上；Service 网络在 Kubernetes 集群创建时予以指定，而各 Service 的地址则在用户创建 Service 时予以动态配置。
+
+而 Kubernetes 集群上的服务大致可分为两种：API Server和服务类应用，它们的客户端要么来自集群内的其他Pod，要么来自集群外部的用户或应用程序。前一种通信通常发生在Pod网络和Service网络之上的东西向流量；而后一种通信，尤其是访问运行于Pod中的服务类应用的南北向流量，则需要先经由集群边界进入集群内部的网络中，即由节点网络到达Service网络和Pod网络。Kubernetes上NodePort和LoadBalancer类型的Service，以及Ingress都可为集群引入外部流量。
+
+访问 API Server 时，人类用户一般借助命令行工具 kubectl 或图形 UI（例如 Kubernetes Dashboard）实现，也可通过编程接口实现，包括 RESTful API。访问 Pod 中的应用时，具体访问方式取决于 Pod 中的应用程序，例如，对于运行Nginx 容器的 Pod 来说，最常用的工具自然是 HTTP 协议客户端或客户端库，如图1-15所示。
+
+**图 1-15 Kubernetes客户端**
+
+![](._images/Kubernetes 系统基础/1347426895.jpg)
+
+管理员（开发人员或运维人员）使用Kubernetes集群的常见操作包括通过控制器创建 Pod，在 Pod 的基础上创建 Service 供第二类客户端访问，更新 Pod 中的应用版本（更新和回滚）以及对应用规模进行扩容或缩容等，另外还有集群附件管理、存储卷管理、网络及网络策略管理、资源管理和安全管理等，这些内容将在后面的章节中展开。显然，这一切的前提是构建出一个可用的 Kubernetes 集群，下一章将着重讲述。
+
+### 1.3.4　部署并访问应用
+
+Docker容器技术使得部署应用程序从传统的安装、配置、启动应用程序的方式转为在容器引擎上基于镜像创建和运行容器，而 Kubernetes 又让创建和运行容器的操作不必再关注其位置，并赋予了它一定程度上动态扩缩容及自愈的能力，从而让用户从主机、系统及应用程序的维护工作中解脱出来。
+
+用到某应用程序时，用户只需要向 API Server 请求创建一个 Pod 控制器对象，由控制器根据配置的Pod模板向API Server 请求创建出一定数量的 Pod 实例，每个实例由 Master 之上的调度器指派给选定的工作节点，并由目标工作节点上的 kubelet 调用本地容器运行时创建并运行容器化应用。同时，用户还需要额外创建一个具体的Service对象以便为这些Pod对象建立一个固定的访问入口，从而使得其客户端能通过ClusterIP进行访问，或借助 CoreDNS 提供的服务发现及名称解析功能，通过 Service 的 DNS 格式的名称进行访问。应用程序简单的部署示例示意图如图 1-16 所示。
+
+**图 1-16 应用程序简单的部署示例**
+
+![](._images/Kubernetes 系统基础/1347427134.jpg)
+
+集群外部客户端需要等边界路由器先将访问流量引入集群内部后，才能进行内部的服务请求和响应，NodePort 或LoadBalancer 类型的 Service 以及 Ingress 资源都是常见的解决方案。不同的是，Service 在协议栈的 TCP 层完成调度，而 Ingress 则是基于 HTTP/HTTPS 协议的边缘路由。
+
+kubectl 是最常用的集群管理工具之一，它是 API Server 的客户端程序，通过子命令实现集群及相关资源对象的管理操作，并支持直接命令式、命令式配置清单及声明式配置清单三种操作方式，特性丰富且功能强大。而需作为集群附件额外部署的 Dashboard 则提供了基于 Web 界面的图形客户端，它是一个通用目的管理工具，与 Kubernetes 紧密集成，支持多级别用户授权，能在一定程度上替代 kubectl 的大多数操作。
+
+## 1.4　简析Kubernetes生态系统
+
+Kubernetes 的主要优势在于，它提供了一个便捷有效的平台，让用户可以在物理机和虚拟机集群上调度与运行容器。进一步来说，Kubernetes 是一个支持弹性运行的分布式系统框架，是一种支撑其他平台的平台型基础设施，可以帮助用户在生产环境中依托容器实施的基础架构。Kubernetes 的本质在于实现操作任务自动化，包括应用扩展、故障转移和部署模式等，因而它能代替用户执行大部分烦琐的操作任务，减轻用户负担，降低出错的概率。
+
+简言之，Kubernetes 整合并抽象了底层的硬件和系统环境等基础设施，对外提供了一个统一的资源池供终端用户通过API 进行调用。Kubernetes 具有以下几个重要特性。
+
+（1）自动装箱
+构建于容器之上，基于资源依赖及其他约束自动完成容器部署且不影响其可用性，并在同一节点通过调度机制混合运行关键型应用和非关键型应用的工作负载，以提升资源利用率。
+
+（2）自我修复（自愈）
+支持容器故障后自动重启、节点故障后重新调度容器到其他可用节点、健康状态检查失败后关闭容器并重新创建等自我修复机制。
+
+（3）水平扩展
+支持通过简单命令或UI手动水平扩展，以及基于CPU等资源负载率的自动水平扩展机制。
+
+（4）服务发现和负载均衡
+Kubernetes通过其附加组件之一的KubeDNS（或CoreDNS）为系统内置了服务发现功能，它会为每个Service配置DNS名称，并允许集群内的客户端直接使用此名称发出访问请求，而Service通过iptables或ipvs内置了负载均衡机制。
+
+（5）自动发布和回滚
+Kubernetes 支持“灰度”更新应用程序或其配置信息，它会监控更新过程中应用程序的健康状态，以确保不会在同一时刻杀掉所有实例，而此过程中一旦有故障发生，它会立即自动执行回滚操作。
+
+（6）密钥和配置管理
+Kubernetes 的 ConfigMap 实现了配置数据与 Docker 镜像解耦，需要时，仅对配置做出变更而无须重新构建 Docker 镜像，这为应用开发部署提供了很大的灵活性。此外，对于应用所依赖的一些敏感数据，如用户名和密码、令牌、密钥等信息，Kubernetes 专门提供了 Secret 对象使依赖解耦，既便利了应用的快速开发和交付又提供了一定程度上的安全保障。
+
+（7）存储编排
+Kubernetes支持Pod对象按需自动挂载不同类型存储系统，这包括节点本地存储、公有云服务商的云存储（如AWS和GCP等），以及网络存储系统，例如NFS、iSCSI、Gluster、Ceph、Cinder和Flocker等。
+
+（8）批量处理执行
+除了服务型应用，Kubernetes 还支持批处理作业、CI（持续集成），以及容器故障后恢复。
+
+另一方面，以应用为中心的 Kubernetes 本身并未直接提供一套完整的“开箱即用”的应用管理体系，需要基础设施工程师基于云原生社区和生态的实际需求手动构建。换句话说，在典型的生产应用场景中，Kubernetes 还需要同网络、存储、遥测（监控和日志）、镜像仓库、负载均衡器、CI/CD工具链及其他服务整合，以提供完整且API风格统一的基础设施平台，如图1-17所示。
+
+**图 1-17 完整容器编排系统**
+
+![](._images/Kubernetes 系统基础/1-17完整容器编排系统.jpg)
+
+下面对容器编排系统中的要素进行简单介绍。
+
+- Docker Registry和工件仓库
+
+  > 通过Harbor工件仓库、Docker Registry等项目实现。
+
+- 网络
+
+  > 借助Flannel、Calico 或 WeaveNet 等项目实现。
+
+- 遥测
+
+  > 借助 Prometheus 和 EFK 栈（或者由 Promtail、Loki 和 Grafana 组成的 PLG 栈）等项目实现。
+
+- 容器化工作负载
+
+  > 借助 Kubernetes 内置的工作负载控制器资源，甚至由社区扩展而来的各种 Operator 完成应用的自动化编排，包括自愈和自动扩缩容等；而便捷的应用打包则要借助 Helm 或 Kustomize 等项目完成。
+
+- 基于容器编排系统的CI/CD
+
+  > 借助 Jenkins、Tekton、Flagger 或 Kepton 等项目，甚至遵循 GitOps 规范实现应用交付、发布和部署等。
+
+后面的章节将逐步说明Kubernetes中的大多数关键特性、自身相关实现或者第三方项目实现及其实践操作。
+
+## 1.5　本章小结
+
+本章介绍了Kubernetes的历史、功用、特性及相关的核心概念和术语，并简单描述了其架构及各关键组件，以及集群网络中的常见通信方式，涵盖以下方面。
+
+- Kubernetes 集群主要由 Master 和 Node 两类节点组成。
+- Master 主要包含 apiserver、controller-manager、scheduler 和 etcd 这几个组件，其中 apiserver 是整个集群的网关。
+- Node 主要由 kubelet、kube-proxy 和容器引擎等组件构成，kubelet 是工作在 Kubernetes 集群节点之上的代理组件。
+- 完整的 Kubernetes 集群还需要部署 KubeDNS、HeapSter（或Prometheus）、Dashboard和Ingress Controller 等几个附加组件。
+- Kubernetes 的网络中主要有 4 种类型的通信：同一 Pod 内的容器间通信、各 Pod 彼此间通信、Pod 与 Service 间的通信以及集群外部的流量同 Service 之间的通信。
 
 
 
