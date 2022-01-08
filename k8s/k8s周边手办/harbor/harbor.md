@@ -81,6 +81,15 @@ proxy:
 
 完成后直接  `./install.sh`
 
+```bash
+root@debian:~/harbor# ./install.sh -h
+
+Note: Please set hostname and other necessary attributes in harbor.yml first. DO NOT use localhost or 127.0.0.1 for hostname, because Harbor needs to be accessed by external clients.
+Please set --with-notary if needs enable Notary in Harbor, and set ui_url_protocol/ssl_cert/ssl_cert_key in harbor.yml bacause notary must run under https.
+Please set --with-trivy if needs enable Trivy in Harbor             # 开启扫描器支持
+Please set --with-chartmuseum if needs enable Chartmuseum in Harbor # 开启对helm支持
+```
+
 安装脚本会先执行 `prepare`， 再 `docker-compose down -v`  最后 `docker-compose up -d`
 
 ### 同步脚本
@@ -113,6 +122,18 @@ done
 #### return 403之类的问题
 
 > 先尝试 docker login 会不会报错，如果没报错多半是系统不信任自签证书。
+
+
+#### 添加 docker 对 80 端口的支持
+```bash
+root@harbor01:~/harbor$ vim /usr/lib/systemd/system/docker.service
+# 将启动脚本
+# ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+# 修改为
+# ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --insecure-registry 172.16.31.1 --insecure-registry 172.16.31.2
+root@debian:~/harbor# systemctl daemon-reload
+root@debian:~/harbor# systemctl restart docker.service
+```
 
 #### 参考资料
 
