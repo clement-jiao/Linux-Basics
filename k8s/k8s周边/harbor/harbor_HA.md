@@ -11,16 +11,16 @@ Harbor高可用官方只提供了一种，就是 harbor 服务器之间通过同
 
 除了镜像同步，harbor 还可以使用共享数据库及存储的方式同步。
 
-![image-20220108200928198](.\._images\harbor_HA\image-20220108200928198.png)
+![harbor高可用架构](._images/harbor_HA/harbor_HA_Architect.png)
 
 ### 通过镜像同步的方式
 1.选择 `仓库管理`，`新建目标` harbor仓库及用户密码，点击确定，如果不能连接会报错，记得去掉验证远程证书的勾选。
 
-![image-20220108181344198](._images/harbor_HA/image-20220108181250245.png)
+![New Replication Rule](._images/harbor_HA/new_replication_rule.png)
 
 2.上一步目标仓库设置好了，接下来设置 `复制管理`，就是设置同步
 
-![image-20220108200526736](._images/harbor_HA/image-20220108200526736.png)
+![new_instance](._images/harbor_HA/new_instance.png)
 
 ### haproxy
 在haproxy加入两个harbor

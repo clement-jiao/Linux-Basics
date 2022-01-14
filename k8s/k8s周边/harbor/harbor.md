@@ -11,10 +11,12 @@ Github: [goharbor/harbor](https://github.com/goharbor/harbor)，官方[预览示
 对硬件需求
 
 > CPU  =>   最小 2CPU/4CPU(首选)
-> Mem =>  最小 4GB/8GB(首选)
-> Disk  =>   最小 40GB/160G(首选)
+>         Mem =>  最小 4GB/8GB(首选)
+>         Disk  =>   最小 40GB/160G(首选)
 
 ### 下载安装包
+
+#### 安装 docker-compose
 
 harbor 整体是通过 [docker-compose](https://docs.docker.com/compose/install/#prerequisites) 进行安装部署，所以必须下载 docker 及 docker-compose。
 
@@ -30,7 +32,7 @@ docker-compose --version
 # docker-compose version 1.22.0, build f46880fe
 ```
 
-
+#### 下载安装包
 
 可以从[发布页面](https://github.com/goharbor/harbor/releases)下载安装程序的二进制文件，选择在线或离线安装程序，使用tar命令解压缩包，天朝人民下面这种方式安装可能要翻墙，推荐这种方式，因为上面也不见得能下载下来。
 
@@ -40,8 +42,6 @@ wget https://github.com/goharbor/harbor/releases/download/v2.2.1/harbor-online-i
 # 解压
 tar zxf harbor-online-installer-v2.2.1.tgz && cd harbor/ && cp harbor.yml.tmpl harbor.yml
 ```
-
-
 
 ### 修改配置
 
@@ -124,7 +124,7 @@ done
 > 先尝试 docker login 会不会报错，如果没报错多半是系统不信任自签证书。
 
 
-#### 添加 docker 对 80 端口的支持
+#### 添加 docker 对 80 仓库的支持 （非443为不信任）
 ```bash
 root@harbor01:~/harbor$ vim /usr/lib/systemd/system/docker.service
 # 将启动脚本
@@ -134,6 +134,15 @@ root@harbor01:~/harbor$ vim /usr/lib/systemd/system/docker.service
 root@debian:~/harbor# systemctl daemon-reload
 root@debian:~/harbor# systemctl restart docker.service
 ```
+
+### 手动签发证书
+
+```bash
+root@debian:~$ openssl req -x509 -new -nodes -key ./harbor-ca.key -subj "harbor.clemente.com"
+root@debian:~$ openssl req -x509 -new -nodes -key ./harbor-ca.key -subj "/CN=harbor.clemente.com"  -days 3650 -out ./harbor-ca.crt
+```
+
+
 
 #### 参考资料
 

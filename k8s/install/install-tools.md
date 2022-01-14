@@ -14,12 +14,14 @@
 - kops                    -- 亚马逊云专有部署工具
 - kubespary          -- 合并至kubeadmin
 - Kontena Pharos
+- Kubeasz             -- 使用Ansible脚本安装、扩容K8S集群
 
 ### 其他二次封装的常用发行版
 
 - rancher
 - Tectonic
 - Openshift
+- k3s、k9s
 
 
 
