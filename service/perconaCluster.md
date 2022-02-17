@@ -4,9 +4,9 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2019-08-17 16:48:31
  * @LastEditors: clement-jiao
- * @LastEditTime: 2019-08-24 05:13:29
+ * @LastEditTime: 2022-02-18 05:53:11
  -->
-#使用 Percona 搭建高可用的 MySQL 数据库
+ #使用 Percona 搭建高可用的 MySQL 数据库
 
 ## 简介
   - Percona是一个公司的名称，主要做 MySQL 的二次开发
@@ -17,7 +17,7 @@
   - 虚线是模拟右侧proxy宕机的情景，红色的虚IP会飘到左边的proxy上
   - application一律使用域名访问数据库，由DNS服务器解析到红黄两个虚拟IP上
   - 由于三个数据库都是可读写的，所以代理到哪个服务器都可以
-    ![percona架构图](/images/software/pxc架构图.png)
+    ![percona架构图](./images/software/pxc架构图.png)
 
 ## 版本
   PXC：5.7
@@ -212,5 +212,4 @@
 ## 链接地址
   - [PXC - 官方文档](https://www.percona.com/doc/percona-xtradb-cluster/5.7/index.html)
   - [导入无主键表错误:prohibits use of DML command on a table](http://liking.site/2018/12/06/mysql-pxc%E9%9B%86%E7%BE%A4%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5%E6%97%A0%E4%B8%BB%E9%94%AE%E8%A1%A8/)
-
 

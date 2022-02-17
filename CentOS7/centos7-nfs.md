@@ -6,12 +6,14 @@
  * @LastEditors: clement-jiao
  * @LastEditTime: 2019-08-20 15:33:03
  -->
-#CentOS 7 下 yum 安装和配置 NFS
 
-##简介
+# CentOS 7 下 yum 安装和配置 NFS
+
+## 简介
+
 NFS 是 Network File System 的缩写，即网络文件系统。功能是让客户端通过网络访问不同主机上磁盘里的数据，主要用在类Unix系统上实现文件共享的一种方法。 本例演示 CentOS 7 下安装和配置 NFS 的基本步骤。
 
-###环境说明
+### 环境说明
 CentOS 7（Minimal Install）
 ```bash
 $ cat /etc/redhat-release
@@ -20,8 +22,8 @@ CentOS Linux release 7.5.1804 (Core)
 
 >根据官网说明 Chapter 8. Network File System (NFS) - Red Hat Customer Portal，CentOS 7.4 以后，支持 NFS v4.2 不需要 rpcbind 了，但是如果客户端只支持 NFC v3 则需要 rpcbind 这个服务。
 
-##服务端
-###服务端安装
+## 服务端
+### 服务端安装
   使用 yum 安装 NFS 安装包。
 
   ```bash
@@ -30,7 +32,7 @@ CentOS Linux release 7.5.1804 (Core)
 
   >注意：只安装 nfs-utils 即可，rpcbind 属于它的依赖，也会安装上。
 
-###服务端配置
+### 服务端配置
   - 设置 NFS 服务开机自启并启动
     ```bash
     $ sudo systemctl enable --now rpcbind
@@ -49,7 +51,7 @@ CentOS Linux release 7.5.1804 (Core)
     success
     ```
 
-###配置共享目录
+### 配置共享目录
   - 服务启动之后，在服务端配置共享目录
     ```bash
     mkdir /data
@@ -128,28 +130,28 @@ CentOS Linux release 7.5.1804 (Core)
     ```bash
     # 创建 nginx 用户且不能登录。false==nologin
     useradd -m -U -d /home/nginx -s /bin/false nginx
-
+    
     # 修改用户 UID
     usermod -u 666 nginx
-
+    
     # 修改用户 GID
     groupmod -g 6666 nginx
-
+    
     # 拒绝系统用户登录，可以将其shell设置为/usr/sbin/nologin或者/bin/false
     usermod -s | --shell /usr/sbin/nologin nginx
-
+    
     # or  {nologin会礼貌的向用户显示一条信息，并拒绝用户登录，信息在/etc/}
     usermod -s | -shell /bin/false nginx
-
+    
     # 锁定用户账户
     passwd -l | --lock username
-
+    
     # 解锁用户账户
     passwd -u | --unlock username
-
+    
     # 删除用户密码
     passwd -d | --delete username
-
+    
     # /etc/nologin：
     # 如果存在/etc/nologin文件，则系统只允许root用户登录，其他用户全部被拒绝登录，并向他们显示/etc/nologin文件的内容。
     ```
@@ -157,21 +159,21 @@ CentOS Linux release 7.5.1804 (Core)
 
     [详细的用户操作命令](https://www.cnblogs.com/EasonJim/p/7158491.html)
 
-##客户端
+## 客户端
 
-###客户端安装
+### 客户端安装
   - 与服务端类似
     ```bash
     yum install nfs-utils
     ```
-###客户端配置
+    ###客户端配置
   - 设置 rpcbind 服务的开机自启并启动
     ```bash
     systemctl enable --now rpcbind
     ```
     >注意：客户端不需要打开防火墙，因为客户端时发出请求方，网络能连接到服务端即可。 客户端也不需要开启 NFS 服务，因为不共享目录。
 
-###客户端连接 NFS
+### 客户端连接 NFS
   - 先查服务端的共享目录
     ```bash
     [root@nginx-node-1 mnt]# showmount -e 192.168.0.199
@@ -181,11 +183,11 @@ CentOS Linux release 7.5.1804 (Core)
   - 在客户端挂载 NFS
     ```bash
     mount -t nfs -o sync 192.168.0.199:/src /dest
-
+    
     # 注意：如果没有 -o sync 选项，则会造成在 nfs 服务端修改文件，客户端无法及时同步的问题。
     # -o 选项：[default:async]/sync 异步写入/同步写入磁盘。
     # defauts 默认值：rw,suid,dev,exec,auto,async,nouser。
-
+    
     # 写入 fstab 文件实现开机挂载
     # vim /etc/fstab
     # 192.168.0.199:/mnt/www/html /var/www/html        nfs     rw,suid,dev,exec,auto,sync,nouser        0 0
@@ -202,7 +204,7 @@ CentOS Linux release 7.5.1804 (Core)
     ```
     >这说明已经挂载成功了。
 
-###测试 NFS
+### 测试 NFS
   - 在客户端向共享目录创建一个文件
     ```bash
     [root@nginx-node-1 mnt]# touch www/nfs.test
@@ -218,7 +220,7 @@ CentOS Linux release 7.5.1804 (Core)
     ```
     可以看到，共享目录已经写入了。
 
-###客户端自动挂载
+### 客户端自动挂载
   - 自动挂载很常用，客户端设置一下即可。
     ```bash
     vim /etc/fstab
@@ -235,7 +237,7 @@ CentOS Linux release 7.5.1804 (Core)
     UUID=164e49a9-51a3-4a39-871e-86c5fc5bab32 /boot  xfs     defaults        0 0
     /dev/mapper/centos-swap swap                     swap    defaults        0 0
     192.168.0.199:/mnt /mnt                          nfs     defaults        0 0
-
+    
     ```
   - 重新加载 systemctl
     由于修改了 /etc/fstab，需要重新加载 systemctl。
@@ -253,9 +255,12 @@ CentOS Linux release 7.5.1804 (Core)
     ```
   >此时已经启动好了。如果实在不放心，可以重启一下客户端的操作系统，之后再查看一下。
 
-##相关链接
+## 参考资料
   [Chapter 8. Network File System (NFS) - Red Hat Customer Portal](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-nfs)
+
   [Setting Up NFS Server And Client On CentOS 7](https://www.unixmen.com/setting-nfs-server-client-centos-7/)
+
   [CentOS 7 下 yum 安装和配置 NFS](https://qizhanming.com/blog/2018/08/08/how-to-install-nfs-on-centos-7)
+
   [NFS刷新（同步）](https://blog.csdn.net/sahusoft/article/details/8629928)
 

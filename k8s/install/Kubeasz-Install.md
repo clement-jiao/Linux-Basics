@@ -2,6 +2,8 @@
 
 知识要点整理：盲猜有很多坑点没有踩到以后慢慢更新
 
+https://www.cnblogs.com/linuxk/p/10762832.html
+
 ## Kubeasz
 
 [easzlab/kubeasz(github.com)](https://github.com/easzlab/kubeasz)
