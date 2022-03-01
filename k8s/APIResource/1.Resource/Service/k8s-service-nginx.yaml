@@ -1,0 +1,66 @@
+# 文件详解
+apiVersion: apps/v1     # api 版本，                 # kubectl explain Deployment.apiVersion
+kind: Deployment        # 类型，是 deployment 控制器  # kubectl explain Deployment
+metadata:               # pod 元数据信息，            # kubectl explain Deployment.metadata
+  labels:               # 自定义 pod 的标签，         # kubectl explain Deployment.metadata.labels
+    app: alpine-nginx-deployment-label               # 标签名称为 app 值为 apline-nginx-deployment-label，后面会用到此标签
+  name: alpine-nginx-deployment                      # pod 名称
+  namespace: alpine-nginxport                        # pod 所在的 namespace，默认是 default。
+spec:                   # 定义 deployment 中容器的详细信息， # kubectl explain Deployment.spec
+  replicas: 3           # 创建出的 pod 副本数，即多少个 pod，默认值为 1
+  selector:             # 定义标签选择器
+    matchLabels:        # 定义匹配的标签，必须设置
+      app: alpine-nginx-deployment-selector          # 匹配目标的标签
+  template:             # 定义模板，必须定义，模板起到描述需要创建 pod 的作用
+    metadata:           # 定义模板元数据
+      labels:           # 定义模板 label，            # kubectl explain Deployment.spec.template.metadata.labels
+        app: alpine-nginx-deployment-selector
+    spec:               # 定义 pod 信息
+      containers:       # 定义 pod 中容器列表，可以多个至少一个，pod 不能动态增减容器
+      - name: alpine-nginx-container                        # 容器名称
+        image: harbor.clemente.com/k8s/apline-nginx:latest  #镜像地址
+        # command: ["/usr/bin/nginx.sh"]             # 容器启动执行的命令或脚本，一般写入到镜像内
+        # imagePullPolicy: IfNotPresent              # 使用 node 节点中的镜像，如果没有则拉取
+        imagePullPolicy: Always                      # 总是拉取
+        ports:          # 定义容器端口列表
+          - containerPort: 80      # 定义一个端口
+            protocol: TCP          # 端口协议
+            name: http             # 端口名称
+          - containerPort: 443     # 定义一个端口
+            protocol: TCP          # 端口协议
+            name: https            # 端口名称
+        env:                  # 配置环境变量
+          - name: "password"    # 变量名称。必须用引号引起来
+            value: "12345"      # 当前变量值
+        resources:            # 对资源的请求设置和限制设置
+          limits:             # 对资源限制设置（上限）
+            cpu: 500m         # cpu 限制，单位为 core 数，可以写 0.5 或 500m 等 cpu 压缩值
+            memory: 2Gi       # 内存限制，单位可以为 Mib/Gib ，将用于 docker run --memory 参数
+          requests:           # 资源请求的设置
+            cpu: 200M         # cpu 请求数，容器启动的初始keys数量，可以写 0.5 或 500m 等 cpu 压缩值
+            memory: 512Mi     # 内存请求大小，容器启动的初始可用数量，用于调度 pod 时候使用
+
+---                           # 分割资源信息
+apiVersion: v1
+kind: Service                 # 类型为 service （大写）
+metadata:                     # 定义 service 元数据，后面会给ha控制器使用， service.metadata
+  labels:                     # 自定义标签，service.metadata.labels
+    app: alpine-nginx         # 定义 service 标签的内容
+  name: alpine-nginx-spec     # 定义 service 的名称，此名称会被 DNS 解析
+  namespace: alpine-nginxport # 该 service 隶属于的 namespace 名称，即把 service 创建到哪个 namespace 中
+spec:                         # 定义 service 的详细信息， service.spec
+  type: NodePort              # service 的类型，定义服务的访问方式，默认为 ClusterIP，service.spec.type
+  ports:                      # 定义访问端口，service.spec.ports
+    - name: http                # 定义端口名称
+      port: 80                  # 定义 80 端口
+      protocol: TCP             # 定义协议类型
+      targetPort: 80            # 目标 pod 端口
+      nodePort: 30080           # node 节点所暴露的端口
+    - name: https               # 定义端口名称
+      port: 443                 # 定义 443 端口
+      protocol: TCP             # 定义协议类型
+      targetPort: 443           # 目标 pod 端口
+      nodePort: 30443           # node 节点所暴露的端口
+  selector:                   # service 的标签选择器，定义要访问的目标 pod
+    app: alpine-nginx-deployment-selector         # 将流量路由到选择的 pod 上，必须等于 Deployment.spec.selector.matchLabels
+

@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: volume-nginx-deploy
+  labels:
+    app: deploy-nginx
+  namespace: alpine-nginxport
+spec:
+  replicas: 5
+  strategy:
+    rollingUpdate:
+      maxSurge: 3
+  selector:
+    matchLabels:
+      app: nginx-volumes
+  template:
+    metadata:
+      labels:
+        app: nginx-volumes
+    spec:
+      containers:
+      - name: alpine-nginx-container
+        image: nginx
+        env:
+          - name: "name"
+            value: "clemente"
+          - name: "password"
+            value: "clement_password"
+        imagePullPolicy: Always
+        ports:
+        - name: app-http
+          containerPort: 80
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 500m
+            memory: 2Gi
+          requests:
+            cpu: 200M
+            memory: 128Mi
+        volumeMounts:
+          # nginx 目录为空会报403
+          - mountPath: /usr/share/nginx/html/mysite
+            name: k8s-nfs-1
+      volumes:
+        - name: k8s-nfs-1
+          nfs:
+          # path 是 nfs 共享目录
+            server: 192.168.11.22
+            path: /k8s/data
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: volume-nginx-service
+  namespace: alpine-nginxport
+  labels:
+    app: svc-nginx_volumes
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 80
+      nodePort: 30081
+  selector:
+    app: nginx-volumes

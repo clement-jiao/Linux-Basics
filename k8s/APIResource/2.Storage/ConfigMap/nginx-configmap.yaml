@@ -1,0 +1,186 @@
+# 创建ConfigMap的方式有4种：
+# 通过直接在命令行中指定configmap参数创建，即--from-literal
+# 通过指定文件创建，即将一个配置文件创建为一个ConfigMap： --from-file=<文件>
+# 通过指定目录创建，即将一个目录下的所有配置文件创建为一个ConfigMap：--from-file=<目录>
+# 事先写好标准的 configmap 的 yaml 文件，然后 kubectl create -f 创建
+# kubectl get configmap -A && kubectl edit configmap coredns -n kube-system
+# 可以在 coreDNS 或官网中查看更多示例
+# 配置中心： 百度：disconf、携程：Apollo
+
+# nginx configmap 文件配置
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-configmap
+  namespace: alpine-nginxport
+  labels:
+    # 挂载式 configmap，此外还可以环境变量或启动命令中使用
+    app: configmap-nginx_volumes
+data:
+  nginx-config: |
+    server {
+      listen:       80;
+      server_name:  www.clemente.com;
+      index         index.html
+      location / {
+        root /data/nginx/html;
+        if ( !-e $request_filenames ) {
+          rewrite ^/(.*)  /index.html last;
+        }
+      }
+    }
+  nginx-env:
+    users_name:
+      user1: user1
+      user2: user2
+    password: passwd123
+
+---
+# deploy 挂载配置
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-configmap-deploy
+  labels:
+    app: nginx-configmap-deploy
+  namespace: alpine-nginxport
+spec:
+  replicas: 5
+  strategy:
+    rollingUpdate:
+      maxSurge: 3
+  selector:
+    matchLabels:
+      app: nginx-configmap
+  template:
+    metadata:
+      labels:
+        app: nginx-configmap
+    spec:
+      containers:
+      - name: alpine-nginx-container
+        image: nginx
+        env:
+          - name: "name"
+            value: "clemente"
+          - name: "password"
+            value: "clement_password"
+        imagePullPolicy: Always
+        ports:
+        - name: app-http
+          containerPort: 80
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 500m
+            memory: 2Gi
+          requests:
+            cpu: 200M
+            memory: 128Mi
+        volumeMounts:
+          # nginx 目录为空会报403
+          - mountPath: /usr/share/nginx/html/mysite
+            name: k8s-nfs-1
+          - mountPath: /etc/nginx/k8s.conf
+          # 不能与 default.conf 相同，否则会覆盖目录
+          # 注意是挂载点的名称，不是configmap名称
+            name: k8s-nginx-config-file
+      volumes:
+        - name: k8s-nfs-1
+          nfs:
+          # path 是 nfs 共享目录
+            server: 192.168.11.22
+            path: /k8s/data
+        - name: k8s-nginx-config-file     # name 用于 pod.volumeMount.name 挂载
+          configMap:                      # 声明类型：nfs、pv，类型驼峰体最后大写
+            name: nginx-configmap         # configmap.metadata.name 名称
+            items:
+            # mysite.conf
+              - key: nginx-config
+                path: mysite.conf
+
+---
+# deploy 在环境变量中使用
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: nginx-configmap-deploy
+  labels:
+    app: nginx-configmap-deploy
+  namespace: alpine-nginxport
+spec:
+  replicas: 5
+  strategy:
+    rollingUpdate:
+      maxSurge: 3
+  selector:
+    matchLabels:
+      app: nginx-configmap
+  template:
+    metadata:
+      labels:
+        app: nginx-configmap
+    spec:
+      containers:
+      - name: alpine-nginx-container
+        image: nginx
+      env:
+      # 具体写法参考实战2吧
+        - name: admin_user
+        # pod 内环境变量的 key
+          valueFrom:
+            configMapKeyRef:
+              name: nginx-configmap     # configmap 的名称
+              key: users_name.user1     # configmap 的值，也是 pod 内环境变量的 value
+        - name: admin_passwd
+          valueFrom:
+            configMapKeyRef:
+              name: nginx-configmap
+              key: password
+      # envFrom:
+      # # 一次引入所有 key。
+      # - configMapRef:
+      #     name: special-config
+  restartPolicy: Never
+
+
+---
+# 在启动命令行中使用
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dapi-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh", "-c", "echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)" ]
+      env:
+        - name: SPECIAL_LEVEL_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: special-config
+              key: SPECIAL_LEVEL
+        - name: SPECIAL_TYPE_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: special-config
+              key: SPECIAL_TYPE
+  restartPolicy: Never
+
+
+# configmap的热更新研究
+# 更新 ConfigMap 后：
+# 使用该 ConfigMap 挂载的 Env 不会同步更新
+# 使用该 ConfigMap 挂载的 Volume 中的数据需要一段时间（实测大概10秒）才能同步更新
+# ENV 是在容器启动的时候注入的，启动之后 kubernetes 就不会再改变环境变量的值，且同一个 namespace 中的 pod 的环境变量是不断累加的，参考 Kubernetes中的服务发现与docker容器间的环境变量传递源码探究。为了更新容器中使用 ConfigMap 挂载的配置，可以通过滚动更新 pod 的方式来强制重新挂载 ConfigMap，也可以在更新了 ConfigMap 后，先将副本数设置为 0，然后再扩容。
+
+
+# 参考资料：
+# 1.https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
+# 2.https://www.cnblogs.com/breezey/p/6582082.html
+# 3.https://kubernetes.io/docs/concepts/storage/volumes/
+# 4.https://www.kubernetes.org.cn/3138.html
+# ---
+# 5.https://blog.csdn.net/liukuan73/article/details/79492374
+# 6.进阶实战2：configmap 篇

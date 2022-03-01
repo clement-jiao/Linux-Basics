@@ -1,0 +1,42 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: zk-datadir-pv-1
+spec:
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 192.168.11.22
+    path: /k8s/data/zk-1
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: zk-datadir-pv-2
+spec:
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 192.168.11.22
+    path: /k8s/data/zk-2
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: zk-datadir-pv-3
+spec:
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 192.168.11.22
+    path: /k8s/data/zk-3
+
