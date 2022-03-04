@@ -1,13 +1,13 @@
 {
 	"folders": [
 		{
-			"path": "../../devOps"
-		},
-		{
 			"path": ".."
 		},
 		{
 			"path": "../../Desktop/tester"
+		},
+		{
+			"path": "../devOps"
 		}
 	],
 	"settings": {

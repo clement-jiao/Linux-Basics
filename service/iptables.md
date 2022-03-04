@@ -1,13 +1,6 @@
-<!--
- * @Description:
- * @Author: 焦国峰
- * @Github: https://github.com/clement-jiao
- * @Date: 2020-03-08 15:22:11
- * @LastEditors: clement-jiao
- * @LastEditTime: 2020-03-08 18:58:40
- -->
+[toc]
 
-四表五链之间的对应关系
+## 四表五链之间的对应关系
 
 |表(tables)|INPUT(入)|FORWARD(转发)|OUTPUT(出)|PREROUTING|POSTROUTING|
 |:------:|:---:|:---:|:---:|:---:|:---:|
@@ -49,8 +42,9 @@ iptables 防火钱规则的执行顺序是默认从前到后(从上到下)依次
 把允许规则放于 INPUT 链的第一行生效。
 **默认规则是所有的规则执行完才会执行的。**
 
-#### 实际测试 iptables规则
-1.启动查看 iptables 规则状态
+### 实际测试 iptables规则
+#### 1.启动查看 iptables 规则状态
+
 `iptables -L -n` 或 `iptables -L -n -v -x`
 提示：如果遇到无法启动 iptables 的情况，解决方法为：`setup -> Firewall configuration -> enable`
 
@@ -78,14 +72,17 @@ modprobe ip_conntrack_ftp
 modprobe ip_nat_ftp
 modprobe ip_state
 ```
-2.清除默认规则
+#### 2.清除默认规则
+
 ```bash
 iptables --flush/-F   # 清除所有规则，不会处理默认的规则。
 iptables -X   # 蟮用户自定义的链
 iptables -Z   # 链的计数器清零。
 ```
-3.禁止规则
+#### 3.禁止规则
+
 禁止 ssh 端口
+
 ```bash
 # 找出当前机器ssh端口
 [root@weibo-crawler ~]$ netstat -pantu| grep ssh
@@ -108,3 +105,118 @@ iptables -t filter  -A INPUT -p tcp  --dport 22 -j  DROP
     target for rule (may load target extension)
 # 基本的处理行为： ACCEPT(接受)、DROP(丢弃)、REJECT(拒绝)
 4. 命令执行的规则，只在内存中临时生效。
+
+```
+
+## 使用示例
+
+#### 第一步：开启系统的转发功能
+
+```bash
+vi /etc/sysctl.conf
+
+#将 net.ipv4.ip_forward=0
+#修改成
+net.ipv4.ip_forward=1
+
+# 编辑后使用命令让配置马上生效
+sysctl -p
+```
+
+#### 第二步： iptables 的命令
+
+```bash
+iptables -t nat -A PREROUTING -p tcp --dport [端口号] -j DNAT --to-destination [目标IP]
+iptables -t nat -A PREROUTING -p udp --dport [端口号] -j DNAT --to-destination [目标IP]
+iptables -t nat -A POSTROUTING -p tcp -d [目标IP] --dport [端口号] -j SNAT --to-source [本地服务器IP]
+iptables -t nat -A POSTROUTING -p udp -d [目标IP] --dport [端口号] -j SNAT --to-source [本地服务器IP]
+```
+
+#### 第三步：重启
+
+重启 iptables 使配置生效(仅适合Centos6，7默认没有安装iptables防火墙，Debian/Ubuntu 不需要输入这个命令)
+
+```bash
+service iptables save
+service iptables restart
+```
+
+### 扩展需求
+
+#### 多端口转发
+
+多端口转发修改方案： ( 将本地服务器的 50000~65535 转发至目标 IP 为 1.1.1.1 的 50000~65535 端口 )
+
+```bash
+iptables -t nat -A PREROUTING -p tcp -m tcp --dport 50000:65535 -j DNAT --to-destination 1.1.1.1
+iptables -t nat -A PREROUTING -p udp -m udp --dport 50000:65535 -j DNAT --to-destination 1.1.1.1
+iptables -t nat -A POSTROUTING -d 1.1.1.1 -p tcp -m tcp --dport 50000:65535 -j SNAT --to-source [本地服务器IP]
+iptables -t nat -A POSTROUTING -d 1.1.1.1 -p udp -m udp --dport 50000:65535 -j SNAT --to-source [本地服务器IP]
+```
+
+#### 非同端口号
+
+非同端口号修改方案：（使用本地服务器的 60000 端口来转发目标 IP 为 1.1.1.1 的 50000 端口）
+
+```bash
+iptables -t nat  -A PREROUTING -p tcp -m tcp --dport 60000 -j DNAT --to-destination 1.1.1.1:50000
+iptables -t nat  -A PREROUTING -p udp -m udp --dport 60000 -j DNAT --to-destination 1.1.1.1:50000
+iptables -t nat  -A POSTROUTING -d 1.1.1.1 -p tcp -m tcp --dport 50000 -j SNAT --to-source [本地服务器IP]
+iptables -t nat  -A POSTROUTING -d 1.1.1.1 -p udp -m udp --dport 50000 -j SNAT --to-source [本地服务器IP]
+```
+
+#### 查看 NAT 规则
+
+```bash
+iptables -t nat -vnL
+```
+
+#### 删除 NAT 规则
+
+通过上面的查看规则命令，查看规则后，确定你要删除的规则的顺序，下面的命令是删除第一个规则。
+
+```bash
+iptables -t nat -D POSTROUTING 1
+iptables -t nat -D PREROUTING 1
+```
+
+#### 保存规则
+
+保存 iptables 规则并开机自动配置（Debian / Ubuntu）
+
+```bash
+iptables-save > /etc/iptables-rules-ipv4
+
+# 最后，我们需要编辑/etc/network/interfaces文件
+
+vi /etc/network/interfaces
+
+# 在最后加入下面一行
+
+pre-up iptables-restore < /etc/iptables-rules-ipv4
+```
+
+## 参考资料：
+
+https://www.cnblogs.com/ccuc/p/7497440.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
