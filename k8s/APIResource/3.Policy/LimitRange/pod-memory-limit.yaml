@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-demo
+  namespace: default
+spec:
+  replicas: 5
+  strategy:
+    rollingUpdate:
+      maxSurge: 3
+  selector:
+    matchLabels:
+      app: deploy-myapp
+  template:
+    metadata:
+      labels:
+        app: deploy-myapp
+        release: canary
+    spec:
+      containers:
+        - name: dpc-demo
+          image: lorel/docker-stress-ng
+          env:
+            username: clement
+            password: clement_password
+          ports:
+            - name: app-http
+              containerPort: 80
+              protocol: TCP
+          resources:
+            # 硬限制 pod 启动成功后最多使用 node 节点多少资源
+            limits:
+              cpu: "1.2"
+              memory: "512Mi"
+            # 软限制 pod 调度启动时最少需要 node 节点多少资源
+            requests:
+              cpu: "500m"
+              memory: "128Mi"
+          args: ["--vm", "2", "--vm-bytes", "256M"]
+      # nodeSelector:
+      #   env: "group1"

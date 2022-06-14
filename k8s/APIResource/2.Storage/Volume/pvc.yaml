@@ -33,6 +33,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+    # ReadWriteOnce:ROW, ReadOnlyMany:ROX, ReadWriteMany:RWX
   volumeName: zk-datadir-pv-3
   resources:
     requests:

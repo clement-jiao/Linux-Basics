@@ -4,7 +4,7 @@
  * @Github: https://github.com/clement-jiao
  * @Date: 2020-11-27 11:06:31
  * @LastEditors: clement-jiao
- * @LastEditTime: 2020-11-27 11:08:43
+ * @LastEditTime: 2022-05-13 16:07:56
 -->
 
 ### nginx.conf 配置
@@ -39,3 +39,5 @@ http {
     server_names_hash_max_size 4096;
 }
 ```
+
+> https://www.cnblogs.com/hovin/p/13182478.html

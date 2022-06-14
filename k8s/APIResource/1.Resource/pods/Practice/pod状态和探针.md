@@ -51,12 +51,12 @@ Ready
 以后再补图片
 
 ```BASH
-Error：						# pod 启动过程中发生错误
-NodeLost：					# pod 所在节点失联
-Unknown：					# pod 所在节点失联或其他未知异常
-Waiting：					# pod 等待启动
-Pending：					# pod 等待被调度
-Terminating：				# pod 正在被销毁
+Error：						      # pod 启动过程中发生错误
+NodeLost：					    # pod 所在节点失联
+Unknown：					      # pod 所在节点失联或其他未知异常
+Waiting：					      # pod 等待启动
+Pending：					      # pod 等待被调度
+Terminating：				    # pod 正在被销毁
 CrashLoopBackOff：			# pod 无响应或探针检测失败，kubelet 正在将他重启。
 InvalidImageName：			# node 节点无法解析镜像名称导致的镜像无法下载
 ImageInspectError：			# 无法校验镜像，镜像不完整导致
@@ -65,17 +65,17 @@ ImagePullBackOff：			# 镜像拉取失败，但是正在重新拉取
 RegistryUnavailable：		# 镜像服务器不可用，网络原因或 harbor 宕机
 ErrImagePullBackOff：		# 镜像拉取出错，超时或下载呗强制终止
 CreateContainerConfigError：	# 不能创建 kubelet 使用的容器配置
-CreateContainer：			# 创建容器失败
+CreateContainer：			  # 创建容器失败
 PreStartContainer：			# 执行 preStart hook 报错，pod hook （钩子）是由 Kubernetes 管理的 kubelet 发起的，当容器中的进程启动前或者容器中的进程终止前运行，比如容器创建完成后里面的服务启动之前可以检查一下依赖的其他服务是否启动，或者容器退出之前可以把容器中的服务先通过命令停止。
-PostStartHookError：			# 执行 postStart hook 报错。
+PostStartHookError：		# 执行 postStart hook 报错。
 
 RunContainerError：			# pod 运行失败，容器中没有初始化 PID 为 1 的守护进程等。
 ContainersNotInitialized：	# pod 没有初始化完毕。
-ContainersNotReady：			# pod 没有准备完毕。
+ContainersNotReady：		# pod 没有准备完毕。
 ContainerCreating：			# pod 正在创建中。
-PodInitializing：			# pod 正在初始化中。
-DockerDaemonNotReady：		# node 节点 docker 服务没有启动。
-NetworkPlginNotReady：		# 网络插件还没有完全启动。
+PodInitializing：			  # pod 正在初始化中。
+DockerDaemonNotReady：	# node 节点 docker 服务没有启动。
+NetworkPlginNotReady：	# 网络插件还没有完全启动。
 ```
 
 ## 1.2、pod 调度过程
@@ -93,9 +93,9 @@ NetworkPlginNotReady：		# 网络插件还没有完全启动。
 [ExecAction](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#execaction-v1-core)  、 [TCPSocketAction](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#tcpsocketaction-v1-core)  、[HTTPGetAction](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#httpgetaction-v1-core)
 
 ```bash
-ExecAction： 	# 在容器内执行指定命令。如果命令退出时返回码为 0 则认为诊断成功。
+ExecAction： 	    # 在容器内执行指定命令。如果命令退出时返回码为 0 则认为诊断成功。
 
-TCPSocketAction：# 对容器的 IP 地址上的指定端口执行 TCP 检查。如果端口打开，则诊断被认为是成功的。
+TCPSocketAction： # 对容器的 IP 地址上的指定端口执行 TCP 检查。如果端口打开，则诊断被认为是成功的。
 
 HTTPGetAction： 	# 对容器的 IP 地址上指定端口和路径执行 HTTP Get 请求。如果响应的状态码大于等于 200 且小于 400，则诊断被认为是成功的。
 ```
@@ -151,7 +151,7 @@ startupProbe
 # 从成功转为失败的重试次数，当探测失败时，Kubernetes 的重试次数。 存活探测情况下的放弃就意味着重新启动容器。 就绪探测情况下的放弃 Pod 会被打上未就绪的标签。默认值是 3。最小值是 1。
 ```
 
-##### HTTP 探测 
+##### HTTP 探测
 
 [HTTP Probes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#httpgetaction-v1-core) 可以在 `httpGet` 上配置额外的字段：
 

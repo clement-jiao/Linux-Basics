@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: limitrange-demo
+  namespace: demo
+spec:
+  limits:
+    - type: Container     # 限制资源类型：容器限制
+      max:
+        cpu: "500m"       # 限制单个容器的最大 CPU
+        memory: "256Mi"   # 限制单个容器的最大内存
+      min:
+        cpu: "250m"       # 限制单个容器的最小 CPU
+        memory: "128Mi"   # 限制单个容器的最小内存
+      default:
+        cpu: "250m"       # 默认单个容器的 CPU 限制
+        memory: "128Mi"   # 默认单个容器的内存限制
+      defaultRequest:
+        cpu: "128m"       # 默认单个容器的 CPU 创建请求
+        memory: "64Mi"    # 默认单个容器的内存创建请求
+      maxLimitRequestsRatio:    # 限制资源类型：资源比值限制
+        cpu: 2            # 限制 CPU limit/request 比值最大为 2
+        memory: 1.5       # 限制内存 limit/request 比值最大为 1.5
+    - type: Pod           # 限制资源类型：Pod 限制
+      max:
+        cpu: "500m"       # 限制单个 pod 的最大 CPU
+        memory: "512Mi"   # 限制单个 pod 的最大内存
+    - type: PersistentVolumeClaim   # 限制资源类型：存储卷限制
+      max:
+        storage: 50Gi     # 限制 PVC 最大的 requests.storage
+      min:
+        storage: 5Gi      # 限制 PVC 最小的 requests.storage
+
+# 官方文档：https://kubernetes.io/zh/docs/concepts/policy/limit-range
+# 如果因为限制导致 pod 调度失败、缺失被删除等情况，可以通过 -o json 来查看调度日志。

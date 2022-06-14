@@ -1,0 +1,56 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: tomcat-access-networkpolicy
+  namespace: python
+spec:
+  policyType:
+    - Ingress
+    - Egress
+  podSelector:          # 匹配目标 pod。
+    matchLabels:        #{}  # 内容为{}，匹配所有目标 pod。
+      app: python-tomcat-app1-selectors   # 对匹配到的目的 pod 应用以下规则
+  ingress:  # 入站规则：如果指定目标端口就是匹配全部端口和协议，协议 TCP,UDP,SCTP
+    from:
+      - podSelector:
+          matchLabels:   #{}  # 内容为{}，不限制源 pod，放行当前 namespace 下所有 pod 访问，及禁止跨 namespace 访问目标 pod。
+            # app: python-nginx-selector # 如果存在多个 matchLabel 条件，是 or 的关系，即要同时满足条件A、条件B、条件X。
+            project: "python"
+      - ipBlock:
+          cidr: 10.200.0.0/16   # 白名单，允许访问的地址范围，没有允许的将禁止访问目标 pod。示例如下："192.168.1.1/24" or "2001:db9::/64"
+          except:
+            - 10.200.218.0/24   # 在以上范围内禁止访问的源 ip 地址。
+            - 10.200.219.0/24   # 在以上范围内禁止访问的源 ip 地址。
+            - 10.200.220.99/32  # 在以上范围内禁止访问的源 ip 地址。
+      - namespaceSelector:
+          matchLabels: {}       # 允许所有 namespace 访问 python namespace 指定的目标端口或指定的 pod 加 指定端口。
+      - namespaceSelector:
+          matchLabels:
+            nsname: linux       # 只允许指定的 namespace 访问
+      - namespaceSelector:
+          matchLabels:
+            nsname: python      # 允许多个指定的 namespace 访问
+    ports:               # 如果不指定端口，则是匹配全部端口和协议
+      - portocol: TCP    # 支持协议：(TCP, UDP, or SCTP)
+        port: 80         # 允许通过 TCP 协议访问目标 pod 的 80 端口，但是其他没有允许的端口将全部禁止访问。
+        endPort: 81      # 指定端口范围，beat 版：不定义或字符串可禁用
+      - portocol: TCP    # 放行多端口/协议设置
+        port: 90         # 允许通过 TCP 协议访问目标 pod 的 80 端口，但是其他没有允许的端口将全部禁止访问。
+        endPort: 91      # beat版：不定义或字符串可禁用
+
+  egress:                # 与 ingress 设置与结构大致相同
+    to:
+      - podSelector:
+          matchLabels:   #{}  # 内容为{}，不限制源 pod，放行当前 namespace 下所有 pod 访问，及禁止跨 namespace 访问目标 pod。
+            project: "python"
+      - ipBlock:
+        cidr: 10.200.0.0/16     # 允许匹配到的 pod 出口访问的目的 CIDR 地址范围。
+      - ipBlock:
+        cidr: 10.200.0.0/32     # 允许匹配到的 pod 出口访问的目的主机。
+    ports:
+      - portocol: TCP
+        port: 80                # 允许匹配到的 pod 访问目的端口为 80 的访问。
+      - portocol: TCP
+        port: 53                # 允许匹配到的 pod 访问目的端口为 53 的访问，即 DNS 的解析。
+      - portocol: UDP
+        port: 53                # 允许匹配到的 pod 访问目的端口为 53 的访问，即 DNS 的解析。

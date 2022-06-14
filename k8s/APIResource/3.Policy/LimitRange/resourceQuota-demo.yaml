@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: quota-demo
+  namespace: demo
+spec:
+  hard:
+    requests.cpu: "8"             # 软限制 demo 名称空间内 CPU 总请求数量
+    limits.cpu: "8"               # 限制 demo 名称空间内 CPU 总请求数量
+    requests.memory: "32Gi"
+    limits.memory: "32Gi"
+    requests.nvidia.com/gpu: "8"
+    pods: 6                       # 限制 pod 数量
+    services: 2                   # 限制 service 数量
+
+# 针对 namespace 进行资源限制
+# https://kubernetes.io/zh/docs/concepts/policy/resource-quotas/

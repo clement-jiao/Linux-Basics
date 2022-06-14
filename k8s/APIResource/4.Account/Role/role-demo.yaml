@@ -1,0 +1,18 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: demo
+  namespace: demo
+rules:
+  - apiGroup: ["*"]
+    resources: ["pods", "pods/exec"]
+    verbs: ["*"]
+    ##RO-Role
+    #verbs: ["get", "watch", "list"]
+  - apiGroup: ["extensions", "apps/v1"]
+    resources: ["deployments"]
+    verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]
+    ##RO-Role
+    #verbs: ["get", "watch", "list"]
+
+    # 可通过 get、description 查看详细信息

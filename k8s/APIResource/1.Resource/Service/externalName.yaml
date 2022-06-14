@@ -1,0 +1,35 @@
+# ExternalName：用于将 k8s 集群外部的服务映射至 k8s 集群内部访问，从而让集群内部的 pod 能够通过固定的 service name 访问集群外部的服务，有时候也用于将不同的 namespace 之间的 pod 通过 ExternalName 进行访问。
+
+# cname
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-external-name
+  namespace: default
+spec:
+  type: ExternalName    # service type
+  externalName: www.clemente.com  # 外部域名
+
+---
+
+# 代理其他地址服务
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-service
+  namespace: default
+spec:
+  ports:
+    - port: 6379
+---
+apiVersion: v1
+kind: Endpoint
+metadata:
+  name: redis-service
+  namespace: default
+subsets:
+  - addresses:
+      - ip: 172.1.1.111
+    ports:
+      - port: 6379
+

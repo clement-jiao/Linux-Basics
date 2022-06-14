@@ -1,0 +1,46 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx0-web
+  namespace: myappdata
+  annotations:
+    kubernetes.io/ingress.class: "nginx"          # 指定 Ingress Controller 的类型
+    nginx.ingress.kubernetes.io/use-nginx: "true"             # 指定后面 rules 定义的 path 可以使用正则表达式
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "600"  # 连接超时时间
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"     # 后端服务器回传数据超时时间，默认 60s
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"     # 后端服务器响应超时时间，默认 60s
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"        # 客户端上传文件，最大大小，默认 20m
+    # nginx.ingress.kubernetes.io/rewrite-target: /             # URL 重写
+    nginx.ingress.kubernetes.io/app-root: /index.html         # 访问页面不存在或404，使其跳转到首页
+
+# 1.21 前版本
+# spec:
+#   rules: # 路由规则
+#     - host: www.clemente.com          # 客户端访问的 host 域名
+#       http:
+#         paths:
+#           - path:
+#             backend:
+#               serviceName: myapp-svc  # 转发至哪个 service
+#               servicePort: 80         # 转发至 service 的端口号
+
+spec:
+  rules:
+    - host: www.clemente.com
+      paths:                      # 相当于 nginx 中的 location
+        - pathType: Prefix        # path 类型：前缀
+          path: "/"
+          backend:
+            service:
+              name: myapp-svc
+              port:
+                number: 80
+    - host: myapp.clemente.com
+      paths:
+        - pathType: Prefix
+          path: "/home/myapp"
+          backend:
+            service:
+              name: myapp-svc
+              port:
+                number: 80

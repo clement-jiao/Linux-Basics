@@ -1,0 +1,60 @@
+---
+# 无头 service
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: busybox
+  name: busybox
+  namespace: alpine-busybox
+spec:
+  selector:
+    app: busybox
+    appCluster: busybox-cluster
+  ports:
+    - name: busybox
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+  clusterIP: None
+---
+# nodePort
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: busybox
+  name: busybox
+  namespace: alpine-busybox
+spec:
+  type: clusterIP
+  selector:
+    app: busybox
+    appCluster: busybox-cluster
+  clusterIP: 10.100.100.100
+  ports:
+    - name: busybox
+      port: 8080        # 服务端口
+      targetPort: 8080  # pod 端口
+      nodePort: 80      # node 节点所暴露的端口, 或者随机分配
+      protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: redis
+  name: redis
+  namespace: alpine-nginxpor
+spec:
+  type: clusterIP
+  selector:
+    app: redis
+    appCluster: redis-cluster
+  ports:
+    - name: redis
+      port: 6379
+      targetPort: 6379
+      protocol: TCP
+  clusterIP: 10.100.100.100
