@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: node-exporter
+  namespace: monitoring
+  labels:
+    k8s-apps: node-exporter
+spec:
+  selector:
+    matchLabels:
+      k8s-apps: node-exporter
+  template:
+    metadata:
+      labels:
+        k8s-apps: node-exporter
+    spec:
+      tolerations:
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/master
+      containers:
+        - name: prometheus-node-exporter
+          image: prom/node-exporter:v1.3.1
+          imagePullPorlicy: IfNotPresent
+          ports:
+            - name: metrics
+              containerPort: 9100
+              hostPort: 9100
+              portocol: 9100
+          volumeMounts:
+            - name: proc
+              mountPath: /host/proc
+            - name: sys
+              mountPath: /host/sys
+            - name: rootfs
+              mountPath: /host
+          args:
+            - --path.procfs=/host/proc
+            - --path.sysfs=/host/sys
+            - --path.rootfs=/host
+          volumes:
+            - name: proc
+              hostPath:
+                path: /proc
+            - name: sys
+              hostPath:
+                path: /sys
+            - name: rootfs
+              hostPath:
+                path: /
+          hostNetwork: true
+          hostPID: true 
+
+
+

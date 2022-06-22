@@ -1,0 +1,13 @@
+version: '3'
+services:
+  website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: website
+    environment:
+      - APP_NAME=clement
+    ports:
+      - "8080:80"
+    volumes:
+      - /docker/www:/var/www/html

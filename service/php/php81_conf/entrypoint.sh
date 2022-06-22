@@ -1,0 +1,1 @@
+sh /usr/bin/init.sh && nohup php-fpm > nohup.out &2>/dev/stdout && nginx -c /etc/nginx/nginx.conf

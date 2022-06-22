@@ -1,0 +1,16 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3.9.20-management
+    container_name: rabbitmq39
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /opt/rabbitmq/mq-log:/var/log/rabbitmq
+      - /opt/rabbitmq/mq-data:/var/lib/rabbitmq
+    ports:
+      - 15672:15672
+      - 5672:5672
+    # environment:
+    #   - RABBITMQ_DEFAULT_USER=root
+    #   - RABBITMQ_DEFAULT_PASS=123456
