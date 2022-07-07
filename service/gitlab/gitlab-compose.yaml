@@ -32,3 +32,7 @@ services:
       - /docker/gitlab/data:/var/opt/gitlab
       - /etc/localtime:/etc/localtime:ro
       #- /etc/timezone:/etc/timezone:ro
+
+# Gitlab 升级方案：https://www.cnblogs.com/edifyX/p/13651816.html
+# Gitlab备份与恢复、迁移与升级： https://www.xuliangwei.com/oldxu/803.html
+# Gitlab 高可用方案：https://www.cnblogs.com/tangqiwen/p/8342918.html

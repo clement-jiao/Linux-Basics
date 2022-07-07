@@ -1,0 +1,15 @@
+# v2rayA: https://github.com/v2rayA/v2rayA
+# docker run -d --restart=always --privileged --network=host --name v2raya -v /etc/v2raya:/etc/v2raya mzz2017/v2raya
+# 做代理网关需要开启端口共享，打包最新镜像需要克隆源码，将 docker-compose.yaml.dev 修改为此 docker-compose.yaml
+# 中文教程：https://v2xtls.org/v2ray-linux客户端v2raya下载安装及使用教程-支持vmess-vless-ss-ssr-trojan-pingtunnel/
+version: '3'
+services:
+  v2raya:
+    restart: always
+    image: mzz2017/v2raya
+    container_name: v2raya
+    privileged: true
+    network_mode: host
+    volumes:
+      - /etc/v2raya:/etc/v2raya
+      - /etc/resolv.conf:/etc/resolv.conf
