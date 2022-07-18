@@ -131,8 +131,8 @@ ctrl+a+d # 保留至后台并退出
 
 配置参数：
 ```yaml
-http.cors.enabled:true
-http.cors.allow-origin:"*"
+http.cors.enabled: true
+http.cors.allow-origin: "*"
 ```
 
 ##### 3.7.5 谷歌浏览器插件形式安装 es-head
@@ -140,11 +140,11 @@ http.cors.allow-origin:"*"
 幸运的是es-head插件官方还提供了另外一种更简便的方式，就是 Google Chrome的插件
 优势如下：
   1. 免安装
-  #### 2. 只要浏览器和服务器可以通行就能使用
+  2. 只要浏览器和服务器可以通行就能使用
 
 ##### 3.8 安装配置 kibana
 ```bash
-[root@localhost ~]$ yum install -y kibana-##### 4.6.6-i686.rpm
+[root@localhost ~]$ yum install -y kibana-4.6.6-x86.rpm
 [root@localhost ~]$ rpm -qc kibana
 /etc/kibana/kibana.yml
 [root@es001 ~]$ grep "^[a-Z]" /etc/kibana/kibana.yml

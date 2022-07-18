@@ -1,0 +1,140 @@
+version: '3'
+services:
+  php81:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ibaiqiu/php-fpm-nginx:php81-v1.0
+    container_name: php81
+    environment:
+      - APP_NAME=jc
+    ports:
+      - "80:80"
+    volumes:
+      - /opt/www:/var/www/html
+      - /opt/www/fpm_log:/var/log
+
+  mysqld80:
+    image: mysql:8.0.29
+    container_name: mysqld80
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /opt/mysqld80_conf.d:/etc/mysql/mysql.conf.d/
+      - /opt/mysqld80:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 'Lipi00Jpgk7rW2C'
+    ports:
+      - "3306:3306"
+
+  redis6:
+    image: redis:6.2.7
+    container_name: redis6
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /opt/redis/db:/data
+      - /opt/redis/conf:/etc/redis/
+    ports:
+      - "6379:6379"
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.0
+    container_name: es_single
+    environment:
+      - discovery.type=single-node
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    cap_add:
+      - ALL
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 10s
+    volumes:
+    # chown -R 1000:1000 /opt/elasticsearch
+      - /opt/elasticsearch/es_log:/var/log
+      - /opt/elasticsearch/data:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+  nginx:
+    image: nginx:latest
+    container_name: igress
+    ports:
+        - 80:80
+    volumes:
+        - /opt/nginx/conf.d/:/etc/nginx/conf.d/
+    command: /bin/bash -c "nginx -g 'daemon off;'" nginx.conf
+    ulimits:
+      nproc: 65535
+
+  rabbitmq:
+    image: rabbitmq:3.9.20-management
+    container_name: rabbitmq39
+    restart: always
+    volumes:
+    # chown -R 999:999 /opt/rabbitmq
+      - /etc/localtime:/etc/localtime
+      - /opt/rabbitmq/mq-log:/var/log/rabbitmq
+      - /opt/rabbitmq/mq-data:/var/lib/rabbitmq
+    ports:
+      - 15672:15672
+      - 5672:5672
+    # environment:
+    #   - RABBITMQ_DEFAULT_USER=root
+    #   - RABBITMQ_DEFAULT_PASS=123456
+
+  # kibana:
+  #   image: docker.elastic.co/kibana/kibana:7.13.0
+  #   container_name: es_kibana
+  #   environment:
+  #     SERVER_NAME: localhost
+  #     ELASTICSEARCH_URL: http://elasticsearch:9200/
+  #   ports:
+  #     - 5601:5601
+  #   volumes:
+  #     - /opt/kibana_log:/var/log
+  #   ulimits:
+  #     nproc: 65535
+  #     memlock:
+  #       soft: -1
+  #       hard: -1
+  #   cap_add:
+  #     - ALL
+  #   deploy:
+  #     replicas: 1
+  #     update_config:
+  #       parallelism: 1
+  #       delay: 10s
+  #     restart_policy:
+  #       condition: on-failure
+  #       delay: 30s
+  #       max_attempts: 3
+  #       window: 120s
+
+  # metricbeat:
+  #   image: docker.elastic.co/beats/metricbeat:7.13.0
+  #   # command: --strict.perms=false
+  #   container_name: es_metric
+  #   environment:
+  #     - setup.kibana.host=kibana:5601
+  #     - output.elasticsearch.hosts=["elasticsearch:9200"]
+  #   cap_add:
+  #     - ALL
+  #   volumes:
+  #     # - ${PWD}/configs/metricbeat.docker.yml:/usr/share/metricbeat/metricbeat.yml
+  #     - /var/run/docker.sock:/var/run/docker.sock:ro
+  #     - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
+  #     - /proc:/hostfs/proc:ro
+  #     - /:/hostfs:ro

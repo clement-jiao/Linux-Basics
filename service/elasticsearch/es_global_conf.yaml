@@ -1,0 +1,35 @@
+cluster.name: mybaiqiu                                                                                                                                        
+node.name: es-002                                                                                                                                             
+path.data: /var/lib/elasticsearch                                                                                                                             
+path.logs: /var/log/elasticsearch                                                                                                                             
+network.host: 192.168.221.21                                                                                                                                  
+network.bind_host: 0.0.0.0                                                                                                                                    
+http.port: 9200                                                                                                                                               
+http.cors.enabled: true                                                                                                                                       
+http.cors.allow-origin: "*"                                                                                                                                   
+discovery.seed_hosts: ["192.168.221.25","192.168.221.21","192.168.221.22"]                                                                                    
+cluster.initial_master_nodes: ["es-001", "es-003"]                                                                                                            
+node.master: true                                                                                                                                             
+node.data: true
+# 集群通讯端口号
+transport.tcp.port: 9300
+# > 3node
+discovery.zen.minimum_master_nodes: 2
+# lock memory
+bootstrap.memory_lock: true
+bootstrap.mlockall: true
+
+
+# sysctl -w vm.max_map_count=262144
+# echo "vm.max_map_count=262144" >> /etc/sysctl.conf
+
+# jvm_option: 32g
+# -Xms32g 
+# -Xmx32g 
+
+# cat >> /etc/security/limits.conf << EOF
+# root soft nofile 102400
+# root hard nofile 102400
+# * soft nofile 65535
+# * hard nofile 65535
+# EOF

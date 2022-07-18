@@ -24,3 +24,8 @@ services:
       - /var/lib/mysqld57:/var/lib/mysql
     ports:
       - 3305:3306
+    networks:
+      - dev_environment
+networks:
+  dev_environment:
+    driver: bridge
