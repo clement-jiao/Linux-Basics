@@ -25,8 +25,8 @@ interface "eth0" {
 （2）然后以root命令运行如下语句
 
 ```
-dhclient -r -v eth0
-　　dhclient -4 -d -v -cf /etc/dhcp/dhclient.conf eth0
+1. dhclient -r -v eth0
+2. dhclient -4 -d -v -cf /etc/dhcp/dhclient.conf eth0
 ```
 
 参数解释：
@@ -39,7 +39,7 @@ dhclient -r -v eth0
 
 ## **其他**
 
-从配置文件可知，如果要该hostname，那么修改`send host-name`那行即可
+从配置文件可知，如果要改hostname，那么修改`send host-name`那行即可
 
 ## **参考资料**
 
