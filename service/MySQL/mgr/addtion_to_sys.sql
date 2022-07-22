@@ -178,5 +178,6 @@ $ $ DELIMITER;
 -- SET @@SESSION.SQL_LOG_BIN = @TEMP_LOG_BIN;
 -- SET @@GLOBAL.READ_ONLY = @TEMP_READ_ONLY;
 -- SET @@GLOBAL.SUPER_READ_ONLY = @TEMP_SUPER_READ_ONLY;
-
 -- http://fuxkdb.com/2021/04/28/2021-04-28-8.0MGR-Subquery-returns-more-than-1-row-bug/
+-- https://github.com/lefred/mysql_gr_routing_check/blob/master/mysql_gr_routing_check.sh # 出bug了也不更新，差评！
+-- https://gist.github.com/lefred/153448f7ea0341d6d0daa2738db6fcd8 # 针对以上 8.0 版本的更新版，未测试。
