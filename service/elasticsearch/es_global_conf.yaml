@@ -16,8 +16,8 @@ transport.tcp.port: 9300
 # > 3node
 discovery.zen.minimum_master_nodes: 2
 # lock memory
-bootstrap.memory_lock: true
-bootstrap.mlockall: true
+# bootstrap.memory_lock: true
+# bootstrap.mlockall: true
 
 
 # sysctl -w vm.max_map_count=262144

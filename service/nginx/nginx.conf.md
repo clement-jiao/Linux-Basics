@@ -41,3 +41,4 @@ http {
 ```
 
 > https://www.cnblogs.com/hovin/p/13182478.html
+> https://www.cnblogs.com/wyt007/p/11425197.html # keepalived + nginx
