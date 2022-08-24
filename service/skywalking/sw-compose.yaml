@@ -1,0 +1,54 @@
+version: '3.3'
+services:
+  es7:
+    image: elasticsearch:7.11.0
+    container_name: es7
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      - discovery.type=single-node #单机模式
+      - bootstrap.memory_lock=true #锁定物理内存地址
+      - "ES_JAVA_OPTS=-Xms1048m -Xmx1048m" #堆内存大小
+      - TZ=Asia/Shanghai
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - /opt/elasticsearch/es_log:/var/log
+      - /opt/elasticsearch/data:/usr/share/elasticsearch/data
+
+  skywalking-oap:
+    image: apache/skywalking-oap-server:9.1.0
+    container_name: skywalking-oap
+    restart: always
+    volumes:
+    # application.yml 目前只修改存储就好了
+      - /data/application.yml:/skywalking/config/application.yml:ro
+      - /data/alarm-settings.yml:/skywalking/config/alarm-settings.yml:ro
+    depends_on:
+      - es7
+    links:
+      - es7
+    ports:
+      - 11800:11800
+      - 12800:12800
+    environment:
+      TZ: Asia/Shanghai
+      SW_STORAGE: elasticsearch7
+      SW_STORAGE_ES_CLUSTER_NODES: es7:9200
+
+  skywalking-ui:
+    image: apache/skywalking-ui:8.6.0
+    container_name: skywalking-ui
+    restart: always
+    depends_on:
+      - skywalking-oap
+    links:
+      - skywalking-oap
+    ports:
+      - 8080:8080
+    environment:
+      TZ: Asia/Shanghai
+      SW_OAP_ADDRESS: skywalking-oap:12800
