@@ -1,4 +1,4 @@
-### virtualwrapper使用
+### virtualenv 安装与使用
 >Python 的第三方包成千上万，在一个 Python 环境下开发时间越久、安装依赖越多，就越容易出现依赖包冲突的问题。为了解决这个问题，开发者们开发出了 virtualenv，可以搭建虚拟且独立的 Python 环境。
 
 #### 一、安装virtualenv
@@ -7,6 +7,7 @@ virtualenv是一个第三方包，是管理虚拟环境的常用方法之一。�
 
 我们可以用easy_install或者pip安装。
 `pip install virtualenv`
+
 #### 二、基本用法
 
 创建项目的虚拟环境
@@ -42,7 +43,10 @@ $ virtualenv [虚拟环境名称]
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
+###  virtualenvwrapper  安装与使用
+
 #### 一、使用virtualenvwrapper
+
 >这是 virtualenv 的扩展工具，提供了一系列命令行命令，可以方便地创建、删除、复制、切换不同的虚拟环境。
 同时，使用该扩展后，所有虚拟环境都会被放置在同一个目录下。
 
@@ -98,4 +102,12 @@ $ virtualenv [虚拟环境名称]
 
 
 
+### 德系 (Debian11) 安装 wrapper
+
+```bash
+[root@localhost ~]$  apt update
+[root@localhost ~]$  apt install virtualenvwrapper
+
+# 折腾了好久，最后还是 Google 里找到的，难受的一批。 _(:з」∠)_ 
+```
 
