@@ -1,0 +1,116 @@
+version: '3.7'
+# https://github.com/sakkiii/minio-docker-letsencrypt-deploy/blob/main/docker-compose.yaml
+# Settings and configurations that are common for all minio{1...4} containers
+
+x-minio-common: &minio-common
+  image: harbor.ibaiqiu.com/quay.io/minio/minio:RELEASE.2022-08-22T23-53-06Z
+  command: server http://minio{1...4}/data{1...2} --console-address ":9001"
+  expose:
+    - "9000"
+    - "9001"
+  environment:
+    MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minio}
+    MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASS:-minio123}
+    MINIO_REGION_NAME: ${MINIO_REGION_NAME}
+    MINIO_BROWSER_REDIRECT_URL: https://${FQDN}
+    MINIO_PROMETHEUS_AUTH_TYPE: "public"
+  healthcheck:
+    test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+    interval: 30s
+    timeout: 20s
+    retries: 3
+
+# starts 4 docker containers running minio server instances.
+# using nginx reverse proxy, load balancing, you can access
+# it through default port 9000.
+services:
+  minio1:
+    <<: *minio-common
+    hostname: minio1
+    volumes:
+      - data1-1:/data1
+      # - data1-2:/data2
+
+  minio2:
+    <<: *minio-common
+    hostname: minio2
+    volumes:
+      - data2-1:/data1
+      # - data2-2:/data2
+
+  nginx:
+    image: harbor.ibaiqiu.com/docker.io/library/nginx:stable-alpine
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/templates
+      # - certbot-etc:/etc/letsencrypt
+      # - certbot-var:/var/lib/letsencrypt
+    environment:
+      - NGINX_HOST=${FQDN}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "9000:9000"
+    depends_on:
+      - minio1
+      - minio2
+      - grafana
+      # - certbot
+    restart: always
+
+  prometheus:
+    image: harbor.ibaiqiu.com/docker.io/prom/prometheus:latest
+    expose:
+      - 9090
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=48h
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    restart: on-failure
+
+  grafana:
+    image: harbor.ibaiqiu.com/docker.io/grafana/grafana:8.4.7
+    expose:
+      - 3000
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/dashboards:/etc/grafana/dashboards
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-admin}
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/dashboards/minio-overview.json
+      # - GF_SERVER_ROOT_URL=https://${FQDN}/grafana
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+## By default this config uses default local driver,
+## For custom volumes replace with volume driver configuration.
+volumes:
+  data1-1:
+    driver_opts:
+      type: local
+      o: bind
+      device: "/dev/sdb"
+  data2-1:
+    driver_opts:
+      type: local
+      o: bind
+      device: "/dev/sdc"
+  certbot-etc:
+  certbot-var:
+  grafana_data:
+    driver_opts:
+      type: local
+      o: bind
+      device: "/opt/grafana"
+  prometheus_data:
+    driver_opts:
+      type: local
+      o: bind
+      device: "/opt/prom"

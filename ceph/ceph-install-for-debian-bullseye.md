@@ -51,7 +51,7 @@ echo 'export http_proxy="http://10.10.221.101:20172" && export https_proxy="http
 **hosts**
 
 ```conf
-# 注意第一行 ceph-deploy
+# 注意第一行 ceph-deploy 修改至对应主机名
 127.0.0.1       localhost ceph-deploy
 127.0.1.1       debian
 
@@ -76,7 +76,7 @@ wget -q -O- 'https://mirrors.aliyun.com/ceph/keys/release.asc' | apt-key add - \
 **允许使用 https 源**
 ```bash
 # docker 前置依赖
-apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+apt update && apt install -y apt-transport-https ca-certificates curl software-properties-common
 ```
 
 **创建用户（ansible用户可不用）**
@@ -128,8 +128,10 @@ copy_admin_key: true
 monitor_interface: ens33
 monitor_address_block: subnet
 ip_version: ipv4
-public_network: 192.168.221.0/0
-cluster_network: 192.168.222.0/0
+# 对客户端/k8s/挂载方，提供服务的接口
+public_network: 192.168.222.0/0
+# 下载、安装、同步维护集群接口，ansible 会改 DNS ，如果没有公网会下载失败。
+cluster_network: 192.168.221.0/0
 osd_objectstore: bluestore
 osd_auto_discovery: true
 ```
@@ -138,7 +140,7 @@ osd_auto_discovery: true
 
 ```bash
 # 在group_vars 目录下执行
-for i in {mons,osds,mgrs,mdss};do cp $i.yml.sample $i.yml;done
+for i in {all,mons,osds,mgrs,mdss};do cp $i.yml.sample $i.yml;done
 ```
 
 在 `group_vars` 的上一级目录，即 ceph-ansible 目录的根目录下，新建一个 hosts 文件，作为 ansible 的资产清单使用。
@@ -163,6 +165,8 @@ for i in {mons,osds,mgrs,mdss};do cp $i.yml.sample $i.yml;done
 192.168.221.44
 [clients]
 192.168.221.40
+[monitoring]
+192.168.221.50
 ```
 
 

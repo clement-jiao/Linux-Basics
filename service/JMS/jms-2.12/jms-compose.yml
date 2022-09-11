@@ -1,0 +1,204 @@
+# 一键启动的 jump server
+version: '3'
+services:
+  core:
+    image: jumpserver/jms_core:${Version}
+    container_name: jms_core
+    restart: always
+    tty: true
+    command: start web
+    environment:
+      SECRET_KEY: $SECRET_KEY
+      BOOTSTRAP_TOKEN: $BOOTSTRAP_TOKEN
+      DEBUG: $DEBUG
+      LOG_LEVEL: $LOG_LEVEL
+      DB_HOST: $DB_HOST
+      DB_PORT: $DB_PORT
+      DB_USER: $DB_USER
+      DB_PASSWORD: $DB_PASSWORD
+      DB_NAME: $DB_NAME
+      REDIS_HOST: $REDIS_HOST
+      REDIS_PORT: $REDIS_PORT
+      # REDIS_PASSWORD: $REDIS_PASSWORD
+    healthcheck:
+      test: "curl -fsL http://localhost:8080/api/health/ > /dev/null"
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+    volumes:
+      - core-data:/opt/jumpserver/data
+    networks:
+      - jms_network
+
+    depends_on:
+      - mysql57
+      - redis6
+
+  celery:
+    image: jumpserver/jms_core:${Version}
+    container_name: jms_celery
+    restart: always
+    tty: true
+    command: start task
+    environment:
+      SECRET_KEY: $SECRET_KEY
+      BOOTSTRAP_TOKEN: $BOOTSTRAP_TOKEN
+      DEBUG: $DEBUG
+      LOG_LEVEL: $LOG_LEVEL
+      DB_HOST: $DB_HOST
+      DB_PORT: $DB_PORT
+      DB_USER: $DB_USER
+      DB_PASSWORD: $DB_PASSWORD
+      DB_NAME: $DB_NAME
+      REDIS_HOST: $REDIS_HOST
+      REDIS_PORT: $REDIS_PORT
+      REDIS_PASSWORD: $REDIS_PASSWORD
+    depends_on:
+      core:
+        condition: service_healthy
+    healthcheck:
+      test: "/opt/py3/bin/python /opt/jumpserver/jms status task | grep stopped && exit 1 || exit 0"
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    volumes:
+      - core-data:/opt/jumpserver/data
+    networks:
+      - jms_network
+
+  koko:
+    image: jumpserver/jms_koko:${Version}
+    container_name: jms_koko
+    restart: always
+    privileged: true
+    tty: true
+    environment:
+      CORE_HOST: http://core:8080
+      BOOTSTRAP_TOKEN: $BOOTSTRAP_TOKEN
+      LOG_LEVEL: $LOG_LEVEL
+    depends_on:
+      core:
+        condition: service_healthy
+    healthcheck:
+      test: "nc -z localhost 2222 && curl -fsL http://localhost:5000/koko/health/ > /dev/null"
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    volumes:
+      - koko-data:/opt/koko/data
+    ports:
+      - 2222:2222
+    networks:
+      - jms_network
+
+  lion:
+    image: jumpserver/jms_lion:${Version}
+    container_name: jms_lion
+    restart: always
+    tty: true
+    environment:
+      CORE_HOST: http://core:8080
+      BOOTSTRAP_TOKEN: $BOOTSTRAP_TOKEN
+      LOG_LEVEL: $LOG_LEVEL
+    depends_on:
+      core:
+        condition: service_healthy
+    healthcheck:
+      test: "/etc/init.d/guacd status && curl -fsL http://localhost:8081/lion/health/ > /dev/null"
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    volumes:
+      - lion-data:/opt/lion/data
+    networks:
+      - jms_network
+
+  nginx:
+    image: jumpserver/jms_nginx:${Version}
+    container_name: jms_nginx
+    restart: always
+    tty: true
+    depends_on:
+      core:
+        condition: service_healthy
+    healthcheck:
+      test: "curl -fsL http://localhost > /dev/null"
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    volumes:
+      - core-data:/opt/jumpserver/data
+    ports:
+      - 80:80
+    networks:
+      - jms_network
+
+  mysql57:
+    container_name: mysql
+    image: mysql:5.7.34
+    restart: always
+    volumes:
+      - mysql57-conf:/etc/mysql/mysql.conf.d/
+      - mysql57-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: $DB_PASSWORD
+    ports:
+      - 3306:3306
+    networks:
+      - jms_network
+
+  redis6:
+    container_name: redis
+    image: redis:6.2.4-buster
+    restart: always
+    volumes:
+      - redis-data:/data
+    ports:
+      - 6379:6379
+    networks:
+      - jms_network
+
+volumes:
+  redis-data:
+    driver_opts:
+      type: local
+      o: bind
+      device: "/opt/redis"
+  mysql57-data:
+    driver_opts:
+      type: local
+      o: bind
+      device: "/opt/mysql57/data"
+  mysql57-conf:
+    driver_opts:
+      type: local
+      o: bind
+      device: "/opt/mysql57/conf"
+  core-data:
+    driver_opts:
+      type: local
+      o: bind
+      device: "/opt/jumpserver/core"
+  koko-data:
+    driver_opts:
+      type: local
+      o: bind
+      device: "/opt/jumpserver/koko"
+  lion-data:
+    driver_opts:
+      type: local
+      o: bind
+      device: "/opt/jumpserver/lion"
+
+networks:
+  jms_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: $DOCKER_SUBNET
