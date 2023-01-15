@@ -9,9 +9,18 @@ services:
       - /docker/mysqld80_conf.d:/etc/mysql/mysql.conf.d/
       - /var/lib/mysqld80:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: '123456'
+      MYSQL_ROOT_PASSWORD: 'WUh65P0pl7m1V0m'
     ports:
       - 3308:3306
+
+  adminer:
+    image: adminer
+    restart: always
+    environment:
+      ADMINER_PLUGINS: "tables-filter tinymce"
+    network_mode: "host"
+    ports:
+      - 8080:8080
 
   mysqld57:
     image: mysql:5.7.38

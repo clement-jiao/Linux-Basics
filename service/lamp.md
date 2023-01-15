@@ -112,7 +112,9 @@ yum remove php73-php*
     listen = 0.0.0.0:9000
 
     # 取消 listen.owner 注释，因为远程 nginx/apache 会通过 9000 端口访问 PHP 服务器，而此时 PHP 服务器没有那个用户，所以 nginx 将以 nobody 用户访问。
-    listen.owner = nobody                                                                                                                                           listen.group = nobody                                                                                                                                           listen.mode = 0660
+    listen.owner = nobody
+    listen.group = nobody
+    listen.mode = 0660
 
     # 修改允许访问的客户端：多个主机用逗号分隔，注意不要填写自己的地址，不然远程地址无法访问。
     listen.allowed_clients = 192.168.0.95,192.168.0.88,192.168.0.33

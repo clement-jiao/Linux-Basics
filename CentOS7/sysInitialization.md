@@ -64,7 +64,7 @@ profile_config(){
     sed -i /HISTSIZE/d /etc/profile
     echo 'HISTSIZE=10000' >> /etc/profile
     echo "HISTTIMEFORMAT=\" | `whoami` | %F | %T | \"" >> /etc/profile
-    echo "alias ll='ls -l --time-style=\"+%Y-%m-%d %H:%M:%S\"'" >> /etc/profile
+    echo "alias ll='ls -lh --time-style=\"+%Y-%m-%d %H:%M:%S\"'" >> /etc/profile
     echo "alias date='date \"+%Y-%m-%d %H:%M:%S.%A\"'" >> /etc/profile
     echo "PS1='\[\e[37;40m\][\[\e[33;40m\]\u\[\e[37;40m\]@\[\e[32;40m\]\h \[\e[37;40m\]:\[\e[35;40m\]\w\[\e[37;40m\]]\\$ '" >> /etc/profile
     echo "echo '============================================================'" >> /etc/profile

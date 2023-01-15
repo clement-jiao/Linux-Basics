@@ -97,4 +97,8 @@ $rpm –q vim-enhanced
    http://www.vi-improved.org/vimrc.php
 
 4. Vim的行号、语法显示等设置(.vimrc文件的配置)以及乱码解决
-https://www.cnblogs.com/meetrice/p/3700838.html
+   https://www.cnblogs.com/meetrice/p/3700838.html
+
+5. nginx 配置文件有时不会显示高亮，具体不太清楚为啥，在官网下载一个插件就好了
+   搜索 nginx.vim 、nginx_conf_syntax_highlighting，在第二个上面有详细安装方法。
+   https://www.vim.org/scripts/script_search_results.php

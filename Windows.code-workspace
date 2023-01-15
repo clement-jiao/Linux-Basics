@@ -4,16 +4,10 @@
 			"path": "."
 		},
 		{
-			"path": "../../devOps/docker-environment"
+			"path": "..\\infra-devops"
 		},
 		{
-			"path": "../CallbackService"
-		},
-		{
-			"path": "../../devOps/lambda_aws_cloud9"
-		},
-		{
-			"path": "../../devOps/testing"
+			"path": "..\\rust"
 		}
 	],
 	"settings": {}

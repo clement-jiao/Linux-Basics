@@ -15,3 +15,5 @@ ansible-onos-cluster/
 .DS_Store
 .vscode/
 */venv/
+docker/jcdev-compose.yaml
+service/jc-dev/*

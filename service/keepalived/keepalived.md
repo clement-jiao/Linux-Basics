@@ -71,6 +71,7 @@
     ```bash
     ! Configuration File for keepalived
     global_defs {
+      # 注意 router_id 的配置
       router_id haproxy_nginx1
       vrrp_skip_check_adv_addr
       #vrrp_strict
@@ -160,6 +161,7 @@
     systemctl enable keepalived.servic
     systemctl start keepalived.service
     systemctl status keepalived.service
+    systemctl enable --now keepalived.service
     ```
 
 
