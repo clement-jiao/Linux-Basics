@@ -22,9 +22,24 @@ events {
 http {
     include       /etc/nginx/mime.types;
     default_type  application/octet-stream;
-    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-                      '$status $body_bytes_sent "$http_referer" '
-                      '"$http_user_agent" "$http_x_forwarded_for"';
+    ; log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    ;                   '$status $body_bytes_sent "$http_referer" '
+    ;                   '"$http_user_agent" "$http_x_forwarded_for"';
+    # 兼容 es 日志采集
+    log_format json '{ "time_local": "$time_iso8601", '
+                    '"remote_addr": "$remote_addr", '
+                    '"referer": "$http_referer", '
+                    '"request_uri": "$request_uri", '
+                    '"request_method": "$request_method", '
+                    '"status": $status, '
+                    '"bytes": $body_bytes_sent, '
+                    '"host": "$host", '
+                    '"agent": "$http_user_agent", '
+                    '"x_forwarded": "$http_x_forwarded_for", '
+                    '"up_addr": "$upstream_addr",'
+                    '"up_host": "$upstream_http_host", '
+                    '"upstream_time": "$upstream_response_time", '
+                    '"request_time": "$request_time" }';
     access_log  /var/log/nginx/access.log  main;
     server_tokens   off;
     sendfile        on;

@@ -35,7 +35,7 @@ services:
       - /opt/mysqld80_conf.d:/etc/mysql/mysql.conf.d/
       - /opt/mysqld80:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: 'CfINOq1OJcGkerV'
+      MYSQL_ROOT_PASSWORD: 'ArhkcawucjrpAEf'
     ports:
       - "3306:3306"
 
