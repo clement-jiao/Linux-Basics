@@ -4,6 +4,7 @@ services:
     image: rabbitmq:3.9.20-management
     container_name: rabbitmq39
     restart: always
+    # chown -R 999:999 /opt/rabbitmq
     volumes:
       - /etc/localtime:/etc/localtime
       - /opt/rabbitmq/mq-log:/var/log/rabbitmq

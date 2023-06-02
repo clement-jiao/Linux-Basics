@@ -40,3 +40,7 @@ opcache.force_restart_timeout=180 ; 如果缓存处于非激活状态，等待�
 
 ### 关于 opcache 的漏洞？
 https://chybeta.github.io/2017/05/13/利用PHP的OPcache机制getshell/
+
+### OPcache 注意事项及调优
+https://learnku.com/php/t/34638
+https://tideways.com/profiler/blog/fine-tune-your-opcache-configuration-to-avoid-caching-suprises (英文)

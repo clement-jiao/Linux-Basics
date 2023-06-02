@@ -32,7 +32,7 @@ services:
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime
-      - /opt/mysqld80_conf.d:/etc/mysql/mysql.conf.d/
+      - /opt/mysqld80_conf.d/my.cnf:/etc/my.cnf
       - /opt/mysqld80:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: 'ArhkcawucjrpAEf'

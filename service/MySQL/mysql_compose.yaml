@@ -1,15 +1,15 @@
 version: '3'
 services:
   mysqld80:
-    image: mysql:8.0.29
+    image: mysql:8.0.30
     container_name: mysqld80
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime
-      - /docker/mysqld80_conf.d:/etc/mysql/mysql.conf.d/
-      - /var/lib/mysqld80:/var/lib/mysql
+      - /docker/mysqld80_conf.d/my.cnf:/etc/my.cnf
+      - /opt/mysqld80:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: 'WUh65P0pl7m1V0m'
+      MYSQL_ROOT_PASSWORD: 'lspg3TiPAqHNlfO'
     ports:
       - 3308:3306
 
@@ -26,11 +26,11 @@ services:
     image: mysql:5.7.38
     container_name: mysqld57
     environment:
-      MYSQL_ROOT_PASSWORD: '123456'
+      MYSQL_ROOT_PASSWORD: 'lspg3TiPAqHNlfO'
     volumes:
       - /etc/localtime:/etc/localtime
-      - /docker/mysqld57_conf.d:/etc/mysql/mysql.conf.d/
-      - /var/lib/mysqld57:/var/lib/mysql
+      - /docker/mysqld57_conf.d/my.cnf:/etc/my.cnf
+      - /opt/mysqld57:/var/lib/mysql
     ports:
       - 3305:3306
     networks:

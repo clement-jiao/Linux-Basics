@@ -1,0 +1,36 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\..\\..\\Desktop\\baiqiu\\old\\nginx_conf"
+		},
+		{
+			"path": "..\\..\\..\\Desktop\\baiqiu\\old\\php-nginx"
+		},
+		{
+			"path": "..\\infra-devops"
+		},
+		{
+			"path": "..\\rust"
+		},
+		{
+			"path": "..\\JimmyChoo"
+		},
+		{
+			"path": "..\\h5"
+		},
+		{
+			"path": "..\\..\\..\\Desktop\\lnmp1.9-full"
+		}
+	],
+	"settings": {
+		"rust-analyzer.assist.emitMustUse": false,
+		"rust-analyzer.cargo.buildScripts.overrideCommand": null,
+		"yaml.schemas": {
+			"https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json": "file:///c%3A/Users/clement.jiao/Documents/WeChat%20Files/wxid_ed592aja4xd422/FileStorage/File/2022-12/listmonk-based-edm-solution-CloudFormation-template.6f0cbc4aea1a47a3d66ca2f249ac572480bafb45.yaml",
+			"https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json": "file:///c%3A/Users/clement.jiao/Desktop/jc-501/docker-compose.yaml"
+		}
+	}
+}

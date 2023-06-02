@@ -23,6 +23,7 @@ services:
         delay: 5s
         max_attempts: 3
         window: 10s
+    # chown 1000:1000
     volumes:
       - /opt/elasticsearch/es_log:/var/log
       - /opt/elasticsearch/data:/usr/share/elasticsearch/data
