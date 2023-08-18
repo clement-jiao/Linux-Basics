@@ -1,13 +1,13 @@
 version: '3'
 services:
-  mysqld80:
+  mysql80:
     image: mysql:8.0.30
-    container_name: mysqld80
+    container_name: mysql80
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime
-      - /docker/mysqld80_conf.d/my.cnf:/etc/my.cnf
-      - /opt/mysqld80:/var/lib/mysql
+      - /opt/mysql80/conf.d/my.cnf:/etc/my.cnf
+      - /opt/mysql80:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: 'lspg3TiPAqHNlfO'
     ports:
@@ -22,19 +22,22 @@ services:
     ports:
       - 8080:8080
 
-  mysqld57:
+  mysql57:
     image: mysql:5.7.38
-    container_name: mysqld57
+    container_name: mysql57
     environment:
       MYSQL_ROOT_PASSWORD: 'lspg3TiPAqHNlfO'
     volumes:
       - /etc/localtime:/etc/localtime
-      - /docker/mysqld57_conf.d/my.cnf:/etc/my.cnf
-      - /opt/mysqld57:/var/lib/mysql
+      - /opt/mysql57/conf.d/my.cnf:/etc/my.cnf
+      - /opt/mysql57:/var/lib/mysql
     ports:
       - 3305:3306
     networks:
       - dev_environment
+
+# https://cloud.tencent.com/developer/article/1623549 [docker mysql初始化多个sql脚本]
+# chmod 644 /opt/mysql80/conf.d/my.cnf
 networks:
   dev_environment:
     driver: bridge

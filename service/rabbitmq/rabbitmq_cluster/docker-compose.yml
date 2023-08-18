@@ -1,0 +1,65 @@
+version: '3'
+services:
+  mq1:
+    image: rabbitmq:3.11.18-management 
+    container_name: mq1
+    hostname: mq1
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /opt/rabbitmq/mq1/log:/var/log/rabbitmq
+      - /opt/rabbitmq/mq1/data:/var/lib/rabbitmq
+      - /opt/rabbitmq/mq1/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - /opt/rabbitmq/.erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
+      - ./rabbitmq_delayed_message_exchange-3.11.1.ez:/opt/rabbitmq/plugins/rabbitmq_delayed_message_exchange-3.11.1.ez
+      - ./enabled_plugins:/etc/rabbitmq/enabled_plugins
+    ports:
+      - 15672:15672
+      - 5672:5672
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbit
+      - RABBITMQ_DEFAULT_PASS=secret
+    networks:
+      - rabbitmq
+
+  mq2:
+    image: rabbitmq:3.11.18-management 
+    container_name: mq2
+    hostname: mq2
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /opt/rabbitmq/mq2/log:/var/log/rabbitmq
+      - /opt/rabbitmq/mq2/data:/var/lib/rabbitmq
+      - /opt/rabbitmq/mq2/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - /opt/rabbitmq/.erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
+      - ./rabbitmq_delayed_message_exchange-3.11.1.ez:/opt/rabbitmq/plugins/rabbitmq_delayed_message_exchange-3.11.1.ez
+      - ./enabled_plugins:/etc/rabbitmq/enabled_plugins
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbit
+      - RABBITMQ_DEFAULT_PASS=secret
+    networks:
+      - rabbitmq
+
+  mq3:
+    image: rabbitmq:3.11.18-management 
+    container_name: mq3
+    hostname: mq3
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /opt/rabbitmq/mq3/log:/var/log/rabbitmq
+      - /opt/rabbitmq/mq3/data:/var/lib/rabbitmq
+      - /opt/rabbitmq/mq3/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - /opt/rabbitmq/.erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
+      - ./rabbitmq_delayed_message_exchange-3.11.1.ez:/opt/rabbitmq/plugins/rabbitmq_delayed_message_exchange-3.11.1.ez
+      - ./enabled_plugins:/etc/rabbitmq/enabled_plugins
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbit
+      - RABBITMQ_DEFAULT_PASS=secret
+    networks:
+      - rabbitmq
+
+networks:
+  rabbitmq:
+    driver: bridge

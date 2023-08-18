@@ -108,6 +108,6 @@ $ virtualenv [虚拟环境名称]
 [root@localhost ~]$  apt update
 [root@localhost ~]$  apt install virtualenvwrapper
 
-# 折腾了好久，最后还是 Google 里找到的，难受的一批。 _(:з」∠)_ 
+# 折腾了好久，最后还是 Google 里找到的，难受的一批。 _(:з」∠)_
 ```
 

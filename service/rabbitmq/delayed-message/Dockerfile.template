@@ -1,0 +1,13 @@
+# docker file template
+# https://github.com/lostdragon/rabbitmq-docker (感谢提供内容支持)
+FROM harbor.clement.com/docker.io/library/rabbitmq:mq_version-management
+
+MAINTAINER clement.jiao@gmail.com
+
+# COPY enabled_plugins /etc/rabbitmq/enabled_plugins
+# https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases/download/v3.12.0/rabbitmq_delayed_message_exchange-3.12.0.ez
+
+ADD  rabbitmq_delayed_message_exchange-3.11.1.ez /opt/rabbitmq/plugins/rabbitmq_delayed_message_exchange-3.11.1.ez
+
+RUN  chown rabbitmq:rabbitmq /opt/rabbitmq/plugins/rabbitmq_delayed_message_exchange-3.11.1.ez && \
+  /opt/rabbitmq/sbin/rabbitmq-plugins enable rabbitmq_delayed_message_exchange

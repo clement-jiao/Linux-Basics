@@ -1,0 +1,38 @@
+[mysqld]
+skip-host-cache
+skip-name-resolve
+datadir=/var/lib/mysql
+socket=/var/run/mysqld/mysqld.sock
+secure-file-priv=/var/lib/mysql-files
+user=mysql
+
+long_query_time=1
+log_queries_not_using_indexes=on
+
+#log settings
+slow_query_log=1
+slow_query_log_file=/var/lib/mysql/mysql-slow.log
+log_error=/var/lib/mysql/mysql-error.log
+
+#innodb settings
+innodb_buffer_pool_size=1G
+innodb_buffer_pool_instances=4
+innodb_buffer_pool_chunk_size=256M
+innodb_log_buffer_size=16M
+innodb_open_files=65535
+
+pid-file=/var/run/mysqld/mysqld.pid
+expire-logs-days=3
+binlog_format=ROW
+log-bin=mysql-bin
+server_id=10
+
+# replica
+# replicate-do-db=jimmychoo
+binlog-do-db=jimmychoo
+binlog-ignore-db=mysql
+
+[client]
+socket=/var/run/mysqld/mysqld.sock
+
+!includedir /etc/mysql/conf.d/

@@ -23,6 +23,7 @@ create_user(){
 }
 
 install_tool(){
+    # apt update && apt install -y telnet vim wget curl net-tools inetutils-ping
     # sed -e 's/mirrorlist/#mirrorlist/g' -e 's|#baseurl=http://mirror.centos.org/|baseurl=http://mirror.sjtu.edu.cn/|g' -i.bak /etc/apt-get.repos.d/CentOS-Base.repo
     # 查询  backports 软件包 : dpkg-query -W | grep ~bpo
     echo "deb http://deb.debian.org/debian buster-backports main contrib non-free" | tee -a /etc/apt/sources.list.d/backports.list

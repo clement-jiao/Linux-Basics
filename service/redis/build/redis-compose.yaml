@@ -1,0 +1,22 @@
+version: '3'
+services:
+  redis:
+    image: redis
+    restart: always
+    container_name: my_redis
+    command: 'redis-server /opt/redis/conf/redis.conf'
+    ports:
+      - "6379:6379"
+    volumes:
+      - /opt/redis/data:/data
+      - /opt/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
+
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    restart: always
+    container_name: my_ri
+    ports:
+      - "8001:8001"
+    volumes:
+      - /opt/redis/data:/data
+      - /opt/ri/data:/db

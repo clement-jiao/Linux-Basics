@@ -1,0 +1,14 @@
+aarch64
+aarch64/*
+
+i386
+i386/*
+
+el5
+el5/*
+
+el6
+el6/*
+
+testing
+testing/*

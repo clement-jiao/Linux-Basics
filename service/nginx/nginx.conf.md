@@ -58,6 +58,7 @@ http {
                     '"x_forwarded": "$http_x_forwarded_for", '
                     '"remote_addr": "$remote_addr", '
                     '"host": "$host", '
+                    '"cookie": "$http_cookie ", '
                     '"request_method": "$request_method", '
                     '"status": $status, '
                     '"request_uri": "$request_uri", '
@@ -68,14 +69,22 @@ http {
                     '"up_addr": "$upstream_addr",'
                     '"up_host": "$upstream_http_host", '
                     '"upstream_time": "$upstream_response_time", '
-                    '"request_time": "$request_time" }';
+                    '"request14ddd_time": "$request_time" }';
+    # gzip on;
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_comp_level 3;
+    gzip_proxied expired no-cache no-store private auth;
+    gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png font/ttf font/opentype font/x-woff;
+    gzip_disable "MSIE [1-6]\.";
 
     access_log  /var/log/nginx/access.log  main;
     server_tokens   off;
     sendfile        on;
     #tcp_nopush     on;
     keepalive_timeout  65;
-    #gzip  on;
+
     client_max_body_size 100M;
     include /etc/nginx/conf.d/*.conf;
     #include /etc/nginx/nginx-badbot-blocker/*.conf;

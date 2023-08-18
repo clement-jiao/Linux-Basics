@@ -2,7 +2,7 @@
 
 适用于：VMware 等虚拟机中Debian 11 的磁盘扩容
 
-大体步骤可参考阿里云ecs 磁盘扩容文档，防止再翻文档在下面重新写一遍步骤
+大体步骤可参考阿里云 ecs 磁盘扩容文档，防止再翻文档在下面重新写一遍步骤
 
 [离线扩容云盘（Linux系统） (aliyun.com)](https://help.aliyun.com/document_detail/44986.html)
 
@@ -17,7 +17,7 @@ apt update
 apt-get install -y cloud-guest-utils
 
 # 安装之前可查询是否有这个安装包
-root@debian:~# apt-cache madison cloud-guest-utils 
+root@debian:~# apt-cache madison cloud-guest-utils
 cloud-guest-utils |     0.31-2 | http://mirrors.ustc.edu.cn/debian bullseye/main amd64 Packages
 cloud-utils |     0.31-2 | http://mirrors.ustc.edu.cn/debian bullseye/main Sources
 
@@ -39,11 +39,11 @@ root@debian:~$ free -h
            total        used        free      shared  buff/cache   available
 内存：      7.8Gi       238Mi       7.2Gi       0.0Ki       320Mi       7.3Gi
 交换：         0B          0B          0B
-root@debian:~$ lsblk 
+root@debian:~$ lsblk
 NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sda      8:0    0    1T  0 disk 
+sda      8:0    0    1T  0 disk
 └─sda1   8:1    0 1024G  0 part /
-sr0     11:0    1 1024M  0 rom 
+sr0     11:0    1 1024M  0 rom
 
 ```
 
@@ -98,17 +98,17 @@ tmpfs          tmpfs     3.9G     0  3.9G    0% /dev/shm
 tmpfs          tmpfs     5.0M     0  5.0M    0% /run/lock
 tmpfs          tmpfs     796M     0  796M    0% /run/user/
 
-root@debian:~$ lsblk 
+root@debian:~$ lsblk
 NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sda      8:0    0    1T  0 disk 
+sda      8:0    0    1T  0 disk
 └─sda1   8:1    0 1024G  0 part /
-sr0     11:0    1 1024M  0 rom  
+sr0     11:0    1 1024M  0 rom
 ```
 
 #### 将扩容后的磁盘ID 同步至内核
 
 ```bash
-# 获取新磁盘分区 UUID 
+# 获取新磁盘分区 UUID
 
 blkid  /dev/sdb1
 

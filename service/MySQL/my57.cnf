@@ -1,0 +1,39 @@
+# For advice on how to change settings please see
+# http://dev.mysql.com/doc/refman/8.0/en/server-configuration-defaults.html
+
+[mysqld]
+# init-file=/var/lib/mysql/MoodleStartUp.sql
+
+# join_buffer_size = 128M
+# sort_buffer_size = 2M
+# read_rnd_buffer_size = 2M
+skip-host-cache
+skip-name-resolve
+datadir=/var/lib/mysql
+socket=/var/run/mysqld/mysqld.sock
+secure-file-priv=/var/lib/mysql-files
+user=mysql
+
+#log settings
+slow_query_log = 1
+slow_query_log_file = /var/lib/mysql/mysql-slow.log
+log_error = /var/lib/mysql/mysql-error.log
+
+
+#innodb settings
+innodb_buffer_pool_size = 2G
+innodb_buffer_pool_instances = 4
+innodb_buffer_pool_chunk_size = 512M
+innodb_log_buffer_size = 16M
+innodb_open_files = 65535
+
+pid-file=/var/run/mysqld/mysqld.pid
+expire-logs-days = 3
+binlog_format = ROW
+log-bin=mysql-bin
+server_id=10
+
+[client]
+socket=/var/run/mysqld/mysqld.sock
+
+!includedir /etc/mysql/conf.d/

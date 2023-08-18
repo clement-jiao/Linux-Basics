@@ -1,0 +1,13 @@
+[Unit]
+Description = TUNA mirrors sync manager
+After=network.target
+Requires=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart = /usr/bin/tunasync manager -c /repo/tunasync/conf/manager.conf --with-systemd
+
+[Install]
+WantedBy=multi-user.target
